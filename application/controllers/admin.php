@@ -12,130 +12,152 @@ class admin extends CI_Controller {
     }
 
     function index(){
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('dasbor'); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Dasbor';
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_dasbor'); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function dasbor(){
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('dasbor'); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Dasbor';
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_dasbor'); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function pilih_kamar(){
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('pilih_kamar'); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Pilih Kamar';
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_pilih_kamar'); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function tambah_penghuni(){
+        $data['judul_halaman'] = 'Tambah Penghuni';
         $data_fakultas['fakultas'] = $this->m_data->data_fakultas()->result();
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('tambah_penghuni', $data_fakultas); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_tambah_penghuni', $data_fakultas); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function edit_penghuni(){
-        $data_fakultas['fakultas'] = $this->m_data->data_fakultas()->result();
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('edit_penghuni', $data_fakultas); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
-    }
-
-    function daftar_harga(){
-        $data_penghuni['penghuni'] = $this->m_data->data_penghuni()->result();
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('daftar_harga', $data_penghuni); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Edit Penghuni';
+        $data['fakultas'] = $this->m_data->data_fakultas()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_edit_penghuni', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function daftar_kamar(){
-        $data_penghuni['penghuni'] = $this->m_data->data_penghuni()->result();
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('daftar_kamar', $data_penghuni); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Daftar Kamar';
+        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_daftar_kamar', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
+    }
+
+    function daftar_harga(){
+        $data['judul_halaman'] = 'Daftar Harga Kamar';
+        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_daftar_harga', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function daftar_penghuni(){
-        $data_penghuni['penghuni'] = $this->m_data->data_penghuni()->result();
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('daftar_penghuni', $data_penghuni); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Daftar Penghuni';
+        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_daftar_penghuni', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function laporan_keuangan(){
-        $data_penghuni['penghuni'] = $this->m_data->data_penghuni()->result();
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('laporan_keuangan', $data_penghuni); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Laporan Keuangan';
+        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_laporan_keuangan', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function laporan_piutang(){
-        $data_penghuni['penghuni'] = $this->m_data->data_penghuni()->result();
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('laporan_piutang', $data_penghuni); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Laporan Piutang';
+        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_laporan_piutang', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function kosong(){
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/header');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('kosong'); //page content
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/theme-config');
-        $this->load->view('_partials/preloader');
-        $this->load->view('_partials/js');
+        $data['judul_halaman'] = 'Kosong';
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_kosong'); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 }
