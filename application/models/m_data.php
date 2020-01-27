@@ -7,15 +7,19 @@ class m_data extends CI_Model {
         return $this->db->get('penghuni');
     }
 
+    function data_penghuni_by_id($id){
+        return $this->db->get_where('penghuni', array('id' => $id));
+    }
+
     function data_fakultas(){
         return $this->db->get('fakultas');
     }
 
-    function data_prodi($id_fakultas){
+    function data_prodi_by_id($id_fakultas){
         return $this->db->get_where('prodi', array('id_fakultas' => $id_fakultas));
     }
 
-    function data_kamar($lantai){
+    function data_kamar_by_lantai($lantai){
         $this->db->select('*');
         $this->db->from('kamar');
         $this->db->like('lantai', $lantai, 'after');

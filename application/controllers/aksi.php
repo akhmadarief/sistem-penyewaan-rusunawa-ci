@@ -13,7 +13,7 @@ class aksi extends CI_Controller {
 
     function get_prodi(){
         $id_fakultas =  $this->input->post('id_fakultas');
-        $prodi = $this->m_data->data_prodi($id_fakultas);
+        $prodi = $this->m_data->data_prodi_by_id($id_fakultas);
 
         echo '<option></option>';
         foreach ($prodi->result() as $prodi){
@@ -23,7 +23,7 @@ class aksi extends CI_Controller {
 
     function get_kamar(){
         $lantai = $this->input->post('lantai');
-        $kamar = $this->m_data->data_kamar($lantai);
+        $kamar = $this->m_data->data_kamar_by_lantai($lantai);
 
         foreach ($kamar->result() as $kamar){
             echo '<div class="kamar '.$kamar->status.'" id="'.$kamar->no_kamar.'">'.$kamar->no_kamar.'</div>';

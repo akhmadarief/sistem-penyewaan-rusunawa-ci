@@ -21,7 +21,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function dasbor(){
@@ -34,7 +34,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function pilih_kamar(){
@@ -47,25 +47,26 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function tambah_penghuni(){
         $data['judul_halaman'] = 'Tambah Penghuni';
-        $data_fakultas['fakultas'] = $this->m_data->data_fakultas()->result();
+        $data['fakultas'] = $this->m_data->data_fakultas()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
         $this->load->view('_partials/v_breadcrump', $data);
-        $this->load->view('v_tambah_penghuni', $data_fakultas); //page content
+        $this->load->view('v_tambah_penghuni', $data); //page content
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
-    function edit_penghuni(){
+    function edit_penghuni($id){
         $data['judul_halaman'] = 'Edit Penghuni';
+        $data['penghuni'] = $this->m_data->data_penghuni_by_id($id)->row();
         $data['fakultas'] = $this->m_data->data_fakultas()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -75,7 +76,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function daftar_kamar(){
@@ -89,7 +90,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function daftar_harga(){
@@ -103,7 +104,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function daftar_penghuni(){
@@ -117,7 +118,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function laporan_keuangan(){
@@ -131,7 +132,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function laporan_piutang(){
@@ -145,7 +146,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function kosong(){
@@ -158,6 +159,6 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 }
