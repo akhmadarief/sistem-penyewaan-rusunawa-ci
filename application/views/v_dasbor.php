@@ -13,62 +13,6 @@
             <!-- START PAGE CONTENT-->
             <div class="page-content fade-in-up">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="ibox bg-success color-white widget-stat">
-                            <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong">201</h2>
-                                <div class="m-b-5">NEW ORDERS</div><i class="ti-shopping-cart widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>25% higher</small></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="ibox bg-info color-white widget-stat">
-                            <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong">1250</h2>
-                                <div class="m-b-5">UNIQUE VIEWS</div><i class="ti-bar-chart widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>17% higher</small></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="ibox bg-warning color-white widget-stat">
-                            <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong">$1570</h2>
-                                <div class="m-b-5">TOTAL INCOME</div><i class="fa fa-money widget-stat-icon"></i>
-                                <div><i class="fa fa-level-up m-r-5"></i><small>22% higher</small></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="ibox bg-danger color-white widget-stat">
-                            <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong">108</h2>
-                                <div class="m-b-5">NEW USERS</div><i class="ti-user widget-stat-icon"></i>
-                                <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="ibox bg-danger color-white widget-stat">
-                            <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong">108</h2>
-                                <div class="m-b-5">NEW USERS</div><i class="ti-user widget-stat-icon"></i>
-                                <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="ibox bg-danger color-white widget-stat">
-                            <div class="ibox-body">
-                                <h2 class="m-b-5 font-strong">108</h2>
-                                <div class="m-b-5">NEW USERS</div><i class="ti-user widget-stat-icon"></i>
-                                <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-lg-8">
                         <div class="ibox">
                             <div class="ibox-body">
@@ -518,6 +462,74 @@
                             </div>
                             <div class="ibox-footer text-center">
                                 <a href="javascript:;">View All Products</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
+                            <div class="ibox-body">
+                                <h4 class="m-b-5 font-strong">Gedung A</h4>
+                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: 000 Kamar</div><i class="widget-stat-icon"><img src="<?php echo base_url("assets/img/A.png"); ?>"/></i>
+                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 000 Kamar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
+                            <div class="ibox-body">
+                                <h4 class="m-b-5 font-strong">Gedung B</h4>
+                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: 000 Kamar</div><i class="widget-stat-icon"><img src="<?php echo base_url("assets/img/B.png"); ?>"/></i>
+                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 000 Kamar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
+                            <div class="ibox-body">
+                                <h4 class="m-b-5 font-strong">Gedung C</h4>
+                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: 000 Kamar</div><i class="widget-stat-icon"><img src="<?php echo base_url("assets/img/C.png"); ?>"/></i>
+                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 000 Kamar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
+                            <div class="ibox-body">
+                                <h4 class="m-b-5 font-strong">Gedung D</h4>
+                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: 000 Kamar</div><i class="widget-stat-icon"><img src="<?php echo base_url("assets/img/D.png"); ?>"/></i>
+                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 000 Kamar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
+                            <div class="ibox-body">
+                                <h4 class="m-b-5 font-strong">Gedung E</h4>
+                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: 000 Kamar</div><i class="widget-stat-icon"><img src="<?php echo base_url("assets/img/E.png"); ?>"/></i>
+                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 000 Kamar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
+                            <div class="ibox-body">
+                                <h4 class="m-b-5 font-strong">Semua Gedung</h4>
+                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: 000 Kamar</div><i class="fa fa-building-o widget-stat-icon"></i>
+                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 000 Kamar</div>
                             </div>
                         </div>
                     </div>
