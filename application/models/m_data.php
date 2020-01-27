@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_data extends CI_Model {
+class M_data extends CI_Model {
 
     function data_penghuni(){
         return $this->db->get('penghuni');

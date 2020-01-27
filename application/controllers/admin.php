@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class admin extends CI_Controller {
+class Admin extends CI_Controller {
 
     function __construct(){
         parent::__construct();
@@ -21,7 +21,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function dasbor(){
@@ -34,7 +34,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function pilih_kamar(){
@@ -47,7 +47,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function tambah_penghuni(){
@@ -61,7 +61,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function edit_penghuni($id){
@@ -76,7 +76,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function daftar_kamar(){
@@ -90,7 +90,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function daftar_harga(){
@@ -104,7 +104,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function daftar_penghuni(){
@@ -118,7 +118,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function laporan_keuangan(){
@@ -132,7 +132,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function laporan_piutang(){
@@ -146,7 +146,7 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 
     function kosong(){
@@ -159,6 +159,6 @@ class admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js', $data);
+        $this->load->view('_partials/v_js');
     }
 }
