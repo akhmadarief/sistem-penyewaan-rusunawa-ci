@@ -39,6 +39,48 @@ class Aksi extends CI_Controller {
             echo json_encode($detail_kamar);
         }
     }
+
+    function aksi_tambah_penghuni(){
+        $nama           = $this->input->post('nama');
+        $nim            = $this->input->post('nim');
+        $id_fakultas    = $this->input->post('id_fakultas');
+        $id_prodi       = $this->input->post('id_prodi');
+        $tempat_lahir   = $this->input->post('tempat_lahir');
+        $tgl_lahir      = $this->input->post('tgl_lahir');
+        $agama          = $this->input->post('agama');
+        $alamat         = $this->input->post('alamat');
+        $no             = $this->input->post('no');
+        $nama_ortu      = $this->input->post('nama_ortu');
+        $pekerjaan_ortu = $this->input->post('pekerjaan_ortu');
+        $alamat_ortu    = $this->input->post('alamat_ortu');
+        $no_ortu        = $this->input->post('no_ortu');
+        $tgl_masuk      = $this->input->post('tgl_masuk');
+        $tgl_keluar     = $this->input->post('tgl_keluar');
+        $kategori       = $this->input->post('kategori');
+
+        $data = array(
+            'nama'          => $nama,
+            'nim'           => $nim,
+            'id_fakultas'   => $id_fakultas,
+            'id_prodi'      => $id_prodi,
+            'tempat_lahir'  => $tempat_lahir,
+            'tgl_lahir'     => $tgl_lahir,
+            'agama'         => $agama,
+            'alamat'        => $alamat,
+            'no'            => $no,
+            'nama_ortu'     => $nama_ortu,
+            'pekerjaan_ortu'=> $pekerjaan_ortu,
+            'alamat_ortu'   => $alamat_ortu,
+            'no_ortu'       => $no_ortu,
+            'tgl_masuk'     => $tgl_masuk,
+            'tgl_keluar'    => $tgl_keluar,
+            'kategori'      => $kategori
+        );
+
+        $this->m_data->m_data->input_data_penghuni($data);
+        //redirect('admin/pilih_kamar');
+        echo 'berhasil disimpan gan';
+    }
 }
 ?>
 

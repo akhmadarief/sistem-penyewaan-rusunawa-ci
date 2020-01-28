@@ -112,9 +112,9 @@
                             <div class="form-group row" id="masa_huni">
                                 <label class="col-sm-3 col-form-label">Masa Huni</label>
                                 <div class="col-sm-9 input-daterange input-group" id="datepicker">
-                                    <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" autocomplete="off" required>
+                                    <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" value="<?php echo $penghuni->tgl_masuk ?>" autocomplete="off" required>
                                     <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
-                                    <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo '3107'.date('Y')+1 ?>" required>
+                                    <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo $penghuni->tgl_keluar ?>"  required>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -64,10 +64,16 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
-    function edit_penghuni($id){
+    function edit_penghuni($id = null){
+
+        if (!isset($id)) redirect('admin/daftar_penghuni');
+
         $data['judul_halaman'] = 'Edit Penghuni';
-        $data['penghuni'] = $this->m_data->data_penghuni_by_id($id)->row();
         $data['fakultas'] = $this->m_data->data_fakultas()->result();
+        $data['penghuni'] = $this->m_data->data_penghuni_by_id($id)->row();
+
+        if (!$data['penghuni']) show_404();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
