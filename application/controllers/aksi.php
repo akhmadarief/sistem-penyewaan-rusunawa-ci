@@ -86,9 +86,12 @@ class Aksi extends CI_Controller {
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
 
-        if ($this->m_data->delete_penghuni($id)){
+        if ($this->m_data->delete_penghuni($id) == true){
             //redirect('admin/daftar_penghuni');
             echo 'berhasil dihapus gan';
+        }
+        else {
+            echo 'gagal gan :(';
         }
     }
 }
