@@ -30,7 +30,11 @@ class M_data extends CI_Model {
         return $this->db->get_where('penghuni', array('no_kamar' => $no_kamar, 'status' => $status)); //not work
     }
 
-    function input_data_penghuni($data){
+    function insert_penghuni($data){
         $this->db->insert('penghuni', $data);
+    }
+
+    function delete_penghuni($id){
+        $this->db->delete('penghuni', array('id' => $id));
     }
 }

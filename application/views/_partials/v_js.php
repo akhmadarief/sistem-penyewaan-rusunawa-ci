@@ -54,7 +54,7 @@
                 }).then((result) => {
                     if (result.value) {
                         //form.submit();
-                        window.location.href = '<?php echo base_url("admin/hapus?id=") ?>' + id_penghuni;
+                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_penghuni/") ?>' + id_penghuni;
                     }
                 });
             });

@@ -77,9 +77,19 @@ class Aksi extends CI_Controller {
             'kategori'      => $kategori
         );
 
-        $this->m_data->m_data->input_data_penghuni($data);
+        $this->m_data->m_data->insert_penghuni($data);
         //redirect('admin/pilih_kamar');
         echo 'berhasil disimpan gan';
+    }
+
+    function aksi_hapus_penghuni($id = null){
+
+        if (!isset($id)) redirect('admin/daftar_penghuni');
+
+        if ($this->m_data->delete_penghuni($id)){
+            //redirect('admin/daftar_penghuni');
+            echo 'berhasil dihapus gan';
+        }
     }
 }
 ?>
