@@ -210,7 +210,7 @@
     <script type="text/javascript">
     //tampil data penghuni di denah kamar
         $(document).ready(function(){
-            $(".kamar").click(function (){
+            $(document).on("click", ".kamar", function(){
                 $(".kamar").removeClass("terpilih");
                 $(this).addClass("terpilih");
                 $("#dataPenghuni1").show();
@@ -220,8 +220,9 @@
                 $.ajax({
                     url: "http://localhost/sistem-penyewaan-rusunawa-ci/aksi/get_detail_kamar",
                     method: "POST",
-                    data: {no_kamar: no_kamar, status: "Penghuni 1"},
+                    data: {no_kamar: no_kamar},
                     dataType: "json",
+                    cache: false,
                     success: function(data){
                         if(!data) {
                             $("#dataPenghuni2").removeAttr("style").hide();
@@ -233,7 +234,7 @@
                             $("#nim").val("Belum ada penghuni");
                             $("#no").val("Belum ada penghuni");
                             $("#prodi").val("Belum ada penghuni");
-                            $("#masa_huni").val("Belum ada penghuni");
+                            //$("#masa_huni").val("Belum ada penghuni");
                         }
                         else {
                             if (data.isi_kamar == "1") {
@@ -245,48 +246,47 @@
                             //$("#tambah_penghuni").removeAttr("href");
                             $("#tambah_penghuni").removeAttr("style").hide();
                             $("#edit_penghuni").show();
-                            $("#edit_penghuni").attr("href", "edit_penghuni.php?id=" + data.id);
-                            $("#nama").val(data.nama);
-                            $("#nim").val(data.nim);
-                            $("#no").val(data.no);
-                            $("#prodi").val(data.nama_prodi);
-                            $("#masa_huni").val(data.masa_huni + " Tahun");
+                            $("#edit_penghuni").attr("href", "edit_penghuni.php?id=" + data[0].id);
+                            $("#nama").val(data[0].nama);
+                            $("#nim").val(data[0].nim);
+                            $("#no").val(data[0].no);
+                            $("#prodi").val(data[0].id_prodi); //masih id prodi
+                            //$("#masa_huni").val(data.masa_huni + " Tahun");
                         }
                     }
                 });
-                $.ajax({
-                    url: "http://localhost/sistem-penyewaan-rusunawa-ci/aksi/get_detail_kamar",
-                    method: "POST",
-                    data: {no_kamar: no_kamar, status: "Penghuni 2"},
-                    dataType: "json",
-                    success: function(data){
-                        if(!data) {
-                            $("#tambah_penghuni2").show();
-                            $("#tambah_penghuni2").attr("href", "tambah_penghuni.php?kamar=" + no_kamar + "&status=Penghuni 2");
-                            //$("#edit_penghuni2").removeAttr("href");
-                            $("#edit_penghuni2").removeAttr("style").hide();
-                            $("#nama2").val("Belum ada penghuni");
-                            $("#nim2").val("Belum ada penghuni");
-                            $("#no2").val("Belum ada penghuni");
-                            $("#prodi2").val("Belum ada penghuni");
-                            $("#masa_huni2").val("Belum ada penghuni");
-                        }
-                        else {
-                            //$("#tambah_penghuni2").removeAttr("href");
-                            $("#tambah_penghuni2").removeAttr("style").hide();
-                            $("#edit_penghuni2").show();
-                            $("#edit_penghuni2").attr("href", "edit_penghuni.php?id=" + data.id);
-                            $("#nama2").val(data.nama);
-                            $("#nim2").val(data.nim);
-                            $("#no2").val(data.no);
-                            $("#prodi2").val(data.nama_prodi);
-                            $("#masa_huni2").val(data.masa_huni + " Tahun");
-                        }
-                    }
-                });
+                // $.ajax({
+                //     url: "http://localhost/sistem-penyewaan-rusunawa-ci/aksi/get_detail_kamar",
+                //     method: "POST",
+                //     data: {no_kamar: no_kamar},
+                //     dataType: "json",
+                //     success: function(data){
+                //         if(!data) {
+                //             $("#tambah_penghuni2").show();
+                //             $("#tambah_penghuni2").attr("href", "tambah_penghuni.php?kamar=" + no_kamar + "&status=Penghuni 2");
+                //             //$("#edit_penghuni2").removeAttr("href");
+                //             $("#edit_penghuni2").removeAttr("style").hide();
+                //             $("#nama2").val("Belum ada penghuni");
+                //             $("#nim2").val("Belum ada penghuni");
+                //             $("#no2").val("Belum ada penghuni");
+                //             $("#prodi2").val("Belum ada penghuni");
+                //             $("#masa_huni2").val("Belum ada penghuni");
+                //         }
+                //         else {
+                //             //$("#tambah_penghuni2").removeAttr("href");
+                //             $("#tambah_penghuni2").removeAttr("style").hide();
+                //             $("#edit_penghuni2").show();
+                //             $("#edit_penghuni2").attr("href", "edit_penghuni.php?id=" + data.id);
+                //             $("#nama2").val(data.nama);
+                //             $("#nim2").val(data.nim);
+                //             $("#no2").val(data.no);
+                //             $("#prodi2").val(data.nama_prodi);
+                //             $("#masa_huni2").val(data.masa_huni + " Tahun");
+                //         }
+                //     }
+                // });
             });
         });
     </script>
-
 </body>
 </html>
