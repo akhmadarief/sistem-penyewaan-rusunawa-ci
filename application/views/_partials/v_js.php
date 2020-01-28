@@ -131,63 +131,68 @@
             $("#gedung_A").change(function(){
                 var lantai = $("#gedung_A").val();
                 $.ajax({
-                    type: "POST",
                     url: "<?php echo base_url('aksi/get_kamar') ?>",
+                    method: "POST",
                     data: {lantai: lantai},
+                    dataType: "json",
                     cache: false,
-                    success: function(msg){
-                    $("#lantai_A").html(msg);
+                    success: function(data){
+                        var html = '';
+                        for (var i=0; i<data.length; i++){
+                            html += '<div class="kamar ' + data[i].status + '" id="' + data[i].no_kamar + '">' + data[i].no_kamar + '</div>';
+                        }
+                        $("#lantai_A").html(html);
                     }
                 });
             }).trigger("change");
-            $("#gedung_B").change(function(){
-                var lantai = $("#gedung_B").val();
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
-                    data: {lantai: lantai},
-                    cache: false,
-                    success: function(msg){
-                    $("#lantai_B").html(msg);
-                    }
-                });
-            }).trigger("change");
-            $("#gedung_C").change(function(){
-                var lantai = $("#gedung_C").val();
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
-                    data: {lantai: lantai},
-                    cache: false,
-                    success: function(msg){
-                    $("#lantai_C").html(msg);
-                    }
-                });
-            }).trigger("change");
-            $("#gedung_D").change(function(){
-                var lantai = $("#gedung_D").val();
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
-                    data: {lantai: lantai},
-                    cache: false,
-                    success: function(msg){
-                    $("#lantai_D").html(msg);
-                    }
-                });
-            }).trigger("change");
-            $("#gedung_E").change(function(){
-                var lantai = $("#gedung_E").val();
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
-                    data: {lantai: lantai},
-                    cache: false,
-                    success: function(msg){
-                    $("#lantai_E").html(msg);
-                    }
-                });
-            }).trigger("change");
+            // $("#gedung_B").change(function(){
+            //     var lantai = $("#gedung_B").val();
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "<?php echo base_url('aksi/get_kamar') ?>",
+            //         data: {lantai: lantai},
+            //         cache: false,
+            //         success: function(msg){
+            //         $("#lantai_B").html(msg);
+            //         }
+            //     });
+            // }).trigger("change");
+            // $("#gedung_C").change(function(){
+            //     var lantai = $("#gedung_C").val();
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "<?php echo base_url('aksi/get_kamar') ?>",
+            //         data: {lantai: lantai},
+            //         cache: false,
+            //         success: function(msg){
+            //         $("#lantai_C").html(msg);
+            //         }
+            //     });
+            // }).trigger("change");
+            // $("#gedung_D").change(function(){
+            //     var lantai = $("#gedung_D").val();
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "<?php echo base_url('aksi/get_kamar') ?>",
+            //         data: {lantai: lantai},
+            //         cache: false,
+            //         success: function(msg){
+            //         $("#lantai_D").html(msg);
+            //         }
+            //     });
+            // }).trigger("change");
+            // $("#gedung_E").change(function(){
+            //     var lantai = $("#gedung_E").val();
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "<?php echo base_url('aksi/get_kamar') ?>",
+            //         data: {lantai: lantai},
+            //         cache: false,
+            //         success: function(msg){
+            //         $("#lantai_E").html(msg);
+            //         }
+            //     });
+            // }).trigger("change");
             // $("#gedung_F").change(function(){
             //     var gedung_F = $("#gedung_F").val();
             //     $.ajax({
@@ -202,5 +207,86 @@
             // }).trigger("change");;
         });
     </script>
+    <script type="text/javascript">
+    //tampil data penghuni di denah kamar
+        $(document).ready(function(){
+            $(".kamar").click(function (){
+                $(".kamar").removeClass("terpilih");
+                $(this).addClass("terpilih");
+                $("#dataPenghuni1").show();
+                var no_kamar = $(this).attr("id");
+                $("#no_kamar").val(no_kamar);
+                $("#no_kamar2").val(no_kamar);
+                $.ajax({
+                    url: "http://localhost/sistem-penyewaan-rusunawa-ci/aksi/get_detail_kamar",
+                    method: "POST",
+                    data: {no_kamar: no_kamar, status: "Penghuni 1"},
+                    dataType: "json",
+                    success: function(data){
+                        if(!data) {
+                            $("#dataPenghuni2").removeAttr("style").hide();
+                            $("#tambah_penghuni").show();
+                            $("#tambah_penghuni").attr("href", "tambah_penghuni.php?kamar=" + no_kamar + "&status=Penghuni 1");
+                            //$("#edit_penghuni").removeAttr("href");
+                            $("#edit_penghuni").removeAttr("style").hide();
+                            $("#nama").val("Belum ada penghuni");
+                            $("#nim").val("Belum ada penghuni");
+                            $("#no").val("Belum ada penghuni");
+                            $("#prodi").val("Belum ada penghuni");
+                            $("#masa_huni").val("Belum ada penghuni");
+                        }
+                        else {
+                            if (data.isi_kamar == "1") {
+                                $("#dataPenghuni2").removeAttr("style").hide(); // tidak tampil
+                            }
+                            else {
+                                $("#dataPenghuni2").show();
+                            }
+                            //$("#tambah_penghuni").removeAttr("href");
+                            $("#tambah_penghuni").removeAttr("style").hide();
+                            $("#edit_penghuni").show();
+                            $("#edit_penghuni").attr("href", "edit_penghuni.php?id=" + data.id);
+                            $("#nama").val(data.nama);
+                            $("#nim").val(data.nim);
+                            $("#no").val(data.no);
+                            $("#prodi").val(data.nama_prodi);
+                            $("#masa_huni").val(data.masa_huni + " Tahun");
+                        }
+                    }
+                });
+                $.ajax({
+                    url: "http://localhost/sistem-penyewaan-rusunawa-ci/aksi/get_detail_kamar",
+                    method: "POST",
+                    data: {no_kamar: no_kamar, status: "Penghuni 2"},
+                    dataType: "json",
+                    success: function(data){
+                        if(!data) {
+                            $("#tambah_penghuni2").show();
+                            $("#tambah_penghuni2").attr("href", "tambah_penghuni.php?kamar=" + no_kamar + "&status=Penghuni 2");
+                            //$("#edit_penghuni2").removeAttr("href");
+                            $("#edit_penghuni2").removeAttr("style").hide();
+                            $("#nama2").val("Belum ada penghuni");
+                            $("#nim2").val("Belum ada penghuni");
+                            $("#no2").val("Belum ada penghuni");
+                            $("#prodi2").val("Belum ada penghuni");
+                            $("#masa_huni2").val("Belum ada penghuni");
+                        }
+                        else {
+                            //$("#tambah_penghuni2").removeAttr("href");
+                            $("#tambah_penghuni2").removeAttr("style").hide();
+                            $("#edit_penghuni2").show();
+                            $("#edit_penghuni2").attr("href", "edit_penghuni.php?id=" + data.id);
+                            $("#nama2").val(data.nama);
+                            $("#nim2").val(data.nim);
+                            $("#no2").val(data.no);
+                            $("#prodi2").val(data.nama_prodi);
+                            $("#masa_huni2").val(data.masa_huni + " Tahun");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
