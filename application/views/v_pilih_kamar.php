@@ -168,37 +168,39 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. Kamar</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Nomor Kamar yang Dipilih" id="no_kamar" readonly>
+                                            <input class="form-control" type="text" id="no_kamar" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Nama Penghuni" id="nama" readonly>
+                                            <input class="form-control" type="text" id="nama" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">NIM</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="NIM Penghuni" id="nim" readonly>
+                                            <input class="form-control" type="text" id="nim" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. HP</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="No. HP Penghuni" id="no" readonly>
+                                            <input class="form-control" type="text" id="no" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Prodi</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Prodi Penghuni" id="prodi" readonly>
+                                            <input class="form-control" type="text" id="prodi" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Masa Huni</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Masa Huni" id="masa_huni" readonly>
+                                        <div class="col-sm-9 input-daterange input-group" id="datepicker">
+                                            <input class="input-sm form-control" type="text" id="tgl_masuk" readonly>
+                                            <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
+                                            <input class="input-sm form-control" type="text" id="tgl_keluar" readonly>
                                         </div>
                                     </div>
                                 </form>
@@ -223,37 +225,39 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. Kamar</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Nomor Kamar yang Dipilih" id="no_kamar2" readonly>
+                                            <input class="form-control" type="text" id="no_kamar2" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Nama Penghuni" id="nama2" readonly>
+                                            <input class="form-control" type="text" id="nama2" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">NIM</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="NIM Penghuni" id="nim2" readonly>
+                                            <input class="form-control" type="text" id="nim2" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. HP</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="No. HP Penghuni" id="no2" readonly>
+                                            <input class="form-control" type="text" id="no2" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Prodi</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Prodi Penghuni" id="prodi2" readonly>
+                                            <input class="form-control" type="text" id="prodi2" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Masa Huni</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Masa Huni" id="masa_huni2" readonly>
+                                        <div class="col-sm-9 input-daterange input-group" id="datepicker">
+                                            <input class="input-sm form-control" type="text" id="tgl_masuk2" readonly>
+                                            <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
+                                            <input class="input-sm form-control" type="text" id="tgl_keluar2" readonly>
                                         </div>
                                     </div>
                                 </form>

@@ -218,6 +218,14 @@
                 $(".kamar").removeClass("terpilih");
                 $(this).addClass("terpilih");
                 $("#penghuni1").show();
+                $("#nama").val("Memuat ...");
+                $("#nim").val("Memuat ...");
+                $("#no").val("Memuat ...");
+                $("#prodi").val("Memuat ...");
+                $("#nama2").val("Memuat ...");
+                $("#nim2").val("Memuat ...");
+                $("#no2").val("Memuat ...");
+                $("#prodi2").val("Memuat ...");
                 var no_kamar = $(this).attr("id");
                 $("#no_kamar").val(no_kamar);
                 $("#no_kamar2").val(no_kamar);
@@ -238,7 +246,8 @@
                             $("#nim").val("Belum ada penghuni");
                             $("#no").val("Belum ada penghuni");
                             $("#prodi").val("Belum ada penghuni");
-                            //$("#masa_huni").val("Belum ada penghuni");
+                            $("#tgl_masuk").val("");
+                            $("#tgl_keluar").val("");
                         }
                         else {
                             if (data[0].isi_kamar == "1") {
@@ -254,8 +263,9 @@
                             $("#nama").val(data[0].nama);
                             $("#nim").val(data[0].nim);
                             $("#no").val(data[0].no);
-                            $("#prodi").val(data[0].id_prodi); //masih id prodi
-                            //$("#masa_huni").val(data.masa_huni + " Tahun");
+                            $("#prodi").val(data[0].nama_prodi);
+                            $("#tgl_masuk").val(data[0].tgl_masuk);
+                            $("#tgl_keluar").val(data[0].tgl_keluar);
                         }
                         if (!data[1]){
                             $("#tambah_penghuni2").show();
@@ -266,7 +276,8 @@
                             $("#nim2").val("Belum ada penghuni");
                             $("#no2").val("Belum ada penghuni");
                             $("#prodi2").val("Belum ada penghuni");
-                            //$("#masa_huni2").val("Belum ada penghuni");
+                            $("#tgl_masuk2").val("");
+                            $("#tgl_keluar2").val("");
                         }
                         else {
                             //$("#tambah_penghuni2").removeAttr("href");
@@ -276,8 +287,9 @@
                             $("#nama2").val(data[1].nama);
                             $("#nim2").val(data[1].nim);
                             $("#no2").val(data[1].no);
-                            $("#prodi2").val(data[1].id_prodi);
-                            //$("#masa_huni2").val(data.masa_huni + " Tahun");
+                            $("#prodi2").val(data[1].nama_prodi);
+                            $("#tgl_masuk2").val(data[1].tgl_masuk);
+                            $("#tgl_keluar2").val(data[1].tgl_keluar);
                         }
                     }
                 });
