@@ -44,8 +44,13 @@ class M_data extends CI_Model {
         $this->db->update('kamar', array('status' => $status_kamar));
     }
 
+    function update_penghuni($id, $data){ //not tested
+        $this->db->where('id', $id);
+        $this->db->update('penghuni', $data);
+    }
+
     function delete_penghuni($id){
         $this->db->delete('penghuni', array('id' => $id));
-        return ($this->db->affected_rows() != 1 ? false : true);
+        return ($this->db->affected_rows() != 1) ? false : true);
     }
 }

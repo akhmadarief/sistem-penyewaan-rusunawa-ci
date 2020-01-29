@@ -44,7 +44,7 @@ class Aksi extends CI_Controller {
         $id_prodi       = $this->input->post('id_prodi');
         $tempat_lahir   = $this->input->post('tempat_lahir');
         $tgl_lahir      = $this->input->post('tgl_lahir');
-        $agama          = ($this->input->post('agama') != 'other' ? $this->input->post('agama') : $this->input->post('agama_lainnya'));
+        $agama          = ($this->input->post('agama') != 'other') ? $this->input->post('agama') : $this->input->post('agama_lainnya');
         $alamat         = $this->input->post('alamat');
         $no             = $this->input->post('no');
         $nama_ortu      = $this->input->post('nama_ortu');
@@ -93,6 +93,58 @@ class Aksi extends CI_Controller {
         }
         else {
             echo 'gagal disimpan gan :(';
+        }
+    }
+
+    function aksi_edit_penghuni()){ //not tested
+        $id             = $this->input->post('id');
+        $no_kamar       = $this->input->post('no_kamar');
+        $isi_kamar      = $this->input->post('isi_kamar');
+        $nama           = $this->input->post('nama');
+        $nim            = $this->input->post('nim');
+        $id_fakultas    = $this->input->post('id_fakultas');
+        $id_prodi       = $this->input->post('id_prodi');
+        $tempat_lahir   = $this->input->post('tempat_lahir');
+        $tgl_lahir      = $this->input->post('tgl_lahir');
+        $agama          = ($this->input->post('agama') != 'other') ? $this->input->post('agama') : $this->input->post('agama_lainnya');
+        $alamat         = $this->input->post('alamat');
+        $no             = $this->input->post('no');
+        $nama_ortu      = $this->input->post('nama_ortu');
+        $pekerjaan_ortu = $this->input->post('pekerjaan_ortu');
+        $alamat_ortu    = $this->input->post('alamat_ortu');
+        $no_ortu        = $this->input->post('no_ortu');
+        $tgl_masuk      = $this->input->post('tgl_masuk');
+        $tgl_keluar     = $this->input->post('tgl_keluar');
+        $kategori       = $this->input->post('kategori');
+
+        $data = array(
+            'no_kamar'      => $no_kamar,
+            'isi_kamar'     => $isi_kamar,
+            'nama'          => $nama,
+            'nim'           => $nim,
+            'id_fakultas'   => $id_fakultas,
+            'id_prodi'      => $id_prodi,
+            'tempat_lahir'  => $tempat_lahir,
+            'tgl_lahir'     => $tgl_lahir,
+            'agama'         => $agama,
+            'alamat'        => $alamat,
+            'no'            => $no,
+            'nama_ortu'     => $nama_ortu,
+            'pekerjaan_ortu'=> $pekerjaan_ortu,
+            'alamat_ortu'   => $alamat_ortu,
+            'no_ortu'       => $no_ortu,
+            'tgl_masuk'     => $tgl_masuk,
+            'tgl_keluar'    => $tgl_keluar,
+            'kategori'      => $kategori
+        );
+
+        if ($this->m_data->update_penghuni($id, $data)){
+
+            //redirect('admin/daftar_penghuni');
+            echo 'berhasil diupdate gan';
+        }
+        else {
+            echo 'gagal gan :(';
         }
     }
 
