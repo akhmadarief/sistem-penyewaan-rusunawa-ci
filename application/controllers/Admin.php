@@ -80,11 +80,15 @@ class Admin extends CI_Controller {
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
 
-        $data['judul_halaman'] = 'Edit Penghuni';
-        $data['fakultas'] = $this->m_data->data_fakultas()->result();
         $data['penghuni'] = $this->m_data->data_penghuni_by_id($id)->row();
 
         if (!$data['penghuni']) show_404();
+
+        $id_fakultas = $data['penghuni']->id_fakultas;
+
+        $data['prodi'] = $this->m_data->data_prodi_by_id_fakultas($id_fakultas)->result();
+        $data['judul_halaman'] = 'Edit Penghuni';
+        $data['fakultas'] = $this->m_data->data_fakultas()->result();
 
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');

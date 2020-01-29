@@ -15,7 +15,7 @@ class M_data extends CI_Model {
         return $this->db->get('fakultas');
     }
 
-    function data_prodi_by_id($id_fakultas){
+    function data_prodi_by_id_fakultas($id_fakultas){
         return $this->db->get_where('prodi', array('id_fakultas' => $id_fakultas));
     }
 

@@ -10,6 +10,27 @@
                     <div class="ibox-body">
                         <form class="form-horizontal" method="post">
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">No. Kamar</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="no_kamar" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Isi Kamar</label>
+                                <div class="col-sm-3" style="padding-top: 5px">
+                                    <label class="ui-radio ui-radio-inline ui-radio-primary">
+                                        <input type="radio" name="isi_kamar" value="2" <?php if ($penghuni->isi_kamar == '2') echo 'checked' ?>>
+                                        <span class="input-span"></span>Berdua
+                                    </label>
+                                </div>
+                                <div class="col-sm-6" style="padding-top: 5px">
+                                    <label class="ui-radio ui-radio-inline ui-radio-primary">
+                                        <input type="radio" name="isi_kamar" value="1" <?php if ($penghuni->isi_kamar == '1') echo 'checked' ?>>
+                                        <span class="input-span"></span>Sendiri
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap Penghuni" value="<?php echo $penghuni->nama ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
@@ -36,7 +57,10 @@
                                 <label class="col-sm-3 col-form-label">Prodi</label>
                                 <div class="col-sm-9">
                                     <select class="form-control select2_prodi" name="id_prodi" id="prodi" required>
-                                        <option disabled>Silakan Pilih Fakultas Terlebih Dahulu</option>
+                                        <option></option>
+                                        <?php foreach ($prodi as $prodi){ ?>
+                                        <option value="<?php echo $prodi->id_prodi ?>" <?php if ($prodi->id_prodi == $penghuni->id_prodi) echo 'selected' ?>><?php echo $prodi->nama_prodi ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>

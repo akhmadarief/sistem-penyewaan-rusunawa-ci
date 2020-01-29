@@ -13,7 +13,7 @@ class Aksi extends CI_Controller {
 
     function get_prodi(){
         $id_fakultas =  $this->input->post('id_fakultas');
-        $prodi = $this->m_data->data_prodi_by_id($id_fakultas);
+        $prodi = $this->m_data->data_prodi_by_id_fakultas($id_fakultas);
 
         echo '<option></option>';
         foreach ($prodi->result() as $prodi){
