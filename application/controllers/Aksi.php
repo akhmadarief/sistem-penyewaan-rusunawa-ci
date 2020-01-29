@@ -76,9 +76,12 @@ class Aksi extends CI_Controller {
             'kategori'      => $kategori
         );
 
-        if ($this->m_data->insert_penghuni($data) == true){
+        $kamar = $this->m_data->cek_kamar($no_kamar)->row();
 
-            $kamar = $this->m_data->cek_kamar($no_kamar)->row();
+        if ($kamar->status == 'sendiri' or $kamar->status == 'terisi2'){
+            echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
+        }
+        else if ($this->m_data->insert_penghuni($data) == true){
 
             if ($kamar->status == 'kosong' and $isi_kamar == '2') $status_kamar = 'terisi1';
 
