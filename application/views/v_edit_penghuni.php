@@ -152,7 +152,9 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-9 ml-sm-auto">
-                                    <button class="btn btn-info" type="submit">Submit</button>
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                    <button class="btn btn-danger" type="button" onclick="window.history.back();">Batal</button>
+                                    <button class="btn btn-outline-default" type="reset" value="Reset">Reset</button>
                                 </div>
                             </div>
                         </form>
