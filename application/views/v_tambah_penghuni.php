@@ -19,7 +19,7 @@
                                 <label class="col-sm-3 col-form-label">Isi Kamar</label>
                                 <div class="col-sm-3" style="padding-top: 5px">
                                     <label class="ui-radio ui-radio-inline ui-radio-primary">
-                                        <input type="radio" name="isi_kamar" value="2" <?php if ($status_kamar == 'terisi1') echo 'checked' ?>>
+                                        <input type="radio" name="isi_kamar" value="2" required <?php if ($status_kamar == 'terisi1') echo 'checked' ?>>
                                         <span class="input-span"></span>Berdua
                                     </label>
                                 </div>

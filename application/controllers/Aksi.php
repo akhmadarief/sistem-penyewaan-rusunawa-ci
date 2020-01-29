@@ -44,7 +44,7 @@ class Aksi extends CI_Controller {
         $id_prodi       = $this->input->post('id_prodi');
         $tempat_lahir   = $this->input->post('tempat_lahir');
         $tgl_lahir      = $this->input->post('tgl_lahir');
-        $agama          = $this->input->post('agama');
+        $agama          = ($this->input->post('agama') != 'other' ? $this->input->post('agama') : $this->input->post('agama_lainnya'));
         $alamat         = $this->input->post('alamat');
         $no             = $this->input->post('no');
         $nama_ortu      = $this->input->post('nama_ortu');
@@ -77,13 +77,14 @@ class Aksi extends CI_Controller {
         );
 
         if ($this->m_data->insert_penghuni($data) == true){
-            $cek_kamar = $this->m_data->cek_kamar($no_kamar)->row();
 
-            if ($cek_kamar->status == 'kosong' and $isi_kamar == '2') $status_kamar = 'terisi1';
+            $kamar = $this->m_data->cek_kamar($no_kamar)->row();
 
-            else if ($cek_kamar->status == 'kosong' and $isi_kamar == '1') $status_kamar = 'sendiri';
+            if ($kamar->status == 'kosong' and $isi_kamar == '2') $status_kamar = 'terisi1';
 
-            else if ($cek_kamar->status == 'terisi1') $status_kamar = 'terisi2';
+            else if ($kamar->status == 'kosong' and $isi_kamar == '1') $status_kamar = 'sendiri';
+
+            else if ($kamar->status == 'terisi1') $status_kamar = 'terisi2';
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
@@ -99,7 +100,24 @@ class Aksi extends CI_Controller {
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
 
-        if ($this->m_data->delete_penghuni($id) == true){
+        $penghuni = $this->m_data->data_penghuni_by_id($id)->row();
+
+        if (!$penghuni){
+            show_404();
+        }
+        else if ($this->m_data->delete_penghuni($id) == true){
+
+            $no_kamar = $penghuni->no_kamar;
+            $kamar = $this->m_data->cek_kamar($no_kamar)->row();
+
+            if ($kamar->status == 'sendiri') $status_kamar = 'kosong';
+
+            else if ($kamar->status == 'terisi2') $status_kamar = 'terisi1';
+
+            else if ($kamar->status == 'terisi1') $status_kamar = 'kosong';
+
+            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+
             //redirect('admin/daftar_penghuni');
             echo 'berhasil dihapus gan';
         }
