@@ -135,7 +135,7 @@
                                 <div class="col-sm-9 input-daterange input-group" id="datepicker">
                                     <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" autocomplete="off" required>
                                     <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
-                                    <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo '3107'.date('Y')+1 ?>" required>
+                                    <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo '31'.'-'.'07'.'-'.date('Y'); ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -173,7 +173,9 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-9 ml-sm-auto">
-                                    <button class="btn btn-info" type="submit">Submit</button>
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                    <button class="btn btn-danger" type="button" onclick="window.history.back();">Batal</button>
+                                    <button class="btn btn-outline-default" type="reset" value="Reset">Reset</button>
                                 </div>
                             </div>
                         </form>
