@@ -76,9 +76,23 @@ class Aksi extends CI_Controller {
             'kategori'      => $kategori
         );
 
-        $this->m_data->m_data->insert_penghuni($data);
-        //redirect('admin/pilih_kamar');
-        echo 'berhasil disimpan gan';
+        if ($this->m_data->insert_penghuni($data) == true){
+            $cek_kamar = $this->m_data->cek_kamar($no_kamar)->row();
+
+            if ($cek_kamar->status == 'kosong' and $isi_kamar == '2') $status_kamar = 'terisi1';
+
+            else if ($cek_kamar->status == 'kosong' and $isi_kamar == '1') $status_kamar = 'sendiri';
+
+            else if ($cek_kamar->status == 'terisi1') $status_kamar = 'terisi2';
+
+            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+
+            //redirect('admin/pilih_kamar');
+            echo 'berhasil disimpan gan';
+        }
+        else {
+            echo 'gagal disimpan gan :(';
+        }
     }
 
     function aksi_hapus_penghuni($id = null){

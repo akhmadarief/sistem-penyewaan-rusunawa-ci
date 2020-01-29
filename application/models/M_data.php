@@ -36,10 +36,16 @@ class M_data extends CI_Model {
 
     function insert_penghuni($data){
         $this->db->insert('penghuni', $data);
+        return ($this->db->affected_rows() != 1) ? false : true;
+    }
+
+    function update_status_kamar($no_kamar, $status_kamar){
+        $this->db->where('no_kamar', $no_kamar);
+        $this->db->update('kamar', array('status' => $status_kamar));
     }
 
     function delete_penghuni($id){
         $this->db->delete('penghuni', array('id' => $id));
-        if ($this->db->affected_rows() > 0) return true;
+        return ($this->db->affected_rows() != 1) ? false : true;
     }
 }
