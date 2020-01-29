@@ -44,111 +44,60 @@
   box-shadow: 0 0 0 2px #615255 inset;
 }
 
-
-
-
-
 /*SUMMARY GEDUNG*/
 .sum-gedung{
   width: 90px;
   margin-bottom: 0;
 }
 
-
-
-
-
 /*LEGENDA*/
+.legenda{
+  /* display: inline-flex; */
+}
+
 .satu-legenda {
-  width: fit-content;
-  float: left;
+  /* margin-inline: 20px;
+  float: left; */
+  display: -webkit-inline-box;
+  margin: 5px 20px 5px 20px;
 }
 
-.legenda-kosong {
-  box-shadow: 0 0 0 2px #1ba0e2 inset;
-  width: 20px;
-  height: 20px;
+.kotak-l{
+  width: 23px;
+  height: 23px;
   border-radius: 4px;
-  position: relative;
-  margin: 4px;
-  text-align: center;
-  line-height: 35px;
-  display: inline-block;
 }
 
-.legenda-terisi1 {
-  background-color: #ffbc34;
-  color: #444645;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  position: relative;
-  margin: 4px;
-  text-align: center;
-  line-height: 35px;
-  display: inline-block;
-}
+  .kosong {
+    box-shadow: 0 0 0 2px #1ba0e2 inset;
+  }
 
-.legenda-terisi2 {
-  background-color: #df193d;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  position: relative;
-  margin: 4px;
-  text-align: center;
-  line-height: 35px;
-  display: inline-block;
-}
+  .terisi1 {
+    background-color: #ffbc34;
+    color: #444645;
+  }
 
-.legenda-piutang {
-  box-shadow: 0 0 0 2px #1ba0e2 inset;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  position: relative;
-  margin: 4px;
-  text-align: center;
-  line-height: 35px;
-  display: inline-block;
-}
+  .terisi2 {
+    background-color: #df193d;
+    color: #fff
+  }
 
-.legenda-terpilih {
-  background-color: #1ba0e2;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  position: relative;
-  margin: 4px;
-  text-align: center;
-  line-height: 35px;
-  display: inline-block;
-}
+  .sendiri{
+    background-color: #19cf13;
+  }
+
+  .piutang {
+    box-shadow: 0 0 0 2px #1ba0e2 inset;
+  }
+
+  .terpilih {
+    background-color: #1ba0e2;
+  }
 
 .satu-legenda span{
-  height: 20px;
+  font-size: 12px;
+  margin-left: 5px;
 }
-
-
-
-
-
-/*DATEPICKER*/
-.input-icon-cal {
-position: absolute;
-font-size: 18px;
-color: #999;
-right: 18px;
-top: 50%;
--webkit-transform: translateY(-50%);
--moz-transform: translateY(-50%);
--ms-transform: translateY(-50%);
--o-transform: translateY(-50%);
-transform: translateY(-50%);
-cursor: pointer;
-}
-
-
 
 /*NAVBAR UNDIP*/
   .nav-undip {

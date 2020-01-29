@@ -119,28 +119,32 @@
                                 </div>
                             </div>
                             <div class="ibox-body text-center bg-light">
-                                <!--<div class="legenda">
+                                <div class="legenda">
                                     <div class="satu-legenda">
-                                        <div class="legenda-kosong"></div>
+                                        <div class="kotak-l kosong"></div>
                                         <span>Belum Berpenghuni</span>
                                     </div>
                                     <div class="satu-legenda">
-                                        <div class="legenda-terisi1"></div>
-                                        <span>Terdapat 1 Penghuni</span>
+                                        <div class="kotak-l terisi1"></div>
+                                        <span>1 Penghuni</span>
                                     </div>
                                     <div class="satu-legenda">
-                                        <div class="legenda-terisi2"></div>
-                                        <span>Terdapat 2 Penghuni</span>
+                                        <div class="kotak-l terisi2"></div>
+                                        <span>2 Penghuni</span>
                                     </div>
                                     <div class="satu-legenda">
-                                        <div class="legenda-piutang"></div>
-                                        <span>Terdapat Piutang</span>
+                                        <div class="kotak-l sendiri"></div>
+                                        <span>Sendiri</span>
                                     </div>
                                     <div class="satu-legenda">
-                                        <div class="legenda-terpilih"></div>
+                                        <div class="kotak-l piutang"></div>
+                                        <span>Piutang</span>
+                                    </div>
+                                    <div class="satu-legenda">
+                                        <div class="kotak-l terpilih"></div>
                                         <span>Sedang Dipilih</span>
                                     </div>
-                                </div>-->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -151,10 +155,10 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni I</div>
                                 <div class="btn-group">
-                                    <button class="btn btn-dark btn-sm" id="tambah_penghuni">
+                                    <button class="btn btn-dark btn-sm" id="tambah_penghuni" style="margin-inline: 3px; border-radius: 3px;">
                                         <i class="fa fa-plus"></i>
                                     </button>
-                                    <button class="btn btn-dark btn-sm" id="edit_penghuni">
+                                    <button class="btn btn-dark btn-sm" id="edit_penghuni" style="border-radius: 3px;">
                                         <i class="fa fa-pencil"></i>
                                     </button>
                                 </div>
@@ -205,13 +209,13 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni II</div>
-                                <div>
-                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni2">
+                                <div class="btn-group">
+                                    <button class="btn btn-dark btn-sm" id="tambah_penghuni2" style="margin-inline: 3px; border-radius: 3px;">
                                         <i class="fa fa-plus"></i>
-                                    </a>
-                                    <a class="btn btn-dark btn-sm" id="edit_penghuni2">
+                                    </button>
+                                    <button class="btn btn-dark btn-sm" id="edit_penghuni2" style="border-radius: 3px;">
                                         <i class="fa fa-pencil"></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div class="ibox-body">
