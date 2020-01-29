@@ -51,6 +51,6 @@ class M_data extends CI_Model {
 
     function delete_penghuni($id){
         $this->db->delete('penghuni', array('id' => $id));
-        return ($this->db->affected_rows() != 1) ? false : true);
+        return ($this->db->affected_rows() != 1) ? false : true;
     }
 }

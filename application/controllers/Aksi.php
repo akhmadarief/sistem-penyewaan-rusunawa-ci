@@ -96,7 +96,7 @@ class Aksi extends CI_Controller {
         }
     }
 
-    function aksi_edit_penghuni()){ //not tested
+    function aksi_edit_penghuni(){ //not tested
         $id             = $this->input->post('id');
         $no_kamar       = $this->input->post('no_kamar');
         $isi_kamar      = $this->input->post('isi_kamar');
