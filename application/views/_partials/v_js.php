@@ -8,6 +8,7 @@
     <script src="<?php echo base_url('assets/js/app.min.js') ?>" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
     <script src="<?php echo base_url('assets/vendors/DataTables/datatables.min.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/DataTables/ColReorderWithResize.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/sweetalert2/sweetalert2.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/select2/dist/js/select2.full.min.js') ?>" type="text/javascript"></script>
@@ -38,6 +39,7 @@
         //daftar penghuni
         $(document).ready(function(){
             $("#tabel-penghuni").DataTable({
+                'sDom': 'Rlfrtip',
                 pageLength: 25
             });
             $(".hapus-penghuni").click(function(){
