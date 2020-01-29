@@ -23,6 +23,10 @@ class M_data extends CI_Model {
         return $this->db->get('kamar');
     }
 
+    function data_harga_kamar(){
+        return $this->db->get('harga');
+    }
+
     function data_kamar_by_lantai($lantai){
         $this->db->select('*');
         $this->db->from('kamar');

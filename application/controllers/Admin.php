@@ -113,7 +113,7 @@ class Admin extends CI_Controller {
 
     function daftar_harga(){
         $data['judul_halaman'] = 'Daftar Harga Kamar';
-        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $data['daftar_harga'] = $this->m_data->data_harga_kamar()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
