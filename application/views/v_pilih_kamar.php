@@ -150,17 +150,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6" id="dataPenghuni1" style="display: none;">
+                    <div class="col-md-6" id="penghuni1" style="display: none;">
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni I</div>
                                 <div class="btn-group">
-                                    <button class="btn btn-dark btn-sm" id="tambah_penghuni" style="margin-inline: 3px; border-radius: 3px;">
+                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni" style="margin-inline: 3px; border-radius: 3px;">
                                         <i class="fa fa-plus"></i>
-                                    </button>
-                                    <button class="btn btn-dark btn-sm" id="edit_penghuni" style="border-radius: 3px;">
+                                    </a>
+                                    <a class="btn btn-dark btn-sm" id="edit_penghuni" style="border-radius: 3px;">
                                         <i class="fa fa-pencil"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="ibox-body">
@@ -205,17 +205,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6" id="dataPenghuni2" style="display: none;">
+                    <div class="col-md-6" id="penghuni2" style="display: none;">
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni II</div>
                                 <div class="btn-group">
-                                    <button class="btn btn-dark btn-sm" id="tambah_penghuni2" style="margin-inline: 3px; border-radius: 3px;">
+                                    <abstract class="btn btn-dark btn-sm" id="tambah_penghuni2" style="margin-inline: 3px; border-radius: 3px;">
                                         <i class="fa fa-plus"></i>
-                                    </button>
-                                    <button class="btn btn-dark btn-sm" id="edit_penghuni2" style="border-radius: 3px;">
+                                    </a>
+                                    <a class="btn btn-dark btn-sm" id="edit_penghuni2" style="border-radius: 3px;">
                                         <i class="fa fa-pencil"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="ibox-body">

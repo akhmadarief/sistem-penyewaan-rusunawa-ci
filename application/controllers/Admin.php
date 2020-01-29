@@ -50,7 +50,11 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
-    function tambah_penghuni(){
+    function tambah_penghuni($no_kamar = null){
+        
+        if (!isset($no_kamar)) redirect('admin/pilih_kamar');
+
+        $data['no_kamar'] = $no_kamar;
         $data['judul_halaman'] = 'Tambah Penghuni';
         $data['fakultas'] = $this->m_data->data_fakultas()->result();
         $this->load->view('_partials/v_head', $data);

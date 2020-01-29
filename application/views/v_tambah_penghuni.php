@@ -10,6 +10,12 @@
                     <div class="ibox-body">
                         <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_tambah_penghuni') ?>" method="post">
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">No. Kamar</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="no_kamar" placeholder="No. Kamar" value="<?php echo $no_kamar ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap Penghuni" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
