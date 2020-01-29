@@ -16,6 +16,21 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Isi Kamar</label>
+                                <div class="col-sm-3" style="padding-top: 5px">
+                                    <label class="ui-radio ui-radio-inline ui-radio-primary">
+                                        <input type="radio" name="isi_kamar" value="2" <?php if ($status_kamar == 'terisi1') echo 'checked' ?>>
+                                        <span class="input-span"></span>Berdua
+                                    </label>
+                                </div>
+                                <div class="col-sm-6" style="padding-top: 5px">
+                                    <label class="ui-radio ui-radio-inline ui-radio-primary">
+                                        <input type="radio" name="isi_kamar" value="1" <?php if ($status_kamar == 'terisi1') echo 'disabled' ?>>
+                                        <span class="input-span"></span>Sendiri
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap Penghuni" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>

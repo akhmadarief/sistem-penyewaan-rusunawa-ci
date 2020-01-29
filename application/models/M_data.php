@@ -26,8 +26,12 @@ class M_data extends CI_Model {
         return $this->db->get();
     }
 
-    function detail_kamar($no_kamar){
-        return $this->db->get_where('penghuni', array('no_kamar' => $no_kamar)); //not work
+    function data_penghuni_by_kamar($no_kamar){
+        return $this->db->get_where('penghuni', array('no_kamar' => $no_kamar));
+    }
+
+    function cek_kamar($no_kamar){
+        return $this->db->get_where('kamar', array('no_kamar' => $no_kamar));
     }
 
     function insert_penghuni($data){

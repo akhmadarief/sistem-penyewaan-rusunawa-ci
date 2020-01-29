@@ -30,7 +30,7 @@ class Aksi extends CI_Controller {
 
     function get_detail_kamar(){
         $no_kamar = $this->input->post('no_kamar');
-        $detail_kamar = $this->m_data->detail_kamar($no_kamar);
+        $detail_kamar = $this->m_data->data_penghuni_by_kamar($no_kamar);
 
         echo json_encode ($detail_kamar->result());
     }

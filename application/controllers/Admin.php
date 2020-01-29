@@ -51,12 +51,20 @@ class Admin extends CI_Controller {
     }
 
     function tambah_penghuni($no_kamar = null){
-        
+
+        $cek_kamar = $this->m_data->cek_kamar($no_kamar)->row();
+
         if (!isset($no_kamar)) redirect('admin/pilih_kamar');
 
+        else if (!$cek_kamar) show_404();
+
+        else if ($cek_kamar->status == 'terisi2') echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
+
         $data['no_kamar'] = $no_kamar;
+        $data['status_kamar'] = $cek_kamar->status;
         $data['judul_halaman'] = 'Tambah Penghuni';
         $data['fakultas'] = $this->m_data->data_fakultas()->result();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
