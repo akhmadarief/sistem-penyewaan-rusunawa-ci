@@ -55,7 +55,7 @@ class Aksi extends CI_Controller {
         $kategori       = $this->input->post('kategori');
 
         $data = array(
-            'no_kamar'      =? $no_kamar
+            'no_kamar'      => $no_kamar,
             'nama'          => $nama,
             'nim'           => $nim,
             'id_fakultas'   => $id_fakultas,
