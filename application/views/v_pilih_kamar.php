@@ -210,7 +210,7 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni II</div>
                                 <div class="btn-group">
-                                    <abstract class="btn btn-dark btn-sm" id="tambah_penghuni2" style="margin-inline: 3px; border-radius: 3px;">
+                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni2" style="margin-inline: 3px; border-radius: 3px;">
                                         <i class="fa fa-plus"></i>
                                     </a>
                                     <a class="btn btn-dark btn-sm" id="edit_penghuni2" style="border-radius: 3px;">
