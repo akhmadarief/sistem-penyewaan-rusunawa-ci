@@ -38,9 +38,9 @@
     <script type="text/javascript">
         //daftar penghuni
         $(document).ready(function(){
-            $("#tabel-penghuni").DataTable({
-                'sDom': 'Rlfrtip',
-                pageLength: 25
+            $('#tabel-penghuni').DataTable({
+                pageLength: 25,
+                'sDom': 'R<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>><"row"<"col-sm-12"rt>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
             });
             $(".hapus-penghuni").click(function(){
                 var id_penghuni = $(this).attr('id');
