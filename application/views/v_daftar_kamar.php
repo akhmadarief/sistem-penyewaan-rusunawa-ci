@@ -9,37 +9,26 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No.</th>
+                                    <th class="text-center">Gedung</th>
+                                    <th class="text-center">Lantai</th>
                                     <th class="text-center">No. Kamar</th>
-                                    <th class="text-center">Nama</th>
-                                    <th class="text-center">NIM</th>
-                                    <th class="text-center">No. HP</th>
-                                    <th class="text-center">Alamat Asal</th>
-                                    <th class="text-center">Nama Ortu</th>
-                                    <th class="text-center">No. HP Ortu</th>
-                                    <th class="text-center">Aksi</th>
+                                    <th class="text-center">Status Kamar</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1; foreach ($penghuni as $penghuni){ ?>
+                                <?php $no = 1; foreach ($kamar as $kamar){ ?>
                                 <tr>
                                     <td class="text-center"><?php echo $no++ ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no_kamar ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nama ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nim ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no ?></td>
-                                    <td class="text-center"><?php echo $penghuni->alamat ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nama_ortu ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no_ortu ?></td>
+                                    <td class="text-center">Gedung <?php echo $kamar->gedung ?></td>
+                                    <td class="text-center">Lantai <?php echo $kamar->lantai ?></td>
+                                    <td class="text-center"><?php echo $kamar->no_kamar ?></td>
                                     <td class="text-center">
-                                        <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>">
-                                            <span class="fa fa-info-circle"></span>
-                                        </a>
-                                        <a class="btn btn-sm btn-info active" href="<?php echo base_url("admin/edit_penghuni?id=$penghuni->id") ?>">
-                                            <span class="fa fa-pencil"></span>
-                                        </a>
-                                        <a class="btn btn-sm btn-danger active hapus-penghuni" id="<?php echo $penghuni->id ?>">
-                                            <span class="fa fa-trash"></span>
-                                        </a>
+                                        <?php
+                                        if ($kamar->status == 'sendiri') echo '<span class="badge badge-success">Penuh (1 Penghuni)</span>';
+                                        else if ($kamar->status == 'terisi2') echo '<span class="badge badge-danger">Penuh (2 Penghuni)</span>';
+                                        else if ($kamar->status == 'terisi1') echo '<span class="badge badge-warning">Terisi 1 Penghuni</span>';
+                                        else echo '<span class="badge badge-default">Kosong (Tersedia)</span>';
+                                        ?>
                                     </td>
                                 </tr>
                                 <?php } ?>

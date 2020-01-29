@@ -19,6 +19,10 @@ class M_data extends CI_Model {
         return $this->db->get_where('prodi', array('id_fakultas' => $id_fakultas));
     }
 
+    function data_kamar(){
+        return $this->db->get('kamar');
+    }
+
     function data_kamar_by_lantai($lantai){
         $this->db->select('*');
         $this->db->from('kamar');
