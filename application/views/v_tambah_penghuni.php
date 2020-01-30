@@ -16,6 +16,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Harga Kamar per Bulan</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" id="harga_kamar" placeholder="Harga Kamar" value="<?php echo $harga_kamar->harga ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Isi Kamar</label>
                                 <div class="col-sm-3" style="padding-top: 5px">
                                     <label class="ui-radio ui-radio-inline ui-radio-primary">
@@ -130,14 +136,6 @@
                                     <input class="form-control" type="text" name="no_ortu" placeholder="No Telp/HP Orang Tua Penghuni" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');" required>
                                 </div>
                             </div>
-                            <div class="form-group row" id="masa_huni">
-                                <label class="col-sm-3 col-form-label">Masa Huni</label>
-                                <div class="col-sm-9 input-daterange input-group" id="datepicker">
-                                    <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" autocomplete="off" required>
-                                    <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
-                                    <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo '31'.'-'.'07'.'-'.date('Y'); ?>" required>
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Kategori</label>
                                 <div class="col-sm-3" style="padding-top: 5px">
@@ -153,22 +151,53 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Harga Sewa Kamar</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="biaya">
+                            <div class="form-group row" id="tgl_huni">
+                                <label class="col-sm-3 col-form-label">Tanggal Huni</label>
+                                <div class="col-sm-9 input-daterange input-group" id="datepicker">
+                                    <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" autocomplete="off" required>
+                                    <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
+                                    <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo '31'.'-'.'07'.'-'.date('Y'); ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Bayar</label>
+                                <label class="col-sm-3 col-form-label">Masa Huni</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="bayar">
+                                    <select class="form-control select2_masa_huni" name="masa_huni" id="masa_huni" required>
+                                        <option></option>
+                                        <option value="1">1 Bulan</option>
+                                        <option value="2">2 Bulan</option>
+                                        <option value="3">3 Bulan</option>
+                                        <option value="4">4 Bulan</option>
+                                        <option value="5">5 Bulan</option>
+                                        <option value="6">6 Bulan</option>
+                                        <option value="7">7 Bulan</option>
+                                        <option value="8">8 Bulan</option>
+                                        <option value="9">9 Bulan</option>
+                                        <option value="10">10 Bulan</option>
+                                        <option value="11">11 Bulan</option>
+                                        <option value="12">12 Bulan (1 Tahun)</option>
+                                        <option value="24">24 Bulan (2 Tahun)</option>
+                                        <option value="36">36 Bulan (3 Tahun)</option>
+                                        <option value="48">48 Bulan (4 Tahun)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Harga Sewa Kamar</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="biaya" id="biaya" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Jumlah Bayar</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="bayar" id="bayar" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Piutang</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="piutang">
+                                    <input class="form-control" type="text" name="piutang" id="piutang" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group row">

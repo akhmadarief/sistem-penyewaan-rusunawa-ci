@@ -9,38 +9,20 @@
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 24.5px">No.</th>
-                                    <th class="text-center">No. Kamar</th>
-                                    <th class="text-center">Nama</th>
-                                    <th class="text-center">NIM</th>
-                                    <th class="text-center">No. HP</th>
-                                    <th class="text-center">Alamat Asal</th>
-                                    <th class="text-center">Nama Ortu</th>
-                                    <th class="text-center">No. HP Ortu</th>
-                                    <th class="text-center">Aksi</th>
+                                    <th class="text-center">NIM Penghuni</th>
+                                    <th class="text-center">Tanggal Bayar</th>
+                                    <th class="text-center">Terbayar</th>
+                                    <th class="text-center">Piutang</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1; foreach ($penghuni as $penghuni){ ?>
+                                <?php $no = 1; foreach ($keuangan as $keuangan){ ?>
                                 <tr>
                                     <td class="text-center"><?php echo $no++ ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no_kamar ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nama ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nim ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no ?></td>
-                                    <td class="text-center"><?php echo $penghuni->alamat ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nama_ortu ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no_ortu ?></td>
-                                    <td class="text-center">
-                                        <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>">
-                                            <span class="fa fa-info-circle"></span>
-                                        </a>
-                                        <a class="btn btn-sm btn-info active" href="<?php echo base_url("admin/edit_penghuni?id=$penghuni->id") ?>">
-                                            <span class="fa fa-pencil"></span>
-                                        </a>
-                                        <a class="btn btn-sm btn-danger active hapus-penghuni" id="<?php echo $penghuni->id ?>">
-                                            <span class="fa fa-trash"></span>
-                                        </a>
-                                    </td>
+                                    <td class="text-center"><?php echo $keuangan->nim ?></td>
+                                    <td class="text-center"><?php echo $keuangan->tgl_bayar ?></td>
+                                    <td class="text-center"><?php echo $keuangan->bayar ?></td>
+                                    <td class="text-center"><?php echo $keuangan->piutang ?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

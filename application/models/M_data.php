@@ -27,6 +27,10 @@ class M_data extends CI_Model {
         return $this->db->get('harga');
     }
 
+    function data_harga_kamar_by_lantai($lantai){
+        return $this->db->get_where('harga', array('lantai' => $lantai));
+    }
+
     function data_kamar_by_lantai($lantai){
         $this->db->select('*');
         $this->db->from('kamar');
@@ -54,6 +58,14 @@ class M_data extends CI_Model {
     function update_status_kamar($no_kamar, $status_kamar){
         $this->db->where('no_kamar', $no_kamar);
         $this->db->update('kamar', array('status' => $status_kamar));
+    }
+
+    function insert_pembayaran($data_pembayaran){
+        $this->db->insert('keuangan', $data_pembayaran);
+    }
+
+    function data_keuangan(){
+        return $this->db->get('keuangan');
     }
 
     function update_penghuni($id, $data){

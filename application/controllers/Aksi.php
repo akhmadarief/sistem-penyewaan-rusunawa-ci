@@ -51,9 +51,13 @@ class Aksi extends CI_Controller {
         $pekerjaan_ortu = $this->input->post('pekerjaan_ortu');
         $alamat_ortu    = $this->input->post('alamat_ortu');
         $no_ortu        = $this->input->post('no_ortu');
+        $kategori       = $this->input->post('kategori');
         $tgl_masuk      = $this->input->post('tgl_masuk');
         $tgl_keluar     = $this->input->post('tgl_keluar');
-        $kategori       = $this->input->post('kategori');
+        $masa_huni      = $this->input->post('masa_huni');
+        $biaya          = $this->input->post('biaya');
+        $bayar          = $this->input->post('bayar');
+        $piutang        = $this->input->post('piutang');
 
         $data = array(
             'no_kamar'      => $no_kamar,
@@ -71,9 +75,18 @@ class Aksi extends CI_Controller {
             'pekerjaan_ortu'=> $pekerjaan_ortu,
             'alamat_ortu'   => $alamat_ortu,
             'no_ortu'       => $no_ortu,
+            'kategori'      => $kategori,
             'tgl_masuk'     => $tgl_masuk,
             'tgl_keluar'    => $tgl_keluar,
-            'kategori'      => $kategori
+            'biaya'         => $biaya,
+            'status'        => 'Penghuni'
+        );
+
+        $data_pembayaran = array(
+            'nim'           => $nim,
+            'tgl_bayar'     => $tgl_masuk,
+            'bayar'         => $bayar,
+            'piutang'       => $piutang
         );
 
         $kamar = $this->m_data->cek_kamar($no_kamar)->row();
@@ -90,6 +103,7 @@ class Aksi extends CI_Controller {
             else if ($kamar->status == 'terisi1') $status_kamar = 'terisi2';
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+            $this->m_data->insert_pembayaran($data_pembayaran);
 
             //redirect('admin/pilih_kamar');
             echo 'berhasil disimpan gan';

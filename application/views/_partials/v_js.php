@@ -78,6 +78,10 @@
                 placeholder: "Pilih Agama",
                 allowClear: true
             });
+            $(".select2_masa_huni").select2({
+                placeholder: "Pilih Lama Huni Berdasarkan Tanggal Masuk dan Keluar",
+                allowClear: true
+            });
             // Get Prodi
             $("#fakultas").change(function(){
                 var id_fakultas = $("#fakultas").val();
@@ -108,7 +112,7 @@
                 autoclose: true,
                 format: "dd-mm-yyyy"
             });
-            $("#masa_huni .input-daterange").datepicker({
+            $("#tgl_huni .input-daterange").datepicker({
                 todayBtn: "linked",
                 keyboardNavigation: false,
                 forceParse: false,
@@ -124,6 +128,19 @@
                 else {
                     $("#agama_lainnya").attr("style", "display: none");
                 }
+            });
+            //harga kamar
+            $("#masa_huni").change(function(){
+                var harga = parseInt($("#harga_kamar").val());
+                var lama = parseInt($(this).val());
+                total = harga*lama;
+                $("#biaya").val(total);
+            });
+            $("#bayar").on("keyup", function(){
+                var biaya =parseInt($("#biaya").val());
+                var bayar =parseInt($(this).val());
+                piutang = biaya-bayar;
+                $("#piutang").val(piutang);
             });
         });
     </script>
