@@ -83,7 +83,7 @@
                                         <option value="Protestan">Kristen Protestan</option>
                                         <option value="Katolik">Katolik</option>
                                         <option value="Hindu">Hindu</option>
-                                        <option value="Biddha">Buddha</option>
+                                        <option value="Buddha">Buddha</option>
                                         <option value="Konghucu">Konghucu</option>
                                         <option value="other">Lainnya</option>
                                     </select>

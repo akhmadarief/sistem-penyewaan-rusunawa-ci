@@ -141,8 +141,7 @@ class Aksi extends CI_Controller {
             'kategori'      => $kategori
         );
 
-        if ($this->m_data->update_penghuni($id, $data)){
-
+        if ($this->m_data->update_penghuni($id, $data) == true){
             //redirect('admin/daftar_penghuni');
             echo 'berhasil diupdate gan';
         }

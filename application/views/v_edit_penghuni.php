@@ -8,7 +8,8 @@
                         </div>
                     </div>
                     <div class="ibox-body">
-                        <form class="form-horizontal" method="post">
+                        <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
+                            <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">No. Kamar</label>
                                 <div class="col-sm-9">
@@ -25,7 +26,7 @@
                                 </div>
                                 <div class="col-sm-6" style="padding-top: 5px">
                                     <label class="ui-radio ui-radio-inline ui-radio-primary">
-                                        <input type="radio" name="isi_kamar" value="1" <?php if ($penghuni->isi_kamar == '1') echo 'checked' ?>>
+                                        <input type="radio" name="isi_kamar" value="1" <?php echo ($penghuni->isi_kamar == '1') ? 'checked' : 'disabled' ?>>
                                         <span class="input-span"></span>Sendiri
                                     </label>
                                 </div>

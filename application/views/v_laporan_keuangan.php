@@ -8,7 +8,7 @@
                         <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th class="text-center">No.</th>
+                                    <th class="text-center" style="width: 24.5px">No.</th>
                                     <th class="text-center">No. Kamar</th>
                                     <th class="text-center">Nama</th>
                                     <th class="text-center">NIM</th>
