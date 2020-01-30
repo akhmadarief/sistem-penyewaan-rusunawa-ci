@@ -174,7 +174,6 @@ class Aksi extends CI_Controller {
         else if ($this->m_data->delete_penghuni($id) == true){
 
             $no_kamar = $penghuni->no_kamar;
-            $nim = $penghuni->nim;
             $kamar = $this->m_data->cek_kamar($no_kamar)->row();
 
             if ($kamar->status == 'sendiri') $status_kamar = 'kosong';
@@ -184,7 +183,6 @@ class Aksi extends CI_Controller {
             else if ($kamar->status == 'terisi1') $status_kamar = 'kosong';
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
-            $this->m_data->delete_pembayaran_by_nim($nim);
 
             //redirect('admin/daftar_penghuni');
             echo 'berhasil dihapus gan';

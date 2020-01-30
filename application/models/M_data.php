@@ -89,8 +89,4 @@ class M_data extends CI_Model {
         $this->db->delete('penghuni', array('id' => $id));
         return ($this->db->affected_rows() > 0) ? true : false;
     }
-
-    function delete_pembayaran_by_nim($nim){
-        $this->db->delete('keuangan', array('nim' => $nim));
-    }
 }
