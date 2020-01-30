@@ -38,6 +38,11 @@
                     </li>
                     <li class="heading">KEUANGAN</li>
                     <li>
+                        <a <?php if ($judul_halaman == 'Riwayat Pembayaran') echo 'class="active"' ?> href="<?php echo base_url('admin/riwayat_pembayaran') ?>"><i class="sidebar-item-icon fa fa-money"></i>
+                            <span class="nav-label">Riwayat Pembayaran</span>
+                        </a>
+                    </li>
+                    <li>
                         <a <?php if ($judul_halaman == 'Laporan Keuangan') echo 'class="active"' ?> href="<?php echo base_url('admin/laporan_keuangan') ?>"><i class="sidebar-item-icon fa fa-money"></i>
                             <span class="nav-label">Laporan Keuangan</span>
                         </a>

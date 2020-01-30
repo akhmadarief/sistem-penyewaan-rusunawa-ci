@@ -144,9 +144,23 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function riwayat_pembayaran(){
+        $data['judul_halaman'] = 'Riwayat Pembayaran';
+        $data['pembayaran'] = $this->m_data->data_pembayaran()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_riwayat_pembayaran', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
+    }
+
     function laporan_keuangan(){
         $data['judul_halaman'] = 'Laporan Keuangan';
-        $data['keuangan'] = $this->m_data->data_keuangan()->result();
+        $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
