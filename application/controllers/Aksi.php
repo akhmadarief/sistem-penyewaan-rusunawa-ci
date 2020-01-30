@@ -57,7 +57,6 @@ class Aksi extends CI_Controller {
         $masa_huni      = $this->input->post('masa_huni');
         $biaya          = $this->input->post('biaya');
         $bayar          = $this->input->post('bayar');
-        $piutang        = $this->input->post('piutang');
 
         $data = array(
             'no_kamar'      => $no_kamar,
@@ -85,8 +84,7 @@ class Aksi extends CI_Controller {
         $data_pembayaran = array(
             'nim'           => $nim,
             'tgl_bayar'     => $tgl_masuk,
-            'bayar'         => $bayar,
-            'piutang'       => $piutang
+            'bayar'         => $bayar
         );
 
         $kamar = $this->m_data->cek_kamar($no_kamar)->row();
