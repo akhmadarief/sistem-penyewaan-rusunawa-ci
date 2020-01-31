@@ -116,7 +116,7 @@ class Aksi extends CI_Controller {
         }
     }
 
-    function aksi_edit_penghuni(){ //not tested
+    function aksi_edit_penghuni(){
         $id             = $this->input->post('id');
         $no_kamar       = $this->input->post('no_kamar');
         $isi_kamar      = $this->input->post('isi_kamar');
@@ -202,5 +202,41 @@ class Aksi extends CI_Controller {
         else {
             echo 'gagal gan :(';
         }
+    }
+
+    function detail_penghuni(){
+        $id = $this->input->post('id_penghuni');
+        $penghuni = $this->m_data->data_penghuni_by_id($id)->row();
+        $output = '
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <td width="30%"><label>No. Kamar</label></td>
+                        <td width="70%">'.$penghuni->no_kamar.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Nama</label></td>
+                        <td width="70%">'.$penghuni->nama.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>NIM</label></td>
+                        <td width="70%">'.$penghuni->nim.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Prodi</label></td>
+                        <td width="70%">'.$penghuni->id_prodi.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Tanggal Lahir</label></td>
+                        <td width="70%">'.$penghuni->tgl_lahir.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Dan seterusnya</label></td>
+                        <td width="70%">Awokwowkowko</td>
+                    </tr>
+                </table>
+            </div>
+            ';
+            echo $output;
     }
 }
