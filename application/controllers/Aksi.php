@@ -57,6 +57,7 @@ class Aksi extends CI_Controller {
         $masa_huni      = $this->input->post('masa_huni');
         $biaya          = $this->input->post('biaya');
         $bayar          = $this->input->post('bayar');
+        $piutang        = $this->input->post('piutang');
 
         $data = array(
             'no_kamar'      => $no_kamar,
@@ -99,6 +100,10 @@ class Aksi extends CI_Controller {
             else if ($kamar->status == 'kosong' and $isi_kamar == '1') $status_kamar = 'sendiri';
 
             else if ($kamar->status == 'terisi1') $status_kamar = 'terisi2';
+
+            else if ($kamar->status == 'terisi1 piutang') $status_kamar = 'terisi2 piutang';
+
+            if ($piutang != 0) $status_kamar = $status_kamar.' piutang';
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
             $this->m_data->insert_pembayaran($data_pembayaran);
@@ -176,11 +181,18 @@ class Aksi extends CI_Controller {
             $no_kamar = $penghuni->no_kamar;
             $kamar = $this->m_data->cek_kamar($no_kamar)->row();
 
-            if ($kamar->status == 'sendiri') $status_kamar = 'kosong';
+            if ($kamar->status == 'sendiri' or $kamar->status == 'sendiri piutang') $status_kamar = 'kosong';
 
             else if ($kamar->status == 'terisi2') $status_kamar = 'terisi1';
 
             else if ($kamar->status == 'terisi1') $status_kamar = 'kosong';
+
+            //menghapus penghuni berpiutang
+            else if ($kamar->status == 'terisi2 piutang') $status_kamar = 'terisi1';
+
+            else if ($kamar->status == 'terisi1 piutang') $status_kamar = 'kosong';
+
+            else if ($kamar->status == 'terisi2 piutang piutang') $status_kamar = 'terisi1 piutang';
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 

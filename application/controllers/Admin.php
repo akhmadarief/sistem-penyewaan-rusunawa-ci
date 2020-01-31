@@ -58,7 +58,7 @@ class Admin extends CI_Controller {
 
         if (!$cek_kamar) show_404();
 
-        else if ($cek_kamar->status == 'terisi2' or $cek_kamar->status == 'sendiri') echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
+        else if (strpos($cek_kamar->status, 'terisi2') !== false or strpos($cek_kamar->status, 'sendiri') !== false) echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
 
         $data['harga_kamar'] = $this->m_data->data_harga_kamar_by_lantai($cek_kamar->lantai)->row();
         $data['no_kamar'] = $no_kamar;
