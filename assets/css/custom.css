@@ -1,3 +1,32 @@
+/*SUMMARY GEDUNG*/
+.sum-gedung{
+  width: 90px;
+  margin-bottom: 0;
+}
+
+/*LEGENDA*/
+.legenda{
+  /* display: inline-flex; */
+}
+
+.satu-legenda {
+  /* margin-inline: 20px;
+  float: left; */
+  display: -webkit-inline-box;
+  margin: 5px 20px 5px 20px;
+}
+
+.satu-legenda span{
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.kotak-l{
+  width: 23px;
+  height: 23px;
+  border-radius: 4px;
+}
+
 /*DENAH KAMAR*/
 .kamar{
   color: #4a4e4d;
@@ -34,70 +63,19 @@
 
 .terisi2 {
   background-color: #df193d;
+  color: #fff
+}
+
+.sendiri{
+  background-color: #19cf13;
+}
+
+.piutang {
+  box-shadow: 0 0 0 2px #615255 inset;
 }
 
 .terpilih {
   background-color: #1ba0e2;
-  color: #4a4e4d;
-}
-
-.piutang{
-  box-shadow: 0 0 0 2px #615255 inset;
-}
-
-/*SUMMARY GEDUNG*/
-.sum-gedung{
-  width: 90px;
-  margin-bottom: 0;
-}
-
-/*LEGENDA*/
-.legenda{
-  /* display: inline-flex; */
-}
-
-.satu-legenda {
-  /* margin-inline: 20px;
-  float: left; */
-  display: -webkit-inline-box;
-  margin: 5px 20px 5px 20px;
-}
-
-.kotak-l{
-  width: 23px;
-  height: 23px;
-  border-radius: 4px;
-}
-
-  .kosong {
-    box-shadow: 0 0 0 2px #1ba0e2 inset;
-  }
-
-  .terisi1 {
-    background-color: #ffbc34;
-    color: #444645;
-  }
-
-  .terisi2 {
-    background-color: #df193d;
-    color: #fff
-  }
-
-  .sendiri{
-    background-color: #19cf13;
-  }
-
-  .piutang {
-    box-shadow: 0 0 0 2px #1ba0e2 inset;
-  }
-
-  .terpilih {
-    background-color: #1ba0e2;
-  }
-
-.satu-legenda span{
-  font-size: 12px;
-  margin-left: 5px;
 }
 
 /*NAVBAR UNDIP*/
