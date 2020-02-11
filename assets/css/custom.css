@@ -114,10 +114,11 @@
   }
 
   .foto-doni {
-    position: fixed;
-    width: 180px;
-    height: 240px;
-  top: 35%;
-  left: 52%;
+    position: absolute;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+  top: 25%;
+  left: 50%;
   transform: translate(-50%, -50%);
   }
