@@ -10,7 +10,20 @@
         <!-- START SIDEBAR-->
         <?php //$this->load->view('_partials/sidebar.php') ?>
         <!-- END SIDEBAR-->
-            <!-- START PAGE CONTENT-->
+        <div style="position:relative; font-size:25px; text-align:center;">
+
+        </div>
+        <div class="st">
+        
+        <img src="<?php echo base_url('assets/img/a.jpg')  ?>" class="foto-awal">
+        <div class="tulisan-foto-dalam">Sistem Penyewaan Rusunawa UNDIP</div>
+        <div class="foto-doni">
+        <img src="<?php echo base_url('assets/img/b.jpg')  ?>">
+        </div>
+        </div>
+        
+        <!--
+            
             <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-lg-8">
@@ -466,6 +479,8 @@
                         </div>
                     </div>
                 </div>
+                -->
+                <div class="statichehe">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
@@ -550,6 +565,9 @@
                     }
                 </style>
             </div>
+            </div>
+
+            
             <!-- END PAGE CONTENT-->
             <?php //$this->load->view('_partials/footer.php') ?>
     <!-- BEGIN THEME CONFIG PANEL-->

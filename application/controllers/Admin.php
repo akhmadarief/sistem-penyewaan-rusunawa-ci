@@ -16,7 +16,7 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
-        $this->load->view('_partials/v_breadcrump', $data);
+        //$this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_dasbor'); //page content
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
@@ -29,7 +29,7 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
-        $this->load->view('_partials/v_breadcrump', $data);
+        //$this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_dasbor'); //page content
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');

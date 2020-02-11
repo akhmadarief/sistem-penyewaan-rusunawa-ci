@@ -83,3 +83,41 @@
     padding-left: 0 !important;
     vertical-align: middle;
   }
+
+  .foto-awal {
+    opacity: 0.5;
+    width: 120%;
+    max-width: 200%;
+    height: auto;
+  }
+
+  .st {
+    position: fixed;
+   
+  }
+
+  .statichehe {
+    position: relative;
+    padding-top:500px;
+  }
+
+  .tulisan-foto-dalam {
+    position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #595959;
+
+  }
+
+  .foto-doni {
+    position: fixed;
+    width: 180px;
+    height: 240px;
+  top: 35%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  }
