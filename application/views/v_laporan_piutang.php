@@ -16,7 +16,6 @@
                                     <th class="text-center">Nama Ortu</th>
                                     <th class="text-center">No. HP Ortu</th>
                                     <th class="text-center">Jumlah Piutang</th>
-                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,16 +29,6 @@
                                     <td class="text-center"><?php echo $penghuni->alamat ?></td>
                                     <td class="text-center"><?php echo $penghuni->nama_ortu ?></td>
                                     <td class="text-center"><?php echo $penghuni->no_ortu ?></td>
-                                    <td class="text-center">
-                                        <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>">
-                                            <span class="fa fa-info-circle"></span>
-                                        </a>
-                                        <a class="btn btn-sm btn-info active" href="<?php echo base_url("admin/edit_penghuni?id=$penghuni->id") ?>">
-                                            <span class="fa fa-pencil"></span>
-                                        </a>
-                                        <a class="btn btn-sm btn-danger active hapus-penghuni" id="<?php echo $penghuni->id ?>">
-                                            <span class="fa fa-trash"></span>
-                                        </a>
                                     </td>
                                 </tr>
                                 <?php } ?>
