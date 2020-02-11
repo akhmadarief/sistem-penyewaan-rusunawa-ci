@@ -13,9 +13,9 @@
                                     <th class="text-center">Nama</th>
                                     <th class="text-center">NIM</th>
                                     <th class="text-center">No. HP</th>
-                                    <th class="text-center">Alamat Asal</th>
                                     <th class="text-center">Nama Ortu</th>
                                     <th class="text-center">No. HP Ortu</th>
+                                    <th class="text-center">Jumlah Piutang</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
