@@ -227,12 +227,52 @@ class Aksi extends CI_Controller {
                         <td width="70%">'.$penghuni->id_prodi.'</td>
                     </tr>
                     <tr>
+                        <td width="30%"><label>Tempat Lahir</label></td>
+                        <td width="70%">'.$penghuni->tempat_lahir.'</td>
+                    </tr>
+                    <tr>
                         <td width="30%"><label>Tanggal Lahir</label></td>
                         <td width="70%">'.$penghuni->tgl_lahir.'</td>
                     </tr>
                     <tr>
-                        <td width="30%"><label>Dan seterusnya</label></td>
-                        <td width="70%">Awokwowkowko</td>
+                        <td width="30%"><label>Agama</label></td>
+                        <td width="70%">'.$penghuni->agama.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Alamat Asal</label></td>
+                        <td width="70%">'.$penghuni->alamat.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>No. Telp/HP</label></td>
+                        <td width="70%">'.$penghuni->no.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Nama Orang Tua</label></td>
+                        <td width="70%">'.$penghuni->nama_ortu.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Pekerjaan Orang Tua</label></td>
+                        <td width="70%">'.$penghuni->pekerjaan_ortu.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Alamat Orang Tua</label></td>
+                        <td width="70%">'.$penghuni->alamat_ortu.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>No. Telp/HP Orang Tua</label></td>
+                        <td width="70%">'.$penghuni->no_ortu.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Kategori</label></td>
+                        <td width="70%">'.$penghuni->kategori.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Tanggal Huni</label></td>
+                        <td width="70%">'.$penghuni->tgl_masuk.' s/d '.$penghuni->tgl_keluar.'</td>
+                    </tr>
+                    <tr>
+                        <td width="30%"><label>Masa Huni</label></td>
+                        <td width="70%">'.$penghuni->masa_huni.'</td>
                     </tr>
                 </table>
             </div>
