@@ -118,6 +118,7 @@ class CI_Exceptions {
 	 */
 	public function show_404($page = '', $log_error = TRUE)
 	{
+		redirect('error404');
 		if (is_cli())
 		{
 			$heading = 'Not Found';
