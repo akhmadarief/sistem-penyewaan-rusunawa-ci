@@ -31,8 +31,8 @@
                                     <td class="text-center"><?php echo $penghuni->nama ?></td>
                                     <td class="text-center"><?php echo $penghuni->nim ?></td>
                                     <td class="text-center"><?php echo $penghuni->no ?></td>
-                                    <td class="text-center"><?php echo $penghuni->alamat ?></td>
                                     <td class="text-center"><?php echo $penghuni->nama_ortu ?></td>
+                                    <td class="text-center"><?php echo $penghuni->no_ortu ?></td>
                                     <td class="text-center"><?php echo $penghuni->no_ortu ?></td>
                                     </td>
                                 </tr>
