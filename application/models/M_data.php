@@ -100,15 +100,13 @@ class M_data extends CI_Model {
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    function jumlah_penghuni_gedung_A_terisi1(){
-        return $this->db->get_where('kamar', array('gedung' => 'A', 'status' => 'terisi1'))->num_rows();
-    }
-
-    function jumlah_penghuni_gedung_A_terisi2(){
-        return $this->db->get_where('kamar', array('gedung' => 'A', 'status' => 'terisi2'))->num_rows();
-    }
-
-    function jumlah_penghuni_gedung_A_sendiri(){
-        return $this->db->get_where('kamar', array('gedung' => 'A', 'status' => 'sendiri'))->num_rows();
+    function jumlah_penghuni_gedung($param){
+        return $dataisi = 
+            array(
+                    "terisi1"=>$this->db->get_where('kamar', array('gedung' => $param, 'status' => 'terisi1'))->num_rows(), 
+                    "terisi2"=>$this->db->get_where('kamar', array('gedung' => $param, 'status' => 'terisi2'))->num_rows(),
+                    "sendiri"=>$this->db->get_where('kamar', array('gedung' => $param, 'status' => 'sendiri'))->num_rows()
+                    );
+    
     }
 }
