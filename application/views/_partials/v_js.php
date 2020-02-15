@@ -73,6 +73,88 @@
                 }
             });
         });
+        $(document).on("click", ".swal-penghuni", function(){                
+            var id_penghuni = $(this).attr("id");
+            $.ajax({
+                url: "<?php echo base_url('aksi/detail_penghuni') ?>",
+                method: "POST",
+                data: {id_penghuni: id_penghuni},
+                dataType: "json",
+                cache: false,
+                success: function(data){
+                    Swal.fire({
+                        html: `<div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td width="30%"><label>No. Kamar</label></td>
+                                            <td width="70%">`+ data.no_kamar +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Nama</label></td>
+                                            <td width="70%">`+ data.nama +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>NIM</label></td>
+                                            <td width="70%">`+ data.nim +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Prodi</label></td>
+                                            <td width="70%">`+ data.prodi +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Tempat Lahir</label></td>
+                                            <td width="70%">`+ data.tempat_lahir +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Tanggal Lahir</label></td>
+                                            <td width="70%">`+ data.tgl_lahir +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Agama</label></td>
+                                            <td width="70%">`+ data.agama +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Alamat Asal</label></td>
+                                            <td width="70%">`+ data.alamat +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>No. Telp/HP</label></td>
+                                            <td width="70%">`+ data.no +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Nama Orang Tua</label></td>
+                                            <td width="70%">`+ data.nama_ortu +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Pekerjaan Orang Tua</label></td>
+                                            <td width="70%">`+ data.pekerjaan_ortu +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Alamat Orang Tua</label></td>
+                                            <td width="70%">`+ data.alamat_ortu +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>No. Telp/HP Orang Tua</label></td>
+                                            <td width="70%">`+ data.no_ortu +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Kategori</label></td>
+                                            <td width="70%">`+ data.kategori +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Tanggal Huni</label></td>
+                                            <td width="70%">`+ data.tgl_masuk +` s/d `+ data.tgl_keluar +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Masa Huni</label></td>
+                                            <td width="70%">`+ data.masa_huni +`</td>
+                                        </tr>
+                                    </table>
+                                </div>`
+                    });
+                }
+            });
+        });
     </script>
     <script type="text/javascript">
         //tambah/edit penghuni

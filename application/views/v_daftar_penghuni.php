@@ -34,6 +34,9 @@
                                         <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>">
                                             <span class="fa fa-info-circle"></span>
                                         </a>
+                                        <a class="btn btn-sm btn-success active swal-penghuni" id="<?php echo $penghuni->id ?>">
+                                            <span class="fa fa-info-circle"></span>
+                                        </a>
                                         <a class="btn btn-sm btn-info active" href="<?php echo base_url('admin/edit_penghuni/'.$penghuni->id) ?>">
                                             <span class="fa fa-pencil"></span>
                                         </a>
