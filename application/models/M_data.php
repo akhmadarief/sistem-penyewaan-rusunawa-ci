@@ -99,4 +99,16 @@ class M_data extends CI_Model {
         $this->db->delete('penghuni', array('id' => $id));
         return ($this->db->affected_rows() > 0) ? true : false;
     }
+
+    function jumlah_penghuni_gedung_A_terisi1(){
+        return $this->db->get_where('kamar', array('gedung' => 'A', 'status' => 'terisi1'))->num_rows();
+    }
+
+    function jumlah_penghuni_gedung_A_terisi2(){
+        return $this->db->get_where('kamar', array('gedung' => 'A', 'status' => 'terisi2'))->num_rows();
+    }
+
+    function jumlah_penghuni_gedung_A_sendiri(){
+        return $this->db->get_where('kamar', array('gedung' => 'A', 'status' => 'sendiri'))->num_rows();
+    }
 }

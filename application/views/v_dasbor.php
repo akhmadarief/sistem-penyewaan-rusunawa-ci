@@ -486,10 +486,10 @@
                         <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
                             <div class="ibox-body">
                                 <h4 class="m-b-5 font-strong">Gedung A</h4>
-                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: 000 Kamar</div><i class="widget-stat-icon"><img src="<?php echo base_url("assets/img/A.png"); ?>"/></i>
-                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: 000 Kamar</div>
-                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: 000 Kamar</div>
-                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 000 Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">1 Penghuni </label>: <?php echo $jumlah_penghuni_gedung_A_terisi1 ?> Kamar</div><i class="widget-stat-icon"><img src="<?php echo base_url("assets/img/A.png"); ?>"/></i>
+                                <div class="m-b-5"><label class="sum-gedung">2 Penghuni </label>: <?php echo $jumlah_penghuni_gedung_A_terisi2 ?> Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: <?php echo $jumlah_penghuni_gedung_A_sendiri ?> Kamar</div>
+                                <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 84 Kamar</div>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,9 @@ class Admin extends CI_Controller {
     }
 
     function index(){
+        $data['jumlah_penghuni_gedung_A_terisi1'] = $this->m_data->jumlah_penghuni_gedung_A_terisi1();
+        $data['jumlah_penghuni_gedung_A_terisi2'] = $this->m_data->jumlah_penghuni_gedung_A_terisi2();
+        $data['jumlah_penghuni_gedung_A_sendiri'] = $this->m_data->jumlah_penghuni_gedung_A_sendiri();
         $data['judul_halaman'] = 'Dasbor';
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -25,6 +28,9 @@ class Admin extends CI_Controller {
     }
 
     function dasbor(){
+        $data['jumlah_penghuni_gedung_A_terisi1'] = $this->m_data->jumlah_penghuni_gedung_A_terisi1();
+        $data['jumlah_penghuni_gedung_A_terisi2'] = $this->m_data->jumlah_penghuni_gedung_A_terisi2();
+        $data['jumlah_penghuni_gedung_A_sendiri'] = $this->m_data->jumlah_penghuni_gedung_A_sendiri();
         $data['judul_halaman'] = 'Dasbor';
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
