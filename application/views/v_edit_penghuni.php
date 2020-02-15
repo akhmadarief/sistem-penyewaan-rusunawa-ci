@@ -8,6 +8,19 @@
                         </div>
                     </div>
                     <div class="ibox-body">
+                        <div class="col-sm-6" style="padding: 0 0 14px 715px;">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-outline-info active"><i class="fa fa-check active-visible"></i> Edit Data (Typo)
+                                    <input type="radio">
+                                </label>
+                                <label class="btn btn-outline-info"><i class="fa fa-check active-visible"></i> Transaksi
+                                    <input type="radio">
+                                </label>
+                                <label class="btn btn-outline-info"><i class="fa fa-check active-visible"></i> Pindah Kamar
+                                    <input type="radio">
+                                </label>
+                            </div>
+                        </div>
                         <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
                             <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
                             <div class="form-group row">

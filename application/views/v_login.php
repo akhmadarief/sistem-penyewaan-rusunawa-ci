@@ -14,50 +14,44 @@
     <link href="assets/css/main.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
     <link href="./assets/css/pages/auth-light.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" />
 </head>
 
 <body class="bg-silver-300">
-    <div class="content">
-        <div class="brand">
-            <a class="link" href="./">Rusunawa Undip</a>
-        </div>
-        <form id="login-form" action="<?php echo base_url('login/aksi_login') ?>" method="post">
-            <h2 class="login-title">Administrator Login</h2>
-            <div class="form-group">
-                <div class="input-group-icon right">
-                    <div class="input-icon"><i class="fa fa-user"></i></div>
-                    <input class="form-control" type="text" name="username" placeholder="Username" autocomplete="off">
+    <div class="bg-imagee"></div>
+    <div class="content login-parent">
+            <form id="login-form" action="<?php echo base_url('login/aksi_login') ?>" method="post">
+                <div class="login-title">
+                    <img src="<?php echo base_url('assets/img/undip/logo-icon.png') ?>" alt="Universitas Diponegoro" style="width: 120px; vertical-align: middle;">
+                    <h2 class="login-title1">Rusunawa</h2>
+                    <h2 class="login-title2">Universitas Diponegoro</h2>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group-icon right">
-                    <div class="input-icon"><i class="fa fa-lock font-16"></i></div>
-                    <input class="form-control" type="password" name="password" placeholder="Password">
+                <div class="social-auth-hr">
+                    <span>Silakan Masuk</span>
                 </div>
-            </div>
-            <div class="form-group d-flex justify-content-between">
-                <label class="ui-checkbox ui-checkbox-info">
-                    <input type="checkbox">
-                    <span class="input-span"></span>Remember me</label>
-                <a href="forgot_password.html">Forgot password?</a>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-info btn-block" type="submit">Login</button>
-            </div>
-            <div class="social-auth-hr">
-                <span>Or login with</span>
-            </div>
-            <div class="text-center social-auth m-b-20">
-                <a class="btn btn-social-icon btn-twitter m-r-5" href="javascript:;"><i class="fa fa-twitter"></i></a>
-                <a class="btn btn-social-icon btn-facebook m-r-5" href="javascript:;"><i class="fa fa-facebook"></i></a>
-                <a class="btn btn-social-icon btn-google m-r-5" href="javascript:;"><i class="fa fa-google-plus"></i></a>
-                <a class="btn btn-social-icon btn-linkedin m-r-5" href="javascript:;"><i class="fa fa-linkedin"></i></a>
-                <a class="btn btn-social-icon btn-vk" href="javascript:;"><i class="fa fa-vk"></i></a>
-            </div>
-            <div class="text-center">Not a member?
-                <a class="color-blue" href="register.html">Create accaunt</a>
-            </div>
-        </form>
+                <div class="form-group">
+                    <div class="input-group-icon right">
+                        <div class="input-icon"><i class="fa fa-user"></i></div>
+                        <input class="form-control" type="text" name="username" placeholder="Username" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-icon right">
+                        <div class="input-icon"><i class="fa fa-lock font-16"></i></div>
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group d-flex justify-content-between">
+                    <label class="ui-checkbox ui-checkbox-info">
+                        <input type="checkbox">
+                        <span class="input-span"></span>Remember me</label>
+                    <a href="forgot_password.html">Forgot password?</a>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info btn-block" type="submit">Login</button>
+                </div>
+            </form>
     </div>
     <!-- BEGIN PAGA BACKDROPS-->
     <div class="sidenav-backdrop backdrop"></div>
