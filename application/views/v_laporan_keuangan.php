@@ -3,6 +3,9 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Laporan Keuangan<?php //echo $halaman ?></div>
+                        <a href="#" class="btn btn-success btn-lg">
+                          <span class="glyphicon glyphicon-print"></span> Print
+                        </a>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">
