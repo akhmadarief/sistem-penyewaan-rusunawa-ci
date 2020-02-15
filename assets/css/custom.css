@@ -121,8 +121,9 @@
 /*EDIT PENGHUNI*/
   .btn-edit-penghuni{
     margin-bottom: 1rem;
-    margin-left: auto;
-    margin-right: 0;
+    display: flex;
+    justify-content: flex-end;
+
   }  
 
   .foto-awal {
