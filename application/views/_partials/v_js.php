@@ -262,6 +262,26 @@
                 $("#piutang").val(piutang);
             });
         });
+        $(document).ready(function(){
+            $("div.edit-data").show();
+            $("div.transaksi").hide();
+            $("div.pindah-kamar").hide();
+            $(".btn-edit").click(function() {
+                $("div.edit-data").show();
+                $("div.transaksi").hide();
+                $("div.pindah-kamar").hide();
+            });
+            $(".btn-trans").click(function() {
+                $("div.edit-data").hide();
+                $("div.transaksi").show();
+                $("div.pindah-kamar").hide();
+            });
+            $(".btn-pindah").click(function() {
+                $("div.edit-data").hide();
+                $("div.transaksi").hide();
+                $("div.pindah-kamar").show();
+            });
+        });
     </script>
     <script type="text/javascript">
         //pilih kamar

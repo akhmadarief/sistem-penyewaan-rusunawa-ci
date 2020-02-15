@@ -84,6 +84,7 @@
     vertical-align: middle;
   }
 
+/*LOGIN*/
   .bg-imagee{
     background-image: url('https://sso.undip.ac.id/assets/app/images/bg-undip-besar.jpg');
     opacity: 0.3; 
@@ -116,6 +117,13 @@
     text-align: center;
     margin-bottom: 10px;
   }
+
+/*EDIT PENGHUNI*/
+  .btn-edit-penghuni{
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: 0;
+  }  
 
   .foto-awal {
     opacity: 0.5;
