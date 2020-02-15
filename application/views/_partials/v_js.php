@@ -61,19 +61,7 @@
                 });
             });
         });
-        $(document).on("click", ".detail-penghuni", function(){
-            var id_penghuni = $(this).attr("id");
-            $.ajax({
-                url: "<?php echo base_url('aksi/detail_penghuni') ?>",
-                method: "POST",
-                data: {id_penghuni: id_penghuni},
-                success: function(data){
-                    $('#detail_penghuni').html(data);
-                    $('#dataModal').modal('show');
-                }
-            });
-        });
-        $(document).on("click", ".swal-penghuni", function(){                
+        $(document).on("click", ".detail-penghuni", function(){                
             var id_penghuni = $(this).attr("id");
             $.ajax({
                 url: "<?php echo base_url('aksi/detail_penghuni') ?>",
