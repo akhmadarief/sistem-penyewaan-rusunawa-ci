@@ -4,9 +4,7 @@
                     <div class="ibox-head">
                         <div class="ibox-title">Laporan Keuangan<?php //echo $halaman ?></div>
                         <div class="button-print">
-                          <a href="#" class="btn btn-success btn-lg">
-                            <span class="glyphicon glyphicon-print"></span> Print
-                          </a>
+                          <button class="btn btn-success fa fa-print"> PRINT</button>
                         </div>
                     </div>
                     <div class="ibox-body">
