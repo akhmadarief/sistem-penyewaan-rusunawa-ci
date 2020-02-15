@@ -6,7 +6,7 @@
                           <button class="btn btn-success"> PRINT
                             <i class="fa fa-print"></i>
                           </button>
-                    </div
+                    </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">
                             <thead>

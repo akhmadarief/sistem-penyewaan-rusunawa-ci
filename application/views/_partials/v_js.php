@@ -143,6 +143,43 @@
                 }
             });
         });
+        $(document).on("click", ".riwayat-bayar", function(){                
+            var id_penghuni = $(this).attr("id");
+            $.ajax({
+                url: "<?php echo base_url('aksi/detail_penghuni') ?>",
+                method: "POST",
+                data: {id_penghuni: id_penghuni},
+                dataType: "json",
+                cache: false,
+                success: function(data){
+                    Swal.fire({
+                        width: 1200,
+                        html: `<div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td width="10%"><label>Masa Huni</label></td>
+                                            <td width="10%"><label>Total Biaya</label></td>
+                                            <td width="5%"><label>Agu</label></td>
+                                            <td width="5%"><label>Sep</label></td>
+                                            <td width="5%"><label>Okt</label></td>
+                                            <td width="5%"><label>Nov</label></td>
+                                            <td width="5%"><label>Des</label></td>
+                                            <td width="5%"><label>Jan</label></td>
+                                            <td width="5%"><label>Feb</label></td>
+                                            <td width="5%"><label>Mar</label></td>
+                                            <td width="5%"><label>Apr</label></td>
+                                            <td width="5%"><label>Mei</label></td>
+                                            <td width="5%"><label>Jun</label></td>
+                                            <td width="5%"><label>Jul</label></td>
+                                            <td width="10%"><label>Total Bayar</label></td>
+                                            <td width="10%"><label>Piutang</label></td>
+                                        </tr>
+                                    </table>
+                                </div>`
+                    });
+                }
+            });
+        });
     </script>
     <script type="text/javascript">
         //tambah/edit penghuni

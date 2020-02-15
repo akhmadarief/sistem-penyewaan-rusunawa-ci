@@ -11,7 +11,6 @@
                                     <th class="text-center" style="width: 24.5px">No.</th>
                                     <th class="text-center">No. Kamar</th>
                                     <th class="text-center">Nama</th>
-                                    <th class="text-center">NIM</th>
                                     <th class="text-center">No. HP</th>
                                     <th class="text-center">Alamat Asal</th>
                                     <th class="text-center">Nama Ortu</th>
@@ -25,13 +24,15 @@
                                     <td class="text-center"><?php echo $no++ ?></td>
                                     <td class="text-center"><?php echo $penghuni->no_kamar ?></td>
                                     <td class="text-center"><?php echo $penghuni->nama ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nim ?></td>
                                     <td class="text-center"><?php echo $penghuni->no ?></td>
                                     <td class="text-center"><?php echo $penghuni->alamat ?></td>
                                     <td class="text-center"><?php echo $penghuni->nama_ortu ?></td>
                                     <td class="text-center"><?php echo $penghuni->no_ortu ?></td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>">
+                                            <span class="fa fa-info-circle"></span>
+                                        </a>
+                                        <a class="btn btn-sm btn-success active riwayat-bayar" id="<?php echo $penghuni->id ?>">
                                             <span class="fa fa-info-circle"></span>
                                         </a>
                                         <a class="btn btn-sm btn-info active" href="<?php echo base_url('admin/edit_penghuni/'.$penghuni->id) ?>">
