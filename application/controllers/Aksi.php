@@ -110,6 +110,7 @@ class Aksi extends CI_Controller {
 
             //redirect('admin/pilih_kamar');
             echo 'berhasil disimpan gan';
+            //redirect('admin/pilih_kamar');
         }
         else {
             echo 'gagal disimpan gan :(';
@@ -161,6 +162,7 @@ class Aksi extends CI_Controller {
         if ($this->m_data->update_penghuni($id, $data) == true){
             //redirect('admin/daftar_penghuni');
             echo 'berhasil diupdate gan';
+            redirect('admin/daftar_penghuni');
         }
         else {
             echo 'gagal gan :(';
