@@ -120,6 +120,7 @@ class Aksi extends CI_Controller {
     function aksi_edit_penghuni(){
         $id             = $this->input->post('id');
         $no_kamar       = $this->input->post('no_kamar');
+        //echo $no_kamar; exit;
         $isi_kamar      = $this->input->post('isi_kamar');
         $nama           = $this->input->post('nama');
         $nim            = $this->input->post('nim');
@@ -137,7 +138,12 @@ class Aksi extends CI_Controller {
         $tgl_masuk      = $this->input->post('tgl_masuk');
         $tgl_keluar     = $this->input->post('tgl_keluar');
         $kategori       = $this->input->post('kategori');
+        $biaya          = $this->input->post('biaya'); //belum dipakai
+        $bayar          = $this->input->post('bayar');
+        $piutang        = $this->input->post('piutang'); //belum dipakai
         $pilihan        = $this->input->post('pilihan1');
+        
+
 
         $data = array(
             'no_kamar'      => $no_kamar,
@@ -159,20 +165,43 @@ class Aksi extends CI_Controller {
             'tgl_keluar'    => $tgl_keluar,
             'kategori'      => $kategori
         );
-//ini baru
+
         $data_pembayaran = array(
             'nim'           => $nim,
-            'tgl_bayar'     => $tgl_masuk,
+            'tgl_bayar'     => date("d-m-Y"),
             'bayar'         => $bayar
         );
 
-        if ($pilihan=='transaksi')
-        {
-            $data_pembayaran=$tgl_bayar = date("d-m-Y");
+        $data_pindah_kamar = array(
+            'no_kamar'      => $nim
+        );
+
+        switch ($pilihan) {
+            case "typo":
+                $this->m_data->update_penghuni($id, $data);
+                redirect('admin/daftar_penghuni');
+                //echo $this->db->last_query();
+                //exit;
+            break;
+
+            case "transaksi":
+                $this->m_data->update_penghuni($id, $data);
+                $this->m_data->insert_pembayaran($data_pembayaran);
+                redirect('admin/daftar_penghuni');
+            break;
+
+            case "pk":              
+                $this->m_data->update_penghuni($id, $data_pindah_kamar);
+                redirect('admin/daftar_penghuni');
+            break;
+            default:
+            echo "error gan :/";exit;
+        break;
         }
 
-        $this->m_data->update_penghuni($id, $data);
-        $this->m_data->insert_pembayaran($data_pembayaran);
+        
+//ini baru
+        //$this->m_data->update_penghuni($id, $data);
 
 //sampai sini
 
