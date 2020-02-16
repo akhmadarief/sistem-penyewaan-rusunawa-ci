@@ -263,27 +263,53 @@
             });
         });
         $(document).ready(function(){
-            $("div.edit-data").show();
-            $("div.transaksi").hide();
-            $("div.pindah-kamar").hide();
-            $("input:radio[name='pilihan']:checked").val("typo")
             $(".btn-edit").click(function() {
-                $("input:radio[name='pilihan']:checked").val("typo");
-                $("div.edit-data").show();
-                $("div.transaksi").hide();
-                $("div.pindah-kamar").hide();
+                $("#pilihan1").val("typo");
+                $("div#fakultasf").show();
+                $("div#prodif").show();
+                $("div#tempat_lahirf").show();
+                $("div#tgl_lahir").show();
+                $("div#agamaf").show();
+                $("div#agama_lainnya").show();
+                $("div#alamatf").show();
+                $("div#nof").show();
+                $("div#nama_ortuf").show();
+                $("div#pekerjaan_ortuf").show();
+                $("div#alamat_ortuf").show();
+                $("div#no_ortuf").show();
+                $("div#kategorif").show();
             });
             $(".btn-trans").click(function() {
-                $("input:radio[name='pilihan']:checked").val("transaksi");
-                $("div.edit-data").hide();
-                $("div.transaksi").show();
-                $("div.pindah-kamar").hide();
+                $("#pilihan1").val("transaksi");
+                $("div#fakultasf").show();
+                $("div#prodif").show();
+                $("div#tempat_lahirf").show();
+                $("div#tgl_lahir").show();
+                $("div#agamaf").show();
+                $("div#agama_lainnya").show();
+                $("div#alamatf").show();
+                $("div#nof").show();
+                $("div#nama_ortuf").show();
+                $("div#pekerjaan_ortuf").show();
+                $("div#alamat_ortuf").show();
+                $("div#no_ortuf").show();
+                $("div#kategorif").show();
             });
             $(".btn-pindah").click(function() {
-                $("input:radio[name='pilihan']:checked").val("pk");
-                $("div.edit-data").hide();
-                $("div.transaksi").hide();
-                $("div.pindah-kamar").show();
+                $("#pilihan1").val("pk");
+                $("div#fakultasf").hide();
+                $("div#prodif").hide();
+                $("div#tempat_lahirf").hide();
+                $("div#tgl_lahir").hide();
+                $("div#agamaf").hide();
+                $("div#agama_lainnya").hide();
+                $("div#alamatf").hide();
+                $("div#nof").hide();
+                $("div#nama_ortuf").hide();
+                $("div#pekerjaan_ortuf").hide();
+                $("div#alamat_ortuf").hide();
+                $("div#no_ortuf").hide();
+                $("div#kategorif").hide();
             });
         });
     </script>
