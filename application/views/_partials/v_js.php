@@ -266,17 +266,21 @@
             $("div.edit-data").show();
             $("div.transaksi").hide();
             $("div.pindah-kamar").hide();
+            $("input:radio[name='pilihan']:checked").val("typo")
             $(".btn-edit").click(function() {
+                $("input:radio[name='pilihan']:checked").val("typo");
                 $("div.edit-data").show();
                 $("div.transaksi").hide();
                 $("div.pindah-kamar").hide();
             });
             $(".btn-trans").click(function() {
+                $("input:radio[name='pilihan']:checked").val("transaksi");
                 $("div.edit-data").hide();
                 $("div.transaksi").show();
                 $("div.pindah-kamar").hide();
             });
             $(".btn-pindah").click(function() {
+                $("input:radio[name='pilihan']:checked").val("pk");
                 $("div.edit-data").hide();
                 $("div.transaksi").hide();
                 $("div.pindah-kamar").show();

@@ -11,18 +11,19 @@
                         <div class="btn-edit-penghuni">
                             <div class="btn-group" data-toggle="buttons">
                                 <button class="btn btn-outline-info btn-edit active"><i class="fa fa-check active-visible"></i> Edit Data (Typo)
-                                    <input type="radio">
+                                    <input type="radio" name="pilihan" value="typo">
                                 </button>
                                 <button class="btn btn-outline-info btn-trans"><i class="fa fa-check active-visible"></i> Transaksi
-                                    <input type="radio">
+                                    <input type="radio" name="pilihan" value="transaksi">
                                 </button>
                                 <button class="btn btn-outline-info btn-pindah"><i class="fa fa-check active-visible"></i> Pindah Kamar
-                                    <input type="radio">
+                                    <input type="radio" name="pilihan" value="pk">
                                 </button>
                             </div>
                         </div>
                         <div class="edit-data">
                             <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
+                                <input type="hidden" name="pilihan1" id="pilihan1" value="typo">
                                 <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
@@ -200,6 +201,7 @@
                         </div>
                         <div class="transaksi">
                             <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
+                                <input type="hidden" name="pilihan1" id="pilihan1" value="transaksi">
                                 <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
@@ -377,6 +379,7 @@
                         </div>
                         <div class="pindah-kamar">
                             <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
+                                <input type="hidden" name="pilihan1" id="pilihan1" value="pk">
                                 <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
