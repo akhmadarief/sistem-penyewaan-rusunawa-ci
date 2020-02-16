@@ -52,11 +52,6 @@
                             <span class="nav-label">Laporan Piutang</span>
                         </a>
                     </li>
-                    <li>
-                        <a <?php if ($judul_halaman == 'Kosong') echo 'class="active"' ?>href="<?php echo base_url('admin/kosong') ?>"><i class="sidebar-item-icon fa fa-th-large"></i>
-                            <span class="nav-label">Kosong</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>
