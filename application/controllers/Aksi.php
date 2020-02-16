@@ -138,7 +138,6 @@ class Aksi extends CI_Controller {
         $tgl_keluar     = $this->input->post('tgl_keluar');
         $kategori       = $this->input->post('kategori');
         $pilihan        = $this->input->post('pilihan1');
-        echo $pilihan; exit;
 
         $data = array(
             'no_kamar'      => $no_kamar,
