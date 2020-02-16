@@ -158,15 +158,32 @@ class Aksi extends CI_Controller {
             'tgl_keluar'    => $tgl_keluar,
             'kategori'      => $kategori
         );
+//ini baru
+        $data_pembayaran = array(
+            'nim'           => $nim,
+            'tgl_bayar'     => $tgl_masuk,
+            'bayar'         => $bayar
+        );
 
-        if ($this->m_data->update_penghuni($id, $data) == true){
-            //redirect('admin/daftar_penghuni');
-            echo 'berhasil diupdate gan';
-            redirect('admin/daftar_penghuni');
+        if ($pilihan=='transaksi')
+        {
+            $data_pembayaran=>$tgl_bayar = date("d-m-Y");
         }
-        else {
-            echo 'gagal gan :(';
-        }
+
+        $this->m_data->update_penghuni($id, $data);
+        $this->m_data->insert_pembayaran($data_pembayaran);
+
+//sampai sini
+
+
+        // if ($this->m_data->update_penghuni($id, $data) == true){
+        //     //redirect('admin/daftar_penghuni');
+        //     echo 'berhasil diupdate gan';
+        //     redirect('admin/daftar_penghuni');
+        // }
+        // else {
+        //     echo 'gagal gan :(';
+        // }
     }
 
     function aksi_hapus_penghuni($id = null){
