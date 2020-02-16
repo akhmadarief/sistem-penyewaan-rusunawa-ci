@@ -24,6 +24,10 @@ class M_data extends CI_Model {
         return $this->db->get('kamar');
     }
 
+    function data_kamar_tersedia(){
+        return $this->db->get_where('kamar', array('status' => 'kosong'));
+    }
+
     function data_harga_kamar(){
         return $this->db->get('harga');
     }

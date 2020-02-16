@@ -10,7 +10,7 @@
                     <div class="ibox-body">
                         <div class="btn-edit-penghuni">
                             <div class="btn-group" data-toggle="buttons">
-                                <button class="btn btn-outline-info btn-edit active"><i class="fa fa-check active-visible"></i> Edit Data (Typo)
+                                <button class="btn btn-outline-info btn-edit active"><i class="fa fa-check active-visible"></i> Data Diri Penghuni
                                     <input type="radio" name="pilihan" value="typo">
                                 </button>
                                 <button class="btn btn-outline-info btn-trans"><i class="fa fa-check active-visible"></i> Transaksi
@@ -27,7 +27,18 @@
                                 <div class="form-group row" id="no_kamf">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="no_kamar" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" disabled>
+                                        <input class="form-control" type="text" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group row" id="no_kamf_baru">
+                                    <label class="col-sm-3 col-form-label">No. Kamar Baru</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control select2_kamar" name="no_kamar" id="no_kamar" required>
+                                            <option></option>
+                                            <?php foreach ($kamar as $kamar){ ?>
+                                            <option value="<?php echo $kamar->no_kamar ?>" <?php if ($kamar->no_kamar == $penghuni->no_kamar) echo 'selected' ?>><?php echo $kamar->no_kamar ?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="isi_kamf">

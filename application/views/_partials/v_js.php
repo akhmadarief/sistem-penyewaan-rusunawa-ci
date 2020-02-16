@@ -185,6 +185,10 @@
         //tambah/edit penghuni
         $(document).ready(function(){
             // Select 2
+            $(".select2_kamar").select2({
+                placeholder: "Pilih Kamar Baru",
+                allowClear: true
+            });
             $(".select2_fakultas").select2({
                 placeholder: "Pilih Fakultas",
                 allowClear: true
@@ -277,7 +281,8 @@
                 $("div#alamat_ortuf").show();
                 $("div#no_ortuf").show();
                 $("div#kategorif").show();
-            });
+                $("div#no_kamf_baru").hide();
+            }).trigger("click");;
             $(".btn-trans").click(function() {
                 $("#pilihan1").val("transaksi");
                 $("div#fakultasf").show();
@@ -292,6 +297,7 @@
                 $("div#alamat_ortuf").show();
                 $("div#no_ortuf").show();
                 $("div#kategorif").show();
+                $("div#no_kamf_baru").hide();
             });
             $(".btn-pindah").click(function() {
                 $("#pilihan1").val("pk");
@@ -307,6 +313,7 @@
                 $("div#alamat_ortuf").hide();
                 $("div#no_ortuf").hide();
                 $("div#kategorif").hide();
+                $("div#no_kamf_baru").show();
             });
         });
     </script>
