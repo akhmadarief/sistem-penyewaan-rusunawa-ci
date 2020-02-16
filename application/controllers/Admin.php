@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
         $data['c']=$this->m_data->jumlah_penghuni_gedung('C');
         $data['d']=$this->m_data->jumlah_penghuni_gedung('D');
         $data['e']=$this->m_data->jumlah_penghuni_gedung('E');
-        
+
         $data['judul_halaman'] = 'Dasbor';
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -189,6 +189,7 @@ class Admin extends CI_Controller {
     function laporan_piutang(){
         $data['judul_halaman'] = 'Laporan Piutang';
         $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $data['keuangan1'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);

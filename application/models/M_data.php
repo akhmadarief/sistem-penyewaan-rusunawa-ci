@@ -94,17 +94,23 @@ class M_data extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->update('penghuni', $data) ? true : false;
     }
-
+/*
+    function update_penghuni($id, $data){
+        $this->db->where('id', $id);
+        $this->db->update('penghuni', $data);
+        //$this->db->ins;
+        //return $this->db->update('penghuni', $data) ? true : false;
+    }
+*/
     function delete_penghuni($id){
         $this->db->delete('penghuni', array('id' => $id));
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     function jumlah_penghuni_gedung($param){
-        return $dataisi = 
-            array(
-                    "terisi1"=>$this->db->get_where('kamar', array('gedung' => $param, 'status' => 'terisi1'))->num_rows(), 
-                    "terisi2"=>$this->db->get_where('kamar', array('gedung' => $param, 'status' => 'terisi2'))->num_rows(),
+        return $dataisi = array(
+                    "terisi1"=>$this->db->get_where('kamar', "gedung = '$param' AND (status = 'terisi1' OR status = 'terisi1 piutang')")->num_rows(), 
+                    "terisi2"=>$this->db->get_where('kamar', "gedung = '$param' AND (status = 'terisi2' OR status = 'terisi2 piutang')")->num_rows(),
                     "sendiri"=>$this->db->get_where('kamar', array('gedung' => $param, 'status' => 'sendiri'))->num_rows()
                     );
     
