@@ -27,7 +27,7 @@
                                 <div class="form-group row" id="no_kamf">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="no_kamar" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" disabled>
+                                        <input class="form-control" type="text" name="no_kamar" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row" id="isi_kamf">
