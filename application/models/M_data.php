@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_data extends CI_Model {
 
     function data_penghuni(){
+        $this->db->order_by('no_kamar', 'asc');
         return $this->db->get('penghuni');
     }
 
