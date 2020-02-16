@@ -16,12 +16,25 @@
     <link href="./assets/css/pages/auth-light.css" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
     <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" />
+    <style type="text/css">
+        /* body {
+            background: url("assets/img/undip/bg-undip-besar.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        } */
+        /* body, html {
+            height: 100%;
+        } */
+    </style>
 </head>
 
 <body class="bg-silver-300">
-    <div class="bg-imagee"></div>
+    <!-- <section id="background"></section> -->
+    <!-- <div class="bg-imagee"></div> -->
     <div class="content login-parent">
-            <form id="login-form" action="<?php echo base_url('login/aksi_login') ?>" method="post">
+        <form id="login-form" action="<?php echo base_url('login/aksi_login') ?>" method="post">
                 <div class="login-title">
                     <img src="<?php echo base_url('assets/img/undip/logo-icon.png') ?>" alt="Universitas Diponegoro" style="width: 120px; vertical-align: middle;">
                     <h2 class="login-title1">Rusunawa</h2>
@@ -51,7 +64,7 @@
                 <div class="form-group">
                     <button class="btn btn-info btn-block" type="submit">Login</button>
                 </div>
-            </form>
+        </form>
     </div>
     <!-- BEGIN PAGA BACKDROPS-->
     <div class="sidenav-backdrop backdrop"></div>
