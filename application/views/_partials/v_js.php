@@ -270,7 +270,6 @@
                 $("div#tempat_lahirf").show();
                 $("div#tgl_lahir").show();
                 $("div#agamaf").show();
-                $("div#agama_lainnya").show();
                 $("div#alamatf").show();
                 $("div#nof").show();
                 $("div#nama_ortuf").show();
@@ -286,7 +285,6 @@
                 $("div#tempat_lahirf").show();
                 $("div#tgl_lahir").show();
                 $("div#agamaf").show();
-                $("div#agama_lainnya").show();
                 $("div#alamatf").show();
                 $("div#nof").show();
                 $("div#nama_ortuf").show();
@@ -302,7 +300,6 @@
                 $("div#tempat_lahirf").hide();
                 $("div#tgl_lahir").hide();
                 $("div#agamaf").hide();
-                $("div#agama_lainnya").hide();
                 $("div#alamatf").hide();
                 $("div#nof").hide();
                 $("div#nama_ortuf").hide();
