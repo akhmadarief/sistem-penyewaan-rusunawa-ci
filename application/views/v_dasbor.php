@@ -14,15 +14,14 @@
 
         </div>
         <div class="st">
-        
-        <img src="<?php echo base_url('assets/img/a.jpg')  ?>" class="foto-awal">
+          <img src="<?php echo base_url('assets/img/a.jpg')  ?>" class="foto-awal">
         <div class="tulisan-foto-dalam">Sistem Penyewaan Rusunawa UNDIP</div>
         <div class="foto-doni">
         <img src="<?php echo base_url('assets/img/b.jpg')  ?>">
         </div>
         </div>
-        
-       
+
+
                 <div class="statichehe">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
@@ -80,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <style>
                     .visitors-table tbody tr td:last-child {
@@ -100,7 +99,7 @@
             </div>
             </div>
 
-            
+
             <!-- END PAGE CONTENT-->
             <?php //$this->load->view('_partials/footer.php') ?>
     <!-- BEGIN THEME CONFIG PANEL-->

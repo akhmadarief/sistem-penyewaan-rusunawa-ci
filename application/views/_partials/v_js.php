@@ -61,7 +61,7 @@
                 });
             });
         });
-        $(document).on("click", ".detail-penghuni", function(){                
+        $(document).on("click", ".detail-penghuni", function(){
             var id_penghuni = $(this).attr("id");
             $.ajax({
                 url: "<?php echo base_url('aksi/detail_penghuni') ?>",
@@ -143,7 +143,7 @@
                 }
             });
         });
-        $(document).on("click", ".riwayat-bayar", function(){                
+        $(document).on("click", ".riwayat-bayar", function(){
             var id_penghuni = $(this).attr("id");
             $.ajax({
                 url: "<?php echo base_url('aksi/detail_penghuni') ?>",
