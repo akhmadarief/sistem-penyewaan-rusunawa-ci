@@ -50,8 +50,16 @@ form#login-form{
 
 /*SUMMARY GEDUNG*/
 .sum-gedung{
-  width: 150px;
+  width: 115px;
   margin-bottom: 0;
+}
+
+.icon-gedung{
+  width: 16%;
+}
+
+.widget-stat .sum-kamar{
+  padding: 12px 12px;
 }
 
 /*LEGENDA*/
