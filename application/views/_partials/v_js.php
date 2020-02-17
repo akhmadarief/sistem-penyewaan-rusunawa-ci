@@ -275,7 +275,7 @@
             $(".btn-trans").click(function() {
                 $("#pilihan1").val("transaksi");
                 $("div.transaksi").show();
-                $("div.pk").hide();
+                $("div.pk").show();
             });
             $(".btn-pindah").click(function() {
                 $("#pilihan1").val("pk");
