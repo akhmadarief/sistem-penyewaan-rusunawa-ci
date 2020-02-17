@@ -31,7 +31,7 @@
           </div>
           <br>
 
-          <div style="text-align:center">
+        <div style="text-align:center">
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
