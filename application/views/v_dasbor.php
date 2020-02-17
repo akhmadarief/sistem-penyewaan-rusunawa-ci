@@ -14,11 +14,28 @@
 
         </div>
         <div class="st">
-          <img src="<?php echo base_url('assets/img/a.jpg')  ?>" class="foto-awal">
-        <div class="tulisan-foto-dalam">Sistem Penyewaan Rusunawa UNDIP</div>
-        <div class="foto-doni">
-        <img src="<?php echo base_url('assets/img/b.jpg')  ?>">
-        </div>
+          <div class="slideshow-container">
+
+          <div class="mySlides fade">
+            <img src="<?php echo base_url('assets/img/a.jpg')  ?>" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <img src="<?php echo base_url('assets/img/rusunawa01.jpg')  ?>" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <img src="<?php echo base_url('assets/img/rusunawa02.jpg')  ?>" style="width:100%">
+          </div>
+
+          </div>
+          <br>
+
+          <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
         </div>
 
 
