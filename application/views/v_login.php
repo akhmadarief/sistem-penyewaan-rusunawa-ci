@@ -7,32 +7,19 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>Login | Sistem Penyewaan Rusunawa</title>
     <!-- GLOBAL MAINLY STYLES-->
-    <link href="./assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="./assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/vendors/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/vendors/themify-icons/css/themify-icons.css') ?>" rel="stylesheet" />
     <!-- THEME STYLES-->
-    <link href="assets/css/main.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/main.css') ?>" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
-    <link href="./assets/css/pages/auth-light.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/pages/auth-light.css') ?>" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
     <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" />
-    <style type="text/css">
-        /* body {
-            background: url("assets/img/undip/bg-undip-besar.jpg") no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        } */
-        /* body, html {
-            height: 100%;
-        } */
-    </style>
 </head>
 
-<body class="bg-silver-300">
-    <!-- <section id="background"></section> -->
-    <!-- <div class="bg-imagee"></div> -->
+<body>
+    <div class="bg-login"></div>
     <div class="content login-parent">
         <form id="login-form" action="<?php echo base_url('login/aksi_login') ?>" method="post">
                 <div class="login-title">
@@ -58,8 +45,8 @@
                 <div class="form-group d-flex justify-content-between">
                     <label class="ui-checkbox ui-checkbox-info">
                         <input type="checkbox">
-                        <span class="input-span"></span>Remember me</label>
-                    <a href="forgot_password.html">Forgot password?</a>
+                        <span class="input-span"></span>Ingat saya</label>
+                    <a href="forgot_password.html">Lupa password?</a>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-info btn-block" type="submit">Login</button>
@@ -73,13 +60,13 @@
     </div>
     <!-- END PAGA BACKDROPS-->
     <!-- CORE PLUGINS -->
-    <script src="./assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="./assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
-    <script src="./assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/jquery/dist/jquery.min.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/popper.js/dist/umd/popper.min.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/bootstrap/dist/js/bootstrap.min.js') ?>" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS -->
-    <script src="./assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/jquery-validation/dist/jquery.validate.min.js') ?>" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
-    <script src="assets/js/app.js" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/js/app-login.min.js') ?>" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
         $(function() {
