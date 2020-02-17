@@ -270,7 +270,7 @@
             $(".btn-edit").click(function() {
                 $("#pilihan1").val("typo");
                 $("div.typo").show();
-                $("div.pk").hide();
+                $("div.pk").show();
             }).trigger("click");;
             $(".btn-trans").click(function() {
                 $("#pilihan1").val("transaksi");
