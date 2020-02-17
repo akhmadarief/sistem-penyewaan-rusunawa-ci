@@ -244,12 +244,11 @@
             });
             // Agama lainnya
             $("#agama").change(function(){
-                var agama = $("#agama").val();
-                if (agama == "other"){
-                    $("#agama_lainnya").attr("style", "display: block");
+                if ($("#agama").val() == "other"){
+                    $("#agama_lainnya").show();
                 }
                 else {
-                    $("#agama_lainnya").attr("style", "display: none");
+                    $("#agama_lainnya").hide();
                 }
             });
             //harga kamar
@@ -267,21 +266,37 @@
             });
         });
         $(document).ready(function(){
-            $(".btn-edit").click(function() {
+            $(".btn-edit").click(function(){
                 $("#pilihan1").val("typo");
-                $("div.typo").show();
-                $("div.pk").show();
+                $(".typo").show();
+                $(".transaksi").hide();
+                $(".pk").hide();
+                if ($("#agama").val() == "other"){
+                    $("#agama_lainnya").show();
+                }
+                else {
+                    $("#agama_lainnya").hide();
+                }
+                $("#nama").removeAttr("disabled");
+                $("#nim").removeAttr("disabled");
             }).trigger("click");;
-            $(".btn-trans").click(function() {
+            $(".btn-trans").click(function(){
                 $("#pilihan1").val("transaksi");
-                $("div.transaksi").show();
-                $("div.pk").show();
+                $(".typo").hide();
+                $(".transaksi").show();
+                $(".pk").hide();
+                $("#agama_lainnya").hide();
+                $("#nama").attr("disabled", "disabled");
+                $("#nim").attr("disabled", "disabled");
             });
-            $(".btn-pindah").click(function() {
+            $(".btn-pindah").click(function(){
                 $("#pilihan1").val("pk");
-                $("div.typo").hide();
-                $("div.transaksi").hide();
-                $("div.pk").show();
+                $(".typo").hide();
+                $(".transaksi").hide();
+                $(".pk").show();
+                $("#agama_lainnya").hide();
+                $("#nama").attr("disabled", "disabled");
+                $("#nim").attr("disabled", "disabled");
             });
         });
     </script>
