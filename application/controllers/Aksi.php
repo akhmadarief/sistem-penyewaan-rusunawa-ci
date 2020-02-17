@@ -173,7 +173,7 @@ class Aksi extends CI_Controller {
         );
 
         $data_pindah_kamar = array(
-            'no_kamar'      => $nim
+            'no_kamar'      => $no_kamar
         );
 
         switch ($pilihan) {
