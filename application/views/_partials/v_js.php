@@ -269,51 +269,19 @@
         $(document).ready(function(){
             $(".btn-edit").click(function() {
                 $("#pilihan1").val("typo");
-                $("div#fakultasf").show();
-                $("div#prodif").show();
-                $("div#tempat_lahirf").show();
-                $("div#tgl_lahir").show();
-                $("div#agamaf").show();
-                $("div#alamatf").show();
-                $("div#nof").show();
-                $("div#nama_ortuf").show();
-                $("div#pekerjaan_ortuf").show();
-                $("div#alamat_ortuf").show();
-                $("div#no_ortuf").show();
-                $("div#kategorif").show();
-                $("div#no_kamf_baru").hide();
+                $("div.typo").show();
+                $("div.pk").hide();
             }).trigger("click");;
             $(".btn-trans").click(function() {
                 $("#pilihan1").val("transaksi");
-                $("div#fakultasf").show();
-                $("div#prodif").show();
-                $("div#tempat_lahirf").show();
-                $("div#tgl_lahir").show();
-                $("div#agamaf").show();
-                $("div#alamatf").show();
-                $("div#nof").show();
-                $("div#nama_ortuf").show();
-                $("div#pekerjaan_ortuf").show();
-                $("div#alamat_ortuf").show();
-                $("div#no_ortuf").show();
-                $("div#kategorif").show();
-                $("div#no_kamf_baru").hide();
+                $("div.transaksi").show();
+                $("div.pk").hide();
             });
             $(".btn-pindah").click(function() {
                 $("#pilihan1").val("pk");
-                $("div#fakultasf").hide();
-                $("div#prodif").hide();
-                $("div#tempat_lahirf").hide();
-                $("div#tgl_lahir").hide();
-                $("div#agamaf").hide();
-                $("div#alamatf").hide();
-                $("div#nof").hide();
-                $("div#nama_ortuf").hide();
-                $("div#pekerjaan_ortuf").hide();
-                $("div#alamat_ortuf").hide();
-                $("div#no_ortuf").hide();
-                $("div#kategorif").hide();
-                $("div#no_kamf_baru").show();
+                $("div.typo").hide();
+                $("div.transaksi").hide();
+                $("div.pk").show();
             });
         });
     </script>

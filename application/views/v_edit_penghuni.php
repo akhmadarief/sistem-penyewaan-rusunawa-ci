@@ -24,13 +24,13 @@
                         <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
                                 <input type="hidden" name="pilihan1" id="pilihan1" value="typo">
                                 <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
-                                <div class="form-group row" id="no_kamf">
+                                <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" disabled>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="no_kamf_baru">
+                                <div class="form-group row pk">
                                     <label class="col-sm-3 col-form-label">No. Kamar Baru</label>
                                     <div class="col-sm-9">
                                         <select class="form-control select2_kamar" name="no_kamar" id="no_kamar" required>
@@ -41,7 +41,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="isi_kamf">
+                                <div class="form-group row typo transaksi pk">
                                     <label class="col-sm-3 col-form-label">Isi Kamar</label>
                                     <div class="col-sm-3" style="padding-top: 5px">
                                         <label class="ui-radio ui-radio-inline ui-radio-primary">
@@ -56,19 +56,19 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="namaf">
+                                <div class="form-group row typo transaksi pk">
                                     <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap Penghuni" value="<?php echo $penghuni->nama ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="nimf">
+                                <div class="form-group row typo transaksi pk">
                                     <label class="col-sm-3 col-form-label">NIM</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="nim" placeholder="NIM Penghuni" value="<?php echo $penghuni->nim ?>" maxlength="50" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="fakultasf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Fakultas</label>
                                     <div class="col-sm-9">
                                         <select class="form-control select2_fakultas" name="id_fakultas" id="fakultas" required>
@@ -79,7 +79,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="prodif">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Prodi</label>
                                     <div class="col-sm-9">
                                         <select class="form-control select2_prodi" name="id_prodi" id="prodi" required>
@@ -90,20 +90,20 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="tempat_lahirf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="tempat_lahir" placeholder="Tempat Lahir Penghuni" value="<?php echo $penghuni->tempat_lahir ?>" maxlength="100" oninput="this.value = this.value.replace(/[^a-z A-Z ']/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="tgl_lahir">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                     <div class="col-sm-9 input-group date">
                                         <input class="form-control" type="text" name="tgl_lahir" id="form_tgl_lahir" placeholder="Pilih Tanggal Lahir" value="<?php echo $penghuni->tgl_lahir ?>" autocomplete="off" required>
                                         <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="agamaf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Agama</label>
                                     <div class="col-sm-9">
                                         <select class="form-control select2_agama" name="agama" id="agama" required>
@@ -123,43 +123,43 @@
                                         <input class="form-control" type="text" name="agama_lainnya" placeholder="Agama Penghuni" value="<?php echo $penghuni->agama ?>" maxlength="50" oninput="this.value = this.value.replace(/[^a-z A-Z]/g, '');">
                                     </div>
                                 </div>
-                                <div class="form-group row" id="alamatf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Alamat Asal</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="alamat" placeholder="Alamat Asal Penghuni" value="<?php echo $penghuni->alamat ?>" maxlength="200" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="nof">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">No. Telp/HP</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="no" placeholder="No. Telp/HP Penghuni" value="<?php echo $penghuni->no ?>" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="nama_ortuf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Nama Orang Tua</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="nama_ortu" placeholder="Nama Orang Tua Penghuni" value="<?php echo $penghuni->nama_ortu ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="pekerjaan_ortuf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Pekerjaan Orang Tua</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="pekerjaan_ortu" placeholder="Pekerjaan Orang Tua Penghuni" value="<?php echo $penghuni->pekerjaan_ortu ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="alamat_ortuf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Alamat Orang Tua</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="alamat_ortu" placeholder="Alamat Orang Tua Penghuni" value="<?php echo $penghuni->alamat_ortu ?>" maxlength="200" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="no_ortuf">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">No. Telp/HP Orang Tua</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="no_ortu" placeholder="No Telp/HP Orang Tua Penghuni" value="<?php echo $penghuni->no_ortu ?>" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="masa_huni">
+                                <div class="form-group row typo transaksi pk">
                                     <label class="col-sm-3 col-form-label">Masa Huni</label>
                                     <div class="col-sm-9 input-daterange input-group" id="datepicker">
                                         <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" value="<?php echo $penghuni->tgl_masuk ?>" autocomplete="off" required>
@@ -167,7 +167,7 @@
                                         <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo $penghuni->tgl_keluar ?>"  required>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="kategorif">
+                                <div class="form-group row typo transaksi">
                                     <label class="col-sm-3 col-form-label">Kategori</label>
                                     <div class="col-sm-3" style="padding-top: 5px">
                                         <label class="ui-radio ui-radio-inline ui-radio-primary">
@@ -182,19 +182,19 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group row" id="biayaf">
+                                <div class="form-group row typo transaksi pk">
                                     <label class="col-sm-3 col-form-label">Harga Sewa Kamar</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="biaya">
                                     </div>
                                 </div>
-                                <div class="form-group row" id="bayarf">
+                                <div class="form-group row typo transaksi pk">
                                     <label class="col-sm-3 col-form-label">Bayar</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="bayar">
                                     </div>
                                 </div>
-                                <div class="form-group row" id="piutangf">
+                                <div class="form-group row typo transaksi pk">
                                     <label class="col-sm-3 col-form-label">Piutang</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="piutang">
