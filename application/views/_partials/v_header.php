@@ -21,7 +21,7 @@
                 <ul class="nav navbar-toolbar">
                     <li>
                         <img src="<?php echo base_url('assets/img/undip/logo-icon.png') ?>" class="d-none d-sm-inline" width="32" height="32" />
-                        <a class="nav-undip navbar-brand d-none d-sm-inline" href="#"">Universitas Diponegoro</a>
+                        <a class="nav-undip navbar-brand d-none d-sm-inline" href="#">Universitas Diponegoro</a>
                     </li>
                 </ul>
                 <!-- START TOP-RIGHT TOOLBAR-->
@@ -31,7 +31,7 @@
                             <img src="<?php echo base_url('assets/img/admin-avatar.png') ?>" />
                             <span></span><?php echo $this->session->userdata('nama') ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-key"></i>Ganti Password</a>
+                            <a class="dropdown-item" href="profile.html"><i class="fa fa-lock"></i>Ganti Password</a>
                             <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Tambah User</a>
                             <a class="dropdown-item" id="logout-alert"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>

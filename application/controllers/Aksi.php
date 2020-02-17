@@ -36,7 +36,7 @@ class Aksi extends CI_Controller {
     }
 
     function aksi_tambah_penghuni(){
-        $no_kamar       = $this->input->post('no_kamar');
+        //$no_kamar       = $this->input->post('no_kamar');
         $isi_kamar      = $this->input->post('isi_kamar');
         $nama           = $this->input->post('nama');
         $nim            = $this->input->post('nim');
@@ -60,7 +60,7 @@ class Aksi extends CI_Controller {
         $piutang        = $this->input->post('piutang');
 
         $data = array(
-            'no_kamar'      => $no_kamar,
+            //no_kamar'      => $no_kamar,
             'isi_kamar'     => $isi_kamar,
             'nama'          => $nama,
             'nim'           => $nim,
@@ -119,6 +119,7 @@ class Aksi extends CI_Controller {
 
     function aksi_edit_penghuni(){
         $id             = $this->input->post('id');
+        $no_kamar_lama  = $this->input->post('no_kamar_lama');
         $no_kamar       = $this->input->post('no_kamar');
         //echo $no_kamar; exit;
         $isi_kamar      = $this->input->post('isi_kamar');
@@ -142,8 +143,8 @@ class Aksi extends CI_Controller {
         $bayar          = $this->input->post('bayar');
         $piutang        = $this->input->post('piutang'); //belum dipakai
         $pilihan        = $this->input->post('pilihan1');
-        
-
+        $kamar = $this->m_data->cek_kamar($no_kamar_lama)->row();
+        //echo "a".$kamar->status;exit;
 
         $data = array(
             'no_kamar'      => $no_kamar,
@@ -173,7 +174,7 @@ class Aksi extends CI_Controller {
         );
 
         $data_pindah_kamar = array(
-            'no_kamar'      => $nim
+            'no_kamar'      => $no_kamar
         );
 
         switch ($pilihan) {
@@ -192,6 +193,35 @@ class Aksi extends CI_Controller {
 
             case "pk":              
                 $this->m_data->update_penghuni($id, $data_pindah_kamar);
+                $status_kamar_lama = $this->m_data->cek_kamar($no_kamar_lama)->row();
+                $status_kamar_baru = $this->m_data->cek_kamar($no_kamar)->row();
+                
+                //blok kamar baru
+                if ($status_kamar_lama ='terisi1' || $status_kamar_lama = 'terisi1 piutang') {
+                    $this->m_data->update_status_kamar($no_kamar_lama, 'kosong');
+                }
+                else if($status_kamar_lama ='terisi2' || $status_kamar_lama = 'terisi2 piutang'){
+                    $this->m_data->update_status_kamar($no_kamar_lama, 'terisi1');                      //masih belum bisa membedakan piutang
+                }
+                else {
+                    echo "kosong tau error gan :(";
+                }
+                //
+
+                //blok kamar lama
+                if($status_kamar_baru = 'terisi1' || $status_kamar_baru = 'terisi1 piutang' || $status_kamar_baru = 'sendiri'){
+                    $this->m_data->update_status_kamar($no_kamar, 'kosong');
+                }
+
+                if($status_kamar_baru = 'terisi2' || $status_kamar_baru = 'terisi2 piutang'){
+                    $this->m_data->update_status_kamar($no_kamar, 'terisi1');                           //masih belum bisa membedakan piutang
+                }
+                else {
+                    echo "error gan :(";
+                }
+                //
+                echo $this->db->last_query();
+                exit;
                 redirect('admin/daftar_penghuni');
             break;
             default:

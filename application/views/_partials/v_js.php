@@ -185,6 +185,10 @@
         //tambah/edit penghuni
         $(document).ready(function(){
             // Select 2
+            $(".select2_kamar").select2({
+                placeholder: "Pilih Kamar Baru",
+                allowClear: true
+            });
             $(".select2_fakultas").select2({
                 placeholder: "Pilih Fakultas",
                 allowClear: true
@@ -240,12 +244,11 @@
             });
             // Agama lainnya
             $("#agama").change(function(){
-                var agama = $("#agama").val();
-                if (agama == "other"){
-                    $("#agama_lainnya").attr("style", "display: block");
+                if ($("#agama").val() == "other"){
+                    $("#agama_lainnya").show();
                 }
                 else {
-                    $("#agama_lainnya").attr("style", "display: none");
+                    $("#agama_lainnya").hide();
                 }
             });
             //harga kamar
@@ -263,50 +266,37 @@
             });
         });
         $(document).ready(function(){
-            $(".btn-edit").click(function() {
+            $(".btn-edit").click(function(){
                 $("#pilihan1").val("typo");
-                $("div#fakultasf").show();
-                $("div#prodif").show();
-                $("div#tempat_lahirf").show();
-                $("div#tgl_lahir").show();
-                $("div#agamaf").show();
-                $("div#alamatf").show();
-                $("div#nof").show();
-                $("div#nama_ortuf").show();
-                $("div#pekerjaan_ortuf").show();
-                $("div#alamat_ortuf").show();
-                $("div#no_ortuf").show();
-                $("div#kategorif").show();
-            });
-            $(".btn-trans").click(function() {
+                $(".typo").show();
+                $(".transaksi").hide();
+                $(".pk").hide();
+                if ($("#agama").val() == "other"){
+                    $("#agama_lainnya").show();
+                }
+                else {
+                    $("#agama_lainnya").hide();
+                }
+                $("#nama").removeAttr("disabled");
+                $("#nim").removeAttr("disabled");
+            }).trigger("click");;
+            $(".btn-trans").click(function(){
                 $("#pilihan1").val("transaksi");
-                $("div#fakultasf").show();
-                $("div#prodif").show();
-                $("div#tempat_lahirf").show();
-                $("div#tgl_lahir").show();
-                $("div#agamaf").show();
-                $("div#alamatf").show();
-                $("div#nof").show();
-                $("div#nama_ortuf").show();
-                $("div#pekerjaan_ortuf").show();
-                $("div#alamat_ortuf").show();
-                $("div#no_ortuf").show();
-                $("div#kategorif").show();
+                $(".typo").hide();
+                $(".transaksi").show();
+                $(".pk").hide();
+                $("#agama_lainnya").hide();
+                $("#nama").attr("disabled", "disabled");
+                $("#nim").attr("disabled", "disabled");
             });
-            $(".btn-pindah").click(function() {
+            $(".btn-pindah").click(function(){
                 $("#pilihan1").val("pk");
-                $("div#fakultasf").hide();
-                $("div#prodif").hide();
-                $("div#tempat_lahirf").hide();
-                $("div#tgl_lahir").hide();
-                $("div#agamaf").hide();
-                $("div#alamatf").hide();
-                $("div#nof").hide();
-                $("div#nama_ortuf").hide();
-                $("div#pekerjaan_ortuf").hide();
-                $("div#alamat_ortuf").hide();
-                $("div#no_ortuf").hide();
-                $("div#kategorif").hide();
+                $(".typo").hide();
+                $(".transaksi").hide();
+                $(".pk").show();
+                $("#agama_lainnya").hide();
+                $("#nama").attr("disabled", "disabled");
+                $("#nim").attr("disabled", "disabled");
             });
         });
     </script>
