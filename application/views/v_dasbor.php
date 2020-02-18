@@ -13,7 +13,7 @@
         <div style="position:relative; font-size:25px; text-align:center;">
 
         </div>
-        <div class="st">
+        <!-- <div class="st">
           <div class="slideshow-container">
 
           <div class="mySlides fade">
@@ -36,7 +36,7 @@
             <span class="dot"></span>
             <span class="dot"></span>
           </div>
-        </div>
+        </div> -->
 
 
                 <div class="statichehe">
