@@ -103,6 +103,8 @@ class Aksi extends CI_Controller {
 
             if ($piutang != 0) $status_bayar = 'piutang';
 
+            else if ($piutang == 0) $status_bayar = 'lunas';
+
             $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_bayar);
             $this->m_data->insert_pembayaran($data_pembayaran);
 
@@ -256,20 +258,56 @@ class Aksi extends CI_Controller {
         else if ($this->m_data->delete_penghuni($id) == true){
 
             $no_kamar = $penghuni->no_kamar;
+            $nim = $penghuni->nim;
             $kamar = $this->m_data->cek_kamar($no_kamar)->row();
 
-            if ($kamar->status == 'sendiri' or $kamar->status == 'sendiri piutang') $status_kamar = 'kosong';
+            $cek_penghuni = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
 
-            else if ($kamar->status == 'terisi2') $status_kamar = 'terisi1';
+            switch ($kamar->status){
+                case 'sendiri':
+                    $status_kamar = 'kosong';
+                    $status_bayar = 'lunas';
+                break;
 
-            else if ($kamar->status == 'terisi1') $status_kamar = 'kosong';
+                case 'terisi1':
+                    $status_kamar = 'kosong';
+                    $status_bayar = 'lunas';
+                break;
 
-            //menghapus penghuni berpiutang
-            else if ($kamar->status == 'terisi2 piutang') $status_kamar = 'terisi1';
+                case 'terisi2':
+                    $status_kamar = 'terisi1';
 
-            else if ($kamar->status == 'terisi1 piutang') $status_kamar = 'kosong';
+                    if (!$cek_penghuni){
+                        $status_bayar = 'lunas';
+                    }
+                    else {
+                        $piutang = $cek_penghuni->biaya - $penghuni_lain->bayar;
+                        $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
+                    }
+                break;
+            }
 
-            else if ($kamar->status == 'terisi2 piutang piutang') $status_kamar = 'terisi1 piutang';
+            // if ($kamar->status == 'sendiri'){
+            //     $status_kamar = 'kosong';
+            //     $status_bayar = 'lunas';
+            // }
+
+            // else if ($kamar->status == 'terisi1'){
+            //     $status_kamar = 'kosong';
+            //     $status_bayar = 'lunas';
+            // }
+
+            // else if ($kamar->status == 'terisi2'){
+            //     $status_kamar = 'terisi1';
+
+            //     if (!$cek_penghuni){
+            //         $status_bayar = 'lunas';
+            //     }
+            //     else {
+            //         $piutang = $cek_penghuni->biaya - $penghuni_lain->bayar;
+            //         $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
+            //     }
+            // }
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
@@ -284,6 +322,6 @@ class Aksi extends CI_Controller {
     function detail_penghuni(){
         $id = $this->input->post('id_penghuni');
         $penghuni = $this->m_data->data_penghuni_by_id($id)->row();
-            echo json_encode($penghuni);
+        echo json_encode($penghuni);
     }
 }

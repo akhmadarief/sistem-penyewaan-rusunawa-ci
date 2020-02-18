@@ -269,7 +269,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Piutang</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="piutang" disabled>
+                                            <input class="form-control" type="text" id="piutang2" disabled>
                                         </div>
                                     </div>
                                 </form>
