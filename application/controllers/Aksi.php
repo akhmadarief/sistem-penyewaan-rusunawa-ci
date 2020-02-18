@@ -297,7 +297,7 @@ class Aksi extends CI_Controller {
                         $status_bayar = 'lunas';
                     }
                     else {
-                        $piutang = $cek_penghuni->biaya - $penghuni_lain->bayar;
+                        $piutang = $cek_penghuni->biaya - $cek_penghuni->bayar;
                         $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
                     }
                 break;
@@ -325,7 +325,7 @@ class Aksi extends CI_Controller {
             //     }
             // }
 
-            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+            $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_bayar);
 
             //redirect('admin/daftar_penghuni');
             echo 'berhasil dihapus gan';
