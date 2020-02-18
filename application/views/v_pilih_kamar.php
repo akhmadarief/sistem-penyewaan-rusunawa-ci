@@ -168,39 +168,45 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. Kamar</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="no_kamar" readonly>
+                                            <input class="form-control" type="text" id="no_kamar" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="nama" readonly>
+                                            <input class="form-control" type="text" id="nama" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">NIM</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="nim" readonly>
+                                            <input class="form-control" type="text" id="nim" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. HP</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="no" readonly>
+                                            <input class="form-control" type="text" id="no" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Prodi</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="prodi" readonly>
+                                            <input class="form-control" type="text" id="prodi" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Masa Huni</label>
                                         <div class="col-sm-9 input-daterange input-group" id="datepicker">
-                                            <input class="input-sm form-control" type="text" id="tgl_masuk" readonly>
+                                            <input class="input-sm form-control" type="text" id="tgl_masuk" disabled>
                                             <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
-                                            <input class="input-sm form-control" type="text" id="tgl_keluar" readonly>
+                                            <input class="input-sm form-control" type="text" id="tgl_keluar" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Piutang</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="piutang" disabled>
                                         </div>
                                     </div>
                                 </form>
@@ -225,39 +231,45 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. Kamar</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="no_kamar2" readonly>
+                                            <input class="form-control" type="text" id="no_kamar2" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="nama2" readonly>
+                                            <input class="form-control" type="text" id="nama2" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">NIM</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="nim2" readonly>
+                                            <input class="form-control" type="text" id="nim2" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. HP</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="no2" readonly>
+                                            <input class="form-control" type="text" id="no2" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Prodi</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="prodi2" readonly>
+                                            <input class="form-control" type="text" id="prodi2" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Masa Huni</label>
                                         <div class="col-sm-9 input-daterange input-group" id="datepicker">
-                                            <input class="input-sm form-control" type="text" id="tgl_masuk2" readonly>
+                                            <input class="input-sm form-control" type="text" id="tgl_masuk2" disabled>
                                             <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
-                                            <input class="input-sm form-control" type="text" id="tgl_keluar2" readonly>
+                                            <input class="input-sm form-control" type="text" id="tgl_keluar2" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Piutang</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="piutang" disabled>
                                         </div>
                                     </div>
                                 </form>
