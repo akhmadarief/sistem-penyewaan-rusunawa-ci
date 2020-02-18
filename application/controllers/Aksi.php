@@ -36,7 +36,7 @@ class Aksi extends CI_Controller {
     }
 
     function aksi_tambah_penghuni(){
-        //$no_kamar       = $this->input->post('no_kamar');
+        $no_kamar       = $this->input->post('no_kamar');
         $isi_kamar      = $this->input->post('isi_kamar');
         $nama           = $this->input->post('nama');
         $nim            = $this->input->post('nim');
@@ -60,7 +60,7 @@ class Aksi extends CI_Controller {
         $piutang        = $this->input->post('piutang');
 
         $data = array(
-            //no_kamar'      => $no_kamar,
+            'no_kamar'      => $no_kamar,
             'isi_kamar'     => $isi_kamar,
             'nama'          => $nama,
             'nim'           => $nim,

@@ -44,12 +44,12 @@
                     </li>
                     <li>
                         <a <?php if ($judul_halaman == 'Laporan Keuangan') echo 'class="active"' ?> href="<?php echo base_url('admin/laporan_keuangan') ?>"><i class="sidebar-item-icon fa fa-money"></i>
-                            <span class="nav-label">Laporan Keuangan</span>
+                            <span class="nav-label">Daftar Piutang</span>
                         </a>
                     </li>
                     <li>
                         <a <?php if ($judul_halaman == 'Laporan Piutang') echo 'class="active"' ?> href="<?php echo base_url('admin/laporan_piutang') ?>"><i class="sidebar-item-icon fa fa-credit-card-alt"></i>
-                            <span class="nav-label">Laporan Piutang</span>
+                            <span class="nav-label">Laporan Keuangan</span>
                         </a>
                     </li>
                 </ul>
