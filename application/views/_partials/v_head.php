@@ -22,6 +22,8 @@
     <link href="<?php echo base_url('assets/vendors/sweetalert2/sweetalert2.min.css') ?>" rel="stylesheet">
     <!-- CUSTOM STYLES-->
     <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" />
+    <!-- SLIDESHOW STYLES-->
+    <link href="<?php echo base_url('assets/css/fadein-dasbor.css') ?>" rel="stylesheet" />
     <!-- PRINT STYLES-->
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">-->
 </head>
