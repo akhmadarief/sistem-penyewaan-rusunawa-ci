@@ -101,9 +101,15 @@ class Aksi extends CI_Controller {
 
             else if ($kamar->status == 'terisi1') $status_kamar = 'terisi2';
 
-            if ($piutang != 0) $status_bayar = 'piutang';
+            $cek_penghuni = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
 
-            else if ($piutang == 0) $status_bayar = 'lunas';
+            if (!$cek_penghuni){
+                $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
+            }
+            else {
+                $piutang_penghuni_lain = $cek_penghuni->biaya - $cek_penghuni->bayar;
+                $status_bayar = ($piutang == 0 and $piutang_penghuni_lain == 0) ? 'lunas' : 'piutang';
+            }
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_bayar);
             $this->m_data->insert_pembayaran($data_pembayaran);
@@ -302,28 +308,6 @@ class Aksi extends CI_Controller {
                     }
                 break;
             }
-
-            // if ($kamar->status == 'sendiri'){
-            //     $status_kamar = 'kosong';
-            //     $status_bayar = 'lunas';
-            // }
-
-            // else if ($kamar->status == 'terisi1'){
-            //     $status_kamar = 'kosong';
-            //     $status_bayar = 'lunas';
-            // }
-
-            // else if ($kamar->status == 'terisi2'){
-            //     $status_kamar = 'terisi1';
-
-            //     if (!$cek_penghuni){
-            //         $status_bayar = 'lunas';
-            //     }
-            //     else {
-            //         $piutang = $cek_penghuni->biaya - $penghuni_lain->bayar;
-            //         $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
-            //     }
-            // }
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_bayar);
 
