@@ -10,65 +10,74 @@
         <!-- START SIDEBAR-->
         <?php //$this->load->view('_partials/sidebar.php') ?>
         <!-- END SIDEBAR-->
-        <div style="position:relative; font-size:25px; text-align:center;">
-        </div>
-        <div class="st">
-          <!--Carousel Wrapper-->
-          <div id="carousel-slider" class="carousel slide carousel-fade" data-ride="carousel">
-          <!--Slides-->
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <div class="view">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/a.jpg')  ?>"
-                  alt="First slide">
-                <div class="mask rgba-black-light"></div>
-              </div>
-              <div class="carousel-caption">
-                <h3 class="h3-responsive">Light mask</h3>
-                <p>First text</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <!--Mask color-->
-              <div class="view">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/rusunawa01.jpg')  ?>"
-                  alt="Second slide">
-                <div class="mask rgba-black-strong"></div>
-              </div>
-              <div class="carousel-caption">
-                <h3 class="h3-responsive">Strong mask</h3>
-                <p>Secondary text</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <!--Mask color-->
-              <div class="view">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/rusunawa02.jpg')  ?>"
-                  alt="Third slide">
-                <div class="mask rgba-black-slight"></div>
-              </div>
-              <div class="carousel-caption">
-                <h3 class="h3-responsive">Slight mask</h3>
-                <p>Third text</p>
-              </div>
-            </div>
-          </div>
-          <!--/.Slides-->
-          <!--Controls-->
-          <a class="carousel-control-prev" href="#carousel-slider" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel-slider" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-          <!--/.Controls-->
-          </div>
-        </div>
-
-
-                <div class="statichehe">
+            <!-- START PAGE CONTENT -->
+            <div class="page-content fade-in-up">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <!--Carousel Wrapper-->
+                            <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+                                <!--Indicators-->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                                </ol>
+                                <!--/.Indicators-->
+                                <!--Slides-->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
+                                        <div class="view">
+                                            <img class="d-block w-100" src="<?php echo base_url('assets/img/a.jpg')  ?>"
+                                            alt="First slide">
+                                            <div class="mask rgba-black-light"></div>
+                                        </div>
+                                        <div class="carousel-caption">
+                                            <h3 class="h3-responsive">Light mask</h3>
+                                            <p>First text</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--Mask color-->
+                                        <div class="view">
+                                            <img class="d-block w-100" src="<?php echo base_url('assets/img/rusunawa01.jpg')  ?>"
+                                            alt="Second slide">
+                                            <div class="mask rgba-black-strong"></div>
+                                        </div>
+                                        <div class="carousel-caption">
+                                            <h3 class="h3-responsive">Strong mask</h3>
+                                            <p>Secondary text</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--Mask color-->
+                                        <div class="view">
+                                            <img class="d-block w-100" src="<?php echo base_url('assets/img/rusunawa02.jpg')  ?>"
+                                            alt="Third slide">
+                                            <div class="mask rgba-black-slight"></div>
+                                        </div>
+                                        <div class="carousel-caption">
+                                            <h3 class="h3-responsive">Slight mask</h3>
+                                            <p>Third text</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.Slides-->
+                                <!--Controls-->
+                                <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                                <!--/.Controls-->
+                            </div>
+                            <!--/.Carousel Wrapper-->
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="ibox bg-primary color-white widget-stat" style="background-color: #3498db;">
@@ -116,32 +125,13 @@
                                 <h4 class="m-b-5 font-strong">Gedung E</h4>
                                 <div class="m-b-5"><label class="sum-gedung">Bisa diisi 1 Orang</label>: <?php echo (114 - $e['terisi2']) ?> Kamar</div><i class="widget-stat-icon icon-gedung"><img src="<?php echo base_url("assets/img/E.png"); ?>"/></i>
                                 <div class="m-b-5"><label class="sum-gedung">Bisa diisi 2 Orang</label>: <?php echo (114 - $e['terisi2'] - $e['terisi1']) ?> Kamar</div>
- <!--suatu saat dibutuhkan      <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: <?php echo $e['sendiri'] ?> Kamar</div> -->
+                                <!--suatu saat dibutuhkan <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: <?php echo $e['sendiri'] ?> Kamar</div> -->
                                 <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 114 Kamar</div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <style>
-                    .visitors-table tbody tr td:last-child {
-                        display: flex;
-                        align-items: center;
-                    }
-
-                    .visitors-table .progress {
-                        flex: 1;
-                    }
-
-                    .visitors-table .progress-parcent {
-                        text-align: right;
-                        margin-left: 10px;
-                    }
-                </style>
             </div>
-            </div>
-
-
             <!-- END PAGE CONTENT-->
             <?php //$this->load->view('_partials/footer.php') ?>
     <!-- BEGIN THEME CONFIG PANEL-->
