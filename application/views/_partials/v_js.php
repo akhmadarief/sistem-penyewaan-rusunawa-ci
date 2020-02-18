@@ -87,7 +87,7 @@
                                         </tr>
                                         <tr>
                                             <td width="30%"><label>Prodi</label></td>
-                                            <td width="70%">`+ data.prodi +`</td>
+                                            <td width="70%">`+ data.nama_prodi +`</td>
                                         </tr>
                                         <tr>
                                             <td width="30%"><label>Tempat Lahir</label></td>

@@ -9,7 +9,19 @@ class M_data extends CI_Model {
     }
 
     function data_penghuni_by_id($id){
-        return $this->db->get_where('penghuni', array('id' => $id));
+        $this->db->select('*');
+        $this->db->from('penghuni');
+        $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
+        $this->db->where('id', $id);
+        return $this->db->get();
+    }
+
+    function data_penghuni_by_kamar($no_kamar){
+        $this->db->select('*');
+        $this->db->from('penghuni');
+        $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
+        $this->db->where('no_kamar', $no_kamar);
+        return $this->db->get();
     }
 
     function data_fakultas(){
@@ -43,14 +55,6 @@ class M_data extends CI_Model {
         $this->db->select('*');
         $this->db->from('kamar');
         $this->db->like('lantai', $lantai, 'after');
-        return $this->db->get();
-    }
-
-    function data_penghuni_by_kamar($no_kamar){
-        $this->db->select('*');
-        $this->db->from('penghuni');
-        $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
-        $this->db->where('no_kamar', $no_kamar);
         return $this->db->get();
     }
 
@@ -115,12 +119,11 @@ class M_data extends CI_Model {
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    function jumlah_penghuni_gedung($param){
-        return $dataisi = array(
-                    "terisi1"=>$this->db->get_where('kamar', "gedung = '$param' AND (status = 'terisi1' OR status = 'terisi1 piutang')")->num_rows(), 
-                    "terisi2"=>$this->db->get_where('kamar', "gedung = '$param' AND (status = 'terisi2' OR status = 'terisi2 piutang')")->num_rows(),
-                    "sendiri"=>$this->db->get_where('kamar', array('gedung' => $param, 'status' => 'sendiri'))->num_rows()
-                    );
-    
+    function jumlah_penghuni_gedung($gedung){
+        return array(
+            'terisi1' => $this->db->get_where('kamar', "gedung = '$gedung' AND (status = 'terisi1' OR status = 'terisi1 piutang')")->num_rows(),
+            'terisi2' => $this->db->get_where('kamar', "gedung = '$gedung' AND (status = 'terisi2' OR status = 'terisi2 piutang')")->num_rows(),
+            'sendiri' => $this->db->get_where('kamar', array('gedung' => $gedung, 'status' => 'sendiri'))->num_rows()
+        );
     }
 }
