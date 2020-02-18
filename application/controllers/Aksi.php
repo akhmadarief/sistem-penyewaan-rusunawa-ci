@@ -179,7 +179,7 @@ class Aksi extends CI_Controller {
         );
 
         
-        if ($piutang != 0 || $piutang!=null) {$status_bayar = 'piutang';}
+        if ($piutang != 0 || $piutang==null) {$status_bayar = 'piutang';}
 
         switch ($pilihan) {
             case "typo":
@@ -220,15 +220,19 @@ class Aksi extends CI_Controller {
                 //
                 //echo "\n".$this->db->last_query();
                 //blok kamar baru
-                if($status_kamar_baru = 'kosong'){
+                if($status_kamar_baru == 'kosong'){
                     if($status_kamar_lama == 'sendiri') {
                         $this->m_data->update_status_kamar($no_kamar, 'sendiri', $status_bayar);
                     }
                     else if($status_kamar_lama == 'terisi1' || $status_kamar_lama == 'terisi2') {
-                        $this->m_data->update_status_kamar($no_kamar, 'terisi2', $status_bayar);
+                        if($status_kamar_baru == 'kosong'){
+                            $this->m_data->update_status_kamar($no_kamar, 'terisi1', $status_bayar);
+                        }
+                        else if($status_kamar_baru == 'terisi1' ){
+                            $this->m_data->update_status_kamar($no_kamar, 'terisi2', $status_bayar);
+                        }
                     }
                 }
-
                 else if($status_kamar_baru == 'terisi1'){
                     $this->m_data->update_status_kamar($no_kamar, 'terisi2', $status_bayar);
                 }
