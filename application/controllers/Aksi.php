@@ -141,6 +141,7 @@ class Aksi extends CI_Controller {
         $bayar          = $this->input->post('bayar');
         $piutang        = $this->input->post('piutang'); //belum dipakai
         $pilihan        = $this->input->post('pilihan1');
+        $status_bayar   = null;
         $kamar = $this->m_data->cek_kamar($no_kamar_lama)->row();
         //echo "a".$kamar->status;exit;
 
@@ -175,6 +176,9 @@ class Aksi extends CI_Controller {
             'no_kamar'      => $no_kamar
         );
 
+        
+        if ($piutang != 0 || $piutang!=null) {$status_bayar = 'piutang';}
+
         switch ($pilihan) {
             case "typo":
                 $this->m_data->update_penghuni($id, $data);
@@ -191,35 +195,47 @@ class Aksi extends CI_Controller {
 
             case "pk":              
                 $this->m_data->update_penghuni($id, $data_pindah_kamar);
-                $status_kamar_lama = $this->m_data->cek_kamar($no_kamar_lama)->row();
-                $status_kamar_baru = $this->m_data->cek_kamar($no_kamar)->row();
+                $status_kamar_lama = ($this->m_data->cek_kamar($no_kamar_lama)->row())->status;
+                $status_kamar_baru = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+
+                //echo "statuskamarbaru:".$status_kamar_baru.($this->m_data->cek_kamar($no_kamar)->row())->no_kamar;
+                //echo "\nstatuskamarlama:".$status_kamar_lama.($this->m_data->cek_kamar($no_kamar_lama)->row())->no_kamar;
+                //exit;
                 
-                //blok kamar baru
-                if ($status_kamar_lama ='terisi1' || $status_kamar_lama = 'terisi1 piutang') {
-                    $this->m_data->update_status_kamar($no_kamar_lama, 'kosong');
+                //blok kamar lama
+                if ($status_kamar_lama =='terisi1') {
+                    $this->m_data->update_status_kamar($no_kamar_lama, 'kosong', $status_bayar);
                 }
-                else if($status_kamar_lama ='terisi2' || $status_kamar_lama = 'terisi2 piutang'){
-                    $this->m_data->update_status_kamar($no_kamar_lama, 'terisi1');                      //masih belum bisa membedakan piutang
+                else if($status_kamar_lama =='terisi2'){
+                    $this->m_data->update_status_kamar($no_kamar_lama, 'terisi1', $status_bayar);                      //masih belum bisa membedakan piutang
+                }
+                else if($status_kamar_lama =='sendiri'){
+                    $this->m_data->update_status_kamar($no_kamar_lama, 'kosong', $status_bayar);                      
                 }
                 else {
-                    echo "kosong tau error gan :(";
+                    echo "kosong atau error gan :(";
                 }
                 //
-
-                //blok kamar lama
-                if($status_kamar_baru = 'terisi1' || $status_kamar_baru = 'terisi1 piutang' || $status_kamar_baru = 'sendiri'){
-                    $this->m_data->update_status_kamar($no_kamar, 'kosong');
+                //echo "\n".$this->db->last_query();
+                //blok kamar baru
+                if($status_kamar_baru = 'kosong'){
+                    if($status_kamar_lama == 'sendiri') {
+                        $this->m_data->update_status_kamar($no_kamar, 'sendiri', $status_bayar);
+                    }
+                    else if($status_kamar_lama == 'terisi1' || $status_kamar_lama == 'terisi2') {
+                        $this->m_data->update_status_kamar($no_kamar, 'terisi2', $status_bayar);
+                    }
                 }
 
-                if($status_kamar_baru = 'terisi2' || $status_kamar_baru = 'terisi2 piutang'){
-                    $this->m_data->update_status_kamar($no_kamar, 'terisi1');                           //masih belum bisa membedakan piutang
+                else if($status_kamar_baru == 'terisi1'){
+                    $this->m_data->update_status_kamar($no_kamar, 'terisi2', $status_bayar);
                 }
                 else {
                     echo "error gan :(";
                 }
                 //
-                echo $this->db->last_query();
-                exit;
+                //echo "\n".$this->db->last_query();
+                //exit;
                 redirect('admin/daftar_penghuni');
             break;
             default:
