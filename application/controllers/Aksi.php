@@ -36,7 +36,7 @@ class Aksi extends CI_Controller {
     }
 
     function aksi_tambah_penghuni(){
-        //$no_kamar       = $this->input->post('no_kamar');
+        $no_kamar       = $this->input->post('no_kamar');
         $isi_kamar      = $this->input->post('isi_kamar');
         $nama           = $this->input->post('nama');
         $nim            = $this->input->post('nim');
@@ -60,7 +60,7 @@ class Aksi extends CI_Controller {
         $piutang        = $this->input->post('piutang');
 
         $data = array(
-            //no_kamar'      => $no_kamar,
+            'no_kamar'      => $no_kamar,
             'isi_kamar'     => $isi_kamar,
             'nama'          => $nama,
             'nim'           => $nim,
@@ -101,9 +101,9 @@ class Aksi extends CI_Controller {
 
             else if ($kamar->status == 'terisi1') $status_kamar = 'terisi2';
 
-            if ($piutang != 0) $status_keuangan = 'piutang';
+            if ($piutang != 0) $status_bayar = 'piutang';
 
-            $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_keuangan);
+            $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_bayar);
             $this->m_data->insert_pembayaran($data_pembayaran);
 
             //redirect('admin/pilih_kamar');
