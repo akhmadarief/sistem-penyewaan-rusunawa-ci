@@ -314,7 +314,7 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_k +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_A").html(html);
                     }
@@ -331,7 +331,7 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_k +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_B").html(html);
                     }
@@ -348,7 +348,7 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_k +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_C").html(html);
                     }
@@ -365,7 +365,7 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_k +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_D").html(html);
                     }
@@ -382,7 +382,7 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_k +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_E").html(html);
                     }

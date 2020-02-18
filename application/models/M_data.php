@@ -69,7 +69,7 @@ class M_data extends CI_Model {
 
     function update_status_kamar($no_kamar, $status_kamar){
         $this->db->where('no_kamar', $no_kamar);
-        $this->db->update('kamar', array('status' => $status_kamar, 'status_k' => $status_keuangan));
+        $this->db->update('kamar', array('status' => $status_kamar, 'status_bayar' => $status_keuangan));
     }
 
     function insert_pembayaran($data_pembayaran){
