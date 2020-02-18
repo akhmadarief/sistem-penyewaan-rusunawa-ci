@@ -397,10 +397,12 @@
                 $("#nim").val("Memuat ...");
                 $("#no").val("Memuat ...");
                 $("#prodi").val("Memuat ...");
+                $("#piutang").val("Memuat ...");
                 $("#nama2").val("Memuat ...");
                 $("#nim2").val("Memuat ...");
                 $("#no2").val("Memuat ...");
                 $("#prodi2").val("Memuat ...");
+                $("#piutang2").val("Memuat ...");
                 var no_kamar = $(this).attr("id");
                 $("#no_kamar").val(no_kamar);
                 $("#no_kamar2").val(no_kamar);
@@ -423,6 +425,7 @@
                             $("#prodi").val("Belum ada penghuni");
                             $("#tgl_masuk").val("");
                             $("#tgl_keluar").val("");
+                            $("#piutang").val("Belum ada penghuni");
                         }
                         else {
                             if (data[0].isi_kamar == "1") {
@@ -441,6 +444,8 @@
                             $("#prodi").val(data[0].nama_prodi);
                             $("#tgl_masuk").val(data[0].tgl_masuk);
                             $("#tgl_keluar").val(data[0].tgl_keluar);
+                            var piutang = data[0].biaya - data[0].bayar;
+                            $("#piutang").val("Rp. " + piutang);
                         }
                         if (!data[1]){
                             $("#tambah_penghuni2").show();
@@ -453,6 +458,7 @@
                             $("#prodi2").val("Belum ada penghuni");
                             $("#tgl_masuk2").val("");
                             $("#tgl_keluar2").val("");
+                            $("#piutang2").val("Belum ada penghuni");
                         }
                         else {
                             //$("#tambah_penghuni2").removeAttr("href");
@@ -465,6 +471,8 @@
                             $("#prodi2").val(data[1].nama_prodi);
                             $("#tgl_masuk2").val(data[1].tgl_masuk);
                             $("#tgl_keluar2").val(data[1].tgl_keluar);
+                            var piutang = data[1].biaya - data[1].bayar;
+                            $("#piutang2").val("Rp. " + piutang);
                         }
                     }
                 });

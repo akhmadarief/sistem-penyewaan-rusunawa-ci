@@ -17,19 +17,14 @@ class M_data extends CI_Model {
     }
 
     function data_penghuni_by_kamar($no_kamar){
-        $this->db->select('*');
-        $this->db->from('penghuni');
+        $this->db->select('id, no_kamar, nama, penghuni.nim, no, nama_prodi, tgl_masuk, tgl_keluar, biaya');
+        $this->db->select_sum('bayar');
+        $this->db->from('keuangan');
+        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
         $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
         $this->db->where('no_kamar', $no_kamar);
+        $this->db->group_by(array('id', 'no_kamar', 'nama', 'nim', 'no', 'nama_prodi', 'tgl_masuk', 'tgl_keluar', 'biaya'));
         return $this->db->get();
-        
-        // $this->db->select('kamar.no_kamar, penghuni.nama, penghuni.nim, no, id_prodi, masa_huni');
-        // $this->db->select_sum('bayar');
-        // $this->db->from('keuangan');
-        // $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
-        // $this->db->where('penghuni.no_kamar', $no_kamar);
-        // $this->db->group_by(array('no_kamar', 'nama', 'nim', 'no', 'id_prodi', 'masa_huni'));
-        // return $this->db->get();
     }
 
     function data_fakultas(){
@@ -65,7 +60,7 @@ class M_data extends CI_Model {
         $this->db->like('lantai', $lantai, 'after');
         return $this->db->get();
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     function cek_kamar($no_kamar){
         return $this->db->get_where('kamar', array('no_kamar' => $no_kamar));
     }
@@ -105,7 +100,7 @@ class M_data extends CI_Model {
         $this->db->select_sum('bayar');
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
-        $this->db->where('penghuni.nim', $nim);
+        $this->db->where('penghuni.nim !=', $nim);
         $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
         return $this->db->get();
     }
