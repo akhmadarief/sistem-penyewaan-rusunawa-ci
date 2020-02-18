@@ -101,11 +101,9 @@ class Aksi extends CI_Controller {
 
             else if ($kamar->status == 'terisi1') $status_kamar = 'terisi2';
 
-            else if ($kamar->status == 'terisi1 piutang') $status_kamar = 'terisi2 piutang';
+            if ($piutang != 0) $status_keuangan = 'piutang';
 
-            if ($piutang != 0) $status_kamar = $status_kamar.' piutang';
-
-            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+            $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_keuangan);
             $this->m_data->insert_pembayaran($data_pembayaran);
 
             //redirect('admin/pilih_kamar');

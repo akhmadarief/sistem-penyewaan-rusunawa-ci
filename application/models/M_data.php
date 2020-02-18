@@ -57,7 +57,7 @@ class M_data extends CI_Model {
         $this->db->like('lantai', $lantai, 'after');
         return $this->db->get();
     }
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function cek_kamar($no_kamar){
         return $this->db->get_where('kamar', array('no_kamar' => $no_kamar));
     }
@@ -69,7 +69,7 @@ class M_data extends CI_Model {
 
     function update_status_kamar($no_kamar, $status_kamar){
         $this->db->where('no_kamar', $no_kamar);
-        $this->db->update('kamar', array('status' => $status_kamar));
+        $this->db->update('kamar', array('status' => $status_kamar, 'status_k' => $status_keuangan));
     }
 
     function insert_pembayaran($data_pembayaran){
