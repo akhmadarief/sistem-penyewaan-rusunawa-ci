@@ -298,6 +298,8 @@ class Aksi extends CI_Controller {
                     }
                     else {
                         $piutang = $cek_penghuni->biaya - $cek_penghuni->bayar;
+                        echo $cek_penghuni->biaya;
+                        echo $cek_penghuni->bayar;
                         $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
                     }
                 break;

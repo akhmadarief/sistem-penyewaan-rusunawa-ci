@@ -17,13 +17,13 @@ class M_data extends CI_Model {
     }
 
     function data_penghuni_by_kamar($no_kamar){
-        $this->db->select('no_kamar, nama, penghuni.nim, no, nama_prodi, tgl_masuk, tgl_keluar, biaya');
+        $this->db->select('id, no_kamar, nama, penghuni.nim, no, nama_prodi, tgl_masuk, tgl_keluar, biaya');
         $this->db->select_sum('bayar');
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
         $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
         $this->db->where('no_kamar', $no_kamar);
-        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'no', 'nama_prodi', 'tgl_masuk', 'tgl_keluar', 'biaya'));
+        $this->db->group_by(array('id', 'no_kamar', 'nama', 'nim', 'no', 'nama_prodi', 'tgl_masuk', 'tgl_keluar', 'biaya'));
         return $this->db->get();
     }
 
