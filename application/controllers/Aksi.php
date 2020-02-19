@@ -127,7 +127,6 @@ class Aksi extends CI_Controller {
         $id             = $this->input->post('id');
         $no_kamar_lama  = $this->input->post('no_kamar_lama');
         $no_kamar       = $this->input->post('no_kamar');
-        //echo $no_kamar; exit;
         $isi_kamar      = $this->input->post('isi_kamar');
         $nama           = $this->input->post('nama');
         $nim            = $this->input->post('nim');
@@ -155,7 +154,6 @@ class Aksi extends CI_Controller {
         //echo "a".$kamar->status;exit;
 
         $data = array(
-            'no_kamar'      => $no_kamar,
             'isi_kamar'     => $isi_kamar,
             'nama'          => $nama,
             'nim'           => $nim,

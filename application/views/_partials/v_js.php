@@ -289,9 +289,9 @@
                 }
                 $("#nama").prop('readonly', false);
                 $("#nim").prop('readonly', false);
-                $(".edit").prop('required', true);
-                $(".transaksi").prop('required', false);
-                $(".pindah").prop('required', false);
+                $(".form_edit").prop({'required': true, 'disabled': false});
+                $(".form_transaksi").prop({'required': false, 'disabled': true});
+                $(".form_pindah").prop({'required': false, 'disabled': true});
             }).trigger("click");
             $(".btn-trans").click(function(){
                 $("#pilihan1").val("transaksi");
@@ -301,9 +301,9 @@
                 $("#agama_lainnya").hide();
                 $("#nama").prop('readonly', true);
                 $("#nim").prop('readonly', true);
-                $(".edit").prop('required', false);
-                $(".transaksi").prop('required', true);
-                $(".pindah").prop('required', false);
+                $(".form_edit").prop({'required': false, 'disabled': true});
+                $(".form_transaksi").prop({'required': true, 'disabled': false});
+                $(".form_pindah").prop({'required': false, 'disabled': true});
             });
             $(".btn-pindah").click(function(){
                 $("#pilihan1").val("pk");
@@ -313,9 +313,9 @@
                 $("#agama_lainnya").hide();
                 $("#nama").prop('readonly', true);
                 $("#nim").prop('readonly', true);
-                $(".edit").prop('required', false);
-                $(".transaksi").prop('required', false);
-                $(".pindah").prop('required', true);
+                $(".form_edit").prop({'required': false, 'disabled': true});
+                $(".form_transaksi").prop({'required': false, 'disabled': true});
+                $(".form_pindah").prop({'required': true, 'disabled': false});
             });
         });
     </script>
