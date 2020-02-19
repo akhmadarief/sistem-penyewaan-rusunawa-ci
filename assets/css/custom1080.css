@@ -1,0 +1,14 @@
+@media only screen and (max-width: 1080px){
+  .carousel-caption{
+    position: absolute;
+    right: 15%;
+    bottom: 70px;
+    left: 5%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color:
+    #fff;
+    text-align: left;
+  }
+}
