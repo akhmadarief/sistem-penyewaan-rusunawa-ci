@@ -27,7 +27,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" name="no_kamar_lama" readonly>
+                                        <input class="form-control" type="text" name="no_kamar_lama"  placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -193,7 +193,7 @@
                                 <div class="form-group row pk">
                                     <label class="col-sm-3 col-form-label">No. Kamar Baru</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control select2_kamar form_pindah" name="no_kamar" id="no_kamar" required>
+                                        <select class="form-control select2_kamar form_pindah" name="no_kamar_baru" id="no_kamar" required>
                                             <option></option>
                                             <?php foreach ($kamar as $kamar){ ?>
                                             <option value="<?php echo $kamar->no_kamar ?>" <?php if ($kamar->no_kamar == $penghuni->no_kamar) echo 'disabled' ?>>
