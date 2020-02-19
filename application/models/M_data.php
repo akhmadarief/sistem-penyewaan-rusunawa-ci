@@ -106,6 +106,16 @@ class M_data extends CI_Model {
         return $this->db->get();
     }
 
+    function data_keuangan_per_penghuni_by_nim_2($nim){
+        $this->db->select('penghuni.nim, no_kamar, nama, biaya');
+        $this->db->select_sum('bayar');
+        $this->db->from('keuangan');
+        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
+        $this->db->where('penghuni.nim', $nim);
+        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
+        return $this->db->get();
+    }
+
     function update_penghuni($id, $data){
         $this->db->where('id', $id);
         return $this->db->update('penghuni', $data) ? true : false;

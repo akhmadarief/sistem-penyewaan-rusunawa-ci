@@ -2,9 +2,7 @@
 .bg-login{
   background-image: url('../img/undip/bg-undip-besar.jpg');
   height: 100%;
-  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   opacity: 0.3;
   position: fixed;
   background-size: cover;
@@ -47,6 +45,72 @@ form#login-form{
   text-align: center;
   margin-bottom: 10px;
 }
+
+/*CAROUSEL*/
+.carousel-item{
+  height: 265px;
+}
+
+.carousel-item img{
+  width: auto important!;
+}
+
+.carousel-caption{
+  position: absolute;
+  right: 15%;
+  bottom: 70px;
+  left: 5%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color:
+  #fff;
+  text-align: left;
+}
+
+.view{
+  position:relative;
+  overflow:hidden;
+  cursor:default;
+}
+
+.view .mask{
+  position:absolute;
+  top:0;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  background-attachment:fixed;
+}
+
+.view img{
+  position:relative;
+  display:block;
+  vertical-align: middle;
+}
+
+.rgba-black-slight,.rgba-black-slight:after{
+  background-color:rgba(0,0,0,.1);
+}
+
+.rgba-black-light,.rgba-black-light:after{
+  background-color:rgba(0,0,0,.3);
+}
+
+.rgba-black-strong,.rgba-black-strong:after{
+  background-color:rgba(0,0,0,.7);
+}
+
+.big-brand1{
+  font-weight: bolder;
+  font-size: 43px;
+}
+
+.big-brand2{
+  font-size: 33px;
+  font-weight: 600;
+}
+
 
 /*SUMMARY GEDUNG*/
 .sum-gedung{
