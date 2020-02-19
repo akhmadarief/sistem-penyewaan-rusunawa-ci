@@ -31,3 +31,8 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 application/views/v_edit_penghuni_3_form.php
 application/controllers/Aksi_lama.php
+application/controllers/Cetak.php
+application/models/M_Cetak.php
+application/views/v_Cetak.php
+application/config/database.php
+application/config/database.php

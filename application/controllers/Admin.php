@@ -49,6 +49,11 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function laporan_keuangan_cetak(){
+        $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
+        $this->load->view('v_laporan_keuangan_cetak', $data);
+    }
+
     function pilih_kamar(){
         $data['judul_halaman'] = 'Pilih Kamar';
         $this->load->view('_partials/v_head', $data);
@@ -131,6 +136,11 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function daftar_kamar_cetak(){
+        $data['kamar'] = $this->m_data->data_kamar()->result();
+        $this->load->view('v_daftar_kamar_cetak', $data);
+    }
+
     function daftar_harga(){
         $data['judul_halaman'] = 'Daftar Harga Kamar';
         $data['daftar_harga'] = $this->m_data->data_harga_kamar()->result();
@@ -171,6 +181,12 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
+    }
+
+    function riwayat_pembayaran_cetak(){
+        $data['judul_halaman'] = 'Riwayat Pembayaran';
+        $data['pembayaran'] = $this->m_data->data_pembayaran()->result();
+        $this->load->view('v_riwayat_pembayaran_cetak', $data); //page content
     }
 
     function laporan_keuangan(){

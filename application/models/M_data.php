@@ -7,7 +7,7 @@ class M_data extends CI_Model {
         $this->db->order_by('no_kamar', 'asc');
         return $this->db->get('penghuni');
     }
-
+    
     function data_penghuni_by_id($id){
         $this->db->select('*');
         $this->db->from('penghuni');

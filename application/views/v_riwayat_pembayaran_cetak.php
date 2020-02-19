@@ -1,14 +1,9 @@
             <!-- START PAGE CONTENT-->
-            <div class="page-content fade-in-up">
-                <div class="ibox">
-                    <div class="ibox-head">
-                        <div class="ibox-title">Riwayat Pembayaran<?php //echo $halaman ?></div>
-                        <a class="btn btn-success" href="<?php echo base_url('admin/riwayat_pembayaran_cetak'); ?>"> PRINT
-                                <i class="fa fa-print"></i>
-                            </a>
-                    </div>
-                    <div class="ibox-body">
-                        <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">
+            <?php
+            header("Content-type: application/vnd-ms-excel");
+            header("Content-Disposition: attachment; filename=hasil.xls");
+            ?>
+                        <table>
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 24.5px">No.</th>
@@ -36,7 +31,5 @@
                                 <?php } ?>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
+
             <!-- END PAGE CONTENT-->
