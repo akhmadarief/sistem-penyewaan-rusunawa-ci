@@ -76,22 +76,23 @@ class M_data extends CI_Model {
     }
 
     function insert_pembayaran($data_pembayaran){
-        $this->db->insert('keuangan', $data_pembayaran);
+        return $this->db->insert('keuangan', $data_pembayaran) ? true : false;
     }
 
     function data_pembayaran(){
         $this->db->select('*');
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
+        $this->db->order_by('id_pembayaran', 'asc');
         return $this->db->get();
     }
 
     function data_keuangan_per_penghuni(){
-        $this->db->select('no_kamar, nama, penghuni.nim, biaya');
+        $this->db->select('id_pembayaran, no_kamar, nama, penghuni.nim, biaya');
         $this->db->select_sum('bayar');
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
-        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
+        $this->db->group_by(array('id_pembayaran', 'no_kamar', 'nama', 'nim', 'biaya'));
         return $this->db->get();
     }
 
@@ -101,6 +102,16 @@ class M_data extends CI_Model {
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
         $this->db->where('penghuni.nim !=', $nim);
+        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
+        return $this->db->get();
+    }
+
+    function data_keuangan_per_penghuni_by_nim_2($nim){
+        $this->db->select('penghuni.nim, no_kamar, nama, biaya');
+        $this->db->select_sum('bayar');
+        $this->db->from('keuangan');
+        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
+        $this->db->where('penghuni.nim', $nim);
         $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
         return $this->db->get();
     }

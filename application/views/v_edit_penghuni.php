@@ -27,7 +27,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" name="no_kamar_lama" readonly>
+                                        <input class="form-control" type="text" name="no_kamar_lama"  placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -57,21 +57,10 @@
                                         <input class="form-control" type="text" name="nim" id="nim" placeholder="NIM Penghuni" value="<?php echo $penghuni->nim ?>" maxlength="50" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row pk">
-                                    <label class="col-sm-3 col-form-label">No. Kamar Baru</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control select2_kamar" name="no_kamar" id="no_kamar" required>
-                                            <option></option>
-                                            <?php foreach ($kamar as $kamar){ ?>
-                                            <option value="<?php echo $kamar->no_kamar ?>" <?php if ($kamar->no_kamar == $penghuni->no_kamar) echo 'selected' ?>><?php echo $kamar->no_kamar ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Fakultas</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control select2_fakultas" name="id_fakultas" id="fakultas" required>
+                                        <select class="form-control select2_fakultas form_edit" name="id_fakultas" id="fakultas">
                                             <option></option>
                                             <?php foreach ($fakultas as $fakultas){ ?>
                                             <option value="<?php echo $fakultas->id_fakultas ?>" <?php if ($fakultas->id_fakultas == $penghuni->id_fakultas) echo 'selected' ?>><?php echo $fakultas->nama_fakultas ?></option>
@@ -82,7 +71,7 @@
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Prodi</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control select2_prodi" name="id_prodi" id="prodi" required>
+                                        <select class="form-control select2_prodi form_edit" name="id_prodi" id="prodi">
                                             <option></option>
                                             <?php foreach ($prodi as $prodi){ ?>
                                             <option value="<?php echo $prodi->id_prodi ?>" <?php if ($prodi->id_prodi == $penghuni->id_prodi) echo 'selected' ?>><?php echo $prodi->nama_prodi ?></option>
@@ -93,20 +82,20 @@
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="tempat_lahir" placeholder="Tempat Lahir Penghuni" value="<?php echo $penghuni->tempat_lahir ?>" maxlength="100" oninput="this.value = this.value.replace(/[^a-z A-Z ']/g, '');" required>
+                                        <input class="form-control form_edit" type="text" name="tempat_lahir" placeholder="Tempat Lahir Penghuni" value="<?php echo $penghuni->tempat_lahir ?>" maxlength="100" oninput="this.value = this.value.replace(/[^a-z A-Z ']/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row typo">
+                                <div class="form-group row typo" id="tgl_lahir">
                                     <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                     <div class="col-sm-9 input-group date">
-                                        <input class="form-control" type="text" name="tgl_lahir" id="form_tgl_lahir" placeholder="Pilih Tanggal Lahir" value="<?php echo $penghuni->tgl_lahir ?>" autocomplete="off" required>
+                                        <input class="form-control form_edit" type="text" name="tgl_lahir" id="form_tgl_lahir" placeholder="Pilih Tanggal Lahir" value="<?php echo $penghuni->tgl_lahir ?>" autocomplete="off">
                                         <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Agama</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control select2_agama" name="agama" id="agama" required>
+                                        <select class="form-control select2_agama form_edit" name="agama" id="agama">
                                             <option></option>
                                             <option value="Islam" <?php if ($penghuni->agama == 'Islam') echo 'selected' ?>>Islam</option>
                                             <option value="Protestan" <?php if ($penghuni->agama == 'Protestan') echo 'selected' ?>>Kristen Protestan</option>
@@ -126,45 +115,45 @@
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Alamat Asal</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="alamat" placeholder="Alamat Asal Penghuni" value="<?php echo $penghuni->alamat ?>" maxlength="200" required>
+                                        <input class="form-control form_edit" type="text" name="alamat" placeholder="Alamat Asal Penghuni" value="<?php echo $penghuni->alamat ?>" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">No. Telp/HP</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="no" placeholder="No. Telp/HP Penghuni" value="<?php echo $penghuni->no ?>" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');" required>
+                                        <input class="form-control form_edit" type="text" name="no" placeholder="No. Telp/HP Penghuni" value="<?php echo $penghuni->no ?>" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');">
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Nama Orang Tua</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="nama_ortu" placeholder="Nama Orang Tua Penghuni" value="<?php echo $penghuni->nama_ortu ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
+                                        <input class="form-control form_edit" type="text" name="nama_ortu" placeholder="Nama Orang Tua Penghuni" value="<?php echo $penghuni->nama_ortu ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');">
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Pekerjaan Orang Tua</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="pekerjaan_ortu" placeholder="Pekerjaan Orang Tua Penghuni" value="<?php echo $penghuni->pekerjaan_ortu ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
+                                        <input class="form-control form_edit" type="text" name="pekerjaan_ortu" placeholder="Pekerjaan Orang Tua Penghuni" value="<?php echo $penghuni->pekerjaan_ortu ?>" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');">
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Alamat Orang Tua</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="alamat_ortu" placeholder="Alamat Orang Tua Penghuni" value="<?php echo $penghuni->alamat_ortu ?>" maxlength="200" required>
+                                        <input class="form-control form_edit" type="text" name="alamat_ortu" placeholder="Alamat Orang Tua Penghuni" value="<?php echo $penghuni->alamat_ortu ?>" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">No. Telp/HP Orang Tua</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="no_ortu" placeholder="No Telp/HP Orang Tua Penghuni" value="<?php echo $penghuni->no_ortu ?>" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');" required>
+                                        <input class="form-control form_edit" type="text" name="no_ortu" placeholder="No Telp/HP Orang Tua Penghuni" value="<?php echo $penghuni->no_ortu ?>" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');">
                                     </div>
                                 </div>
-                                <div class="form-group row typo transaksi">
+                                <div class="form-group row typo" id="tgl_huni">
                                     <label class="col-sm-3 col-form-label">Masa Huni</label>
                                     <div class="col-sm-9 input-daterange input-group" id="datepicker">
-                                        <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" value="<?php echo $penghuni->tgl_masuk ?>" autocomplete="off" required>
+                                        <input class="input-sm form-control form_edit" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" value="<?php echo $penghuni->tgl_masuk ?>" autocomplete="off">
                                         <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
-                                        <input class="input-sm form-control" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo $penghuni->tgl_keluar ?>"  required>
+                                        <input class="input-sm form-control form_edit" type="text" name="tgl_keluar" id="tgl_keluar" placeholder="Pilih Tanggal Keluar" value="<?php echo $penghuni->tgl_keluar ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
@@ -182,28 +171,52 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group row transaksi">
+                                <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Harga Sewa Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="biaya">
+                                        <input class="form-control form_edit" type="text" name="biaya">
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi" id="tgl_bayar">
+                                    <label class="col-sm-3 col-form-label">Tanggal Transaksi</label>
+                                    <div class="col-sm-9 input-group date">
+                                        <input class="form-control form_transaksi" type="text" name="tgl_bayar" id="form_tgl_bayar" placeholder="Pilih Tanggal Transaksi" value="<?php echo date('d-m-Y') ?>" autocomplete="off">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">
-                                    <label class="col-sm-3 col-form-label">Bayar</label>
+                                    <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="bayar">
+                                        <input class="form-control form_transaksi" type="text" name="bayar">
                                     </div>
                                 </div>
-                                <div class="form-group row transaksi">
-                                    <label class="col-sm-3 col-form-label">Piutang</label>
+                                <div class="form-group row pk">
+                                    <label class="col-sm-3 col-form-label">No. Kamar Baru</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="piutang">
+                                        <select class="form-control select2_kamar form_pindah" name="no_kamar_baru" id="no_kamar" required>
+                                            <option></option>
+                                            <?php foreach ($kamar as $kamar){ ?>
+                                            <option value="<?php echo $kamar->no_kamar ?>" <?php if ($kamar->no_kamar == $penghuni->no_kamar) echo 'disabled' ?>>
+                                                <?php
+                                                echo $kamar->no_kamar;
+                                                switch ($kamar->status){
+                                                    case 'terisi1':
+                                                        echo ' (Terisi 1 Penghuni)';
+                                                    break;
+                                                    case 'kosong':
+                                                        echo ' (Belum Berpenghuni)';
+                                                    break;
+                                                }
+                                                ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-9 ml-sm-auto">
                                         <button class="btn btn-primary" type="submit">Submit</button>
-                                        <button class="btn btn-danger" type="button" onclick="window.history.back();">Batal</button>
+                                        <button class="btn btn-danger" type="button" onclick="window.history.back()">Batal</button>
                                         <button class="btn btn-outline-default" type="reset" value="Reset">Reset</button>
                                     </div>
                                 </div>
