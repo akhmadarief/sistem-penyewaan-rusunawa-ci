@@ -76,7 +76,7 @@ class M_data extends CI_Model {
     }
 
     function insert_pembayaran($data_pembayaran){
-        $this->db->insert('keuangan', $data_pembayaran);
+        return $this->db->insert('keuangan', $data_pembayaran) ? true : false;
     }
 
     function data_pembayaran(){

@@ -222,6 +222,9 @@
             $("#form_tgl_lahir").mask("99-99-9999", {
                 placeholder: "dd-mm-yyyy"
             });
+            $("#form_tgl_bayar").mask("99-99-9999", {
+                placeholder: "dd-mm-yyyy"
+            });
             $("#tgl_masuk").mask("99-99-9999", {
                 placeholder: "dd-mm-yyyy"
             });
@@ -230,6 +233,13 @@
             });
             // Bootstrap datepicker
             $("#tgl_lahir .input-group.date").datepicker({
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                format: "dd-mm-yyyy"
+            });
+            $("#tgl_bayar .input-group.date").datepicker({
+                todayBtn: "linked",
                 keyboardNavigation: false,
                 forceParse: false,
                 autoclose: true,
@@ -277,17 +287,23 @@
                 else {
                     $("#agama_lainnya").hide();
                 }
-                $("#nama").removeAttr("disabled");
-                $("#nim").removeAttr("disabled");
-            }).trigger("click");;
+                $("#nama").prop('readonly', false);
+                $("#nim").prop('readonly', false);
+                $(".edit").prop('required', true);
+                $(".transaksi").prop('required', false);
+                $(".pindah").prop('required', false);
+            }).trigger("click");
             $(".btn-trans").click(function(){
                 $("#pilihan1").val("transaksi");
                 $(".typo").hide();
                 $(".transaksi").show();
                 $(".pk").hide();
                 $("#agama_lainnya").hide();
-                $("#nama").attr("disabled", "disabled");
-                $("#nim").attr("disabled", "disabled");
+                $("#nama").prop('readonly', true);
+                $("#nim").prop('readonly', true);
+                $(".edit").prop('required', false);
+                $(".transaksi").prop('required', true);
+                $(".pindah").prop('required', false);
             });
             $(".btn-pindah").click(function(){
                 $("#pilihan1").val("pk");
@@ -295,8 +311,11 @@
                 $(".transaksi").hide();
                 $(".pk").show();
                 $("#agama_lainnya").hide();
-                $("#nama").attr("disabled", "disabled");
-                $("#nim").attr("disabled", "disabled");
+                $("#nama").prop('readonly', true);
+                $("#nim").prop('readonly', true);
+                $(".edit").prop('required', false);
+                $(".transaksi").prop('required', false);
+                $(".pindah").prop('required', true);
             });
         });
     </script>

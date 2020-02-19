@@ -145,6 +145,7 @@ class Aksi extends CI_Controller {
         $tgl_masuk      = $this->input->post('tgl_masuk');
         $tgl_keluar     = $this->input->post('tgl_keluar');
         $kategori       = $this->input->post('kategori');
+        $tgl_bayar      = $this->input->post('tgl_bayar');
         $biaya          = $this->input->post('biaya'); //belum dipakai
         $bayar          = $this->input->post('bayar');
         $piutang        = $this->input->post('piutang'); //belum dipakai
@@ -176,7 +177,7 @@ class Aksi extends CI_Controller {
 
         $data_pembayaran = array(
             'nim'           => $nim,
-            'tgl_bayar'     => date("d-m-Y"),
+            'tgl_bayar'     => $tgl_bayar,
             'bayar'         => $bayar
         );
 
@@ -185,20 +186,29 @@ class Aksi extends CI_Controller {
         );
 
         
-        if ($piutang != 0 || $piutang==null) {$status_bayar = 'piutang';}
+        if ($piutang != 0 || $piutang==null) $status_bayar = 'piutang';
 
         switch ($pilihan) {
             case "typo":
-                $this->m_data->update_penghuni($id, $data);
-                redirect('admin/daftar_penghuni');
-                //echo $this->db->last_query();
-                //exit;
+                if ($this->m_data->update_penghuni($id, $data) == true){
+                    //redirect('admin/daftar_penghuni');
+                    //echo $this->db->last_query();
+                    //exit;
+                    echo 'data berhasil diperbarui';
+                }
+                else {
+                    echo 'gagal gan wokwokwok';
+                }
             break;
 
             case "transaksi":
-                $this->m_data->update_penghuni($id, $data);
-                $this->m_data->insert_pembayaran($data_pembayaran);
-                redirect('admin/daftar_penghuni');
+                if ($this->m_data->insert_pembayaran($data_pembayaran) == true){
+                    //redirect('admin/daftar_penghuni');
+                    echo 'transaksi sukses gayn';
+                }
+                else {
+                    echo 'transaksi gagal wkwkwk';
+                }
             break;
 
             case "pk":              
@@ -215,7 +225,7 @@ class Aksi extends CI_Controller {
                     $this->m_data->update_status_kamar($no_kamar_lama, 'kosong', $status_bayar);
                 }
                 else if($status_kamar_lama =='terisi2'){
-                    $this->m_data->update_status_kamar($no_kamar_lama, 'terisi1', $status_bayar);                      //masih belum bisa membedakan piutang
+                    $this->m_data->update_status_kamar($no_kamar_lama, 'terisi1', $status_bayar);                      //masih belum bisa membedakan piutang //oke
                 }
                 else if($status_kamar_lama =='sendiri'){
                     $this->m_data->update_status_kamar($no_kamar_lama, 'kosong', $status_bayar);                      

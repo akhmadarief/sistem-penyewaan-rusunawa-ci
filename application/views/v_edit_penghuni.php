@@ -60,7 +60,7 @@
                                 <div class="form-group row pk">
                                     <label class="col-sm-3 col-form-label">No. Kamar Baru</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control select2_kamar" name="no_kamar" id="no_kamar" required>
+                                        <select class="form-control select2_kamar form_pindah" name="no_kamar" id="no_kamar" required>
                                             <option></option>
                                             <?php foreach ($kamar as $kamar){ ?>
                                             <option value="<?php echo $kamar->no_kamar ?>" <?php if ($kamar->no_kamar == $penghuni->no_kamar) echo 'selected' ?>><?php echo $kamar->no_kamar ?></option>
@@ -96,7 +96,7 @@
                                         <input class="form-control" type="text" name="tempat_lahir" placeholder="Tempat Lahir Penghuni" value="<?php echo $penghuni->tempat_lahir ?>" maxlength="100" oninput="this.value = this.value.replace(/[^a-z A-Z ']/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row typo">
+                                <div class="form-group row typo" id="tgl_lahir">
                                     <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                     <div class="col-sm-9 input-group date">
                                         <input class="form-control" type="text" name="tgl_lahir" id="form_tgl_lahir" placeholder="Pilih Tanggal Lahir" value="<?php echo $penghuni->tgl_lahir ?>" autocomplete="off" required>
@@ -159,7 +159,7 @@
                                         <input class="form-control" type="text" name="no_ortu" placeholder="No Telp/HP Orang Tua Penghuni" value="<?php echo $penghuni->no_ortu ?>" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="form-group row typo transaksi">
+                                <div class="form-group row typo" id="tgl_huni">
                                     <label class="col-sm-3 col-form-label">Masa Huni</label>
                                     <div class="col-sm-9 input-daterange input-group" id="datepicker">
                                         <input class="input-sm form-control" type="text" name="tgl_masuk" id="tgl_masuk" placeholder="Pilih Tanggal Masuk" value="<?php echo $penghuni->tgl_masuk ?>" autocomplete="off" required>
@@ -182,22 +182,29 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group row transaksi" id="tgl_bayar">
+                                    <label class="col-sm-3 col-form-label">Tanggal Transaksi</label>
+                                    <div class="col-sm-9 input-group date">
+                                        <input class="form-control form_transaksi" type="text" name="tgl_bayar" id="form_tgl_bayar" placeholder="Pilih Tanggal Transaksi" value="<?php echo date('d-m-Y') ?>" autocomplete="off" required>
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Harga Sewa Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="biaya">
+                                        <input class="form-control form_transaksi" type="text" name="biaya">
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Bayar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="bayar">
+                                        <input class="form-control form_transaksi" type="text" name="bayar">
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Piutang</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="piutang">
+                                        <input class="form-control form_transaksi" type="text" name="piutang">
                                     </div>
                                 </div>
                                 <div class="form-group row">
