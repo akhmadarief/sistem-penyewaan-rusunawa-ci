@@ -3,7 +3,7 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Laporan Piutang<?php //echo $halaman ?></div>
-                        <button class="btn btn-success"> PRINT
+                        <button class="btn btn-success"> XLS
                           <i class="fa fa-print"></i>
                         </button>
                     </div>

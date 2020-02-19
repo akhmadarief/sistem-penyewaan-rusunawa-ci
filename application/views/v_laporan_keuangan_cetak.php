@@ -1,7 +1,8 @@
             <!-- START PAGE CONTENT-->
             <?php
+            $tanggal = (date('d-m-Y'))." ".date('H:i:s');
             header("Content-type: application/vnd-ms-excel");
-            header("Content-Disposition: attachment; filename=hasil.xls");
+            header("Content-Disposition: attachment; filename=Daftar Piutang ".$tanggal.".xls");
             ?>
                         <table>
                             <thead>

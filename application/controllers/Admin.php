@@ -49,10 +49,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
-    function laporan_keuangan_cetak(){
-        $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
-        $this->load->view('v_laporan_keuangan_cetak', $data);
-    }
 
     function pilih_kamar(){
         $data['judul_halaman'] = 'Pilih Kamar';
@@ -169,6 +165,11 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function daftar_penghuni_cetak(){
+        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $this->load->view('v_daftar_penghuni_cetak', $data);
+    }
+
     function riwayat_pembayaran(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
         $data['pembayaran'] = $this->m_data->data_pembayaran()->result();
@@ -190,7 +191,7 @@ class Admin extends CI_Controller {
     }
 
     function laporan_keuangan(){
-        $data['judul_halaman'] = 'Laporan Keuangan';
+        $data['judul_halaman'] = 'Daftar Piutang';
         $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -203,8 +204,13 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function laporan_keuangan_cetak(){
+        $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
+        $this->load->view('v_laporan_keuangan_cetak', $data);
+    }
+
     function laporan_piutang(){
-        $data['judul_halaman'] = 'Laporan Piutang';
+        $data['judul_halaman'] = 'Daftar Piutang';
         $data['penghuni'] = $this->m_data->data_penghuni()->result();
         $data['keuangan1'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
