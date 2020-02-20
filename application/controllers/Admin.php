@@ -224,8 +224,18 @@ class Admin extends CI_Controller {
 
     function ubah_pass(){
         $data['judul_halaman'] = 'Ubah Password';
+        $data['username'] = $this->session->userdata('username');
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_ubah_pass');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js_form');
+    }
+
+    function ubah_pass_gagal(){
+        $data['judul_halaman'] = 'Ubah Password';
+        $data['username'] = $this->session->userdata('username');
+        $this->load->view('_partials/v_head_form', $data);
+        $this->load->view('v_ubah_pass_gagal');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js_form');
     }
