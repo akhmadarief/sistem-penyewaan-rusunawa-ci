@@ -154,19 +154,23 @@ class M_data extends CI_Model {
     //     return $this->db->get();
     // }
 
-    
+    function update_password($username, $password_baru){
+        $this->db->where('username', $username);
+        return $this->db->update('admin', array('password' => $password_baru)) ? true : false;
+    }
+
     function data_user(){
         $this->db->select('nama, username');
         return $this->db->get('admin');
     }
 
-    function delete_user($username){
-        $this->db->delete('admin', array('username' => $username));
+    function insert_user($user_baru){
+        $this->db->insert('admin', $user_baru);
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    function update_password($username, $password_baru){
-        //$this->db->where(array('username' => $username, 'password' => $password));
-        $this->db->where('username', $username);
-        return $this->db->update('admin', array('password' => $password_baru)) ? true : false;
+    function delete_user($username){
+        $this->db->delete('admin', array('username' => $username));
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 }

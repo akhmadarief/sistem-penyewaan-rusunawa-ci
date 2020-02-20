@@ -405,19 +405,26 @@ class Aksi extends CI_Controller {
             'username'       => $username,
             'password'       => $password
         );
-        $tambah = $this->db->insert('admin', $user_baru);
-        if(!$tambah) redirect (base_url('admin/tambah_user_gagal'));
-        else redirect (base_url(''));
+        //$tambah = $this->db->insert('admin', $user_baru); //pindah ke model
+        //if(!$tambah) redirect (base_url('admin/tambah_user_gagal'));
+        //else redirect (base_url(''));
+
+        if ($this->m_data->insert_user($user_baru) == true){
+            redirect (base_url('admin/tabel_user'));
+        }
+        else{
+            redirect (base_url('admin/tambah_user_gagal'));
+        }
     }
 
     function aksi_ubah_pass(){
         $username = $this->session->userdata('username');
         $password = $this->input->post('password');
         $password_baru = sha1($this->input->post('password_baru'));
-        //$konfirmasi_password_baru = $this->input->post('konfirmasi_password_baru');
 
         $this->load->model('m_login');
         $cek = $this->m_login->cek_login($username, $password);
+
         if ($cek->num_rows() > 0){
             if ($this->m_data->update_password($username, $password_baru) == true){
                 echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
@@ -426,16 +433,7 @@ class Aksi extends CI_Controller {
                 echo 'Terjadi Kesalahan';
             }
         }
-       
-
-        else{
-
-            // if ($this->m_data->update_password($username, $password, $password_baru) == true){
-            //     echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
-            // }
-            // else{
-            //     echo 'Terjadi Kesalahan';
-            // }
+        else {
             redirect (base_url('admin/ubah_pass_gagal'));
         }
     }
@@ -444,7 +442,7 @@ class Aksi extends CI_Controller {
         //$username='null';
         //echo $username."kepanggil";exit;
         $this->m_data->delete_user($username);
-        redirect('admin/tabel_user');
+        redirect (base_url('admin/tabel_user'));
     }
 }
 

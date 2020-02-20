@@ -71,7 +71,8 @@
                         required: true
                     },
                     konfirmasi_password: {
-                        required: true
+                        required: true,
+                        equalTo: "#password"
                     }
                 },
                 highlight: function(e) {
