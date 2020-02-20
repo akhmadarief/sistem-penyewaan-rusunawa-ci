@@ -161,6 +161,7 @@ class M_data extends CI_Model {
 
     function data_user(){
         $this->db->select('nama, username');
+        $this->db->where('username !=', 'admin');
         return $this->db->get('admin');
     }
 
