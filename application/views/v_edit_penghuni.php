@@ -174,7 +174,7 @@
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Harga Sewa Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_edit" type="text" name="biaya">
+                                        <input class="form-control form_edit" type="text" name="biaya" value="<?php echo $penghuni->biaya ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi" id="tgl_bayar">

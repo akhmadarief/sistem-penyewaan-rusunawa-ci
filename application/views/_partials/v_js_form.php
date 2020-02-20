@@ -39,8 +39,12 @@
                     password: {
                         required: true
                     },
-                    konfirmasi_password: {
+                    password_baru: {
                         required: true
+                    },
+                    konfirmasi_password_baru: {
+                        required: true,
+                        equalTo: "#password_baru"
                     }
                 },
                 highlight: function(e) {
