@@ -262,6 +262,7 @@ class Aksi extends CI_Controller {
 
                     case 'terisi2':
                         $penghuni_satunya_kamar_lama = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
+                        $piutang_penghuni_lain_lama = $penghuni_satunya_kamar_lama->biaya - $penghuni_satunya_kamar_lama->bayar;
 
                         $data_update_kamar_lama = array(
                             'status'        => 'terisi1',
