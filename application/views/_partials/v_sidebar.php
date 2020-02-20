@@ -14,6 +14,11 @@
                             <span class="nav-label">Dasbor</span>
                         </a>
                     </li>
+                    <li>
+                        <a <?php if ($judul_halaman == 'Daftar User') echo 'class="active"' ?> href="<?php echo base_url('admin/tabel_user') ?>"><i class="sidebar-item-icon fa fa-user"></i>
+                            <span class="nav-label">Daftar User</span>
+                        </a>
+                    </li>
                     <li class="heading">KAMAR</li>
                     <li>
                         <a <?php if ($judul_halaman == 'Pilih Kamar') echo 'class="active"' ?> href="<?php echo base_url('admin/pilih_kamar') ?>"><i class="sidebar-item-icon fa fa-th"></i>

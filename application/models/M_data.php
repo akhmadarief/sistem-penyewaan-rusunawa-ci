@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_data extends CI_Model {
-
+    
     function data_penghuni(){
         $this->db->order_by('no_kamar', 'asc');
         return $this->db->get('penghuni');
@@ -144,5 +144,22 @@ class M_data extends CI_Model {
     function update_password($username, $password, $password_baru){
         //$this->db->where(array('username' => $username, 'password' => $password));
         return $this->db->update('admin', array('username' => $username, 'password' => $password), array('password' => $password_baru)) ? true : false;
+    }
+
+    // function data_user_by_username($username){
+    //     $this->db->select('*');
+    //     $this->db->from('admin');
+    //     $this->db->where('username', $username);
+    //     return $this->db->get();
+    // }
+
+    
+    function data_user(){
+        $this->db->select('nama, username');
+        return $this->db->get('admin');
+    }
+
+    function delete_user($username){
+        $this->db->delete('admin', array('username' => $username));
     }
 }

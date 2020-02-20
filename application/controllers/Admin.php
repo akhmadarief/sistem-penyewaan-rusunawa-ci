@@ -224,6 +224,20 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function tabel_user(){
+        $data['judul_halaman'] = 'Daftar User';
+        $data['user'] = $this->m_data->data_user()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_tabel_user', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
+    }
+
     function ubah_pass(){
         $data['judul_halaman'] = 'Ubah Password';
         $this->load->view('_partials/v_head_form', $data);

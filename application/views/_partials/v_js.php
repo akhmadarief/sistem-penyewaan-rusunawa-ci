@@ -36,6 +36,31 @@
         });
     </script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $('#tabel-user').DataTable({
+                pageLength: 25,
+                'sDom': 'R<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>><"row"<"col-sm-12"rt>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
+            });
+            $(".hapus-user").click(function(){
+                Swal.fire({
+                    title: 'Hapus Data Penghuni',
+                    text: 'Apakah Anda yakin ingin menghapus data user ini?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dd3333',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, Hapus',
+                    cancelButtonText: 'Batal',
+                }).then((result) => {
+                    if (result.value) {
+                        //form.submit();
+                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_penghuni/") ?>';
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
         //daftar penghuni
         $(document).ready(function(){
             $('#tabel-penghuni').DataTable({
