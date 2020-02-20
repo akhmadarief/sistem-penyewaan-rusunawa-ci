@@ -9,7 +9,12 @@ class Login extends CI_Controller {
     }
 
     function index(){
+        $data['judul_halaman'] = 'Login';
+        $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_login');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js_form');
+
     }
 
     function aksi_login(){
