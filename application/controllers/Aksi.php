@@ -102,9 +102,11 @@ class Aksi extends CI_Controller {
                 break;
 
                 case 'terisi1':
-                    $piutang_penghuni_lain = $cek_penghuni->biaya - $cek_penghuni->bayar;
+                    $penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
+                    $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
+
                     $status_kamar = 'terisi2';
-                    $status_bayar = ($piutang == 0 and $piutang_penghuni_lain == 0) ? 'lunas' : 'piutang';
+                    $status_bayar = ($piutang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
                 break;
             }
 
@@ -200,6 +202,23 @@ class Aksi extends CI_Controller {
                 );
 
                 if ($this->m_data->insert_pembayaran($data_pembayaran) == true){
+                    $penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
+                    $piutang_penghuni_sekarang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
+
+                    $status_awal_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+
+                    switch ($status_awal_kamar){
+                        case 'terisi1':
+                            $status_bayar = ($piutang_penghuni_sekarang == 0) ? 'lunas' : 'piutang';
+                        break;
+        
+                        case 'terisi2':
+                            $penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
+                            $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
+                            $status_bayar = ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
+                        break;
+                    }
+                    $this->m_data->update_status_kamar($no_kamar, $status_awal_kamar, $status_bayar);
                     //redirect('admin/daftar_penghuni');
                     echo 'transaksi sukses gayn';
                 }
@@ -280,14 +299,16 @@ class Aksi extends CI_Controller {
                     break;
 
                     case 'terisi2':
-                        $status_kamar_lama = 'terisi1';
                         $cek_penghuni_kamar_lama = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
 
                         if (!$cek_penghuni_kamar_lama){
+                            $status_kamar_lama = 'kosong';
                             $status_bayar_kamar_lama = 'lunas';
                         }
                         else {
                             $piutang_penghuni_lain_lama = $cek_penghuni_kamar_lama->biaya - $cek_penghuni_kamar_lama->bayar;
+
+                            $status_kamar_lama = 'terisi1';
                             $status_bayar_kamar_lama = ($piutang_penghuni_lain_lama == 0) ? 'lunas' : 'piutang';
                         }
                     break;
