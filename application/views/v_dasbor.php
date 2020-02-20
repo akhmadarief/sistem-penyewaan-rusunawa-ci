@@ -1,15 +1,3 @@
-<?php //$this->load->view('_partials/session.php') ?>
-
-<?php //$halaman = 'Dasbor' ?>
-
-<?php //$this->load->view('_partials/head.php') ?>
-
-        <!-- START HEADER-->
-        <?php //$this->load->view('_partials/header.php') ?>
-        <!-- END HEADER-->
-        <!-- START SIDEBAR-->
-        <?php //$this->load->view('_partials/sidebar.php') ?>
-        <!-- END SIDEBAR-->
             <!-- START PAGE CONTENT -->
             <div class="fade-in-up">
                 <div class="row">
@@ -94,14 +82,3 @@
                 </div>
             </div>
             <!-- END PAGE CONTENT-->
-            <?php //$this->load->view('_partials/footer.php') ?>
-    <!-- BEGIN THEME CONFIG PANEL-->
-    <?php //$this->load->view('_partials/theme-config.php') ?>
-    <!-- END THEME CONFIG PANEL-->
-
-    <!-- BEGIN PAGA BACKDROPS-->
-    <?php //$this->load->view('_partials/preloader.php') ?>
-    <!-- END PAGA BACKDROPS-->
-
-    <!-- CORE PLUGINS & SCRIPTS-->
-    <?php //$this->load->view('_partials/js.php') ?>
