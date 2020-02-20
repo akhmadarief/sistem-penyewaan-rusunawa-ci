@@ -30,7 +30,7 @@
                                         <input class="form-control" type="text" name="no_kamar_lama"  placeholder="No. Kamar" value="<?php echo $penghuni->no_kamar ?>" readonly>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Isi Kamar</label>
                                     <div class="col-sm-3" style="padding-top: 5px">
                                         <label class="ui-radio ui-radio-inline ui-radio-primary">

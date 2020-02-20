@@ -193,6 +193,7 @@ class Aksi extends CI_Controller {
             break;
 
             case "transaksi":
+                $no_kamar = $this->input->post('no_kamar_lama');
                 $tgl_bayar = $this->input->post('tgl_bayar');
                 $bayar = $this->input->post('bayar');
                 $data_pembayaran = array(
@@ -205,20 +206,20 @@ class Aksi extends CI_Controller {
                     $penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
                     $piutang_penghuni_sekarang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
 
-                    $status_awal_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+                    $status_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
 
-                    switch ($status_awal_kamar){
+                    switch ($status_kamar){
                         case 'terisi1':
                             $status_bayar = ($piutang_penghuni_sekarang == 0) ? 'lunas' : 'piutang';
                         break;
-        
+
                         case 'terisi2':
                             $penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
                             $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
                             $status_bayar = ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
                         break;
                     }
-                    $this->m_data->update_status_kamar($no_kamar, $status_awal_kamar, $status_bayar);
+                    $this->m_data->update_status_kamar($no_kamar, $status_kamar, $status_bayar);
                     //redirect('admin/daftar_penghuni');
                     echo 'transaksi sukses gayn';
                 }
@@ -334,7 +335,7 @@ class Aksi extends CI_Controller {
                 $this->m_data->update_status_kamar($no_kamar_lama, $status_kamar_lama, $status_bayar_kamar_lama);
                 $this->m_data->update_status_kamar($no_kamar_baru, $status_kamar_baru, $status_bayar_kamar_baru);
 
-                echo 'berhasil pindah kamar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
+                echo 'berhasil pindah kamar';
             break;
 
             default:
