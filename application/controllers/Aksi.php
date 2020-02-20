@@ -441,6 +441,8 @@ class Aksi extends CI_Controller {
     }
 
     function aksi_hapus_user($username){
+        //$username='null';
+        //echo $username."kepanggil";exit;
         $this->m_data->delete_user($username);
         redirect('admin/tabel_user');
     }

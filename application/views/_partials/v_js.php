@@ -42,6 +42,7 @@
                 'sDom': 'R<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>><"row"<"col-sm-12"rt>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
             });
             $(".hapus-user").click(function(){
+                var namapengguna = $(this).attr('username1');
                 Swal.fire({
                     title: 'Hapus Data Penghuni',
                     text: 'Apakah Anda yakin ingin menghapus data user ini?',
@@ -53,8 +54,9 @@
                     cancelButtonText: 'Batal',
                 }).then((result) => {
                     if (result.value) {
+                        window.alert(namapengguna);
                         //form.submit();
-                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_penghuni/") ?>';
+                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_user/") ?>' + namapengguna;
                     }
                 });
             });

@@ -21,7 +21,7 @@
                                     <td class="text-center"><?php echo $user->nama ?></td>
                                     <td class="text-center"><?php echo $user->username ?></td>
                                     <td class="text-center">
-                                        <a class="btn btn-sm btn-danger active hapus-user" id="<?php echo $user->username ?>">
+                                        <a class="btn btn-sm btn-danger active" href="<?php echo base_url("aksi/aksi_hapus_user/").$user->username;?> ">
                                             <span class="fa fa-trash"></span> Hapus
                                         </a>
                                     </td>

@@ -145,6 +145,7 @@ class M_data extends CI_Model {
         //$this->db->where(array('username' => $username, 'password' => $password));
         return $this->db->update('admin', array('username' => $username, 'password' => $password), array('password' => $password_baru)) ? true : false;
     }
+*/
 
     // function data_user_by_username($username){
     //     $this->db->select('*');
@@ -161,7 +162,8 @@ class M_data extends CI_Model {
 
     function delete_user($username){
         $this->db->delete('admin', array('username' => $username));
-*/
+    }
+
     function update_password($username, $password_baru){
         //$this->db->where(array('username' => $username, 'password' => $password));
         $this->db->where('username', $username);
