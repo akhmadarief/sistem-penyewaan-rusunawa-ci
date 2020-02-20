@@ -12,12 +12,7 @@ class Admin extends CI_Controller {
     }
 
     function index(){
-        $data['a']=$this->m_data->jumlah_penghuni_gedung('A');
-        $data['b']=$this->m_data->jumlah_penghuni_gedung('B');
-        $data['c']=$this->m_data->jumlah_penghuni_gedung('C');
-        $data['d']=$this->m_data->jumlah_penghuni_gedung('D');
-        $data['e']=$this->m_data->jumlah_penghuni_gedung('E');
-
+        $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -31,12 +26,7 @@ class Admin extends CI_Controller {
     }
 
     function dasbor(){
-        $data['a']=$this->m_data->jumlah_penghuni_gedung('A');
-        $data['b']=$this->m_data->jumlah_penghuni_gedung('B');
-        $data['c']=$this->m_data->jumlah_penghuni_gedung('C');
-        $data['d']=$this->m_data->jumlah_penghuni_gedung('D');
-        $data['e']=$this->m_data->jumlah_penghuni_gedung('E');
-
+        $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -49,6 +39,14 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function jumlah_kamar(){
+        $data['a']=$this->m_data->jumlah_penghuni_gedung('A');
+        $data['b']=$this->m_data->jumlah_penghuni_gedung('B');
+        $data['c']=$this->m_data->jumlah_penghuni_gedung('C');
+        $data['d']=$this->m_data->jumlah_penghuni_gedung('D');
+        $data['e']=$this->m_data->jumlah_penghuni_gedung('E');
+        return $data;
+    }
 
     function pilih_kamar(){
         $data['judul_halaman'] = 'Pilih Kamar';
@@ -240,8 +238,18 @@ class Admin extends CI_Controller {
 
     function ubah_pass(){
         $data['judul_halaman'] = 'Ubah Password';
+        $data['username'] = $this->session->userdata('username');
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_ubah_pass');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js_form');
+    }
+
+    function ubah_pass_gagal(){
+        $data['judul_halaman'] = 'Ubah Password';
+        $data['username'] = $this->session->userdata('username');
+        $this->load->view('_partials/v_head_form', $data);
+        $this->load->view('v_ubah_pass_gagal');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js_form');
     }
@@ -250,6 +258,14 @@ class Admin extends CI_Controller {
         $data['judul_halaman'] = 'Tambah User';
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_tambah_user');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js_form');
+    }
+
+    function tambah_user_gagal(){
+        $data['judul_halaman'] = 'Tambah User';
+        $this->load->view('_partials/v_head_form', $data);
+        $this->load->view('v_tambah_user_gagal');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js_form');
     }

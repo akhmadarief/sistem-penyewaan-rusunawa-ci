@@ -140,7 +140,7 @@ class M_data extends CI_Model {
             'sendiri' => $this->db->get_where('kamar', array('gedung' => $gedung, 'status' => 'sendiri'))->num_rows()
         );
     }
-
+/*
     function update_password($username, $password, $password_baru){
         //$this->db->where(array('username' => $username, 'password' => $password));
         return $this->db->update('admin', array('username' => $username, 'password' => $password), array('password' => $password_baru)) ? true : false;
@@ -161,5 +161,10 @@ class M_data extends CI_Model {
 
     function delete_user($username){
         $this->db->delete('admin', array('username' => $username));
+*/
+    function update_password($username, $password_baru){
+        //$this->db->where(array('username' => $username, 'password' => $password));
+        $this->db->where('username', $username);
+        return $this->db->update('admin', array('password' => $password_baru)) ? true : false;
     }
 }

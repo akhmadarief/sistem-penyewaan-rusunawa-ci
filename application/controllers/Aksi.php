@@ -395,24 +395,48 @@ class Aksi extends CI_Controller {
         echo json_encode($penghuni);
     }
 
-    function aksi_ubah_pass(){
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $password_baru = $this->input->post('password_baru');
-        $konfirmasi_password_baru = $this->input->post('konfirmasi_password_baru');
+    function tambah_user(){
+        $nama           = $this->input->post('nama');
+        $username       = $this->input->post('username');
+        $password       = sha1($this->input->post('password'));
 
-        if ($password_baru != $konfirmasi_password_baru){
-            echo '<script>alert ("Konfirmasi Password Tidak Cocok"); window.location="'.base_url('admin/ubah_pass').'";</script>';
+        $user_baru = array(
+            'nama'           => $nama,
+            'username'       => $username,
+            'password'       => $password
+        );
+        $tambah = $this->db->insert('admin', $user_baru);
+        if(!$tambah) redirect (base_url('admin/tambah_user_gagal'));
+        else redirect (base_url(''));
+    }
+
+    function aksi_ubah_pass(){
+        $username = $this->session->userdata('username');
+        $password = $this->input->post('password');
+        $password_baru = sha1($this->input->post('password_baru'));
+        //$konfirmasi_password_baru = $this->input->post('konfirmasi_password_baru');
+
+        $this->load->model('m_login');
+        $cek = $this->m_login->cek_login($username, $password);
+        if ($cek->num_rows() > 0){
+            if ($this->m_data->update_password($username, $password_baru) == true){
+                echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
+            }
+            else{
+                echo 'Terjadi Kesalahan';
+            }
         }
+       
 
         else{
+
             // if ($this->m_data->update_password($username, $password, $password_baru) == true){
             //     echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
             // }
             // else{
             //     echo 'Terjadi Kesalahan';
             // }
-            echo 'berhasil';
+            redirect (base_url('admin/ubah_pass_gagal'));
         }
     }
 
@@ -421,3 +445,4 @@ class Aksi extends CI_Controller {
         redirect('admin/tabel_user');
     }
 }
+
