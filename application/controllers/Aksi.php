@@ -394,4 +394,25 @@ class Aksi extends CI_Controller {
         $penghuni = $this->m_data->data_penghuni_by_id($id)->row();
         echo json_encode($penghuni);
     }
+
+    function aksi_ubah_pass(){
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $password_baru = $this->input->post('password_baru');
+        $konfirmasi_password_baru = $this->input->post('konfirmasi_password_baru');
+
+        if ($password_baru != $konfirmasi_password_baru){
+            echo '<script>alert ("Konfirmasi Password Tidak Cocok"); window.location="'.base_url('admin/ubah_pass').'";</script>';
+        }
+
+        else{
+            // if ($this->m_data->update_password($username, $password, $password_baru) == true){
+            //     echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
+            // }
+            // else{
+            //     echo 'Terjadi Kesalahan';
+            // }
+            echo 'berhasil';
+        }
+    }
 }
