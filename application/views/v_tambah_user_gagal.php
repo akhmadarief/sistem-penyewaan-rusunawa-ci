@@ -21,6 +21,8 @@
             <div class="form-group">
                 <input class="form-control" type="password" name="konfirmasi_password" placeholder="Konfirmasi Password">
             </div>
+            <div>
+            <div class="alert alert-danger">Gagal, mungkin sudah ada yang punya.</div></div>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">

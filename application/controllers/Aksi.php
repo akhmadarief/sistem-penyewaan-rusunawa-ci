@@ -400,4 +400,19 @@ class Aksi extends CI_Controller {
         $penghuni = $this->m_data->data_penghuni_by_id($id)->row();
         echo json_encode($penghuni);
     }
+
+    function tambah_user(){
+        $nama           = $this->input->post('nama');
+        $username       = $this->input->post('username');
+        $password       = sha1($this->input->post('password'));
+
+        $user_baru = array(
+            'nama'           => $nama,
+            'username'       => $username,
+            'password'       => $password
+        );
+        $tambah = $this->db->insert('admin', $user_baru);
+        if(!$tambah) redirect (base_url('admin/tambah_user_gagal'));
+        else redirect (base_url(''));
+    }
 }
