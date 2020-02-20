@@ -445,5 +445,30 @@ class Aksi extends CI_Controller {
         $this->m_data->delete_user($username);
         redirect (base_url('admin/tabel_user'));
     }
+
+    function aksi_edit_pembayaran(){
+        $id_penghuni = $this->input->post('id_penghuni');
+        $biaya = $this->input->post('biaya');
+
+        $id_pembayaran = $this->input->post('id_pembayaran');
+        $tgl_bayar = $this->input->post('tgl_bayar');
+        $bayar = $this->input->post('bayar');
+
+        $data_penghuni = array(
+            'biaya' => $biaya
+        );
+
+        $data_pembayaran = array(
+            'tgl_bayar' => $tgl_bayar,
+            'bayar' => $bayar
+        );
+
+        if ($this->m_data->update_penghuni($id_penghuni, $data_penghuni) == true and $this->m_data->update_pembayaran($id_pembayaran, $data_pembayaran) == true){
+            echo 'berhasil diedit'; //belum menghitung piutang/lunas
+        }
+        else {
+            echo 'gagal';
+        }
+    }
 }
 

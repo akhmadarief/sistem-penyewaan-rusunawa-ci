@@ -87,6 +87,15 @@ class M_data extends CI_Model {
         return $this->db->get();
     }
 
+    function data_pembayaran_by_id_pembayaran($id_pembayaran){
+        $this->db->select('*');
+        $this->db->from('keuangan');
+        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
+        $this->db->where('id_pembayaran', $id_pembayaran);
+        $this->db->order_by('id_pembayaran', 'asc');
+        return $this->db->get();
+    }
+
     function data_keuangan_per_penghuni(){
         $this->db->select('no_kamar, nama, penghuni.nim, biaya');
         $this->db->select_sum('bayar');
@@ -119,6 +128,11 @@ class M_data extends CI_Model {
     function update_penghuni($id, $data){
         $this->db->where('id', $id);
         return $this->db->update('penghuni', $data) ? true : false;
+    }
+
+    function update_pembayaran($id_pembayaran, $data){
+        $this->db->where('id_pembayaran', $id_pembayaran);
+        return $this->db->update('keuangan', $data) ? true : false;
     }
 /*
     function update_penghuni($id, $data){

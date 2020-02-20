@@ -31,7 +31,14 @@
                                     <td class="text-center"><?php echo $pembayaran->tgl_bayar ?></td>
                                     <td class="text-center"><?php echo 'Rp. '.number_format($pembayaran->biaya, 0, ',', '.') ?></td>
                                     <td class="text-center"><?php echo 'Rp. '.number_format($pembayaran->bayar, 0, ',', '.') ?></td>
-                                    <td class="text-center">Edit</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-sm btn-info active" href="<?php echo base_url('admin/edit_pembayaran/'.$pembayaran->id_pembayaran) ?>">
+                                            <span class="fa fa-pencil"></span>
+                                        </a>
+                                        <a class="btn btn-sm btn-danger active hapus-pembayaran" id="<?php echo $pembayaran->id_pembayaran ?>">
+                                            <span class="fa fa-trash"></span>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

@@ -182,6 +182,26 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function edit_pembayaran($id_pembayaran = null){
+
+        if (!isset($id_pembayaran)) redirect('admin/riwayat_pembayaran');
+
+        $data['judul_halaman'] = 'Edit Pembayaran';
+        $data['pembayaran'] = $this->m_data->data_pembayaran_by_id_pembayaran($id_pembayaran)->row();
+
+        if (!$data['pembayaran']) show_404();
+
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_edit_pembayaran', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
+    }
+
     function riwayat_pembayaran_cetak(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
         $data['pembayaran'] = $this->m_data->data_pembayaran()->result();
