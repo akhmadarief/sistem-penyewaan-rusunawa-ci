@@ -70,9 +70,9 @@ class M_data extends CI_Model {
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    function update_status_kamar($no_kamar, $status_kamar, $status_bayar){
+    function update_status_kamar($no_kamar, $data_update_kamar){
         $this->db->where('no_kamar', $no_kamar);
-        $this->db->update('kamar', array('status' => $status_kamar, 'status_bayar' => $status_bayar));
+        $this->db->update('kamar', $data_update_kamar);
     }
 
     function insert_pembayaran($data_pembayaran){
@@ -107,12 +107,12 @@ class M_data extends CI_Model {
     }
 
     function data_keuangan_per_penghuni_by_nim_2($nim){
-        $this->db->select('penghuni.nim, no_kamar, nama, biaya');
+        $this->db->select('penghuni.nim, no_kamar, nama, biaya, isi_kamar');
         $this->db->select_sum('bayar');
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
         $this->db->where('penghuni.nim', $nim);
-        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
+        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya', 'isi_kamar'));
         return $this->db->get();
     }
 
