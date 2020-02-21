@@ -7,7 +7,7 @@
                 <h2 class="changepass-title1">Ubah Password Admin</h2>
             </div>
             <div class="social-auth-hr">
-                <span>Mengubah password akun Admin</span>
+                <span>Mengubah password akun <?php echo"<strong>$username</strong>"?></span>
             </div>
             <input class="form-control" type="hidden" name="username" value="<?php echo $username ?>">
             <div class="form-group">
