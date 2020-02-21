@@ -83,7 +83,7 @@ class M_data extends CI_Model {
         $this->db->select('*');
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
-        $this->db->order_by('id_pembayaran', 'asc');
+        $this->db->order_by('id_pembayaran', 'desc');
         return $this->db->get();
     }
 
