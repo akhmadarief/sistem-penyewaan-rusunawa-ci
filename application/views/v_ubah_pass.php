@@ -9,9 +9,7 @@
             <div class="social-auth-hr">
                 <span>Mengubah password akun Admin</span>
             </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="username" placeholder="Username" autocomplete="off" value="<?php echo $username; ?>" readonly>
-            </div>
+            <input class="form-control" type="hidden" name="username" value="<?php echo $username ?>">
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password Lama">
             </div>
@@ -21,6 +19,7 @@
             <div class="form-group">
                 <input class="form-control" type="password" name="konfirmasi_password_baru" placeholder="Konfirmasi Password Baru">
             </div>
+            <?php if ($pesan == 'gagal') echo '<div class="alert alert-danger">Password lama kayaknya ngablu.</div>' ?>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">

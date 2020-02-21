@@ -263,7 +263,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
-    function ubah_pass(){
+    function ubah_pass($pesan = null){
+        $data['pesan'] = $pesan;
         $data['judul_halaman'] = 'Ubah Password';
         $data['username'] = $this->session->userdata('username');
         $this->load->view('_partials/v_head_form', $data);

@@ -435,7 +435,7 @@ class Aksi extends CI_Controller {
             }
         }
         else {
-            redirect (base_url('admin/ubah_pass_gagal'));
+            redirect (base_url('admin/ubah_pass/gagal'));
         }
     }
 
