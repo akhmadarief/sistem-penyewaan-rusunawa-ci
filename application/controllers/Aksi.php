@@ -361,7 +361,7 @@ class Aksi extends CI_Controller {
                 break;
 
                 case 'terisi2':
-                    $penghuni_satunta = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
+                    $penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
                     $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
 
                     $data_update_kamar = array(
@@ -448,6 +448,8 @@ class Aksi extends CI_Controller {
 
     function aksi_edit_pembayaran(){
         $id_penghuni = $this->input->post('id_penghuni');
+        $nim = $this->input->post('nim');
+        $no_kamar = $this->input->post('no_kamar');
         $biaya = $this->input->post('biaya');
 
         $id_pembayaran = $this->input->post('id_pembayaran');
@@ -464,7 +466,33 @@ class Aksi extends CI_Controller {
         );
 
         if ($this->m_data->update_penghuni($id_penghuni, $data_penghuni) == true and $this->m_data->update_pembayaran($id_pembayaran, $data_pembayaran) == true){
-            echo 'berhasil diedit'; //belum menghitung piutang/lunas
+
+            $status_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+
+            $penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
+            $piutang_penghuni_sekarang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
+
+            switch ($status_kamar){
+                case 'sendiri':
+                    $status_bayar = ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
+                break;
+
+                case 'terisi2':
+                    $penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim)->row();
+                    $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
+
+                    $status_bayar  = ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
+                break;
+            }
+
+            $data_update_kamar = array(
+                'status'        => $status_kamar,
+                'status_bayar'  => $status_bayar
+            );
+
+            $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
+
+            echo 'berhasil diedit'; //belum menghitung piutang/lunas //sudah
         }
         else {
             echo 'gagal';

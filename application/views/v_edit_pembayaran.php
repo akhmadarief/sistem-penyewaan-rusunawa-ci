@@ -14,19 +14,19 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="no_kamar_lama"  placeholder="No. Kamar" value="<?php echo $pembayaran->no_kamar ?>" disabled>
+                                        <input class="form-control" type="text" name="no_kamar"  placeholder="No. Kamar" value="<?php echo $pembayaran->no_kamar ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap Penghuni" value="<?php echo $pembayaran->nama ?>" disabled>
+                                        <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap Penghuni" value="<?php echo $pembayaran->nama ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">NIM</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="nim" placeholder="NIM Penghuni" value="<?php echo $pembayaran->nim ?>" disabled>
+                                        <input class="form-control" type="text" name="nim" placeholder="NIM Penghuni" value="<?php echo $pembayaran->nim ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
