@@ -11,6 +11,12 @@ class Admin extends CI_Controller {
         $this->load->model('m_data');
     }
 
+    function super_user(){
+        if ($this->session->userdata('username') != 'admin'){
+            redirect (base_url(''));
+        }
+    }
+
     function index(){
         $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
@@ -243,6 +249,7 @@ class Admin extends CI_Controller {
     }
 
     function tabel_user(){
+        $this->super_user();
         $data['judul_halaman'] = 'Daftar User';
         $data['user'] = $this->m_data->data_user()->result();
         $this->load->view('_partials/v_head', $data);
@@ -275,6 +282,7 @@ class Admin extends CI_Controller {
     }
 
     function tambah_user(){
+        $this->super_user();
         $data['judul_halaman'] = 'Tambah User';
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_tambah_user');
@@ -283,6 +291,7 @@ class Admin extends CI_Controller {
     }
 
     function tambah_user_gagal(){
+        $this->super_user();
         $data['judul_halaman'] = 'Tambah User';
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_tambah_user_gagal');
