@@ -208,6 +208,22 @@
     </script>
     <script type="text/javascript">
         //tambah/edit penghuni
+        function formatRupiah(angka, prefix){
+			var number_string = angka.replace(/[^,\d]/g, '').toString(),
+			split   		= number_string.split(','),
+			sisa     		= split[0].length % 3,
+			rupiah     		= split[0].substr(0, sisa),
+			ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+ 
+			// tambahkan titik jika yang di input sudah menjadi angka ribuan
+			if(ribuan){
+				separator = sisa ? '.' : '';
+				rupiah += separator + ribuan.join('.');
+			}
+ 
+			rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+			return prefix == undefined ? rupiah : (rupiah ? 'Rp' + rupiah : '');
+		}
         $(document).ready(function(){
             // Select 2
             $(".select2_kamar").select2({
@@ -303,7 +319,20 @@
                 var biaya =parseInt($("#piutang_lama").val());
                 var bayar =parseInt($(this).val());
                 piutang = biaya-bayar;
-                $("#piutang_baru").val(piutang);
+                sisa = Math.abs(piutang);                
+                $("#azz").val(piutang);
+                $("#azz1").val(sisa);
+                piutang_baru = formatRupiah(azz.value, 'Rp');
+                sisa_format = formatRupiah(azz1.value, 'Rp');
+                if (piutang > '0'){
+                    $("#piutang_baru").val(piutang_baru);
+                }
+                else if (piutang == '0'){                    
+                    $("#piutang_baru").val("Sudah Lunas");
+                }
+                else {                
+                    $("#piutang_baru").val("Kelebihan Pembayaran "+sisa_format);
+                }
             });
         });
         $(document).ready(function(){
@@ -349,6 +378,8 @@
                 $(".form_pindah").prop({'required': true, 'disabled': false});
             });
         });
+
+        
     </script>
     <script type="text/javascript">
         //pilih kamar
