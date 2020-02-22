@@ -18,12 +18,13 @@ class Admin extends CI_Controller {
     }
 
     function index(){
-        $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
+        $data['username'] = $this->session->userdata('username');
+        $data = $this->jumlah_kamar();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
-        //$this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_dasbor'); //page content
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
@@ -32,12 +33,13 @@ class Admin extends CI_Controller {
     }
 
     function dasbor(){
-        $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
+        $data['username'] = $this->session->userdata('username');
+        $data = $this->jumlah_kamar();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
-        //$this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_dasbor'); //page content
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
@@ -56,6 +58,8 @@ class Admin extends CI_Controller {
 
     function pilih_kamar(){
         $data['judul_halaman'] = 'Pilih Kamar';
+        $data['username'] = $this->session->userdata('username');
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
@@ -77,10 +81,11 @@ class Admin extends CI_Controller {
 
         else if (strpos($cek_kamar->status, 'terisi2') !== false or strpos($cek_kamar->status, 'sendiri') !== false) echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
 
+        $data['judul_halaman'] = 'Tambah Penghuni';
+        $data['username'] = $this->session->userdata('username');
         $data['harga_kamar'] = $this->m_data->data_harga_kamar_by_lantai($cek_kamar->lantai)->row();
         $data['no_kamar'] = $no_kamar;
         $data['status_kamar'] = $cek_kamar->status;
-        $data['judul_halaman'] = 'Tambah Penghuni';
         $data['fakultas'] = $this->m_data->data_fakultas()->result();
 
         $this->load->view('_partials/v_head', $data);
@@ -97,8 +102,7 @@ class Admin extends CI_Controller {
     function edit_penghuni($id = null){
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
-        
-        
+
         $data['penghuni'] = $this->m_data->data_penghuni_by_id($id)->row();
         $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni_by_nim_2($data['penghuni']->nim)->row();
 
@@ -106,12 +110,11 @@ class Admin extends CI_Controller {
 
         $id_fakultas = $data['penghuni']->id_fakultas;
 
+        $data['judul_halaman'] = 'Edit Penghuni';
+        $data['username'] = $this->session->userdata('username');
         $data['kamar'] = $this->m_data->data_kamar_tersedia()->result();
         $data['prodi'] = $this->m_data->data_prodi_by_id_fakultas($id_fakultas)->result();
-        //$data['prodi1'] = $this->m_data->data_prodi_by_id_fakultas($id_fakultas)->result();
-        $data['judul_halaman'] = 'Edit Penghuni';
         $data['fakultas'] = $this->m_data->data_fakultas()->result();
-        //$data['fakultas1'] = $this->m_data->data_fakultas()->result();
 
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -126,6 +129,7 @@ class Admin extends CI_Controller {
 
     function daftar_kamar(){
         $data['judul_halaman'] = 'Daftar Kamar';
+        $data['username'] = $this->session->userdata('username');
         $data['kamar'] = $this->m_data->data_kamar()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -145,6 +149,7 @@ class Admin extends CI_Controller {
 
     function daftar_harga(){
         $data['judul_halaman'] = 'Daftar Harga Kamar';
+        $data['username'] = $this->session->userdata('username');
         $data['daftar_harga'] = $this->m_data->data_harga_kamar()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -159,6 +164,7 @@ class Admin extends CI_Controller {
 
     function daftar_penghuni(){
         $data['judul_halaman'] = 'Daftar Penghuni';
+        $data['username'] = $this->session->userdata('username');
         $data['penghuni'] = $this->m_data->data_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -178,6 +184,7 @@ class Admin extends CI_Controller {
 
     function riwayat_pembayaran(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
+        $data['username'] = $this->session->userdata('username');
         $data['pembayaran'] = $this->m_data->data_pembayaran()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -195,6 +202,7 @@ class Admin extends CI_Controller {
         if (!isset($id_pembayaran)) redirect('admin/riwayat_pembayaran');
 
         $data['judul_halaman'] = 'Edit Pembayaran';
+        $data['username'] = $this->session->userdata('username');
         $data['pembayaran'] = $this->m_data->data_pembayaran_by_id_pembayaran($id_pembayaran)->row();
 
         if (!$data['pembayaran']) show_404();
@@ -212,12 +220,14 @@ class Admin extends CI_Controller {
 
     function riwayat_pembayaran_cetak(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
+        $data['username'] = $this->session->userdata('username');
         $data['pembayaran'] = $this->m_data->data_pembayaran()->result();
         $this->load->view('v_riwayat_pembayaran_cetak', $data); //page content
     }
 
     function laporan_keuangan(){
         $data['judul_halaman'] = 'Daftar Piutang';
+        $data['username'] = $this->session->userdata('username');
         $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -237,6 +247,7 @@ class Admin extends CI_Controller {
 
     function laporan_piutang(){
         $data['judul_halaman'] = 'Daftar Piutang';
+        $data['username'] = $this->session->userdata('username');
         $data['penghuni'] = $this->m_data->data_penghuni()->result();
         $data['keuangan1'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
@@ -253,6 +264,7 @@ class Admin extends CI_Controller {
     function tabel_user(){
         $this->super_user();
         $data['judul_halaman'] = 'Daftar User';
+        $data['username'] = $this->session->userdata('username');
         $data['user'] = $this->m_data->data_user()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -267,7 +279,7 @@ class Admin extends CI_Controller {
 
     function ubah_pass(){
         $data['judul_halaman'] = 'Ubah Password';
-        $data['pesan'] = $this->session->flashdata('ubah_pass');
+        $data['pesan'] = $this->session->flashdata('pesan');
         $data['username'] = $this->session->userdata('username');
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_ubah_pass');
@@ -278,7 +290,7 @@ class Admin extends CI_Controller {
     function tambah_user(){
         $this->super_user();
         $data['judul_halaman'] = 'Tambah User';
-        $data['pesan'] = $this->session->flashdata('tambah_user');
+        $data['pesan'] = $this->session->flashdata('pesan');
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_tambah_user');
         $this->load->view('_partials/v_preloader');

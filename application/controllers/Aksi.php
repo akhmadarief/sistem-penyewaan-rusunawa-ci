@@ -400,7 +400,7 @@ class Aksi extends CI_Controller {
             redirect (base_url('admin/tabel_user'));
         }
         else{
-            $this->session->set_flashdata('tambah_user', 'gagal');
+            $this->session->set_flashdata('pesan', 'gagal_tambah_user');
             redirect (base_url('admin/tambah_user'));
         }
     }
@@ -415,14 +415,16 @@ class Aksi extends CI_Controller {
 
         if ($cek->num_rows() > 0){
             if ($this->m_data->update_password($username, $password_baru) == true){
-                echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
+                //echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
+                $this->session->set_flashdata('pesan', 'berhasil_ubah_pass');
+                redirect (base_url('login'));
             }
             else{
                 echo 'Terjadi Kesalahan';
             }
         }
         else {
-            $this->session->set_flashdata('ubah_pass', 'gagal');
+            $this->session->set_flashdata('pesan', 'gagal_ubah_pass');
             redirect (base_url('admin/ubah_pass'));
         }
     }

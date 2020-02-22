@@ -10,21 +10,20 @@ class Login extends CI_Controller {
 
     function index(){
         $data['judul_halaman'] = 'Login';
-        $data['pesan'] = $this->session->flashdata('login');
+        $data['pesan'] = $this->session->flashdata('pesan');
 
-        if ($data['pesan'] == 'berhasil_logout'){
+        if ($data['pesan'] == 'berhasil_logout' or $data['pesan'] == 'berhasil_ubah_pass'){
             $this->session->sess_destroy();
         }
 
-        if ($this->session->userdata('status') == 'login'){
-            redirect (base_url('admin'));
-        }
+        // if ($this->session->userdata('status') == 'login'){
+        //     redirect (base_url('admin'));
+        // }
 
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_login');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js_form');
-
     }
 
     function aksi_login(){
@@ -43,13 +42,13 @@ class Login extends CI_Controller {
             redirect (base_url('admin'));
         }
         else {
-            $this->session->set_flashdata('login', 'gagal');
+            $this->session->set_flashdata('pesan', 'gagal_login');
             redirect (base_url('login'));
         }
     }
 
     function logout(){
-        $this->session->set_flashdata('login', 'berhasil_logout');
+        $this->session->set_flashdata('pesan', 'berhasil_logout');
         redirect (base_url('login'));
     }
 }
