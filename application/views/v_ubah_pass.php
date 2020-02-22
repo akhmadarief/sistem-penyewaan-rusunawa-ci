@@ -19,7 +19,7 @@
             <div class="form-group">
                 <input class="form-control" type="password" name="konfirmasi_password_baru" placeholder="Konfirmasi Password Baru">
             </div>
-            <?php if ($pesan == 'gagal') echo '<div class="alert alert-danger">Password lama tidak benar.</div>' ?>
+            <?php if ($pesan == 'gagal') echo '<div class="alert alert-danger">Password lama kayaknya ngablu.</div>' ?>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
