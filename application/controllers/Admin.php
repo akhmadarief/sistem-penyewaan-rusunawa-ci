@@ -97,8 +97,10 @@ class Admin extends CI_Controller {
     function edit_penghuni($id = null){
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
-
+        
+        
         $data['penghuni'] = $this->m_data->data_penghuni_by_id($id)->row();
+        $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni_by_nim_2($data['penghuni']->nim)->row();
 
         if (!$data['penghuni']) show_404();
 

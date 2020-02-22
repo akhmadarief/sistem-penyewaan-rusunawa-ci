@@ -299,6 +299,12 @@
                 piutang = biaya-bayar;
                 $("#piutang").val(piutang);
             });
+            $("#bayar_baru").on("keyup", function(){
+                var biaya =parseInt($("#piutang_lama").val());
+                var bayar =parseInt($(this).val());
+                piutang = biaya-bayar;
+                $("#piutang_baru").val(piutang);
+            });
         });
         $(document).ready(function(){
             $(".btn-edit").click(function(){

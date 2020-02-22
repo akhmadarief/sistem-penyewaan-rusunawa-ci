@@ -185,9 +185,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">
+                                    <label class="col-sm-3 col-form-label">Piutang</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control form_transaksi" type="text" id="piutang_lama" value="<?php $piutang = $keuangan->biaya - $keuangan->bayar; echo $piutang == 0 ? 'Sudah Lunas' : $piutang?>"readonly>   
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" name="bayar">
+                                        <input class="form-control form_transaksi" type="text" name="bayar" id="bayar_baru">
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi">
+                                    <label class="col-sm-3 col-form-label">Piutang</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control form_transaksi" type="text" id="piutang_baru" readonly>   
                                     </div>
                                 </div>
                                 <div class="form-group row pk">
