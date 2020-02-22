@@ -9,7 +9,17 @@ class Login extends CI_Controller {
     }
 
     function index(){
+        if ($this->session->userdata('status') == 'login'){
+            redirect (base_url('admin'));
+        }
+
         $data['judul_halaman'] = 'Login';
+        $data['pesan'] = $this->session->flashdata('login');
+
+        if ($data['pesan'] == 'berhasil_logout'){
+            $this->session->sess_destroy();
+        }
+
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_login');
         $this->load->view('_partials/v_preloader');
@@ -33,12 +43,13 @@ class Login extends CI_Controller {
             redirect (base_url('admin'));
         }
         else {
+            $this->session->set_flashdata('login', 'gagal');
             redirect (base_url('login'));
         }
     }
 
     function logout(){
-        $this->session->sess_destroy();
+        $this->session->set_flashdata('login', 'berhasil_logout');
         redirect (base_url('login'));
     }
 }

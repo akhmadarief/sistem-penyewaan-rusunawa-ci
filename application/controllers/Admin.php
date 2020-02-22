@@ -264,8 +264,8 @@ class Admin extends CI_Controller {
     }
 
     function ubah_pass(){
-        $data['pesan'] = $this->session->flashdata('ubah_pass');
         $data['judul_halaman'] = 'Ubah Password';
+        $data['pesan'] = $this->session->flashdata('ubah_pass');
         $data['username'] = $this->session->userdata('username');
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_ubah_pass');
@@ -275,8 +275,8 @@ class Admin extends CI_Controller {
 
     function tambah_user(){
         $this->super_user();
-        $data['pesan'] = $this->session->flashdata('tambah_user');
         $data['judul_halaman'] = 'Tambah User';
+        $data['pesan'] = $this->session->flashdata('tambah_user');
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_tambah_user');
         $this->load->view('_partials/v_preloader');

@@ -27,6 +27,16 @@
                         <input type="checkbox">
                         <span class="input-span"></span>Ingat saya</label>
                 </div>
+                <?php
+                switch ($pesan){
+                    case 'gagal':
+                        echo '<div class="alert alert-danger">Username dan password tidak cocok.</div>';
+                    break;
+                    case 'berhasil_logout':
+                        echo '<div class="alert alert-success">Berhasil keluar dari sistem.</div>';
+                    break;
+                }
+                ?>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">Login</button>
                 </div>
