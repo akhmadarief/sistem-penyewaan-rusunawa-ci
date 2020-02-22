@@ -194,10 +194,12 @@
                                     <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
                                     <div class="col-sm-9">
                                         <input class="form-control form_transaksi" type="text" name="bayar" id="bayar_baru">
+                                        <input type="hidden" id="azz">
+                                        <input type="hidden" id="azz1">
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">
-                                    <label class="col-sm-3 col-form-label">Piutang</label>
+                                    <label class="col-sm-3 col-form-label">Sisa Piutang</label>
                                     <div class="col-sm-9">
                                         <input class="form-control form_transaksi" type="text" id="piutang_baru" readonly>   
                                     </div>
