@@ -9,15 +9,15 @@ class Login extends CI_Controller {
     }
 
     function index(){
-        if ($this->session->userdata('status') == 'login'){
-            redirect (base_url('admin'));
-        }
-
         $data['judul_halaman'] = 'Login';
         $data['pesan'] = $this->session->flashdata('login');
 
         if ($data['pesan'] == 'berhasil_logout'){
             $this->session->sess_destroy();
+        }
+
+        if ($this->session->userdata('status') == 'login'){
+            redirect (base_url('admin'));
         }
 
         $this->load->view('_partials/v_head_form', $data);
