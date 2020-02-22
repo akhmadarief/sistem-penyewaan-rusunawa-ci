@@ -400,7 +400,8 @@ class Aksi extends CI_Controller {
             redirect (base_url('admin/tabel_user'));
         }
         else{
-            redirect (base_url('admin/tambah_user/gagal'));
+            $this->session->set_flashdata('tambah_user', 'gagal');
+            redirect (base_url('admin/tambah_user'));
         }
     }
 
@@ -421,7 +422,8 @@ class Aksi extends CI_Controller {
             }
         }
         else {
-            redirect (base_url('admin/ubah_pass/gagal'));
+            $this->session->set_flashdata('ubah_pass', 'gagal');
+            redirect (base_url('admin/ubah_pass'));
         }
     }
 
