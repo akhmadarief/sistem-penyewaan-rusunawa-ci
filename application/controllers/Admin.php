@@ -273,29 +273,12 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js_form');
     }
 
-    function ubah_pass_gagal(){
-        $data['judul_halaman'] = 'Ubah Password';
-        $data['username'] = $this->session->userdata('username');
-        $this->load->view('_partials/v_head_form', $data);
-        $this->load->view('v_ubah_pass_gagal');
-        $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js_form');
-    }
-
-    function tambah_user(){
+    function tambah_user($pesan = null){
         $this->super_user();
+        $data['pesan'] = $pesan;
         $data['judul_halaman'] = 'Tambah User';
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_tambah_user');
-        $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js_form');
-    }
-
-    function tambah_user_gagal(){
-        $this->super_user();
-        $data['judul_halaman'] = 'Tambah User';
-        $this->load->view('_partials/v_head_form', $data);
-        $this->load->view('v_tambah_user_gagal');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js_form');
     }

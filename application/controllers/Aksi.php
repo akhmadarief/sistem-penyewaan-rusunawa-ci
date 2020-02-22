@@ -400,7 +400,7 @@ class Aksi extends CI_Controller {
             redirect (base_url('admin/tabel_user'));
         }
         else{
-            redirect (base_url('admin/tambah_user_gagal'));
+            redirect (base_url('admin/tambah_user/gagal'));
         }
     }
 
