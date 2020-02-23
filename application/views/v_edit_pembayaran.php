@@ -9,7 +9,7 @@
                     </div>
                     <div class="ibox-body">
                         <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_pembayaran') ?>" method="post">
-                                <input type="hidden" name="id_penghuni" value="<?php echo $pembayaran->id?>">
+                                <input type="hidden" name="id_penghuni" value="<?php echo $pembayaran->id_penghuni?>">
                                 <input type="hidden" name="id_pembayaran" value="<?php echo $pembayaran->id_pembayaran ?>">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>

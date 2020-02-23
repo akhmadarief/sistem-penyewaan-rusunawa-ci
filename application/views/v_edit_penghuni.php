@@ -202,7 +202,7 @@
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Piutang</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" id="piutang_lama" value="<?php $piutang = $keuangan->biaya - $keuangan->bayar; echo $piutang == 0 ? 'Sudah Lunas' : ('Rp'.number_format($piutang, 0, ',', '.'))?>"readonly>
+                                        <input class="form-control form_transaksi" type="text" id="piutang_lama" value="<?php $piutang = $penghuni->biaya - $penghuni->bayar; echo $piutang == 0 ? 'Sudah Lunas' : ('Rp'.number_format($piutang, 0, ',', '.'))?>"readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">

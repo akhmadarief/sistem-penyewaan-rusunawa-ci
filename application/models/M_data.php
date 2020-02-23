@@ -3,26 +3,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_data extends CI_Model {
 
-    function penghuni($where){
-        $this->db->select('*');
-        $this->db->from('penghuni');
-        $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
-        $this->db->join('fakultas', 'penghuni.id_fakultas = fakultas.id_fakultas');
-        $this->db->where($where);
-        return $this->db->get();
-    }
-
     function data_penghuni($where){
-        //SELECT `id`, `no_kamar`, `nama`, `penghuni`.`nim`, `no`, `alamat`, `nama_ortu`, `no_ortu`, `nama_prodi`, `tgl_masuk`, `tgl_keluar`, `status`, `biaya`, SUM(`bayar`) AS `bayar` FROM `keuangan` JOIN `penghuni` ON `keuangan`.`id_penghuni` = `penghuni`.`id` JOIN `prodi` ON `penghuni`.`id_prodi` = `prodi`.`id_prodi` GROUP BY `id`, `no_kamar`, `nama`, `nim`, `no`, `alamat`, `nama_ortu`, `no_ortu`, `nama_prodi`, `tgl_masuk`, `tgl_keluar`, `status`, `biaya` ORDER BY `no_kamar` ASC
+        // $this->db->select('id, no_kamar, nama, nim, penghuni.id_prodi, nama_prodi, penghuni.id_fakultas, nama_fakultas, tempat_lahir, tgl_lahir, agama, alamat, no, nama_ortu, pekerjaan_ortu, alamat_ortu, no_ortu, tgl_masuk, tgl_keluar, kategori, isi_kamar, status, biaya');
+        // $this->db->select_sum('bayar');
+        // $this->db->from('penghuni');
+        // $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
+        // $this->db->join('fakultas', 'penghuni.id_fakultas = fakultas.id_fakultas');
+        // $this->db->join('keuangan', 'penghuni.id = keuangan.id_penghuni', 'left');
+        // $this->db->where($where);
+        // $this->db->group_by(array('id', 'no_kamar', 'nama', 'nim', 'id_prodi', 'nama_prodi', 'id_fakultas', 'nama_fakultas', 'tempat_lahir', 'tgl_lahir', 'agama', 'alamat', 'no', 'nama_ortu', 'pekerjaan_ortu', 'alamat_ortu', 'no_ortu', 'tgl_masuk', 'tgl_keluar', 'kategori', 'isi_kamar', 'status', 'biaya'));
+        // $this->db->order_by('no_kamar', 'asc');
+        // return $this->db->get();
         return $this->db->get_where('data_penghuni', $where);
     }
 
-    function data_penghuni_by_id($id){
-        $this->db->select('*');
-        $this->db->from('penghuni');
-        $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
-        $this->db->where('id', $id);
-        return $this->db->get();
+    function data_pembayaran($where){
+        // $this->db->select('id_penghuni, id_pembayaran, no_kamar, nama, penghuni.nim, tgl_bayar, biaya, bayar');
+        // $this->db->from('penghuni');
+        // $this->db->join('keuangan', 'penghuni.id = keuangan.id_penghuni');
+        // $this->db->where($where);
+        // $this->db->order_by("STR_TO_DATE(tgl_bayar,'%d-%m-%Y') DESC");
+        // return $this->db->get();
+        return $this->db->get_where('data_pembayaran', $where);
     }
 
     function data_fakultas(){
@@ -75,32 +77,6 @@ class M_data extends CI_Model {
 
     function insert_pembayaran($data_pembayaran){
         return $this->db->insert('keuangan', $data_pembayaran) ? true : false;
-    }
-
-    function data_pembayaran(){
-        $this->db->select('*');
-        $this->db->from('keuangan');
-        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
-        $this->db->order_by('id_pembayaran', 'desc');
-        return $this->db->get();
-    }
-
-    function data_pembayaran_by_id_pembayaran($id_pembayaran){
-        $this->db->select('*');
-        $this->db->from('keuangan');
-        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
-        $this->db->where('id_pembayaran', $id_pembayaran);
-        $this->db->order_by('id_pembayaran', 'asc');
-        return $this->db->get();
-    }
-
-    function data_keuangan_per_penghuni(){
-        $this->db->select('no_kamar, nama, penghuni.nim, biaya');
-        $this->db->select_sum('bayar');
-        $this->db->from('keuangan');
-        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
-        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
-        return $this->db->get();
     }
 
     function update_penghuni($id, $data){

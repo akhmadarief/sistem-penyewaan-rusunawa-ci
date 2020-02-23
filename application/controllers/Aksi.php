@@ -101,7 +101,7 @@ class Aksi extends CI_Controller {
                 break;
 
                 case 'terisi1':
-                    $penghuni_satunya = $this->m_data->data_penghuni(array('no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
+                    $penghuni_satunya = $this->m_data->data_penghuni(array('nim !=' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
                     //$penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar)->row();
                     $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
 
@@ -114,15 +114,16 @@ class Aksi extends CI_Controller {
                 break;
             }
 
-            $id_penghuni = ($this->m_data->detail_penghuni(array('nim' => $nim, 'status' => 'Penghuni'))->row())->id;
+            $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
+
+            $id_penghuni = ($this->m_data->data_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row())->id;
             $data_pembayaran = array(
                 'id_penghuni'   => $id_penghuni,
-                'nim'           => $nim,
+                //'nim'           => $nim,
                 'tgl_bayar'     => $tgl_masuk,
                 'bayar'         => $bayar
             );
 
-            $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
             $this->m_data->insert_pembayaran($data_pembayaran);
 
             //redirect('admin/pilih_kamar');
@@ -201,13 +202,14 @@ class Aksi extends CI_Controller {
                 $tgl_bayar = $this->input->post('tgl_bayar');
                 $bayar = $this->input->post('bayar');
                 $data_pembayaran = array(
-                    'nim'           => $nim,
+                    'id_penghuni'   => $id,
+                    //'nim'           => $nim,
                     'tgl_bayar'     => $tgl_bayar,
                     'bayar'         => $bayar
                 );
 
                 if ($this->m_data->insert_pembayaran($data_pembayaran) == true){
-                    $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id, 'status' => 'Penghuni'))->row();
+                    $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id))->row();
                     //$penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
                     $piutang_penghuni_sekarang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
 
@@ -223,7 +225,7 @@ class Aksi extends CI_Controller {
                         break;
 
                         case 'terisi2':
-                            $penghuni_sekarang = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
+                            $penghuni_satunya = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
                             //$penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar)->row();
                             $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
                             $data_update_kamar = array(
@@ -283,7 +285,7 @@ class Aksi extends CI_Controller {
                     break;
                 }
 
-                $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id, 'status' => 'Penghuni'))->row();
+                $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id))->row();
                 //$penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
                 $piutang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
 
@@ -299,9 +301,9 @@ class Aksi extends CI_Controller {
                     break;
 
                     case 'terisi1':
-                        $penghuni_kamar_baru = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar_baru, 'status' => 'Penghuni'))->row();
+                        $penghuni_satunya_kamar_baru = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar_baru, 'status' => 'Penghuni'))->row();
                         //$cek_penghuni_kamar_baru = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar_baru)->row();
-                        $piutang_penghuni_satunya_baru = $penghuni_kamar_baru->biaya - $penghuni_kamar_baru->bayar;
+                        $piutang_penghuni_satunya_baru = $penghuni_satunya_kamar_baru->biaya - $penghuni_satunya_kamar_baru->bayar;
                         $data_update_kamar_baru = array(
                             'status'        => 'terisi2',
                             'status_bayar'  => ($piutang == 0 and $piutang_penghuni_satunya_baru == 0) ? 'lunas' : 'piutang'
@@ -333,7 +335,7 @@ class Aksi extends CI_Controller {
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
 
-        $penghuni = $this->m_data->data_penghuni_by_id($id)->row();
+        $penghuni = $this->m_data->data_penghuni(array('id' => $id))->row();
 
         if (!$penghuni){
             show_404();
@@ -388,7 +390,7 @@ class Aksi extends CI_Controller {
 
     function detail_penghuni(){
         $id_penghuni = $this->input->post('id_penghuni');
-        $penghuni = $this->m_data->penghuni(array('id' => $id_penghuni))->row();
+        $penghuni = $this->m_data->data_penghuni(array('id' => $id_penghuni))->row();
         echo json_encode($penghuni);
     }
 
@@ -469,7 +471,7 @@ class Aksi extends CI_Controller {
 
             $status_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
 
-            $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id_penghuni, 'status' => 'Penghuni'))->row();
+            $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id_penghuni))->row();
             //$penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
             $piutang_penghuni_sekarang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
 
@@ -480,7 +482,7 @@ class Aksi extends CI_Controller {
                 break;
 
                 case 'terisi2':
-                    $penghuni_satunya = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
+                    $penghuni_satunya = $this->m_data->data_penghuni(array('id !=' => $id_penghuni, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
                     //$penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar)->row();
                     $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
 
