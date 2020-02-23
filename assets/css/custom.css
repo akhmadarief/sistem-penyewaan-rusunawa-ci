@@ -231,7 +231,8 @@ form#login-form, form#register-form, form#changepass-form{
 
 /*BUTTON DATA PENGHUNI*/
 #perpanjang, #perpanjang2 {
-  margin-inline: 3px;
+  margin-inline-start: 3px;
+  margin-inline-end: 3px;
   border-radius: 3px;
 }
 
