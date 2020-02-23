@@ -96,6 +96,7 @@
                 cache: false,
                 success: function(data){
                     Swal.fire({
+                        width: 700,
                         html: `<div class="table-responsive">
                                     <table class="table table-bordered">
                                         <tr>
@@ -113,6 +114,10 @@
                                         <tr>
                                             <td width="30%"><label>Prodi</label></td>
                                             <td width="70%">`+ data.nama_prodi +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Prodi</label></td>
+                                            <td width="70%">`+ data.nama_fakultas +`</td>
                                         </tr>
                                         <tr>
                                             <td width="30%"><label>Tempat Lahir</label></td>
@@ -157,10 +162,6 @@
                                         <tr>
                                             <td width="30%"><label>Tanggal Huni</label></td>
                                             <td width="70%">`+ data.tgl_masuk +` s/d `+ data.tgl_keluar +`</td>
-                                        </tr>
-                                        <tr>
-                                            <td width="30%"><label>Masa Huni</label></td>
-                                            <td width="70%">`+ data.masa_huni +`</td>
                                         </tr>
                                     </table>
                                 </div>`

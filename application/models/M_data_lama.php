@@ -1,20 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_data extends CI_Model {
+class M_data_lama extends CI_Model {
 
-    function penghuni($where){
-        $this->db->select('*');
-        $this->db->from('penghuni');
-        $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
-        $this->db->join('fakultas', 'penghuni.id_fakultas = fakultas.id_fakultas');
-        $this->db->where($where);
-        return $this->db->get();
-    }
-
-    function data_penghuni($where){
-        //SELECT `id`, `no_kamar`, `nama`, `penghuni`.`nim`, `no`, `alamat`, `nama_ortu`, `no_ortu`, `nama_prodi`, `tgl_masuk`, `tgl_keluar`, `status`, `biaya`, SUM(`bayar`) AS `bayar` FROM `keuangan` JOIN `penghuni` ON `keuangan`.`id_penghuni` = `penghuni`.`id` JOIN `prodi` ON `penghuni`.`id_prodi` = `prodi`.`id_prodi` GROUP BY `id`, `no_kamar`, `nama`, `nim`, `no`, `alamat`, `nama_ortu`, `no_ortu`, `nama_prodi`, `tgl_masuk`, `tgl_keluar`, `status`, `biaya` ORDER BY `no_kamar` ASC
-        return $this->db->get_where('data_penghuni', $where);
+    function data_penghuni(){
+        $this->db->order_by('no_kamar', 'asc');
+        return $this->db->get('penghuni');
     }
 
     function data_penghuni_by_id($id){
@@ -22,6 +13,17 @@ class M_data extends CI_Model {
         $this->db->from('penghuni');
         $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
         $this->db->where('id', $id);
+        return $this->db->get();
+    }
+
+    function data_penghuni_by_kamar($no_kamar){
+        $this->db->select('id, no_kamar, nama, penghuni.nim, no, nama_prodi, tgl_masuk, tgl_keluar, biaya, status');
+        $this->db->select_sum('bayar');
+        $this->db->from('keuangan');
+        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
+        $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
+        $this->db->where(array('no_kamar' => $no_kamar, 'status' => 'Penghuni'));
+        $this->db->group_by(array('id', 'no_kamar', 'nama', 'nim', 'no', 'nama_prodi', 'tgl_masuk', 'tgl_keluar', 'biaya', 'status'));
         return $this->db->get();
     }
 
@@ -100,6 +102,27 @@ class M_data extends CI_Model {
         $this->db->from('keuangan');
         $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
         $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
+        return $this->db->get();
+    }
+
+    function data_keuangan_per_penghuni_by_nim($nim, $no_kamar){
+        $this->db->select('penghuni.nim, no_kamar, nama, biaya');
+        $this->db->select_sum('bayar');
+        $this->db->from('keuangan');
+        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
+        $this->db->where('penghuni.nim !=', $nim);
+        $this->db->where('no_kamar=', $no_kamar);
+        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya'));
+        return $this->db->get();
+    }
+
+    function data_keuangan_per_penghuni_by_nim_2($nim){
+        $this->db->select('penghuni.nim, no_kamar, nama, biaya, isi_kamar');
+        $this->db->select_sum('bayar');
+        $this->db->from('keuangan');
+        $this->db->join('penghuni', 'keuangan.nim = penghuni.nim');
+        $this->db->where('penghuni.nim', $nim);
+        $this->db->group_by(array('no_kamar', 'nama', 'nim', 'biaya', 'isi_kamar'));
         return $this->db->get();
     }
 

@@ -32,6 +32,12 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function doncu(){
+        //$where = array('1' => '1');
+        $data['doncu']=$this->m_data->data_penghuni(array('nim' => '123456787865423425', 'status' => 'Penghuni'));
+        echo $this->db->last_query();
+    }
+
     function dasbor(){
         $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
@@ -104,7 +110,8 @@ class Admin extends CI_Controller {
         if (!isset($id)) redirect('admin/daftar_penghuni');
 
         $data['penghuni'] = $this->m_data->data_penghuni_by_id($id)->row();
-        $data['keuangan'] = $this->m_data->data_keuangan_per_penghuni_by_nim_2($data['penghuni']->nim)->row();
+        $data['keuangan'] = $this->m_data->data_penghuni(array('id' => $id))->row();
+        //$data['keuangan'] = $this->m_data->data_keuangan_per_penghuni_by_nim_2($data['penghuni']->nim)->row();
 
         if (!$data['penghuni']) show_404();
 
@@ -165,7 +172,7 @@ class Admin extends CI_Controller {
     function daftar_penghuni(){
         $data['judul_halaman'] = 'Daftar Penghuni';
         $data['username'] = $this->session->userdata('username');
-        $data['penghuni'] = $this->m_data->data_penghuni()->result();
+        $data['penghuni'] = $this->m_data->data_penghuni(array('status' => 'Penghuni'))->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
