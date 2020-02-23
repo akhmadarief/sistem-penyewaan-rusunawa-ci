@@ -32,7 +32,7 @@
                             <span></span><?php echo $this->session->userdata('nama') ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="<?php echo base_url("admin/ubah_pass") ?>"><i class="fa fa-lock"></i>Ganti Password</a>
-                            <a class="dropdown-item" href="<?php echo base_url("admin/tambah_user") ?>"><i class="fa fa-user"></i>Tambah User</a>
+                            <a class="dropdown-item" href="<?php echo base_url("admin/tambah_user") ?>" <?php if ($username != 'admin') echo 'style="display: none"' ?>><i class="fa fa-user"></i>Tambah User</a>
                             <a class="dropdown-item" id="logout-alert"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
