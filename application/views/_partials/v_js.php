@@ -210,7 +210,7 @@
     <script type="text/javascript">
         //tambah/edit penghuni
         function formatRupiah(angka, prefix){
-			var number_string = angka.replace(/[^,\d]/g, '').toString(),
+			var number_string = angka.toString().replace(/[^,\d]/g, ''),
 			split   		= number_string.split(','),
 			sisa     		= split[0].length % 3,
 			rupiah     		= split[0].substr(0, sisa),
@@ -320,19 +320,20 @@
                 var biaya =parseInt($("#piutang_lama").val());
                 var bayar =parseInt($(this).val());
                 piutang = biaya-bayar;
-                sisa = Math.abs(piutang);                
-                $("#azz").val(piutang);
-                $("#azz1").val(sisa);
-                piutang_baru = formatRupiah(azz.value, 'Rp');
-                sisa_format = formatRupiah(azz1.value, 'Rp');
+                sisa = Math.abs(piutang);
+                piutang_baru = formatRupiah(piutang, 'Rp');
+                sisa_format = formatRupiah(sisa, 'Rp');
                 if (piutang > '0'){
                     $("#piutang_baru").val(piutang_baru);
                 }
-                else if (piutang == '0'){                    
+                else if (piutang == '0' || piutang == null){                    
                     $("#piutang_baru").val("Sudah Lunas");
                 }
-                else {                
+                else if (piutang < '0'){                
                     $("#piutang_baru").val("Kelebihan Pembayaran "+sisa_format);
+                }
+                else {
+                    $("#piutang_baru").val("Masukkan Data!");
                 }
             });
         });
@@ -501,6 +502,8 @@
                             $("#tambah_penghuni").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni").removeAttr("href");
                             $("#edit_penghuni").removeAttr("style").hide();
+                            $("#perpanjang").removeAttr("style").hide();
+                            $("#eks_penghuni").removeAttr("style").hide();
                             $("#nama").val("Belum ada penghuni");
                             $("#nim").val("Belum ada penghuni");
                             $("#no").val("Belum ada penghuni");
@@ -519,7 +522,11 @@
                             //$("#tambah_penghuni").removeAttr("href");
                             $("#tambah_penghuni").removeAttr("style").hide();
                             $("#edit_penghuni").show();
+                            $("#perpanjang").show();
+                            $("#eks_penghuni").show();
                             $("#edit_penghuni").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[0].id);
+                            $("#perpanjang").attr("href", "<?php echo base_url('admin/perpanjang/') ?>" + data[0].id);
+                            $("#eks_penghuni").attr("href", "<?php echo base_url('admin/eks_penghuni/') ?>" + data[0].id);
                             $("#nama").val(data[0].nama);
                             $("#nim").val(data[0].nim);
                             $("#no").val(data[0].no);
@@ -527,13 +534,15 @@
                             $("#tgl_masuk").val(data[0].tgl_masuk);
                             $("#tgl_keluar").val(data[0].tgl_keluar);
                             var piutang = data[0].biaya - data[0].bayar;
-                            $("#piutang").val("Rp. " + piutang);
+                            $("#piutang").val("Rp" + piutang);
                         }
                         if (!data[1]){
                             $("#tambah_penghuni2").show();
                             $("#tambah_penghuni2").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni2").removeAttr("href");
                             $("#edit_penghuni2").removeAttr("style").hide();
+                            $("#perpanjang2").removeAttr("style").hide();
+                            $("#eks_penghuni2").removeAttr("style").hide();
                             $("#nama2").val("Belum ada penghuni");
                             $("#nim2").val("Belum ada penghuni");
                             $("#no2").val("Belum ada penghuni");
@@ -546,7 +555,11 @@
                             //$("#tambah_penghuni2").removeAttr("href");
                             $("#tambah_penghuni2").removeAttr("style").hide();
                             $("#edit_penghuni2").show();
+                            $("#perpanjang2").show();
+                            $("#eks_penghuni2").show();
                             $("#edit_penghuni2").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[1].id);
+                            $("#perpanjang2").attr("href", "<?php echo base_url('admin/perpanjang/') ?>" + data[0].id);
+                            $("#eks_penghuni2").attr("href", "<?php echo base_url('admin/eks_penghuni/') ?>" + data[0].id);
                             $("#nama2").val(data[1].nama);
                             $("#nim2").val(data[1].nim);
                             $("#no2").val(data[1].no);
@@ -554,7 +567,7 @@
                             $("#tgl_masuk2").val(data[1].tgl_masuk);
                             $("#tgl_keluar2").val(data[1].tgl_keluar);
                             var piutang = data[1].biaya - data[1].bayar;
-                            $("#piutang2").val("Rp. " + piutang);
+                            $("#piutang2").val("Rp" + piutang);
                         }
                     }
                 });

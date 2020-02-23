@@ -229,6 +229,18 @@ form#login-form, form#register-form, form#changepass-form{
   background-color: #1ba0e2;
 }
 
+/*BUTTON DATA PENGHUNI*/
+#perpanjang, #perpanjang2 {
+  margin-inline-start: 3px;
+  margin-inline-end: 3px;
+  border-radius: 3px;
+}
+
+#tambah_penghuni, #tambah_penghuni2, #edit_penghuni, #edit_penghuni2, #eks_penghuni, #eks_penghuni2 {
+  border-radius: 3px;
+  margin-left: 0px;
+}
+
 /*NAVBAR UNDIP*/
   .nav-undip {
     padding-left: 0 !important;
@@ -279,4 +291,9 @@ form#login-form, form#register-form, form#changepass-form{
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+/*Button XLS*/
+  .btn-xls{
+    margin-right: 16px;
   }

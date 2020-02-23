@@ -22,8 +22,8 @@
                                     <td class="text-center"><?php echo $no++ ?></td>
                                     <td class="text-center">Gedung <?php echo $daftar_harga->gedung ?></td>
                                     <td class="text-center">Lantai <?php echo $daftar_harga->lantai ?></td>
-                                    <td class="text-center">Rp. <?php echo number_format($daftar_harga->harga, 0, ',', '.') ?></td>
-                                    <td class="text-center">Rp. <?php echo number_format($daftar_harga->harga*12, 0, ',', '.') ?></td>
+                                    <td class="text-center">Rp<?php echo number_format($daftar_harga->harga, 0, ',', '.') ?></td>
+                                    <td class="text-center">Rp<?php echo number_format($daftar_harga->harga*12, 0, ',', '.') ?></td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-info active edit-harga" id="<?php echo $daftar_harga->lantai ?>">
                                             <span class="fa fa-pencil"></span>

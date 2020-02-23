@@ -3,9 +3,10 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Daftar Kamar<?php //echo $halaman ?></div>
-                        <a class="btn btn-success" href="<?php echo base_url('admin/daftar_kamar_cetak'); ?>"> XLS
-                            <i class="fa fa-print"></i>
-                          </a>
+                        <a
+                          class="btn btn-success btn-xls" href="<?php echo base_url('admin/daftar_kamar_cetak'); ?>"> XLS
+                              <i class="fa fa-print"></i>
+                        </a>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">

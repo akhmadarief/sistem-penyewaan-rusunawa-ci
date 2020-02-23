@@ -155,11 +155,17 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni I</div>
                                 <div class="btn-group">
-                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni" style="margin-inline: 3px; border-radius: 3px;">
+                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni">
                                         <i class="fa fa-plus"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="edit_penghuni" style="border-radius: 3px;">
+                                    <a class="btn btn-dark btn-sm" id="edit_penghuni">
                                         <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm" id="perpanjang">
+                                        <i class="fa fa-arrows-h"></i>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm" id="eks_penghuni">
+                                        <i class="fa fa-window-close"></i>
                                     </a>
                                 </div>
                             </div>
@@ -218,11 +224,17 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni II</div>
                                 <div class="btn-group">
-                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni2" style="margin-inline: 3px; border-radius: 3px;">
+                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni2">
                                         <i class="fa fa-plus"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="edit_penghuni2" style="border-radius: 3px;">
+                                    <a class="btn btn-dark btn-sm" id="edit_penghuni2">
                                         <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm" id="perpanjang2">
+                                        <i class="fa fa-arrows-h"></i>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm" id="eks_penghuni2">
+                                        <i class="fa fa-window-close"></i>
                                     </a>
                                 </div>
                             </div>
