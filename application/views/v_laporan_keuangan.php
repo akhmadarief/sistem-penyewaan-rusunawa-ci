@@ -27,12 +27,12 @@
                                     <td class="text-center"><?php echo $keuangan->no_kamar ?></td>
                                     <td class="text-center"><?php echo $keuangan->nama ?></td>
                                     <td class="text-center"><?php echo $keuangan->nim ?></td>
-                                    <td class="text-center"><?php echo 'Rp. '.number_format($keuangan->biaya, 0, ',', '.') ?></td>
-                                    <td class="text-center"><?php echo 'Rp. '.number_format($keuangan->bayar, 0, ',', '.') ?></td>
+                                    <td class="text-center"><?php echo 'Rp'.number_format($keuangan->biaya, 0, ',', '.') ?></td>
+                                    <td class="text-center"><?php echo 'Rp'.number_format($keuangan->bayar, 0, ',', '.') ?></td>
                                     <td class="text-center">
                                         <?php
                                         $piutang = $keuangan->biaya - $keuangan->bayar;
-                                        echo $piutang == 0 ? '<span class="badge badge-success">Sudah Lunas</span>' : 'Rp. '.number_format($piutang, 0, ',', '.');
+                                        echo $piutang == 0 ? '<span class="badge badge-success">Sudah Lunas</span>' : 'Rp'.number_format($piutang, 0, ',', '.');
                                         ?>
                                     </td>
                                 </tr>

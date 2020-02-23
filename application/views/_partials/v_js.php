@@ -99,6 +99,7 @@
                 cache: false,
                 success: function(data){
                     Swal.fire({
+                        width: 700,
                         html: `<div class="table-responsive">
                                     <table class="table table-bordered">
                                         <tr>
@@ -116,6 +117,10 @@
                                         <tr>
                                             <td width="30%"><label>Prodi</label></td>
                                             <td width="70%">`+ data.nama_prodi +`</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"><label>Prodi</label></td>
+                                            <td width="70%">`+ data.nama_fakultas +`</td>
                                         </tr>
                                         <tr>
                                             <td width="30%"><label>Tempat Lahir</label></td>
@@ -160,10 +165,6 @@
                                         <tr>
                                             <td width="30%"><label>Tanggal Huni</label></td>
                                             <td width="70%">`+ data.tgl_masuk +` s/d `+ data.tgl_keluar +`</td>
-                                        </tr>
-                                        <tr>
-                                            <td width="30%"><label>Masa Huni</label></td>
-                                            <td width="70%">`+ data.masa_huni +`</td>
                                         </tr>
                                     </table>
                                 </div>`
@@ -212,7 +213,7 @@
     <script type="text/javascript">
         //tambah/edit penghuni
         function formatRupiah(angka, prefix){
-			var number_string = angka.replace(/[^,\d]/g, '').toString(),
+			var number_string = angka.toString().replace(/[^,\d]/g, ''),
 			split   		= number_string.split(','),
 			sisa     		= split[0].length % 3,
 			rupiah     		= split[0].substr(0, sisa),
@@ -322,19 +323,20 @@
                 var biaya =parseInt($("#piutang_lama").val());
                 var bayar =parseInt($(this).val());
                 piutang = biaya-bayar;
-                sisa = Math.abs(piutang);                
-                $("#azz").val(piutang);
-                $("#azz1").val(sisa);
-                piutang_baru = formatRupiah(azz.value, 'Rp');
-                sisa_format = formatRupiah(azz1.value, 'Rp');
+                sisa = Math.abs(piutang);
+                piutang_baru = formatRupiah(piutang, 'Rp');
+                sisa_format = formatRupiah(sisa, 'Rp');
                 if (piutang > '0'){
                     $("#piutang_baru").val(piutang_baru);
                 }
-                else if (piutang == '0'){                    
+                else if (piutang == '0' || piutang == null){                    
                     $("#piutang_baru").val("Sudah Lunas");
                 }
-                else {                
+                else if (piutang < '0'){                
                     $("#piutang_baru").val("Kelebihan Pembayaran "+sisa_format);
+                }
+                else {
+                    $("#piutang_baru").val("Masukkan Data!");
                 }
             });
         });
@@ -535,7 +537,7 @@
                             $("#tgl_masuk").val(data[0].tgl_masuk);
                             $("#tgl_keluar").val(data[0].tgl_keluar);
                             var piutang = data[0].biaya - data[0].bayar;
-                            $("#piutang").val("Rp. " + piutang);
+                            $("#piutang").val("Rp" + piutang);
                         }
                         if (!data[1]){
                             $("#tambah_penghuni2").show();
@@ -568,7 +570,7 @@
                             $("#tgl_masuk2").val(data[1].tgl_masuk);
                             $("#tgl_keluar2").val(data[1].tgl_keluar);
                             var piutang = data[1].biaya - data[1].bayar;
-                            $("#piutang2").val("Rp. " + piutang);
+                            $("#piutang2").val("Rp" + piutang);
                         }
                     }
                 });

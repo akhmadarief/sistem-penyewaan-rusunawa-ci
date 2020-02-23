@@ -14,7 +14,6 @@
                                     <th class="text-center">Tanggal Pembayaran</th>
                                     <th class="text-center">Jumlah Harus Dibayar</th>
                                     <th class="text-center">Nominal Pembayaran</th>
-                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -25,9 +24,8 @@
                                     <td class="text-center"><?php echo $pembayaran->nama ?></td>
                                     <td class="text-center"><?php echo $pembayaran->nim ?></td>
                                     <td class="text-center"><?php echo $pembayaran->tgl_bayar ?></td>
-                                    <td class="text-center"><?php echo 'Rp. '.number_format($pembayaran->biaya, 0, ',', '.') ?></td>
-                                    <td class="text-center"><?php echo 'Rp. '.number_format($pembayaran->bayar, 0, ',', '.') ?></td>
-                                    <td class="text-center">Edit</td>
+                                    <td class="text-center"><?php echo $pembayaran->biaya ?></td>
+                                    <td class="text-center"><?php echo $pembayaran->bayar?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

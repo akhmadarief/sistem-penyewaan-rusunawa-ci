@@ -26,11 +26,11 @@
                                 <tr>
                                     <td class="text-center"><?php echo $no++ ?></td>
                                     <td class="text-center"><?php echo $penghuni->no_kamar ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nama ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no ?></td>
-                                    <td class="text-center"><?php echo $penghuni->alamat ?></td>
-                                    <td class="text-center"><?php echo $penghuni->nama_ortu ?></td>
-                                    <td class="text-center"><?php echo $penghuni->no_ortu ?></td>
+                                    <td><?php echo $penghuni->nama ?></td>
+                                    <td><?php echo $penghuni->no ?></td>
+                                    <td><?php echo $penghuni->alamat ?></td>
+                                    <td><?php echo $penghuni->nama_ortu ?></td>
+                                    <td><?php echo $penghuni->no_ortu ?></td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>">
                                             <span class="fa fa-info-circle"></span>
