@@ -13,6 +13,8 @@
     <script src="<?php echo base_url('assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/select2/dist/js/select2.full.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/moment/moment.min.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/moment/datetime-moment.js') ?>" type="text/javascript"></script>
     <script type="text/javascript">
         //semua halaman
         $(document).ready(function(){
@@ -63,6 +65,7 @@
     <script type="text/javascript">
         //daftar penghuni
         $(document).ready(function(){
+            $.fn.dataTable.moment('D-M-YYYY');
             $('#tabel-penghuni').DataTable({
                 pageLength: 25,
                 'sDom': 'R<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>><"row"<"col-sm-12"rt>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
