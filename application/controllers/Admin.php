@@ -18,9 +18,9 @@ class Admin extends CI_Controller {
     }
 
     function index(){
+        $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
         $data['username'] = $this->session->userdata('username');
-        $data = $this->jumlah_kamar();
 
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -33,9 +33,9 @@ class Admin extends CI_Controller {
     }
 
     function dasbor(){
+        $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
         $data['username'] = $this->session->userdata('username');
-        $data = $this->jumlah_kamar();
 
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
