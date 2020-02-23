@@ -155,13 +155,13 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni I</div>
                                 <div class="btn-group">
-                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni">
+                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tambah Penghuni">
                                         <i class="fa fa-plus"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="edit_penghuni">
+                                    <a class="btn btn-dark btn-sm" id="edit_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit Data">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="perpanjang">
+                                    <a class="btn btn-dark btn-sm" id="perpanjang" data-toggle="tooltip" data-placement="top" title="" data-original-title="Perpanjang">
                                         <i class="fa fa-arrows-h"></i>
                                     </a>
                                     <a class="btn btn-dark btn-sm" id="eks_penghuni">
