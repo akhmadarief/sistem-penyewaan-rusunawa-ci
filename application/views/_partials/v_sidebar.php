@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     <li>
-                        <a <?php if ($judul_halaman == 'Daftar User') echo 'class="active"' ?> href="<?php echo base_url('admin/tabel_user') ?>"><i class="sidebar-item-icon fa fa-user"></i>
+                        <a <?php if ($judul_halaman == 'Daftar User') echo 'class="active"' ?> <?php if ($username != 'admin') echo 'style="display: none"' ?> href="<?php echo base_url('admin/tabel_user') ?>"><i class="sidebar-item-icon fa fa-user"></i>
                             <span class="nav-label">Daftar User</span>
                         </a>
                     </li>
