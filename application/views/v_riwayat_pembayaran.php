@@ -3,9 +3,9 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Riwayat Pembayaran<?php //echo $halaman ?></div>
-                        <a class="btn btn-success" href="<?php echo base_url('admin/riwayat_pembayaran_cetak'); ?>"> XLS
+                        <button class="btn btn-success btn-xls" href="<?php echo base_url('admin/riwayat_pembayaran_cetak'); ?>"> XLS
                                 <i class="fa fa-print"></i>
-                            </a>
+                        </button>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">
