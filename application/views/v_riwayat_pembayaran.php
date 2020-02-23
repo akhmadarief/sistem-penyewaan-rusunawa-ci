@@ -3,9 +3,9 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Riwayat Pembayaran<?php //echo $halaman ?></div>
-                        <button class="btn btn-success btn-xls" href="<?php echo base_url('admin/riwayat_pembayaran_cetak'); ?>"> XLS
+                        <a class="btn btn-success btn-xls" href="<?php echo base_url('admin/riwayat_pembayaran_cetak'); ?>"> XLS
                                 <i class="fa fa-print"></i>
-                        </button>
+                        </a>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">
@@ -29,8 +29,8 @@
                                     <td class="text-center"><?php echo $pembayaran->nama ?></td>
                                     <td class="text-center"><?php echo $pembayaran->nim ?></td>
                                     <td class="text-center"><?php echo $pembayaran->tgl_bayar ?></td>
-                                    <td class="text-center"><?php echo 'Rp. '.number_format($pembayaran->biaya, 0, ',', '.') ?></td>
-                                    <td class="text-center"><?php echo 'Rp. '.number_format($pembayaran->bayar, 0, ',', '.') ?></td>
+                                    <td class="text-center"><?php echo 'Rp'.number_format($pembayaran->biaya, 0, ',', '.') ?></td>
+                                    <td class="text-center"><?php echo 'Rp'.number_format($pembayaran->bayar, 0, ',', '.') ?></td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-info active" href="<?php echo base_url('admin/edit_pembayaran/'.$pembayaran->id_pembayaran) ?>">
                                             <span class="fa fa-pencil"></span>
