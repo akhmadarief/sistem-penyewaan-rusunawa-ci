@@ -45,6 +45,21 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group row typo">
+                                    <label class="col-sm-3 col-form-label">Status Huni</label>
+                                    <div class="col-sm-3" style="padding-top: 5px">
+                                        <label class="ui-radio ui-radio-inline ui-radio-primary">
+                                            <input type="radio" name="status_huni" value="2">
+                                            <span class="input-span"></span>Penghuni
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-top: 5px">
+                                        <label class="ui-radio ui-radio-inline ui-radio-primary">
+                                            <input type="radio" name="status_huni" value="1">
+                                            <span class="input-span"></span>Eks Penghuni
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-9">
@@ -187,7 +202,7 @@
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Piutang</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" id="piutang_lama" value="<?php $piutang = $keuangan->biaya - $keuangan->bayar; echo $piutang == 0 ? 'Sudah Lunas' : ('Rp'.number_format($piutang, 0, ',', '.'))?>"readonly>   
+                                        <input class="form-control form_transaksi" type="text" id="piutang_lama" value="<?php $piutang = $keuangan->biaya - $keuangan->bayar; echo $piutang == 0 ? 'Sudah Lunas' : ('Rp'.number_format($piutang, 0, ',', '.'))?>"readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">
@@ -199,7 +214,7 @@
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Sisa Piutang</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" id="piutang_baru" readonly>   
+                                        <input class="form-control form_transaksi" type="text" id="piutang_baru" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row pk">
