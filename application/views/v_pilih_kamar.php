@@ -158,13 +158,13 @@
                                     <a class="btn btn-dark btn-sm" id="tambah_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tambah Penghuni">
                                         <i class="fa fa-plus"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="edit_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit Data">
+                                    <a class="btn btn-dark btn-sm" id="edit_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Data">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a class="btn btn-dark btn-sm" id="perpanjang" data-toggle="tooltip" data-placement="top" title="" data-original-title="Perpanjang">
                                         <i class="fa fa-arrows-h"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="eks_penghuni">
+                                    <a class="btn btn-dark btn-sm" id="eks_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selesai Menghuni">
                                         <i class="fa fa-window-close"></i>
                                     </a>
                                 </div>
@@ -224,16 +224,16 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Data Penghuni II</div>
                                 <div class="btn-group">
-                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni2">
+                                    <a class="btn btn-dark btn-sm" id="tambah_penghuni2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tambah Penghuni">
                                         <i class="fa fa-plus"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="edit_penghuni2">
+                                    <a class="btn btn-dark btn-sm" id="edit_penghuni2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Data">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="perpanjang2">
+                                    <a class="btn btn-dark btn-sm" id="perpanjang2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Perpanjang">
                                         <i class="fa fa-arrows-h"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm" id="eks_penghuni2">
+                                    <a class="btn btn-dark btn-sm" id="eks_penghuni2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selesai Menghuni">
                                         <i class="fa fa-window-close"></i>
                                     </a>
                                 </div>

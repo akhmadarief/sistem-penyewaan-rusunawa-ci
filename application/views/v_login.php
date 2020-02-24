@@ -30,13 +30,13 @@
                 <?php
                 switch ($pesan){
                     case 'gagal_login':
-                        echo '<div class="alert alert-danger">Username dan password tidak cocok.</div>';
+                        echo '<div class="alert alert-danger gagal-login">Username dan password tidak cocok.</div>';
                     break;
                     case 'berhasil_logout':
-                        echo '<div class="alert alert-success">Berhasil keluar dari sistem.</div>';
+                        echo '<div class="alert alert-success berhasil-logout">Berhasil keluar dari sistem.</div>';
                     break;
                     case 'berhasil_ubah_pass':
-                        echo '<div class="alert alert-warning">Berhasil mengubah password. Silakan login lagi.</div>';
+                        echo '<div class="alert alert-warning berhasil-ubah">Berhasil mengubah password. Silakan login lagi.</div>';
                     break;
                 }
                 ?>
