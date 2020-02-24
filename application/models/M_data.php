@@ -112,7 +112,7 @@ class M_data extends CI_Model {
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    function delete_pembayaran($id){
+    function delete_pembayaran($id_pembayaran){
         $this->db->delete('keuangan', array('id_pembayaran' => $id_pembayaran));
         return ($this->db->affected_rows() > 0) ? true : false;
     }

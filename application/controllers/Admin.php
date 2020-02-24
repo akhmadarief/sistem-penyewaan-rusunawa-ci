@@ -249,7 +249,7 @@ class Admin extends CI_Controller {
     }
 
     function laporan_keuangan(){
-        $data['judul_halaman'] = 'Daftar Piutang';
+        $data['judul_halaman'] = 'Laporan Keuangan';
         $data['username'] = $this->session->userdata('username');
         $data['keuangan'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
         //$data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
@@ -271,7 +271,7 @@ class Admin extends CI_Controller {
     }
 
     function laporan_piutang(){
-        $data['judul_halaman'] = 'Daftar Piutang';
+        $data['judul_halaman'] = 'Laporan Piutang';
         $data['username'] = $this->session->userdata('username');
         $data['penghuni'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
         $data['keuangan1'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
