@@ -73,6 +73,13 @@ class M_data extends CI_Model {
         return $this->db->get('admin');
     }
 
+    function total_data_keuangan(){
+        $this->db->select_sum('biaya');
+        $this->db->select_sum('bayar');
+        $this->db->select_sum('piutang');
+        return $this->db->get('detail_penghuni');
+    }
+
     function insert_penghuni($data){
         $this->db->insert('penghuni', $data);
         return ($this->db->affected_rows() > 0) ? true : false;

@@ -103,7 +103,7 @@
                                         </span> 
                                         <div class="media-body">
                                             <div class="media-heading">Pemasukan Seharusnya</div>
-                                            <div class="font-16">Rp10.000.000.000,-</div>
+                                            <div class="font-16"><?php echo 'Rp'.number_format($total->biaya, 0, ',', '.') ?></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -115,7 +115,7 @@
                                         </span> 
                                         <div class="media-body">
                                             <div class="media-heading">Pemasukan Sekarang</div>
-                                            <div class="font-16">Rp10.000.000.000,-</div>
+                                            <div class="font-16"><?php echo 'Rp'.number_format($total->bayar, 0, ',', '.') ?></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -127,7 +127,7 @@
                                         </span> 
                                         <div class="media-body">
                                             <div class="media-heading">Piutang</div>
-                                            <div class="font-16">Rp10.000.000.000,-</div>
+                                            <div class="font-16"><?php echo 'Rp'.number_format($total->piutang, 0, ',', '.') ?></div>
                                         </div>
                                     </li>
                                 </ul>
