@@ -42,8 +42,8 @@
                         </a>
                     </li>
                     <li>
-                        <a <?php if ($judul_halaman == 'Daftar Eks Penghuni') echo 'class="active"' ?> href="<?php echo base_url('admin/daftar_ekspenghuni') ?>"><i class="sidebar-item-icon fa fa-users"></i>
-                            <span class="nav-label">Daftar Eks Penghuni</span>
+                        <a <?php if ($judul_halaman == 'Daftar Eks-Penghuni') echo 'class="active"' ?> href="<?php echo base_url('admin/daftar_ekspenghuni') ?>"><i class="sidebar-item-icon fa fa-users"></i>
+                            <span class="nav-label">Daftar Eks-Penghuni</span>
                         </a>
                     </li>
                     <li class="heading">KEUANGAN</li>

@@ -30,8 +30,7 @@ class Aksi extends CI_Controller {
 
     function get_detail_kamar(){
         $no_kamar = $this->input->post('no_kamar');
-        //$detail_kamar = $this->m_data->data_penghuni_by_kamar($no_kamar);
-        $detail_kamar = $this->m_data->data_penghuni(array('no_kamar' => $no_kamar, 'status' => 'Penghuni'));
+        $detail_kamar = $this->m_data->detail_penghuni(array('no_kamar' => $no_kamar, 'status' => 'Penghuni'));
 
         echo json_encode ($detail_kamar->result());
     }
@@ -100,8 +99,8 @@ class Aksi extends CI_Controller {
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
-            //redirect('admin/pilih_kamar');
-            echo 'berhasil disimpan gan';
+            redirect (base_url('admin/pilih_kamar'));
+            //echo 'berhasil disimpan gan';
         }
         else {
             echo 'gagal disimpan gan :(';
@@ -133,8 +132,6 @@ class Aksi extends CI_Controller {
                 $tgl_keluar     = $this->input->post('tgl_keluar');
                 $kategori       = $this->input->post('kategori');
                 $biaya          = $this->input->post('biaya');
-                //$biaya          = $this->input->post('biaya'); //belum dipakai
-                //$piutang        = $this->input->post('piutang'); //belum dipakai
 
                 $data = array(
                     'isi_kamar'     => $isi_kamar,
@@ -163,8 +160,8 @@ class Aksi extends CI_Controller {
                     );
                     $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
 
-                    //redirect('admin/daftar_penghuni');
-                    echo 'data berhasil diperbarui';
+                    redirect (base_url('admin/daftar_penghuni'));
+                    //echo 'data berhasil diperbarui';
                 }
                 else {
                     echo 'gagal gan wokwokwok';
@@ -183,8 +180,8 @@ class Aksi extends CI_Controller {
                 );
 
                 if ($this->m_data->insert_pembayaran($data_pembayaran) == true){
-                    //redirect('admin/daftar_penghuni');
-                    echo 'transaksi sukses gayn';
+                    redirect (base_url('admin/riwayat_pembayaran'));
+                    //echo 'transaksi sukses gayn';
                 }
                 else {
                     echo 'transaksi gagal wkwkwk';
@@ -209,7 +206,7 @@ class Aksi extends CI_Controller {
                     break;
                 }
 
-                $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id))->row();
+                $penghuni_sekarang = $this->m_data->detail_penghuni(array('id' => $id))->row();
 
                 switch ($status_awal_kamar_baru){
                     case 'kosong':
@@ -232,7 +229,8 @@ class Aksi extends CI_Controller {
                 $this->m_data->update_status_kamar($no_kamar_lama, $status_kamar_lama);
                 $this->m_data->update_status_kamar($no_kamar_baru, $status_kamar_baru);
 
-                echo 'berhasil pindah kamar';
+                //echo 'berhasil pindah kamar';
+                redirect (base_url('admin/daftar_penghuni'));
             break;
 
             default:
@@ -245,7 +243,7 @@ class Aksi extends CI_Controller {
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
 
-        $penghuni = $this->m_data->data_penghuni(array('id' => $id))->row();
+        $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
 
         if (!$penghuni){
             show_404();
@@ -269,17 +267,35 @@ class Aksi extends CI_Controller {
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
-            //redirect('admin/daftar_penghuni');
-            echo 'berhasil dihapus gan';
+            redirect (base_url('admin/daftar_penghuni'));
+            //echo 'berhasil dihapus gan';
         }
         else {
             echo 'gagal gan :(';
         }
     }
 
-    function detail_penghuni(){
+    function aksi_hapus_pembayaran($id_pembayaran = null){
+
+        if (!isset($id_pembayaran)) redirect('admin/riwayat_pembayaran');
+
+        $pembayaran = $this->m_data->detail_pembayaran(array('id_pembayaran' => $id_pembayaran))->row();
+
+        if (!$pembayaran){
+            show_404();
+        }
+        else if ($this->m_data->delete_pembayaran($id_pembayaran) == true){
+            redirect (base_url('admin/riwayat_pembayaran'));
+            //echo 'berhasil dihapus gan';
+        }
+        else {
+            echo 'gagal gan :(';
+        }
+    }
+
+    function get_detail_penghuni(){
         $id_penghuni = $this->input->post('id_penghuni');
-        $penghuni = $this->m_data->data_penghuni(array('id' => $id_penghuni))->row();
+        $penghuni = $this->m_data->detail_penghuni(array('id' => $id_penghuni))->row();
         echo json_encode($penghuni);
     }
 
@@ -293,9 +309,6 @@ class Aksi extends CI_Controller {
             'username'       => $username,
             'password'       => $password
         );
-        //$tambah = $this->db->insert('admin', $user_baru); //pindah ke model
-        //if(!$tambah) redirect (base_url('admin/tambah_user_gagal'));
-        //else redirect (base_url(''));
 
         if ($this->m_data->insert_user($user_baru) == true){
             redirect (base_url('admin/tabel_user'));
@@ -330,11 +343,16 @@ class Aksi extends CI_Controller {
         }
     }
 
-    function aksi_hapus_user($username){
-        //$username='null';
-        //echo $username."kepanggil";exit;
-        $this->m_data->delete_user($username);
-        redirect (base_url('admin/tabel_user'));
+    function aksi_hapus_user($username = null){
+
+        if (!isset($username)) redirect('admin/tabel_user');
+
+        if ($this->m_data->delete_user($username) == true){
+            redirect (base_url('admin/tabel_user'));
+        }
+        else {
+            echo 'gagal gan :(';
+        }
     }
 
     function aksi_edit_pembayaran(){
@@ -357,7 +375,8 @@ class Aksi extends CI_Controller {
         );
 
         if ($this->m_data->update_penghuni($id_penghuni, $data_penghuni) == true and $this->m_data->update_pembayaran($id_pembayaran, $data_pembayaran) == true){
-            echo 'berhasil diedit'; //belum menghitung piutang/lunas //sudah
+            //echo 'berhasil diedit';
+            redirect (base_url('admin/riwayat_pembayaran'));
         }
         else {
             echo 'gagal';

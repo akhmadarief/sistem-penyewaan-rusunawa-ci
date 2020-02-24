@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_data extends CI_Model {
 
-    function data_penghuni($where){
+    function detail_penghuni($where){
         // $this->db->select('id, no_kamar, nama, nim, penghuni.id_prodi, nama_prodi, penghuni.id_fakultas, nama_fakultas, tempat_lahir, tgl_lahir, agama, alamat, no, nama_ortu, pekerjaan_ortu, alamat_ortu, no_ortu, tgl_masuk, tgl_keluar, kategori, isi_kamar, status, biaya, sum(bayar) AS bayar, biaya - COALESCE(sum(bayar),0) AS piutang');
         // $this->db->from('penghuni');
         // $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
@@ -13,10 +13,13 @@ class M_data extends CI_Model {
         // $this->db->group_by(array('id'));
         // $this->db->order_by('no_kamar', 'asc');
         // return $this->db->get();
-        return $this->db->get_where('detail_penghuni', $where);
+        $this->db->select('*');
+        $this->db->where($where);
+        $this->db->order_by('no_kamar');
+        return $this->db->get('detail_penghuni');
     }
 
-    function data_pembayaran($where){
+    function detail_pembayaran($where){
         // $this->db->select('id_penghuni, id_pembayaran, no_kamar, nama, penghuni.nim, tgl_bayar, biaya, bayar');
         // $this->db->from('penghuni');
         // $this->db->join('keuangan', 'penghuni.id = keuangan.id_penghuni');
@@ -64,18 +67,24 @@ class M_data extends CI_Model {
         return $this->db->get_where('kamar', array('no_kamar' => $no_kamar));
     }
 
+    function data_user(){
+        $this->db->select('nama, username');
+        $this->db->where('username !=', 'admin');
+        return $this->db->get('admin');
+    }
+
     function insert_penghuni($data){
         $this->db->insert('penghuni', $data);
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    function update_status_kamar($no_kamar, $status){
-        $this->db->where('no_kamar', $no_kamar);
-        $this->db->update('kamar', array('status' => $status));
-    }
-
     function insert_pembayaran($data_pembayaran){
         return $this->db->insert('keuangan', $data_pembayaran) ? true : false;
+    }
+
+    function insert_user($user_baru){
+        $this->db->insert('admin', $user_baru);
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     function update_penghuni($id, $data){
@@ -83,13 +92,33 @@ class M_data extends CI_Model {
         return $this->db->update('penghuni', $data) ? true : false;
     }
 
+    function update_status_kamar($no_kamar, $status){
+        $this->db->where('no_kamar', $no_kamar);
+        $this->db->update('kamar', array('status' => $status));
+    }
+
     function update_pembayaran($id_pembayaran, $data){
         $this->db->where('id_pembayaran', $id_pembayaran);
         return $this->db->update('keuangan', $data) ? true : false;
     }
 
+    function update_password($username, $password_baru){
+        $this->db->where('username', $username);
+        return $this->db->update('admin', array('password' => $password_baru)) ? true : false;
+    }
+
     function delete_penghuni($id){
         $this->db->delete('penghuni', array('id' => $id));
+        return ($this->db->affected_rows() > 0) ? true : false;
+    }
+
+    function delete_pembayaran($id){
+        $this->db->delete('keuangan', array('id_pembayaran' => $id_pembayaran));
+        return ($this->db->affected_rows() > 0) ? true : false;
+    }
+
+    function delete_user($username){
+        $this->db->delete('admin', array('username' => $username));
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
@@ -99,26 +128,5 @@ class M_data extends CI_Model {
             'terisi2' => $this->db->get_where('kamar', "gedung = '$gedung' AND (status = 'terisi2' OR status = 'terisi2 piutang')")->num_rows(),
             'sendiri' => $this->db->get_where('kamar', array('gedung' => $gedung, 'status' => 'sendiri'))->num_rows()
         );
-    }
-
-    function update_password($username, $password_baru){
-        $this->db->where('username', $username);
-        return $this->db->update('admin', array('password' => $password_baru)) ? true : false;
-    }
-
-    function data_user(){
-        $this->db->select('nama, username');
-        $this->db->where('username !=', 'admin');
-        return $this->db->get('admin');
-    }
-
-    function insert_user($user_baru){
-        $this->db->insert('admin', $user_baru);
-        return ($this->db->affected_rows() > 0) ? true : false;
-    }
-
-    function delete_user($username){
-        $this->db->delete('admin', array('username' => $username));
-        return ($this->db->affected_rows() > 0) ? true : false;
     }
 }

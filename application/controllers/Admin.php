@@ -36,8 +36,8 @@ class Admin extends CI_Controller {
         $where = array('1' => '1');
         // $nim = '12431';
         // $no_kamar = 'A2.20';
-        $data['doncu']=$this->m_data->data_penghuni($where);
-        //$this->m_data->data_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'));
+        $data['doncu']=$this->m_data->detail_penghuni($where);
+        //$this->m_data->detail_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'));
         echo $this->db->last_query();
     }
 
@@ -112,7 +112,7 @@ class Admin extends CI_Controller {
 
         if (!isset($id)) redirect('admin/daftar_penghuni');
 
-        $data['penghuni'] = $this->m_data->data_penghuni(array('id' => $id))->row();
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('id' => $id))->row();
 
         if (!$data['penghuni']) show_404();
 
@@ -173,7 +173,7 @@ class Admin extends CI_Controller {
     function daftar_penghuni(){
         $data['judul_halaman'] = 'Daftar Penghuni';
         $data['username'] = $this->session->userdata('username');
-        $data['penghuni'] = $this->m_data->data_penghuni(array('status' => 'Penghuni'))->result();
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Penghuni'))->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
@@ -186,9 +186,9 @@ class Admin extends CI_Controller {
     }
 
     function daftar_ekspenghuni(){
-        $data['judul_halaman'] = 'Daftar Penghuni';
+        $data['judul_halaman'] = 'Daftar Eks-Penghuni';
         $data['username'] = $this->session->userdata('username');
-        $data['penghuni'] = $this->m_data->data_penghuni(array('status' => 'Penghuni'))->result();
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Eks-Penghuni'))->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
@@ -201,14 +201,14 @@ class Admin extends CI_Controller {
     }
 
     function daftar_penghuni_cetak(){
-        $data['penghuni'] = $this->m_data->data_penghuni(array('1' => '1'))->result();
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Penghuni'))->result();
         $this->load->view('v_daftar_penghuni_cetak', $data);
     }
 
     function riwayat_pembayaran(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
         $data['username'] = $this->session->userdata('username');
-        $data['pembayaran'] = $this->m_data->data_pembayaran(array('1' => '1'))->result();
+        $data['pembayaran'] = $this->m_data->detail_pembayaran(array('1' => '1'))->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
@@ -226,7 +226,7 @@ class Admin extends CI_Controller {
 
         $data['judul_halaman'] = 'Edit Pembayaran';
         $data['username'] = $this->session->userdata('username');
-        $data['pembayaran'] = $this->m_data->data_pembayaran(array('id_pembayaran' => $id_pembayaran))->row();
+        $data['pembayaran'] = $this->m_data->detail_pembayaran(array('id_pembayaran' => $id_pembayaran))->row();
 
         if (!$data['pembayaran']) show_404();
 
@@ -244,14 +244,14 @@ class Admin extends CI_Controller {
     function riwayat_pembayaran_cetak(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
         $data['username'] = $this->session->userdata('username');
-        $data['pembayaran'] = $this->m_data->data_pembayaran(array('1' => '1'))->result();
+        $data['pembayaran'] = $this->m_data->detail_pembayaran(array('1' => '1'))->result();
         $this->load->view('v_riwayat_pembayaran_cetak', $data); //page content
     }
 
     function laporan_keuangan(){
         $data['judul_halaman'] = 'Daftar Piutang';
         $data['username'] = $this->session->userdata('username');
-        $data['keuangan'] = $this->m_data->data_penghuni(array('1' => '1'))->result();
+        $data['keuangan'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
         //$data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -265,7 +265,7 @@ class Admin extends CI_Controller {
     }
 
     function laporan_keuangan_cetak(){
-        $data['keuangan'] = $this->m_data->data_penghuni(array('1' => '1'))->result();
+        $data['keuangan'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
         //$data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('v_laporan_keuangan_cetak', $data);
     }
@@ -273,8 +273,8 @@ class Admin extends CI_Controller {
     function laporan_piutang(){
         $data['judul_halaman'] = 'Daftar Piutang';
         $data['username'] = $this->session->userdata('username');
-        $data['penghuni'] = $this->m_data->data_penghuni(array('1' => '1'))->result();
-        $data['keuangan1'] = $this->m_data->data_penghuni(array('1' => '1'))->result();
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
+        $data['keuangan1'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
         //$data['keuangan1'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');

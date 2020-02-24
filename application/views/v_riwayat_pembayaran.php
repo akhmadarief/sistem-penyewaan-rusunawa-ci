@@ -26,7 +26,7 @@
                                 <tr>
                                     <td class="text-center"><?php echo $no++ ?></td>
                                     <td class="text-center"><?php echo $pembayaran->no_kamar ?></td>
-                                    <td class="text-center"><?php echo $pembayaran->nama ?></td>
+                                    <td><?php echo $pembayaran->nama ?></td>
                                     <td class="text-center"><?php echo $pembayaran->nim ?></td>
                                     <td class="text-center"><?php echo $pembayaran->tgl_bayar ?></td>
                                     <td class="text-center"><?php echo 'Rp'.number_format($pembayaran->biaya, 0, ',', '.') ?></td>

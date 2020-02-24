@@ -63,6 +63,27 @@
         });
     </script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $(".hapus-pembayaran").click(function(){
+                var id_pembayaran = $(this).attr('id');
+                Swal.fire({
+                    title: 'Hapus Data Penghuni',
+                    text: 'Apakah Anda yakin ingin pembayaran ini?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dd3333',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, Hapus',
+                    cancelButtonText: 'Batal',
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_pembayaran/") ?>' + id_pembayaran;
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
         //daftar penghuni
         $(document).ready(function(){
             $.fn.dataTable.moment('D-M-YYYY');
@@ -92,7 +113,7 @@
         $(document).on("click", ".detail-penghuni", function(){
             var id_penghuni = $(this).attr("id");
             $.ajax({
-                url: "<?php echo base_url('aksi/detail_penghuni') ?>",
+                url: "<?php echo base_url('aksi/get_detail_penghuni') ?>",
                 method: "POST",
                 data: {id_penghuni: id_penghuni},
                 dataType: "json",
@@ -175,7 +196,7 @@
         $(document).on("click", ".riwayat-bayar", function(){
             var id_penghuni = $(this).attr("id");
             $.ajax({
-                url: "<?php echo base_url('aksi/detail_penghuni') ?>",
+                url: "<?php echo base_url('aksi/get_detail_penghuni') ?>",
                 method: "POST",
                 data: {id_penghuni: id_penghuni},
                 dataType: "json",

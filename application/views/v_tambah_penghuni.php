@@ -189,18 +189,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Jumlah Bayar</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="bayar" id="bayar" autocomplete="off" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Piutang</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="piutang" id="piutang" autocomplete="off" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <div class="col-sm-9 ml-sm-auto">
                                     <button class="btn btn-primary" type="submit">Submit</button>
                                     <button class="btn btn-danger" type="button" onclick="window.history.back();">Batal</button>
