@@ -57,6 +57,8 @@ class Aksi extends CI_Controller {
         $tgl_keluar     = $this->input->post('tgl_keluar');
         $masa_huni      = $this->input->post('masa_huni');
         $biaya          = $this->input->post('biaya');
+        $bayar          = $this->input->post('bayar');
+        $piutang        = $this->input->post('piutang');
 
         $data = array(
             'no_kamar'      => $no_kamar,
@@ -90,15 +92,39 @@ class Aksi extends CI_Controller {
 
             switch ($status_awal_kamar){
                 case 'kosong':
-                    $status_kamar = ($isi_kamar == '2') ? 'terisi1' : 'sendiri';
+                    $data_update_kamar = array(
+                        'status'        => ($isi_kamar == '2') ? 'terisi1' : 'sendiri',
+                        'status_bayar'  => ($piutang == 0) ? 'lunas' : 'piutang'
+                    );
+                    // $status_kamar = ($isi_kamar == '2') ? 'terisi1' : 'sendiri';
+                    // $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
                 break;
 
                 case 'terisi1':
-                    $status_kamar = 'terisi2';
+                    $penghuni_satunya = $this->m_data->data_penghuni(array('nim !=' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
+                    //$penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar)->row();
+                    $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
+
+                    $data_update_kamar = array(
+                        'status'        => 'terisi2',
+                        'status_bayar'  => ($piutang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang'
+                    );
+                    // $status_kamar = 'terisi2';
+                    // $status_bayar = ($piutang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
                 break;
             }
 
-            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+            $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
+
+            $id_penghuni = ($this->m_data->data_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row())->id;
+            $data_pembayaran = array(
+                'id_penghuni'   => $id_penghuni,
+                //'nim'           => $nim,
+                'tgl_bayar'     => $tgl_masuk,
+                'bayar'         => $bayar
+            );
+
+            $this->m_data->insert_pembayaran($data_pembayaran);
 
             //redirect('admin/pilih_kamar');
             echo 'berhasil disimpan gan';
@@ -183,6 +209,32 @@ class Aksi extends CI_Controller {
                 );
 
                 if ($this->m_data->insert_pembayaran($data_pembayaran) == true){
+                    $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id))->row();
+                    //$penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
+                    $piutang_penghuni_sekarang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
+
+                    $status_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+
+                    switch ($status_kamar){
+                        case 'sendiri':
+                        case 'terisi1':
+                            $data_update_kamar = array(
+                                'status_bayar' => ($piutang_penghuni_sekarang == 0) ? 'lunas' : 'piutang'
+                            );
+                            //$status_bayar = ($piutang_penghuni_sekarang == 0) ? 'lunas' : 'piutang';
+                        break;
+
+                        case 'terisi2':
+                            $penghuni_satunya = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
+                            //$penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar)->row();
+                            $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
+                            $data_update_kamar = array(
+                                'status_bayar' => ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang'
+                            );
+                            //$status_bayar = ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
+                        break;
+                    }
+                    $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
                     //redirect('admin/daftar_penghuni');
                     echo 'transaksi sukses gayn';
                 }
@@ -201,36 +253,74 @@ class Aksi extends CI_Controller {
                 switch ($status_awal_kamar_lama){
                     case 'sendiri':
                     case 'terisi1':
-                        $status_kamar_lama = 'kosong';
+                        $data_update_kamar_lama = array(
+                            'status'        => 'kosong',
+                            'status_bayar'  => 'lunas'
+                        );
+                        // $status_kamar_lama = 'kosong';
+                        // $status_bayar_kamar_lama = 'lunas';
                     break;
 
                     case 'terisi2':
-                        $status_kamar_lama = 'terisi1';
+                        $penghuni_satunya_kamar_lama = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar_lama, 'status' => 'Penghuni'))->row();
+                        //$penghuni_satunya_kamar_lama = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar_lama)->row();
+                        $piutang_penghuni_satunya_lama = $penghuni_satunya_kamar_lama->biaya - $penghuni_satunya_kamar_lama->bayar;
+
+                        $data_update_kamar_lama = array(
+                            'status'        => 'terisi1',
+                            'status_bayar'  => ($piutang_penghuni_satunya_lama == 0) ? 'lunas' : 'piutang'
+                        );
+                        echo $penghuni_satunya_kamar_lama->nim;
+
+                        // if (!$penghuni_kamar_lama){
+                        //     $status_kamar_lama = 'kosong';
+                        //     $status_bayar_kamar_lama = 'lunas';
+                        // }
+                        // else {
+                        //     $piutang_penghuni_lain_lama = $penghuni_satunya_kamar_lama->biaya - $penghuni_satunya_kamar_lama->bayar;
+
+                        //     $status_kamar_lama = 'terisi1';
+                        //     $status_bayar_kamar_lama = ($piutang_penghuni_lain_lama == 0) ? 'lunas' : 'piutang';
+                        // }
                     break;
                 }
 
                 $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id))->row();
+                //$penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
+                $piutang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
 
                 switch ($status_awal_kamar_baru){
                     case 'kosong':
+                        $data_update_kamar_baru = array(
+                            'status'        => ($penghuni_sekarang->isi_kamar == '2') ? 'terisi1' : 'sendiri',
+                            'status_bayar'  => ($piutang == 0) ? 'lunas' : 'piutang'
+                        );
+                        //$status_kamar_baru = ($penghuni_sekarang->isi_kamar == '2') ? 'terisi1' : 'sendiri';
+                        //$status_bayar_kamar_baru = ($piutang == 0) ? 'lunas' : 'piutang';
                         $isi_kamar = $penghuni_sekarang->isi_kamar;
-                        $status_kamar_baru = ($penghuni_sekarang->isi_kamar == '2') ? 'terisi1' : 'sendiri';
                     break;
 
                     case 'terisi1':
+                        $penghuni_satunya_kamar_baru = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar_baru, 'status' => 'Penghuni'))->row();
+                        //$cek_penghuni_kamar_baru = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar_baru)->row();
+                        $piutang_penghuni_satunya_baru = $penghuni_satunya_kamar_baru->biaya - $penghuni_satunya_kamar_baru->bayar;
+                        $data_update_kamar_baru = array(
+                            'status'        => 'terisi2',
+                            'status_bayar'  => ($piutang == 0 and $piutang_penghuni_satunya_baru == 0) ? 'lunas' : 'piutang'
+                        );
+                        //$status_kamar_baru = 'terisi2';
+                        //$status_bayar_kamar_baru = ($piutang == 0 and $piutang_penghuni_lain_baru == 0) ? 'lunas' : 'piutang';
                         $isi_kamar = '2';
-                        $status_kamar_lama = 'terisi2';
                     break;
                 }
-
                 $data_pindah_kamar = array(
                     'no_kamar' => $no_kamar_baru,
                     'isi_kamar' => $isi_kamar
                 );
 
                 $this->m_data->update_penghuni($id, $data_pindah_kamar);
-                $this->m_data->update_status_kamar($no_kamar_lama, $status_kamar_lama);
-                $this->m_data->update_status_kamar($no_kamar_baru, $status_kamar_baru);
+                $this->m_data->update_status_kamar($no_kamar_lama, $data_update_kamar_lama);
+                $this->m_data->update_status_kamar($no_kamar_baru, $data_update_kamar_baru);
 
                 echo 'berhasil pindah kamar';
             break;
@@ -259,15 +349,36 @@ class Aksi extends CI_Controller {
             switch ($kamar->status){
                 case 'sendiri':
                 case 'terisi1':
-                    $status_kamar = 'kosong';
+                    $data_update_kamar = array(
+                        'status'        => 'kosong',
+                        'status_bayar'  => 'lunas'
+                    );
+                    // $status_kamar = 'kosong';
+                    // $status_bayar = 'lunas';
                 break;
 
                 case 'terisi2':
-                    $status_kamar = 'terisi1';
+                    $penghuni_satunya = $this->m_data->data_penghuni(array('id !=' => $id, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
+                    //$penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar)->row();
+                    $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
+
+                    $data_update_kamar = array(
+                        'status'        => 'terisi1',
+                        'status_bayar'  => ($piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang'
+                    );
+                    //$status_kamar = 'terisi1';
+
+                    // if (!$cek_penghuni){
+                    //     $status_bayar = 'lunas';
+                    // }
+                    // else {
+                    //     $piutang = $cek_penghuni->biaya - $cek_penghuni->bayar;
+                    //     $status_bayar = ($piutang == 0) ? 'lunas' : 'piutang';
+                    // }
                 break;
             }
 
-            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+            $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
 
             //redirect('admin/daftar_penghuni');
             echo 'berhasil dihapus gan';
@@ -357,6 +468,35 @@ class Aksi extends CI_Controller {
         );
 
         if ($this->m_data->update_penghuni($id_penghuni, $data_penghuni) == true and $this->m_data->update_pembayaran($id_pembayaran, $data_pembayaran) == true){
+
+            $status_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+
+            $penghuni_sekarang = $this->m_data->data_penghuni(array('id' => $id_penghuni))->row();
+            //$penghuni_sekarang = $this->m_data->data_keuangan_per_penghuni_by_nim_2($nim)->row();
+            $piutang_penghuni_sekarang = $penghuni_sekarang->biaya - $penghuni_sekarang->bayar;
+
+            switch ($status_kamar){
+                case 'sendiri':
+                case 'terisi1':
+                    $status_bayar = ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
+                break;
+
+                case 'terisi2':
+                    $penghuni_satunya = $this->m_data->data_penghuni(array('id !=' => $id_penghuni, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'))->row();
+                    //$penghuni_satunya = $this->m_data->data_keuangan_per_penghuni_by_nim($nim, $no_kamar)->row();
+                    $piutang_penghuni_satunya = $penghuni_satunya->biaya - $penghuni_satunya->bayar;
+
+                    $status_bayar  = ($piutang_penghuni_sekarang == 0 and $piutang_penghuni_satunya == 0) ? 'lunas' : 'piutang';
+                break;
+            }
+
+            $data_update_kamar = array(
+                'status'        => $status_kamar,
+                'status_bayar'  => $status_bayar
+            );
+
+            $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
+
             echo 'berhasil diedit'; //belum menghitung piutang/lunas //sudah
         }
         else {

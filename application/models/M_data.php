@@ -4,17 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_data extends CI_Model {
 
     function data_penghuni($where){
-        // $this->db->select('id, no_kamar, nama, nim, penghuni.id_prodi, nama_prodi, penghuni.id_fakultas, nama_fakultas, tempat_lahir, tgl_lahir, agama, alamat, no, nama_ortu, pekerjaan_ortu, alamat_ortu, no_ortu, tgl_masuk, tgl_keluar, kategori, isi_kamar, status, biaya');
-        // $this->db->select_sum('bayar');
+        // $this->db->select('id, no_kamar, nama, nim, penghuni.id_prodi, nama_prodi, penghuni.id_fakultas, nama_fakultas, tempat_lahir, tgl_lahir, agama, alamat, no, nama_ortu, pekerjaan_ortu, alamat_ortu, no_ortu, tgl_masuk, tgl_keluar, kategori, isi_kamar, status, biaya, sum(bayar) AS bayar, biaya - COALESCE(sum(bayar),0) AS piutang');
         // $this->db->from('penghuni');
         // $this->db->join('prodi', 'penghuni.id_prodi = prodi.id_prodi');
         // $this->db->join('fakultas', 'penghuni.id_fakultas = fakultas.id_fakultas');
         // $this->db->join('keuangan', 'penghuni.id = keuangan.id_penghuni', 'left');
         // $this->db->where($where);
-        // $this->db->group_by(array('id', 'no_kamar', 'nama', 'nim', 'id_prodi', 'nama_prodi', 'id_fakultas', 'nama_fakultas', 'tempat_lahir', 'tgl_lahir', 'agama', 'alamat', 'no', 'nama_ortu', 'pekerjaan_ortu', 'alamat_ortu', 'no_ortu', 'tgl_masuk', 'tgl_keluar', 'kategori', 'isi_kamar', 'status', 'biaya'));
+        // $this->db->group_by(array('id'));
         // $this->db->order_by('no_kamar', 'asc');
         // return $this->db->get();
-        return $this->db->get_where('data_penghuni', $where);
+        return $this->db->get_where('detail_penghuni', $where);
     }
 
     function data_pembayaran($where){
@@ -24,7 +23,7 @@ class M_data extends CI_Model {
         // $this->db->where($where);
         // $this->db->order_by("STR_TO_DATE(tgl_bayar,'%d-%m-%Y') DESC");
         // return $this->db->get();
-        return $this->db->get_where('data_pembayaran', $where);
+        return $this->db->get_where('detail_pembayaran', $where);
     }
 
     function data_fakultas(){
@@ -36,7 +35,7 @@ class M_data extends CI_Model {
     }
 
     function data_kamar(){
-        return $this->db->get('kamar');
+        return $this->db->get('detail_kamar');
     }
 
     function data_kamar_tersedia(){
@@ -56,7 +55,7 @@ class M_data extends CI_Model {
 
     function data_kamar_by_lantai($lantai){
         $this->db->select('*');
-        $this->db->from('kamar');
+        $this->db->from('detail_kamar');
         $this->db->like('lantai', $lantai, 'after');
         return $this->db->get();
     }
@@ -70,9 +69,9 @@ class M_data extends CI_Model {
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    function update_status_kamar($no_kamar, $data_update_kamar){
+    function update_status_kamar($no_kamar, $status){
         $this->db->where('no_kamar', $no_kamar);
-        $this->db->update('kamar', $data_update_kamar);
+        $this->db->update('kamar', array('status' => $status));
     }
 
     function insert_pembayaran($data_pembayaran){

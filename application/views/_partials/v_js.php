@@ -400,7 +400,11 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            var status_piutang = '';
+                            if (data[i].piutang != 0){
+                                var status_piutang = 'piutang';
+                            }
+                            html += '<div class="kamar '+ data[i].status +' '+ status_piutang +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_A").html(html);
                     }
@@ -417,7 +421,11 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            var status_piutang = '';
+                            if (data[i].piutang != 0){
+                                var status_piutang = 'piutang';
+                            }
+                            html += '<div class="kamar '+ data[i].status +' '+ status_piutang +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_B").html(html);
                     }
@@ -434,7 +442,11 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            var status_piutang = '';
+                            if (data[i].piutang != 0){
+                                var status_piutang = 'piutang';
+                            }
+                            html += '<div class="kamar '+ data[i].status +' '+ status_piutang +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_C").html(html);
                     }
@@ -451,7 +463,11 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            var status_piutang = '';
+                            if (data[i].piutang != 0){
+                                var status_piutang = 'piutang';
+                            }
+                            html += '<div class="kamar '+ data[i].status +' '+ status_piutang +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_D").html(html);
                     }
@@ -468,7 +484,11 @@
                     success: function(data){
                         var html = '';
                         for (i=0; i<data.length; i++){
-                            html += '<div class="kamar '+ data[i].status +' '+ data[i].status_bayar +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
+                            var status_piutang = '';
+                            if (data[i].piutang != 0){
+                                var status_piutang = 'piutang';
+                            }
+                            html += '<div class="kamar '+ data[i].status +' '+ status_piutang +'" id="'+ data[i].no_kamar +'">'+ data[i].no_kamar +'</div>';
                         }
                         $("#lantai_E").html(html);
                     }

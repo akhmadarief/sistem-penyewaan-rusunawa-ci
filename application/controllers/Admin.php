@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
         $where = array('1' => '1');
         // $nim = '12431';
         // $no_kamar = 'A2.20';
-        $data['doncu']=$this->m_data->data_pembayaran($where);
+        $data['doncu']=$this->m_data->data_penghuni($where);
         //$this->m_data->data_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'));
         echo $this->db->last_query();
     }
