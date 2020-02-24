@@ -36,7 +36,7 @@
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 1 Orang</label>: <?php echo (84 - $a['terisi2']) ?> Kamar</div><i class="widget-stat-icon icon-gedung"><img src="<?php echo base_url("assets/img/A.png"); ?>"/></i>
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 2 Orang</label>: <?php echo (84 - $a['terisi2'] - $a['terisi1']) ?> Kamar</div>
                                     <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 84 Kamar</div>
-                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: 000 Penghuni</div>
+                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: <?php echo ($a['terisi1']+(2*($a['terisi2']))+$a['sendiri'])?> Penghuni</div>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 1 Orang</label>: <?php echo (97 - $b['terisi2']) ?> Kamar</div><i class="widget-stat-icon icon-gedung"><img src="<?php echo base_url("assets/img/B.png"); ?>"/></i>
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 2 Orang</label>: <?php echo (97 - $b['terisi2'] - $b['terisi1']) ?> Kamar</div>
                                     <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 97 Kamar</div>
-                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: 000 Penghuni</div>
+                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: <?php echo ($b['terisi1']+(2*($b['terisi2']))+$b['sendiri'])?> Penghuni</div>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 1 Orang</label>: <?php echo (96 - $c['terisi2']) ?> Kamar</div><i class="widget-stat-icon icon-gedung"><img src="<?php echo base_url("assets/img/C.png"); ?>"/></i>
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 2 Orang</label>: <?php echo (96 - $c['terisi2'] - $c['terisi1']) ?> Kamar</div>
                                     <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 96 Kamar</div>
-                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: 000 Penghuni</div>
+                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: <?php echo ($c['terisi1']+(2*($c['terisi2']))+$c['sendiri'])?> Penghuni</div>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 1 Orang</label>: <?php echo (103 - $d['terisi2']) ?> Kamar</div><i class="widget-stat-icon icon-gedung"><img src="<?php echo base_url("assets/img/D.png"); ?>"/></i>
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 2 Orang</label>: <?php echo (103 - $d['terisi2'] - $d['terisi1']) ?> Kamar</div>
                                     <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 103 Kamar</div>
-                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: 000 Penghuni</div>
+                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: <?php echo ($d['terisi1']+(2*($d['terisi2']))+$d['sendiri'])?> Penghuni</div>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                     <div class="m-b-5"><label class="sum-gedung">Bisa diisi 2 Orang</label>: <?php echo (114 - $e['terisi2'] - $e['terisi1']) ?> Kamar</div>
                                     <!--suatu saat dibutuhkan <div class="m-b-5"><label class="sum-gedung">Sendiri </label>: <?php echo $e['sendiri'] ?> Kamar</div> -->
                                     <div class="m-b-5"><label class="sum-gedung">Total Kamar </label>: 114 Kamar</div>
-                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: 000 Penghuni</div>
+                                    <div class="m-b-5"><label class="sum-gedung">Total Penghuni </label>: <?php echo ($e['terisi1']+(2*($e['terisi2']))+$e['sendiri'])?> Penghuni</div>
                                 </div>
                             </div>
                         </div>
