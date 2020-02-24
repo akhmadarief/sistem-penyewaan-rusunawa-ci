@@ -142,6 +142,11 @@ form#login-form, form#register-form, form#changepass-form{
 
 
 /*SUMMARY GEDUNG*/
+.col-sum{
+  display: inline-block;
+  max-width: 49.7% !important;
+}
+
 .sum-gedung{
   width: 115px;
   margin-bottom: 0;
@@ -153,6 +158,23 @@ form#login-form, form#register-form, form#changepass-form{
 
 .widget-stat .sum-kamar{
   padding: 12px 12px;
+}
+
+/*ICON BACKGROUND*/
+.media-body{
+  padding-left: 10px;
+}
+
+.icon-bg1{
+  color: #1ba0e285;
+}
+
+.icon-bg2{
+  color: #1ba0e2;
+}
+
+.icon-bg3{
+  color: #615255;
 }
 
 /*LEGENDA*/
@@ -302,3 +324,15 @@ form#login-form, form#register-form, form#changepass-form{
   .btn + .riwayat-bayar, .edit-huni, .hapus-penghuni, .detail-penghuni, .edit-riwayat, .hapus-pembayaran{
     margin-bottom: 4px;
   }
+
+  /* .col-lg-8 .containe{
+    display: table;
+  }
+
+  .col-lg-8 .containe .bo{
+    display: table-row;
+  }
+  
+  .col-lg-8 .containe .bo .col-lg-4{
+    display: table-cell;
+  } */
