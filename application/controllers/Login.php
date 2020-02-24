@@ -19,7 +19,9 @@ class Login extends CI_Controller {
         // if ($this->session->userdata('status') == 'login'){
         //     redirect (base_url('admin'));
         // }
-
+        if ($this->session->userdata('status') == 'login'){
+            redirect (base_url(''));
+        }
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_login');
         $this->load->view('_partials/v_preloader');
