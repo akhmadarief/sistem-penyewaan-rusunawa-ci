@@ -185,6 +185,21 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function daftar_ekspenghuni(){
+        $data['judul_halaman'] = 'Daftar Penghuni';
+        $data['username'] = $this->session->userdata('username');
+        $data['penghuni'] = $this->m_data->data_penghuni(array('status' => 'Penghuni'))->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_daftar_penghuni', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
+    }
+
     function daftar_penghuni_cetak(){
         $data['penghuni'] = $this->m_data->data_penghuni(array('1' => '1'))->result();
         $this->load->view('v_daftar_penghuni_cetak', $data);
