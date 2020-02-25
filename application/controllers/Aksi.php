@@ -285,14 +285,21 @@ class Aksi extends CI_Controller {
         }
 
         else {
-            $tgl_keluar = date('d-m-Y', strtotime($penghuni->tgl_keluar));
-            $tgl_keluar_baru = date('d-m-Y', strtotime($tgl_keluar.' + 1 year'));
+            $harga_kamar = (($this->m_data->data_harga_kamar_by_no_kamar($penghuni->no_kamar)->row())->harga)*12/($penghuni->isi_kamar);
+            $biaya_lama = $penghuni->biaya;
+            $biaya_baru = $biaya_lama + $harga_kamar;
+
+            $tgl_keluar_lama = date('d-m-Y', strtotime($penghuni->tgl_keluar));
+            $tgl_keluar_baru = date('d-m-Y', strtotime($tgl_keluar_lama.' + 1 year'));
             $data = array(
-                'tgl_keluar' => $tgl_keluar_baru
+                'tgl_keluar' => $tgl_keluar_baru,
+                'biaya'      => $biaya_baru
             );
             if ($this->m_data->update_penghuni($id, $data) == true){
                 redirect (base_url('admin/pilih_kamar'));
-                //echo 'berhasil perpanjang kamar';
+                // echo $harga_kamar;
+                // echo $biaya_lama;
+                // echo $biaya_baru;
             }
             else {
                 echo 'gagal gan :(';

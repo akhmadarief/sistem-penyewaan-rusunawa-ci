@@ -52,6 +52,10 @@ class M_data extends CI_Model {
         return $this->db->get('harga');
     }
 
+    function data_harga_kamar_by_no_kamar($no_kamar){
+        return $this->db->get_where('harga_per_kamar', array('no_kamar' => $no_kamar));
+    }
+
     function data_harga_kamar_by_lantai($lantai){
         return $this->db->get_where('harga', array('lantai' => $lantai));
     }

@@ -34,16 +34,16 @@ class Admin extends CI_Controller {
     }
 
     function doncu(){ //buat cek query
-        // $where = array('1' => '1');
-        // // $nim = '12431';
-        // // $no_kamar = 'A2.20';
-        // $data['doncu']=$this->m_data->total_data_keuangan();
-        // //$this->m_data->detail_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'));
-        // echo $this->db->last_query();
-
-        $tgl_keluar = date('d-m-Y', strtotime('20-02-2020'));
-        $tgl_keluar_baru = date('d-m-Y', strtotime($tgl_keluar.' + 1 year'));
-        echo $tgl_keluar_baru;
+        $where = array('1' => '1');
+        // $nim = '12431';
+        // $no_kamar = 'A2.20';
+        //$data['doncu']=$this->m_data->data_harga_kamar_by_no_kamar('A2.01');
+        //$this->m_data->detail_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'));
+        $a = (($this->m_data->data_harga_kamar_by_no_kamar('A2.01')->row())->harga) + $penghuni->harga;
+        echo $a;
+        // $tgl_keluar = date('d-m-Y', strtotime('20-02-2020'));
+        // $tgl_keluar_baru = date('d-m-Y', strtotime($tgl_keluar.' + 1 year'));
+        // echo $tgl_keluar_baru;
     }
 
     function dasbor(){
