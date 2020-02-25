@@ -241,7 +241,7 @@ class Aksi extends CI_Controller {
 
     function aksi_hapus_penghuni($id = null){
 
-        if (!isset($id)) redirect('admin/daftar_penghuni');
+        if (!isset($id)) redirect (base_url('admin/daftar_penghuni'));
 
         $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
 
@@ -251,7 +251,6 @@ class Aksi extends CI_Controller {
         else if ($this->m_data->delete_penghuni($id) == true){
 
             $no_kamar = $penghuni->no_kamar;
-            $nim = $penghuni->nim;
             $kamar = $this->m_data->cek_kamar($no_kamar)->row();
 
             switch ($kamar->status){
@@ -275,9 +274,70 @@ class Aksi extends CI_Controller {
         }
     }
 
+    function perpanjang($id = null){
+
+        if (!isset($id)) redirect (base_url('admin/pilih_kamar'));
+
+        $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
+
+        if (!$penghuni){
+            show_404();
+        }
+
+        else {
+            $tgl_keluar = date('d-m-Y', strtotime($penghuni->tgl_keluar));
+            $tgl_keluar_baru = date('d-m-Y', strtotime($tgl_keluar.' + 1 year'));
+            $data = array(
+                'tgl_keluar' => $tgl_keluar_baru
+            );
+            if ($this->m_data->update_penghuni($id, $data) == true){
+                redirect (base_url('admin/pilih_kamar'));
+                //echo 'berhasil perpanjang kamar';
+            }
+            else {
+                echo 'gagal gan :(';
+            }
+        }
+    }
+
+    function eks_penghuni($id = null){
+
+        if (!isset($id)) redirect (base_url('admin/pilih_kamar'));
+
+        $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
+
+        if (!$penghuni){
+            show_404();
+        }
+        else if ($this->m_data->update_penghuni($id, array('status' => 'Eks-Penghuni')) == true){
+
+            $no_kamar = $penghuni->no_kamar;
+            $kamar = $this->m_data->cek_kamar($no_kamar)->row();
+
+            switch ($kamar->status){
+                case 'sendiri':
+                case 'terisi1':
+                    $status_kamar = 'kosong';
+                break;
+
+                case 'terisi2':
+                    $status_kamar = 'terisi1';
+                break;
+            }
+
+            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+
+            redirect (base_url('admin/pilih_kamar'));
+            //echo 'berhasil perpanjang kamar';
+        }
+        else {
+            echo 'gagal gan :(';
+        }
+    }
+
     function aksi_hapus_pembayaran($id_pembayaran = null){
 
-        if (!isset($id_pembayaran)) redirect('admin/riwayat_pembayaran');
+        if (!isset($id_pembayaran)) redirect (base_url('admin/riwayat_pembayaran'));
 
         $pembayaran = $this->m_data->detail_pembayaran(array('id_pembayaran' => $id_pembayaran))->row();
 
