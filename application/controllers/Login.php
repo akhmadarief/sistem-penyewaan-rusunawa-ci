@@ -15,13 +15,10 @@ class Login extends CI_Controller {
         if ($data['pesan'] == 'berhasil_logout' or $data['pesan'] == 'berhasil_ubah_pass'){
             $this->session->sess_destroy();
         }
-
-        // if ($this->session->userdata('status') == 'login'){
-        //     redirect (base_url('admin'));
-        // }
-        if ($this->session->userdata('status') == 'login'){
-            redirect (base_url(''));
+        else if ($this->session->userdata('status') == 'login'){
+            redirect (base_url('admin'));
         }
+
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_login');
         $this->load->view('_partials/v_preloader');
