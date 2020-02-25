@@ -17,6 +17,7 @@
                                     <th class="text-center">Lantai</th>
                                     <th class="text-center">No. Kamar</th>
                                     <th class="text-center">Status Kamar</th>
+                                    <th class="text-center">Piutang</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,6 +35,7 @@
                                         else echo '<span class="badge badge-default">Belum Berpenghuni</span>';
                                         ?>
                                     </td>
+                                    <td class="text-center"><?php echo $kamar->piutang == 0 ? '<span class="badge badge-success">Sudah Lunas</span>' : 'Rp'.number_format($kamar->piutang, 0, ',', '.') ?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

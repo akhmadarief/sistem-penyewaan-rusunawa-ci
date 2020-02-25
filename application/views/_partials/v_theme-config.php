@@ -9,7 +9,7 @@
                     <input id="_fixedNavbar" type="checkbox" checked>
                     <span class="input-span"></span>Fixed navbar</label>
                 <label class="ui-checkbox ui-checkbox-gray">
-                    <input id="_fixedlayout" type="checkbox">
+                    <input id="_fixedlayout" type="checkbox" checked>
                     <span class="input-span"></span>Fixed layout</label>
                 <label class="ui-checkbox ui-checkbox-gray">
                     <input class="js-sidebar-toggler" type="checkbox">
