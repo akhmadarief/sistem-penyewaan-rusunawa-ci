@@ -602,8 +602,8 @@
                             $("#perpanjang2").show();
                             $("#eks_penghuni2").show();
                             $("#edit_penghuni2").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[1].id);
-                            $("#perpanjang2").attr("href", "<?php echo base_url('admin/perpanjang/') ?>" + data[0].id);
-                            $("#eks_penghuni2").attr("href", "<?php echo base_url('admin/eks_penghuni/') ?>" + data[0].id);
+                            $("#perpanjang2").attr("href", "<?php echo base_url('aksi/perpanjang/') ?>" + data[0].id);
+                            $("#eks_penghuni2").attr("href", "<?php echo base_url('aksi/eks_penghuni/') ?>" + data[0].id);
                             $("#nama2").val(data[1].nama);
                             $("#nim2").val(data[1].nim);
                             $("#no2").val(data[1].no);

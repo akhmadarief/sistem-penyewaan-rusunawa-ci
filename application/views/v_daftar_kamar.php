@@ -29,13 +29,29 @@
                                     <td class="text-center"><?php echo $kamar->no_kamar ?></td>
                                     <td class="text-center">
                                         <?php
-                                        if ($kamar->status == 'sendiri') echo '<span class="badge badge-success">Terisi 1 Penghuni Sendiri</span>';
-                                        else if ($kamar->status == 'terisi2') echo '<span class="badge badge-danger">Terisi 2 Penghuni</span>';
-                                        else if ($kamar->status == 'terisi1') echo '<span class="badge badge-warning">Terisi 1 Penghuni</span>';
-                                        else echo '<span class="badge badge-default">Belum Berpenghuni</span>';
+                                        switch ($kamar->status){
+                                            case 'sendiri':
+                                                echo '<span class="badge badge-success">Terisi 1 Penghuni Sendiri</span>';
+                                            break;
+                                            case 'terisi2':
+                                                echo '<span class="badge badge-danger">Terisi 2 Penghuni</span>';
+                                            break;
+                                            case 'terisi1':
+                                                echo '<span class="badge badge-warning">Terisi 1 Penghuni</span>';
+                                            break;
+                                            case 'kosong':
+                                                echo '<span class="badge badge-default">Belum Berpenghuni</span>';
+                                            break;
+                                        }
                                         ?>
                                     </td>
-                                    <td class="text-center"><?php echo $kamar->piutang == 0 ? '<span class="badge badge-success">Sudah Lunas</span>' : 'Rp'.number_format($kamar->piutang, 0, ',', '.') ?></td>
+                                    <td class="text-center">
+                                        <?php
+                                        if ($kamar->piutang == 0 and $kamar->status == 'kosong') echo '-';
+                                        else if ($kamar->piutang == 0 and $kamar->status != 'kosong') echo '<span class="badge badge-info">Sudah Lunas</span>';
+                                        else echo 'Rp'.number_format($kamar->piutang, 0, ',', '.');
+                                        ?>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

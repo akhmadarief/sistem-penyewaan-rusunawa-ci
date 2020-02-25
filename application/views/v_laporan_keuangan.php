@@ -29,7 +29,7 @@
                                     <td class="text-center"><?php echo $keuangan->nim ?></td>
                                     <td class="text-center"><?php echo 'Rp'.number_format($keuangan->biaya, 0, ',', '.') ?></td>
                                     <td class="text-center"><?php echo 'Rp'.number_format($keuangan->bayar, 0, ',', '.') ?></td>
-                                    <td class="text-center"><?php echo $keuangan->piutang == 0 ? '<span class="badge badge-success">Sudah Lunas</span>' : 'Rp'.number_format($keuangan->piutang, 0, ',', '.') ?>
+                                    <td class="text-center"><?php echo $keuangan->piutang == 0 ? '<span class="badge badge-info">Sudah Lunas</span>' : 'Rp'.number_format($keuangan->piutang, 0, ',', '.') ?>
                                     </td>
                                 </tr>
                                 <?php } ?>
