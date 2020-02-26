@@ -45,7 +45,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="number" name="bayar" placeholder="Pilih Tanggal Transaksi" value="<?php echo $pembayaran->bayar ?>" required>
+                                        <input class="form-control form_transaksi" type="number" name="bayar" placeholder="Masukkan Jumlah Pembayaran" value="<?php echo $pembayaran->bayar ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">

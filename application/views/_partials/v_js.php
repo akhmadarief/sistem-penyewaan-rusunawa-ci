@@ -576,8 +576,8 @@
                             $("#perpanjang").show();
                             $("#eks_penghuni").show();
                             $("#edit_penghuni").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[0].id);
-                            $("#perpanjang").attr("href", "<?php echo base_url('aksi/perpanjang/') ?>" + data[0].id);
-                            $("#eks_penghuni").attr("href", "<?php echo base_url('aksi/eks_penghuni/') ?>" + data[0].id);
+                            $(".perpanjang").attr("id", data[0].id);
+                            $(".eks_penghuni").attr("id", data[0].id);
                             $("#nama").val(data[0].nama);
                             $("#nim").val(data[0].nim);
                             $("#no").val(data[0].no);
@@ -609,8 +609,8 @@
                             $("#perpanjang2").show();
                             $("#eks_penghuni2").show();
                             $("#edit_penghuni2").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[1].id);
-                            $("#perpanjang2").attr("href", "<?php echo base_url('aksi/perpanjang/') ?>" + data[0].id);
-                            $("#eks_penghuni2").attr("href", "<?php echo base_url('aksi/eks_penghuni/') ?>" + data[0].id);
+                            $(".perpanjang2").attr("id", data[1].id);
+                            $(".eks_penghuni2").attr("id", data[1].id);
                             $("#nama2").val(data[1].nama);
                             $("#nim2").val(data[1].nim);
                             $("#no2").val(data[1].no);
@@ -620,6 +620,78 @@
                             var piutang = data[1].biaya - data[1].bayar;
                             $("#piutang2").val("Rp" + piutang);
                         }
+                    }
+                });
+            });
+            $(".perpanjang").click(function(){
+                var id = $(this).attr("id");
+                var nama = $("#nama").val();
+                Swal.fire({
+                    title: "Perpanjang Penghuni",
+                    text: "Apakah Anda yakin ingin memperpanjang 1 tahun masa huni untuk penghuni " + nama + "?",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#dd3333",
+                    confirmButtonText: "Ya, Perpanjang",
+                    cancelButtonText: "Batal",
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = "<?php echo base_url('aksi/perpanjang/') ?>" + id;
+                    }
+                });
+            });
+            $(".eks_penghuni").click(function(){
+                var id = $(this).attr("id");
+                var nama = $("#nama").val();
+                Swal.fire({
+                    title: "Selesai Menghuni",
+                    text: "Apakah Anda yakin ingin menyelesaikan masa huni untuk penghuni " + nama + "?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#dd3333",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, Selesaikan",
+                    cancelButtonText: "Batal",
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = "<?php echo base_url('aksi/eks_penghuni/') ?>" + id;
+                    }
+                });
+            });
+            $(".perpanjang2").click(function(){
+                var id = $(this).attr("id");
+                var nama = $("#nama2").val();
+                Swal.fire({
+                    title: "Perpanjang Penghuni",
+                    text: "Apakah Anda yakin ingin memperpanjang 1 tahun masa huni untuk penghuni " + nama + "?",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#dd3333",
+                    confirmButtonText: "Ya, Perpanjang",
+                    cancelButtonText: "Batal",
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = "<?php echo base_url('aksi/perpanjang/') ?>" + id;
+                    }
+                });
+            });
+            $(".eks_penghuni2").click(function(){
+                var id = $(this).attr("id");
+                var nama = $("#nama2").val();
+                Swal.fire({
+                    title: "Selesai Menghuni",
+                    text: "Apakah Anda yakin ingin menyelesaikan masa huni untuk penghuni " + nama + "?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#dd3333",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, Selesaikan",
+                    cancelButtonText: "Batal",
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = "<?php echo base_url('aksi/eks_penghuni/') ?>" + id;
                     }
                 });
             });

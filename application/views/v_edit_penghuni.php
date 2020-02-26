@@ -67,7 +67,7 @@
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="number" name="bayar" id="bayar_baru" max="1000000000" autocomplete="off" required>
+                                        <input class="form-control form_transaksi" type="number" name="bayar" placeholder="Masukkan Jumlah Pembayaran" id="bayar_baru" max="1000000000" autocomplete="off" required>
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi" id="tgl_bayar">
