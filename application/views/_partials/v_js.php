@@ -581,8 +581,8 @@
                             $("#tambah_penghuni").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni").removeAttr("href");
                             $("#edit_penghuni").removeAttr("style").hide();
-                            $("#perpanjang").removeAttr("style").hide();
-                            $("#eks_penghuni").removeAttr("style").hide();
+                            $(".perpanjang").removeAttr("style").hide();
+                            $(".eks_penghuni").removeAttr("style").hide();
                             $("#nama").val("Belum ada penghuni");
                             $("#nim").val("Belum ada penghuni");
                             $("#no").val("Belum ada penghuni");
@@ -601,8 +601,8 @@
                             //$("#tambah_penghuni").removeAttr("href");
                             $("#tambah_penghuni").removeAttr("style").hide();
                             $("#edit_penghuni").show();
-                            $("#perpanjang").show();
-                            $("#eks_penghuni").show();
+                            $(".perpanjang").show();
+                            $(".eks_penghuni").show();
                             $("#edit_penghuni").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[0].id);
                             $(".perpanjang").attr("id", data[0].id);
                             $(".eks_penghuni").attr("id", data[0].id);
@@ -620,8 +620,8 @@
                             $("#tambah_penghuni2").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni2").removeAttr("href");
                             $("#edit_penghuni2").removeAttr("style").hide();
-                            $("#perpanjang2").removeAttr("style").hide();
-                            $("#eks_penghuni2").removeAttr("style").hide();
+                            $(".perpanjang2").removeAttr("style").hide();
+                            $(".eks_penghuni2").removeAttr("style").hide();
                             $("#nama2").val("Belum ada penghuni");
                             $("#nim2").val("Belum ada penghuni");
                             $("#no2").val("Belum ada penghuni");
@@ -634,8 +634,8 @@
                             //$("#tambah_penghuni2").removeAttr("href");
                             $("#tambah_penghuni2").removeAttr("style").hide();
                             $("#edit_penghuni2").show();
-                            $("#perpanjang2").show();
-                            $("#eks_penghuni2").show();
+                            $(".perpanjang2").show();
+                            $(".eks_penghuni2").show();
                             $("#edit_penghuni2").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[1].id);
                             $(".perpanjang2").attr("id", data[1].id);
                             $(".eks_penghuni2").attr("id", data[1].id);
@@ -728,7 +728,48 @@
     <script type="text/javascript">
         $('.carousel').carousel({
             interval: 6000
-        })
+        });
+    </script>
+    <script type="text/javascript">
+        window.onload = function(){
+            <?php
+            switch ($pesan){
+                case 'berhasil_tambah_penghuni':
+                    echo 'toastr.success("Berhasil menambah penghuni '.$nama_penghuni.' pada kamar '.$no_kamar.'")';
+                break;
+                case 'berhasil_edit_penghuni':
+                    echo 'toastr.success("Berhasil memperbarui data penghuni '.$nama_penghuni.' pada kamar '.$no_kamar.'")';
+                break;
+                case 'berhasil_hapus_penghuni':
+                    echo 'toastr.success("Berhasil menghapus penghuni '.$nama_penghuni.' dari kamar '.$no_kamar.'")';
+                break;
+                case 'berhasil_tambah_pembayaran':
+                    echo 'toastr.success("Berhasil melakukan pembayaran tanggal '.$tgl_bayar.' dari penghuni '.$nama_penghuni.'")';
+                break;
+                case 'berhasil_edit_pembayaran':
+                    echo 'toastr.success("Berhasil memperbarui pembayaran tanggal '.$tgl_bayar.' dari penghuni '.$nama_penghuni.'")';
+                break;
+                case 'berhasil_hapus_pembayaran':
+                    echo 'toastr.success("Berhasil menghapus pembayaran tanggal '.$tgl_bayar.' dari penghuni '.$nama_penghuni.'")';
+                break;
+                case 'berhasil_pindah_kamar':
+                    echo 'toastr.success("Berhasil memindahkan kamar penghuni '.$nama_penghuni.' dari '.$no_kamar.' ke '.$no_kamar_baru.'")';
+                break;
+                case 'berhasil_perpanjang':
+                    echo 'toastr.success("Berhasil memeperpanjang masa huni '.$nama_penghuni.' pada kamar '.$no_kamar.'")';
+                break;
+                case 'berhasil_selesai_menghuni':
+                    echo 'toastr.success("Berhasil menyelesaikan masa huni '.$nama_penghuni.' dari kamar '.$no_kamar.'")';
+                break;
+                case 'berhasil_tambah_user':
+                    echo 'toastr.success("Berhasil menambah user '.$nama_user_baru.' dengan username '.$username_baru.'")';
+                break;
+                case 'berhasil_hapus_user':
+                    echo 'toastr.success("Berhasil menghapus user '.$nama_user_baru.' dengan username '.$username_baru.'")';
+                break;
+            }
+            ?>
+        }
     </script>
 </body>
 </html>
