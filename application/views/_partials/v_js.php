@@ -554,8 +554,8 @@
                             $("#tambah_penghuni").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni").removeAttr("href");
                             $("#edit_penghuni").removeAttr("style").hide();
-                            $("#perpanjang").removeAttr("style").hide();
-                            $("#eks_penghuni").removeAttr("style").hide();
+                            $(".perpanjang").removeAttr("style").hide();
+                            $(".eks_penghuni").removeAttr("style").hide();
                             $("#nama").val("Belum ada penghuni");
                             $("#nim").val("Belum ada penghuni");
                             $("#no").val("Belum ada penghuni");
@@ -574,8 +574,8 @@
                             //$("#tambah_penghuni").removeAttr("href");
                             $("#tambah_penghuni").removeAttr("style").hide();
                             $("#edit_penghuni").show();
-                            $("#perpanjang").show();
-                            $("#eks_penghuni").show();
+                            $(".perpanjang").show();
+                            $(".eks_penghuni").show();
                             $("#edit_penghuni").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[0].id);
                             $(".perpanjang").attr("id", data[0].id);
                             $(".eks_penghuni").attr("id", data[0].id);
@@ -593,8 +593,8 @@
                             $("#tambah_penghuni2").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni2").removeAttr("href");
                             $("#edit_penghuni2").removeAttr("style").hide();
-                            $("#perpanjang2").removeAttr("style").hide();
-                            $("#eks_penghuni2").removeAttr("style").hide();
+                            $(".perpanjang2").removeAttr("style").hide();
+                            $(".eks_penghuni2").removeAttr("style").hide();
                             $("#nama2").val("Belum ada penghuni");
                             $("#nim2").val("Belum ada penghuni");
                             $("#no2").val("Belum ada penghuni");
@@ -607,8 +607,8 @@
                             //$("#tambah_penghuni2").removeAttr("href");
                             $("#tambah_penghuni2").removeAttr("style").hide();
                             $("#edit_penghuni2").show();
-                            $("#perpanjang2").show();
-                            $("#eks_penghuni2").show();
+                            $(".perpanjang2").show();
+                            $(".eks_penghuni2").show();
                             $("#edit_penghuni2").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[1].id);
                             $(".perpanjang2").attr("id", data[1].id);
                             $(".eks_penghuni2").attr("id", data[1].id);
