@@ -32,7 +32,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Jumlah Harus Dibayar</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_edit" type="text" name="biaya" value="<?php echo $pembayaran->biaya ?>" required>
+                                        <input class="form-control form_edit" type="number" name="biaya" value="<?php echo $pembayaran->biaya ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="tgl_bayar">
@@ -45,7 +45,13 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" name="bayar" value="<?php echo $pembayaran->bayar ?>" required>
+                                        <input class="form-control form_transaksi" type="number" name="bayar" placeholder="Pilih Tanggal Transaksi" value="<?php echo $pembayaran->bayar ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Keterangan</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control form_transaksi" type="text" name="ket" placeholder="Keterangan Pembayaran (Opsional)" value="<?php echo $pembayaran->ket ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">

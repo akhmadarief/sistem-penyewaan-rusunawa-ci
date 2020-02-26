@@ -370,6 +370,30 @@
             });
         });
         $(document).ready(function(){
+            $(".btn-trans").click(function(){
+                $("#pilihan1").val("transaksi");
+                $(".typo").hide();
+                $(".transaksi").show();
+                $(".pk").hide();
+                $("#agama_lainnya").hide();
+                $("#nama").prop('readonly', true);
+                $("#nim").prop('readonly', true);
+                $(".form_edit").prop({'required': false, 'disabled': true});
+                $(".form_transaksi").prop({'required': true, 'disabled': false});
+                $(".form_pindah").prop({'required': false, 'disabled': true});
+            }).trigger("click");
+            $(".btn-pindah").click(function(){
+                $("#pilihan1").val("pk");
+                $(".typo").hide();
+                $(".transaksi").hide();
+                $(".pk").show();
+                $("#agama_lainnya").hide();
+                $("#nama").prop('readonly', true);
+                $("#nim").prop('readonly', true);
+                $(".form_edit").prop({'required': false, 'disabled': true});
+                $(".form_transaksi").prop({'required': false, 'disabled': true});
+                $(".form_pindah").prop({'required': true, 'disabled': false});
+            });
             $(".btn-edit").click(function(){
                 $("#pilihan1").val("typo");
                 $(".typo").show();
@@ -386,30 +410,6 @@
                 $(".form_edit").prop({'required': true, 'disabled': false});
                 $(".form_transaksi").prop({'required': false, 'disabled': true});
                 $(".form_pindah").prop({'required': false, 'disabled': true});
-            }).trigger("click");
-            $(".btn-trans").click(function(){
-                $("#pilihan1").val("transaksi");
-                $(".typo").hide();
-                $(".transaksi").show();
-                $(".pk").hide();
-                $("#agama_lainnya").hide();
-                $("#nama").prop('readonly', true);
-                $("#nim").prop('readonly', true);
-                $(".form_edit").prop({'required': false, 'disabled': true});
-                $(".form_transaksi").prop({'required': true, 'disabled': false});
-                $(".form_pindah").prop({'required': false, 'disabled': true});
-            });
-            $(".btn-pindah").click(function(){
-                $("#pilihan1").val("pk");
-                $(".typo").hide();
-                $(".transaksi").hide();
-                $(".pk").show();
-                $("#agama_lainnya").hide();
-                $("#nama").prop('readonly', true);
-                $("#nim").prop('readonly', true);
-                $(".form_edit").prop({'required': false, 'disabled': true});
-                $(".form_transaksi").prop({'required': false, 'disabled': true});
-                $(".form_pindah").prop({'required': true, 'disabled': false});
             });
         });
 

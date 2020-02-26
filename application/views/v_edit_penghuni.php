@@ -10,20 +10,21 @@
                     <div class="ibox-body">
                         <div class="btn-edit-penghuni">
                             <div class="btn-group" data-toggle="buttons">
-                                <button class="btn btn-outline-info btn-edit"><i class="fa fa-check active-visible"></i> Data Diri Penghuni
-                                    <input type="radio" name="pilihan" value="typo">
-                                </button>
-                                <button class="btn btn-outline-info btn-trans active"><i class="fa fa-check active-visible"></i> Transaksi
+                                <button class="btn btn-outline-info btn-trans"><i class="fa fa-check active-visible"></i> Transaksi
                                     <input type="radio" name="pilihan" value="transaksi">
                                 </button>
                                 <button class="btn btn-outline-info btn-pindah"><i class="fa fa-check active-visible"></i> Pindah Kamar
                                     <input type="radio" name="pilihan" value="pk">
+                                </button>
+                                <button class="btn btn-outline-info btn-edit"><i class="fa fa-check active-visible"></i> Data Diri Penghuni
+                                    <input type="radio" name="pilihan" value="typo">
                                 </button>
                             </div>
                         </div>
                         <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
                                 <input type="hidden" name="pilihan1" id="pilihan1" value="typo">
                                 <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
+                                <input type="hidden" id="piutang_lama" value="<?php echo $penghuni->piutang?>">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No. Kamar</label>
                                     <div class="col-sm-9">
@@ -45,21 +46,6 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group row typo">
-                                    <label class="col-sm-3 col-form-label">Status Huni</label>
-                                    <div class="col-sm-3" style="padding-top: 5px">
-                                        <label class="ui-radio ui-radio-inline ui-radio-primary">
-                                            <input type="radio" name="status_huni" value="2">
-                                            <span class="input-span"></span>Penghuni
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-6" style="padding-top: 5px">
-                                        <label class="ui-radio ui-radio-inline ui-radio-primary">
-                                            <input type="radio" name="status_huni" value="1">
-                                            <span class="input-span"></span>Eks Penghuni
-                                        </label>
-                                    </div>
-                                </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-9">
@@ -70,6 +56,43 @@
                                     <label class="col-sm-3 col-form-label">NIM</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" name="nim" id="nim" placeholder="NIM Penghuni" value="<?php echo $penghuni->nim ?>" maxlength="50" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi">
+                                    <label class="col-sm-3 col-form-label">Piutang</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control form_transaksi" type="text" value="<?php echo 'Rp'.number_format($penghuni->piutang, 0, ',', '.') ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi">
+                                    <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control form_transaksi" type="number" name="bayar" id="bayar_baru" max="1000000000" autocomplete="off" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi" id="tgl_bayar">
+                                    <label class="col-sm-3 col-form-label">Tanggal Transaksi</label>
+                                    <div class="col-sm-9 input-group date">
+                                        <input class="form-control form_transaksi" type="text" name="tgl_bayar" id="form_tgl_bayar" placeholder="Pilih Tanggal Transaksi" value="<?php echo date('d-m-Y') ?>" autocomplete="off">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi">
+                                    <label class="col-sm-3 col-form-label">Sisa Piutang</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control form_transaksi" type="text" id="piutang_baru" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row transaksi">
+                                    <label class="col-sm-3 col-form-label">Keterangan</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control form_transaksi" type="text" name="ket" placeholder="Keterangan Pembayaran (Opsional)">
+                                    </div>
+                                </div>
+                                <div class="form-group row typo">
+                                    <label class="col-sm-3 col-form-label">Status Huni</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="text" value="<?php echo $penghuni->status ?>" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
@@ -190,31 +213,6 @@
                                     <label class="col-sm-3 col-form-label">Harga Sewa Kamar</label>
                                     <div class="col-sm-9">
                                         <input class="form-control form_edit" type="text" name="biaya" value="<?php echo $penghuni->biaya ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row transaksi" id="tgl_bayar">
-                                    <label class="col-sm-3 col-form-label">Tanggal Transaksi</label>
-                                    <div class="col-sm-9 input-group date">
-                                        <input class="form-control form_transaksi" type="text" name="tgl_bayar" id="form_tgl_bayar" placeholder="Pilih Tanggal Transaksi" value="<?php echo date('d-m-Y') ?>" autocomplete="off">
-                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
-                                    </div>
-                                </div>
-                                <div class="form-group row transaksi">
-                                    <label class="col-sm-3 col-form-label">Piutang</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" id="piutang_lama" value="<?php $piutang = $penghuni->biaya - $penghuni->bayar; echo $piutang?>"readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group row transaksi">
-                                    <label class="col-sm-3 col-form-label">Jumlah Pembayaran</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="number" name="bayar" id="bayar_baru" max="1000000000">
-                                    </div>
-                                </div>
-                                <div class="form-group row transaksi">
-                                    <label class="col-sm-3 col-form-label">Sisa Piutang</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" id="piutang_baru" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row pk">

@@ -172,11 +172,12 @@ class Aksi extends CI_Controller {
                 $no_kamar = $this->input->post('no_kamar_lama');
                 $tgl_bayar = $this->input->post('tgl_bayar');
                 $bayar = $this->input->post('bayar');
+                $ket = $this->input->post('ket');
                 $data_pembayaran = array(
                     'id_penghuni'   => $id,
-                    //'nim'           => $nim,
                     'tgl_bayar'     => $tgl_bayar,
-                    'bayar'         => $bayar
+                    'bayar'         => $bayar,
+                    'ket'           => $ket
                 );
 
                 if ($this->m_data->insert_pembayaran($data_pembayaran) == true){
@@ -431,6 +432,7 @@ class Aksi extends CI_Controller {
         $id_pembayaran = $this->input->post('id_pembayaran');
         $tgl_bayar = $this->input->post('tgl_bayar');
         $bayar = $this->input->post('bayar');
+        $ket = $this->input->post('ket');
 
         $data_penghuni = array(
             'biaya' => $biaya
@@ -438,7 +440,8 @@ class Aksi extends CI_Controller {
 
         $data_pembayaran = array(
             'tgl_bayar' => $tgl_bayar,
-            'bayar' => $bayar
+            'bayar' => $bayar,
+            'ket'   => $ket
         );
 
         if ($this->m_data->update_penghuni($id_penghuni, $data_penghuni) == true and $this->m_data->update_pembayaran($id_pembayaran, $data_pembayaran) == true){

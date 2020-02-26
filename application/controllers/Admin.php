@@ -258,7 +258,6 @@ class Admin extends CI_Controller {
         $data['judul_halaman'] = 'Laporan Keuangan';
         $data['username'] = $this->session->userdata('username');
         $data['keuangan'] = $this->m_data->detail_penghuni(array('1' => '1'))->result();
-        //$data['keuangan'] = $this->m_data->data_keuangan_per_penghuni()->result();
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
