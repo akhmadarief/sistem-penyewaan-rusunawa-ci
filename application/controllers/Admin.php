@@ -73,6 +73,10 @@ class Admin extends CI_Controller {
 
     function pilih_kamar(){
         $data['judul_halaman'] = 'Pilih Kamar';
+        $data['pesan'] = $this->session->flashdata('pesan');
+        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
+        $data['no_kamar'] = $this->session->flashdata('no_kamar');
+        $data['no_kamar_baru'] = $this->session->flashdata('no_kamar_baru');
         $data['username'] = $this->session->userdata('username');
 
         $this->load->view('_partials/v_head', $data);
@@ -83,7 +87,7 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function tambah_penghuni($no_kamar = null){
@@ -178,6 +182,9 @@ class Admin extends CI_Controller {
 
     function daftar_penghuni(){
         $data['judul_halaman'] = 'Daftar Penghuni';
+        $data['pesan'] = $this->session->flashdata('pesan');
+        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
+        $data['no_kamar'] = $this->session->flashdata('no_kamar');
         $data['username'] = $this->session->userdata('username');
         $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Penghuni'))->result();
         $this->load->view('_partials/v_head', $data);
@@ -193,6 +200,9 @@ class Admin extends CI_Controller {
 
     function daftar_ekspenghuni(){
         $data['judul_halaman'] = 'Daftar Eks-Penghuni';
+        $data['pesan'] = $this->session->flashdata('pesan');
+        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
+        $data['no_kamar'] = $this->session->flashdata('no_kamar');
         $data['username'] = $this->session->userdata('username');
         $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Eks-Penghuni'))->result();
         $this->load->view('_partials/v_head', $data);
@@ -213,6 +223,9 @@ class Admin extends CI_Controller {
 
     function riwayat_pembayaran(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
+        $data['pesan'] = $this->session->flashdata('pesan');
+        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
+        $data['tgl_bayar'] = $this->session->flashdata('tgl_bayar');
         $data['username'] = $this->session->userdata('username');
         $data['pembayaran'] = $this->m_data->detail_pembayaran(array('1' => '1'))->result();
         $this->load->view('_partials/v_head', $data);
@@ -223,7 +236,7 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function edit_pembayaran($id_pembayaran = null){
@@ -295,6 +308,9 @@ class Admin extends CI_Controller {
     function tabel_user(){
         $this->super_user();
         $data['judul_halaman'] = 'Daftar User';
+        $data['pesan'] = $this->session->flashdata('pesan');
+        $data['nama_user_baru'] = $this->session->flashdata('nama_user_baru');
+        $data['username_baru'] = $this->session->flashdata('username_baru');
         $data['username'] = $this->session->userdata('username');
         $data['user'] = $this->m_data->data_user()->result();
         $this->load->view('_partials/v_head', $data);

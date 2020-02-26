@@ -99,8 +99,10 @@ class Aksi extends CI_Controller {
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
+            $this->session->set_flashdata('pesan', 'berhasil_tambah_penghuni');
+            $this->session->set_flashdata('nama_penghuni', $nama);
+            $this->session->set_flashdata('no_kamar', $no_kamar);
             redirect (base_url('admin/pilih_kamar'));
-            //echo 'berhasil disimpan gan';
         }
         else {
             echo 'gagal disimpan gan :(';
@@ -160,8 +162,10 @@ class Aksi extends CI_Controller {
                     );
                     $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
 
+                    $this->session->set_flashdata('pesan', 'berhasil_edit_penghuni');
+                    $this->session->set_flashdata('nama_penghuni', $nama);
+                    $this->session->set_flashdata('no_kamar', $no_kamar);
                     redirect (base_url('admin/daftar_penghuni'));
-                    //echo 'data berhasil diperbarui';
                 }
                 else {
                     echo 'gagal gan wokwokwok';
@@ -181,8 +185,10 @@ class Aksi extends CI_Controller {
                 );
 
                 if ($this->m_data->insert_pembayaran($data_pembayaran) == true){
+                    $this->session->set_flashdata('pesan', 'berhasil_tambah_pembayaran');
+                    $this->session->set_flashdata('nama_penghuni', $nama);
+                    $this->session->set_flashdata('tgl_bayar', $tgl_bayar);
                     redirect (base_url('admin/riwayat_pembayaran'));
-                    //echo 'transaksi sukses gayn';
                 }
                 else {
                     echo 'transaksi gagal wkwkwk';
@@ -230,8 +236,11 @@ class Aksi extends CI_Controller {
                 $this->m_data->update_status_kamar($no_kamar_lama, $status_kamar_lama);
                 $this->m_data->update_status_kamar($no_kamar_baru, $status_kamar_baru);
 
-                //echo 'berhasil pindah kamar';
-                redirect (base_url('admin/daftar_penghuni'));
+                $this->session->set_flashdata('pesan', 'berhasil_pindah_kamar');
+                $this->session->set_flashdata('nama_penghuni', $nama);
+                $this->session->set_flashdata('no_kamar', $no_kamar_lama);
+                $this->session->set_flashdata('no_kamar_baru', $no_kamar_baru);
+                redirect (base_url('admin/pilih_kamar'));
             break;
 
             default:
@@ -267,8 +276,10 @@ class Aksi extends CI_Controller {
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
+            $this->session->set_flashdata('pesan', 'berhasil_hapus_penghuni');
+            $this->session->set_flashdata('nama_penghuni', $penghuni->nama);
+            $this->session->set_flashdata('no_kamar', $penghuni->no_kamar);
             redirect (base_url('admin/daftar_penghuni'));
-            //echo 'berhasil dihapus gan';
         }
         else {
             echo 'gagal gan :(';
@@ -297,10 +308,10 @@ class Aksi extends CI_Controller {
                 'biaya'      => $biaya_baru
             );
             if ($this->m_data->update_penghuni($id, $data) == true){
+                $this->session->set_flashdata('pesan', 'berhasil_perpanjang');
+                $this->session->set_flashdata('nama_penghuni', $penghuni->nama);
+                $this->session->set_flashdata('no_kamar', $penghuni->no_kamar);
                 redirect (base_url('admin/pilih_kamar'));
-                // echo $harga_kamar;
-                // echo $biaya_lama;
-                // echo $biaya_baru;
             }
             else {
                 echo 'gagal gan :(';
@@ -335,8 +346,10 @@ class Aksi extends CI_Controller {
 
             $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
+            $this->session->set_flashdata('pesan', 'berhasil_selesai_menghuni');
+            $this->session->set_flashdata('nama_penghuni', $penghuni->nama);
+            $this->session->set_flashdata('no_kamar', $no_kamar);
             redirect (base_url('admin/pilih_kamar'));
-            //echo 'berhasil perpanjang kamar';
         }
         else {
             echo 'gagal gan :(';
@@ -353,8 +366,10 @@ class Aksi extends CI_Controller {
             show_404();
         }
         else if ($this->m_data->delete_pembayaran($id_pembayaran) == true){
+            $this->session->set_flashdata('pesan', 'berhasil_hapus_pembayaran');
+            $this->session->set_flashdata('nama_penghuni', $pembayaran->nama);
+            $this->session->set_flashdata('tgl_bayar', $pembayaran->tgl_bayar);
             redirect (base_url('admin/riwayat_pembayaran'));
-            //echo 'berhasil dihapus gan';
         }
         else {
             echo 'gagal gan :(';
@@ -379,6 +394,9 @@ class Aksi extends CI_Controller {
         );
 
         if ($this->m_data->insert_user($user_baru) == true){
+            $this->session->set_flashdata('pesan', 'berhasil_tambah_user');
+            $this->session->set_flashdata('nama_user_baru', $nama);
+            $this->session->set_flashdata('username_baru', $username);
             redirect (base_url('admin/tabel_user'));
         }
         else{
@@ -397,7 +415,6 @@ class Aksi extends CI_Controller {
 
         if ($cek->num_rows() > 0){
             if ($this->m_data->update_password($username, $password_baru) == true){
-                //echo '<script>alert ("Password Berhasil Diubah, Silakan Login Kembali"); window.location="'.base_url('login/logout').'";</script>';
                 $this->session->set_flashdata('pesan', 'berhasil_ubah_pass');
                 redirect (base_url('login'));
             }
@@ -416,6 +433,9 @@ class Aksi extends CI_Controller {
         if (!isset($username)) redirect('admin/tabel_user');
 
         if ($this->m_data->delete_user($username) == true){
+            // $this->session->set_flashdata('pesan', 'berhasil_hapus_user');
+            // $this->session->set_flashdata('nama_user_baru', $nama);
+            // $this->session->set_flashdata('username_baru', $username);
             redirect (base_url('admin/tabel_user'));
         }
         else {
@@ -426,6 +446,7 @@ class Aksi extends CI_Controller {
     function aksi_edit_pembayaran(){
         $id_penghuni = $this->input->post('id_penghuni');
         $nim = $this->input->post('nim');
+        $nama = $this->input->post('nama');
         $no_kamar = $this->input->post('no_kamar');
         $biaya = $this->input->post('biaya');
 
@@ -445,7 +466,9 @@ class Aksi extends CI_Controller {
         );
 
         if ($this->m_data->update_penghuni($id_penghuni, $data_penghuni) == true and $this->m_data->update_pembayaran($id_pembayaran, $data_pembayaran) == true){
-            //echo 'berhasil diedit';
+            $this->session->set_flashdata('pesan', 'berhasil_edit_pembayaran');
+            $this->session->set_flashdata('nama_penghuni', $nama);
+            $this->session->set_flashdata('tgl_bayar', $tgl_bayar);
             redirect (base_url('admin/riwayat_pembayaran'));
         }
         else {
