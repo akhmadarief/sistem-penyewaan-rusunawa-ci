@@ -45,9 +45,11 @@
             });
             $(".hapus-user").click(function(){
                 var username = $(this).attr('id');
+                var namaTerpilih = $(this).closest("tr");
+                var namaUser = namaTerpilih.find("td:eq(1)").html();
                 Swal.fire({
                     title: 'Hapus Data User',
-                    text: 'Apakah Anda yakin ingin menghapus user ini?',
+                    text: 'Apakah Anda yakin ingin menghapus user ' + namaUser + '?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#dd3333',
@@ -59,29 +61,6 @@
                         window.location.href = '<?php echo base_url("aksi/aksi_hapus_user/") ?>' + username;
                     }
                 });
-                // $.ajax({
-                //     url: "<?php echo base_url('aksi/get_detail_penghuni') ?>",
-                //     method: "POST",
-                //     data: {id_penghuni: id_penghuni},
-                //     dataType: "json",
-                //     cache: false,
-                //     success: function(data){
-                //         Swal.fire({
-                //             title: 'Hapus Data User',
-                //             text: 'Apakah Anda yakin ingin menghapus user ini?',
-                //             icon: 'warning',
-                //             showCancelButton: true,
-                //             confirmButtonColor: '#dd3333',
-                //             cancelButtonColor: '#3085d6',
-                //             confirmButtonText: 'Ya, Hapus',
-                //             cancelButtonText: 'Batal',
-                //         }).then((result) => {
-                //             if (result.value) {
-                //                 window.location.href = '<?php echo base_url("aksi/aksi_hapus_user/") ?>' + username;
-                //             }
-                //         });
-                //     }
-                // });
             });
         });
     </script>
@@ -89,9 +68,12 @@
         $(document).ready(function(){
             $(".hapus-pembayaran").click(function(){
                 var id_pembayaran = $(this).attr('id');
+                var invoiceTerpilih = $(this).closest("tr");
+                var namaPenghuni = invoiceTerpilih.find("td:eq(2)").html();
+                var invoiceTanggal = invoiceTerpilih.find("td:eq(4)").html();
                 Swal.fire({
                     title: 'Hapus Data Penghuni',
-                    text: 'Apakah Anda yakin ingin pembayaran ini?',
+                    text: 'Apakah Anda yakin ingin hapus pembayaran ' + namaPenghuni + ' pada ' + invoiceTanggal + ' ?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#dd3333',
@@ -116,28 +98,21 @@
             });
             $(".hapus-penghuni").click(function(){
                 var id_penghuni = $(this).attr('id');
-                $.ajax({
-                    url: "<?php echo base_url('aksi/get_detail_penghuni') ?>",
-                    method: "POST",
-                    data: {id_penghuni: id_penghuni},
-                    dataType: "json",
-                    cache: false,
-                    success: function(data){
-                        Swal.fire({
-                            title: 'Hapus Data Penghuni',
-                            text: `Apakah Anda yakin ingin menghapus data penghuni ` + data.nama + `?`,
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#dd3333',
-                            cancelButtonColor: '#3085d6',
-                            confirmButtonText: 'Ya, Hapus',
-                            cancelButtonText: 'Batal',
-                        }).then((result) => {
-                            if (result.value) {
-                                //form.submit();
-                                window.location.href = '<?php echo base_url("aksi/aksi_hapus_penghuni/") ?>' + id_penghuni;
-                            }
-                        });
+                var namaTerpilih = $(this).closest("tr");
+                var namaPenghuni = namaTerpilih.find("td:eq(2)").html();
+                Swal.fire({
+                    title: 'Hapus Data Penghuni',
+                    text: 'Apakah Anda yakin ingin menghapus data penghuni ' + namaPenghuni + '?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dd3333',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, Hapus',
+                    cancelButtonText: 'Batal',
+                }).then((result) => {
+                    if (result.value) {
+                        //form.submit();
+                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_penghuni/") ?>' + id_penghuni;
                     }
                 });
             });
