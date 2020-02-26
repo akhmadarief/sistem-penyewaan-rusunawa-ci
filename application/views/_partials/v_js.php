@@ -752,6 +752,9 @@
                 case 'berhasil_hapus_pembayaran':
                     echo 'toastr.success("Berhasil menghapus pembayaran tanggal '.$tgl_bayar.' dari penghuni '.$nama_penghuni.'")';
                 break;
+                case 'kamar_penuh':
+                    echo 'toastr.warning("Kamar '.$no_kamar.' sudah terisi penuh, silakan pilih kamar lain")';
+                break;
                 case 'berhasil_pindah_kamar':
                     echo 'toastr.success("Berhasil memindahkan kamar penghuni '.$nama_penghuni.' dari '.$no_kamar.' ke '.$no_kamar_baru.'")';
                 break;

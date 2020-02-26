@@ -98,7 +98,12 @@ class Admin extends CI_Controller {
 
         if (!$cek_kamar) show_404();
 
-        else if (strpos($cek_kamar->status, 'terisi2') !== false or strpos($cek_kamar->status, 'sendiri') !== false) echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
+        else if ($cek_kamar->status == 'terisi2' or $cek_kamar->status == 'sendiri'){
+            //echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
+            $this->session->set_flashdata('pesan', 'kamar_penuh');
+            $this->session->set_flashdata('no_kamar', $no_kamar);
+            redirect (base_url('admin/pilih_kamar'));
+        }
 
         $data['judul_halaman'] = 'Tambah Penghuni';
         $data['username'] = $this->session->userdata('username');
