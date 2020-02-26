@@ -10,10 +10,10 @@
                     <div class="ibox-body">
                         <div class="btn-edit-penghuni">
                             <div class="btn-group" data-toggle="buttons">
-                                <button class="btn btn-outline-info btn-edit active"><i class="fa fa-check active-visible"></i> Data Diri Penghuni
+                                <button class="btn btn-outline-info btn-edit"><i class="fa fa-check active-visible"></i> Data Diri Penghuni
                                     <input type="radio" name="pilihan" value="typo">
                                 </button>
-                                <button class="btn btn-outline-info btn-trans"><i class="fa fa-check active-visible"></i> Transaksi
+                                <button class="btn btn-outline-info btn-trans active"><i class="fa fa-check active-visible"></i> Transaksi
                                     <input type="radio" name="pilihan" value="transaksi">
                                 </button>
                                 <button class="btn btn-outline-info btn-pindah"><i class="fa fa-check active-visible"></i> Pindah Kamar

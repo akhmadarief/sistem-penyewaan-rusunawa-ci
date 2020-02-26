@@ -1,4 +1,4 @@
-<body class="fixed-navbar fixed-layout">
+<body class="fixed-navbar fixed-layout" onload="toastr.success('Hi! I am info message.');">
     <div class="page-wrapper">
         <!-- START HEADER-->
         <header class="header">

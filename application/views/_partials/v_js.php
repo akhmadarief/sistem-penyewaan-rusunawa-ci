@@ -15,6 +15,7 @@
     <script src="<?php echo base_url('assets/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/moment/moment.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/moment/datetime-moment.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/vendors/toastr/toastr.js') ?>" type="text/javascript"></script>
     <script type="text/javascript">
         //semua halaman
         $(document).ready(function(){
