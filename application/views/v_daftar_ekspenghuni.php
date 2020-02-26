@@ -2,7 +2,7 @@
 <div class="page-content fade-in-up">
     <div class="ibox">
         <div class="ibox-head">
-            <div class="ibox-title">Daftar Penghuni<?php //echo $halaman ?></div>
+            <div class="ibox-title">Daftar Eks-Penghuni<?php //echo $halaman ?></div>
             <a class="btn btn-success btn-xls" href="<?php echo base_url('admin/daftar_penghuni_cetak'); ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Penghuni"> XLS
                 <i class="fa fa-print"></i>
               </a>

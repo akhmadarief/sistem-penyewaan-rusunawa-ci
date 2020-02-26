@@ -258,9 +258,14 @@ form#login-form, form#register-form, form#changepass-form{
   border-radius: 3px;
 }
 
-#tambah_penghuni, #tambah_penghuni2, #edit_penghuni, #edit_penghuni2, #eks_penghuni, #eks_penghuni2 {
+#edit_penghuni, #edit_penghuni2, #eks_penghuni, #eks_penghuni2 {
   border-radius: 3px;
   margin-left: 0px;
+}
+
+#tambah_penghuni, #tambah_penghuni2{
+  margin-inline-end: 3px;
+  border-radius: 3px;
 }
 
 /*NAVBAR UNDIP*/
@@ -325,14 +330,11 @@ form#login-form, form#register-form, form#changepass-form{
     margin-bottom: 4px;
   }
 
-  /* .col-lg-8 .containe{
-    display: table;
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: "/" !important; 
   }
 
-  .col-lg-8 .containe .bo{
-    display: table-row;
+  .bc-label-active{
+    color: #009efb;
+    font-weight: bold;
   }
-  
-  .col-lg-8 .containe .bo .col-lg-4{
-    display: table-cell;
-  } */
