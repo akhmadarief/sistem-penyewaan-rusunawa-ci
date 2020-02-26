@@ -223,7 +223,7 @@ class Aksi extends CI_Controller {
 
                     case 'terisi1':
                         $isi_kamar = '2';
-                        $status_kamar_lama = 'terisi2';
+                        $status_kamar_baru = 'terisi2';
                     break;
                 }
 
@@ -259,27 +259,30 @@ class Aksi extends CI_Controller {
             show_404();
         }
         else if ($this->m_data->delete_penghuni($id) == true){
-
             $no_kamar = $penghuni->no_kamar;
-            $kamar = $this->m_data->cek_kamar($no_kamar)->row();
-
-            switch ($kamar->status){
-                case 'sendiri':
-                case 'terisi1':
-                    $status_kamar = 'kosong';
-                break;
-
-                case 'terisi2':
-                    $status_kamar = 'terisi1';
-                break;
-            }
-
-            $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
             $this->session->set_flashdata('pesan', 'berhasil_hapus_penghuni');
             $this->session->set_flashdata('nama_penghuni', $penghuni->nama);
-            $this->session->set_flashdata('no_kamar', $penghuni->no_kamar);
-            redirect (base_url('admin/daftar_penghuni'));
+            $this->session->set_flashdata('no_kamar', $no_kamar);
+
+            if ($penghuni->status == 'Penghuni'){
+                $kamar = $this->m_data->cek_kamar($no_kamar)->row();
+                switch ($kamar->status){
+                    case 'sendiri':
+                    case 'terisi1':
+                        $status_kamar = 'kosong';
+                    break;
+
+                    case 'terisi2':
+                        $status_kamar = 'terisi1';
+                    break;
+                }
+                $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+                redirect (base_url('admin/daftar_penghuni'));
+            }
+            else {
+                redirect (base_url('admin/daftar_ekspenghuni'));
+            }
         }
         else {
             echo 'gagal gan :(';

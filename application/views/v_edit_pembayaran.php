@@ -51,7 +51,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Keterangan</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" name="ket" placeholder="Keterangan Pembayaran (Opsional)" value="<?php echo $pembayaran->ket ?>">
+                                        <input class="form-control form_transaksi" type="text" name="ket" placeholder="Keterangan Pembayaran" value="<?php echo $pembayaran->ket ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">

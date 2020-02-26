@@ -86,7 +86,7 @@
                                 <div class="form-group row transaksi">
                                     <label class="col-sm-3 col-form-label">Keterangan</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form_transaksi" type="text" name="ket" placeholder="Keterangan Pembayaran (Opsional)">
+                                        <input class="form-control form_transaksi" type="text" name="ket" placeholder="Keterangan Pembayaran">
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
