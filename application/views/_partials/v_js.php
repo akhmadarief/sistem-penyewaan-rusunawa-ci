@@ -339,7 +339,34 @@
             $("#masa_huni").change(function(){
                 var harga = parseInt($("#harga_kamar").val());
                 var lama = parseInt($(this).val());
-                total = harga*lama;
+                var status = $('input[name="isi_kamar"]:checked').val();
+                if(status == '1'){
+                    total = harga*lama;
+                }
+                else if (status == '2'){
+                    total = (harga*lama)/2;
+                }
+                else if (status == null){
+                    total = "Pilih Isi Kamar";
+                }
+                else{
+                    total = "error";
+                }
+                $("#biaya").val(total);
+            });
+            $('input[type=radio][name=isi_kamar]').change(function() {
+                var harga = parseInt($("#harga_kamar").val());
+                var lama = parseInt($("#masa_huni").val());
+                var status = $('input[name="isi_kamar"]:checked').val();
+                if(status == '1'){
+                    total = harga*lama;
+                }
+                else if (status == '2'){
+                    total = (harga*lama)/2;
+                }
+                else{
+                    total = "error1";
+                }
                 $("#biaya").val(total);
             });
             $("#bayar").on("keyup", function(){
