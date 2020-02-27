@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li>
-                        <a <?php if ($judul_halaman == 'Daftar Harga Kamar') echo 'class="active"' ?> href="<?php echo base_url('') ?>"><i class="sidebar-item-icon fa fa-dollar"></i>
+                        <a <?php if ($judul_halaman == 'Daftar Harga Kamar') echo 'class="active"' ?> href="<?php echo base_url('daftar-harga') ?>"><i class="sidebar-item-icon fa fa-dollar"></i>
                             <span class="nav-label">Daftar Harga Kamar</span>
                         </a>
                     </li>
