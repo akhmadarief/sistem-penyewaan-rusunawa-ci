@@ -29,7 +29,7 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="<?php echo base_url('assets/img/admin-avatar.png') ?>" />
-                            <span></span><?php echo $this->session->userdata('nama') ?><i class="fa fa-angle-down m-l-5"></i>
+                            <span><?php echo $this->session->userdata('nama') ?></span><i class="fa fa-angle-down m-l-5"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" style="min-width: 150px">
                             <a class="dropdown-item" href="<?php echo base_url('ubah-pass') ?>"><i class="fa fa-lock"></i>Ubah Password</a>
