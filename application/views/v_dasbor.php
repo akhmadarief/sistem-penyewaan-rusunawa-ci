@@ -12,7 +12,7 @@
                                     </div>
                                     <div class="carousel-item active">
                                         <div class="view">
-                                            <img class="d-block w-100" src="<?php echo base_url('assets/img/undip/1.jpg')  ?>"
+                                            <img class="d-block" src="<?php echo base_url('assets/img/undip/14.jpg')  ?>"
                                             alt="First slide" size="40x40">
                                             <div class="mask rgba-black-light"></div>
                                         </div>

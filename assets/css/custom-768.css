@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+  /*CAROUSEL*/
+  .carousel-item{
+    height: 100%;
+  }
+  
+  /*SUMMARY GEDUNG*/
+  .col-sum {
+    display: inline-block;
+    max-width: 100% !important;
+  }
+}

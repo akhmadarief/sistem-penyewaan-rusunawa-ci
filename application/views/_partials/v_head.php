@@ -22,29 +22,31 @@
     <link href="<?php echo base_url('assets/vendors/sweetalert2/sweetalert2.min.css') ?>" rel="stylesheet">
     <!-- CUSTOM STYLES-->
     <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/custom-768.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/custom-1280.css') ?>" rel="stylesheet" />
     <link href="<?php echo base_url('assets/vendors/toastr/toastr.min.css') ?>" rel="stylesheet" />
     <!-- SLIDESHOW STYLES-->
     <!-- PRINT STYLES-->
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">-->
     <style>
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #cfcfcf; 
-}
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #cfcfcf; 
+      }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-</style>
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
+    </style>
 </head>
