@@ -1,7 +1,7 @@
 <body>
     <div class="bg-login"></div>
     <div class="content login-parent">
-        <form id="login-form" action="<?php echo base_url('login/aksi_login') ?>" method="post">
+        <form id="login-form" action="<?php echo base_url('aksi-login') ?>" method="post">
                 <div class="login-title">
                     <img src="<?php echo base_url('assets/img/undip/logo-icon.png') ?>" alt="Universitas Diponegoro" style="width: 120px; vertical-align: middle;">
                     <h2 class="login-title1">Rusunawa</h2>

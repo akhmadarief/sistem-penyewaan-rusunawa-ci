@@ -21,7 +21,7 @@
                                 </button>
                             </div>
                         </div>
-                        <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
+                        <form class="form-horizontal" action="<?php echo base_url('aksi-edit-penghuni') ?>" method="post">
                                 <input type="hidden" name="pilihan1" id="pilihan1" value="typo">
                                 <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
                                 <input type="hidden" id="piutang_lama" value="<?php echo $penghuni->piutang?>">
@@ -92,7 +92,7 @@
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Status Huni</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" value="<?php echo $penghuni->status ?>" disabled>
+                                        <input class="form-control" type="text" name='status' value="<?php echo $penghuni->status ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
@@ -114,6 +114,7 @@
                                             <?php foreach ($prodi as $prodi){ ?>
                                             <option value="<?php echo $prodi->id_prodi ?>" <?php if ($prodi->id_prodi == $penghuni->id_prodi) echo 'selected' ?>><?php echo $prodi->nama_prodi ?></option>
                                             <?php } ?>
+                                            <option value="0">Lainnya</option>
                                         </select>
                                     </div>
                                 </div>

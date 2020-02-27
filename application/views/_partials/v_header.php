@@ -32,8 +32,8 @@
                             <span></span><?php echo $this->session->userdata('nama') ?><i class="fa fa-angle-down m-l-5"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" style="min-width: 150px">
-                            <a class="dropdown-item" href="<?php echo base_url("admin/ubah_pass") ?>"><i class="fa fa-lock"></i>Ubah Password</a>
-                            <a class="dropdown-item" href="<?php echo base_url("admin/tambah_user") ?>" <?php if ($username != 'admin') echo 'style="display: none"' ?>><i class="fa fa-user"></i>Tambah User</a>
+                            <a class="dropdown-item" href="<?php echo base_url('ubah-pass') ?>"><i class="fa fa-lock"></i>Ubah Password</a>
+                            <a class="dropdown-item" href="<?php echo base_url('tambah-user') ?>" <?php if ($username != 'admin') echo 'style="display: none"' ?>><i class="fa fa-user"></i>Tambah User</a>
                             <a class="dropdown-item" id="logout-alert"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
