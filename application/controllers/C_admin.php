@@ -242,7 +242,7 @@ class C_admin extends CI_Controller {
 
     function edit_penghuni($id = null){
 
-        if (!isset($id)) redirect('daftar_penghuni');
+        if (!isset($id)) redirect (base_url('daftar-penghuni'));
 
         $data['penghuni'] = $this->m_data->detail_penghuni(array('id' => $id))->row();
 

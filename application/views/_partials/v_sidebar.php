@@ -37,7 +37,7 @@
                     </li>
                     <li class="heading">PENGHUNI</li>
                     <li>
-                        <a <?php if ($judul_halaman == 'Daftar Penghuni') echo 'class="active"' ?> href="<?php echo base_url('daftar_penghuni') ?>"><i class="sidebar-item-icon fa fa-user-circle"></i>
+                        <a <?php if ($judul_halaman == 'Daftar Penghuni') echo 'class="active"' ?> href="<?php echo base_url('daftar-penghuni') ?>"><i class="sidebar-item-icon fa fa-user-circle"></i>
                             <span class="nav-label">Daftar Penghuni</span>
                         </a>
                     </li>

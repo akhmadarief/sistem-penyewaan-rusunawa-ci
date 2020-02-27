@@ -3,7 +3,7 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Riwayat Pembayaran<?php //echo $halaman ?></div>
-                        <a class="btn btn-success btn-xls" href="<?php echo base_url('riwayat-pembayaran-cetak); ?>"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Riwayat"> XLS
+                        <a class="btn btn-success btn-xls" href="<?php echo base_url('riwayat-pembayaran-cetak') ?>"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Riwayat"> XLS
                                 <i class="fa fa-print"></i>
                         </a>
                     </div>
