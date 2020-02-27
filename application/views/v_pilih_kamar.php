@@ -161,12 +161,12 @@
                                     <a class="btn btn-dark btn-sm" id="edit_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Data">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm perpanjang" data-toggle="tooltip" data-placement="top" title="" data-original-title="Perpanjang">
+                                    <button class="btn btn-dark btn-sm perpanjang" data-toggle="tooltip" data-placement="top" title="" data-original-title="Perpanjang">
                                         <i class="fa fa-arrows-h"></i>
-                                    </a>
-                                    <a class="btn btn-dark btn-sm eks_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selesai Menghuni">
+                                    </button>
+                                    <button class="btn btn-dark btn-sm eks_penghuni" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selesai Menghuni">
                                         <i class="fa fa-window-close"></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div class="ibox-body">
@@ -230,12 +230,12 @@
                                     <a class="btn btn-dark btn-sm" id="edit_penghuni2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Data">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a class="btn btn-dark btn-sm perpanjang2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Perpanjang">
+                                    <button class="btn btn-dark btn-sm perpanjang2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Perpanjang">
                                         <i class="fa fa-arrows-h"></i>
-                                    </a>
-                                    <a class="btn btn-dark btn-sm eks_penghuni2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selesai Menghuni">
+                                    </button>
+                                    <button class="btn btn-dark btn-sm eks_penghuni2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selesai Menghuni">
                                         <i class="fa fa-window-close"></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div class="ibox-body">
