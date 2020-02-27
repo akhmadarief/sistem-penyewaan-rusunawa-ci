@@ -71,6 +71,7 @@ $route['tambah-user'] = 'c_admin/tambah_user';
 $route['tambah-penghuni/(:any)'] = 'c_admin/tambah_penghuni/$1';
 $route['edit-penghuni/(:num)'] = 'c_admin/edit_penghuni/$1';
 $route['edit-pembayaran/(:num)'] = 'c_admin/edit_pembayaran/$1';
+$route['edit-harga-kamar/(:any)'] = 'c_admin/edit_harga_kamar/$1';
 
 $route['get-prodi'] = 'c_aksi/get_prodi';
 $route['get-kamar'] = 'c_aksi/get_kamar';
@@ -86,6 +87,7 @@ $route['aksi-hapus-pembayaran/(:num)'] = 'c_aksi/aksi_hapus_pembayaran/$1';
 $route['aksi-ubah-pass'] = 'c_aksi/aksi_ubah_pass';
 $route['aksi-tambah-user'] = 'c_aksi/aksi_tambah_user';
 $route['aksi-hapus-user/(:any)'] = 'c_aksi/aksi_hapus_user/$1';
+$route['aksi-edit-harga-kamar'] = 'c_aksi/aksi_edit_harga_kamar';
 
 $route['login'] = 'c_login/login';
 $route['logout'] = 'c_login/logout';

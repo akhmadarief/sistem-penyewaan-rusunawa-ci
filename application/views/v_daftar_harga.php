@@ -25,7 +25,7 @@
                                     <td class="text-center">Rp<?php echo number_format($daftar_harga->harga, 0, ',', '.') ?></td>
                                     <td class="text-center">Rp<?php echo number_format($daftar_harga->harga*12, 0, ',', '.') ?></td>
                                     <td class="text-center">
-                                        <a class="btn btn-sm btn-info active edit-harga" id="<?php echo $daftar_harga->lantai ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Harga">
+                                        <a class="btn btn-sm btn-info active edit-harga" id="<?php echo $daftar_harga->lantai ?>" data-original-title="Ubah Harga" href="<?php echo base_url('edit-harga-kamar/').$daftar_harga->lantai ?>" >
                                             <span class="fa fa-pencil"></span>
                                         </a>
                                     </td>

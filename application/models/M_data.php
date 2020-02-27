@@ -59,6 +59,10 @@ class M_data extends CI_Model {
     function data_harga_kamar_by_lantai($lantai){
         return $this->db->get_where('harga', array('lantai' => $lantai));
     }
+    function update_kamar_lantai($data1){
+        $this->db->where('lantai', $data1['lantai']);
+        return $this->db->update('harga', $data1) ? true : false;
+    }
 
     function data_kamar_by_lantai($lantai){
         $this->db->select('*');

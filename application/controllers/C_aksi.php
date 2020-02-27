@@ -40,6 +40,15 @@ class C_aksi extends CI_Controller {
         echo json_encode($penghuni);
     }
 
+    function aksi_edit_harga_kamar(){
+        $data1 = array(
+            'lantai'        => $this->input->post('lantai'),
+            'harga'         => $this->input->post('harga')
+        );
+        $this->m_data->update_kamar_lantai($data1);
+        redirect (base_url('daftar-harga'));
+    }
+
     function aksi_tambah_penghuni(){
         $no_kamar       = $this->input->post('no_kamar');
         $isi_kamar      = $this->input->post('isi_kamar');
