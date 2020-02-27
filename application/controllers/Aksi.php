@@ -239,7 +239,7 @@ class Aksi extends CI_Controller {
                     'isi_kamar' => $isi_kamar
                 );
 
-                if ($this->m_data->update_penghuni($id, $data_pindah_kamar) == true{
+                if ($this->m_data->update_penghuni($id, $data_pindah_kamar) == true){
                     $this->m_data->update_status_kamar($no_kamar_lama, $status_kamar_lama);
                     $this->m_data->update_status_kamar($no_kamar_baru, $status_kamar_baru);
 
@@ -318,7 +318,7 @@ class Aksi extends CI_Controller {
                 'biaya'      => $biaya_baru
             );
             if ($this->m_data->update_penghuni($id, $data) == true){
-                $this->session->set_flashdata('pesan', 'toastr.success("Berhasil memeperpanjang masa huni '.$penghuni->nama.' pada kamar '.$penghuni->no_kamar.'")');
+                $this->session->set_flashdata('pesan', 'toastr.success("Berhasil memperpanjang masa huni '.$penghuni->nama.' pada kamar '.$penghuni->no_kamar.'")');
             }
             else {
                 $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
