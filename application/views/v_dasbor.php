@@ -115,7 +115,7 @@
                                         </span> 
                                         <div class="media-body">
                                             <div class="media-heading">Pemasukan Sekarang</div>
-                                            <div class="font-16"><?php echo 'Rp'.number_format($total->bayar, 0, ',', '.') ?></div>
+                                            <div class="font-16"> <a href="<?php echo base_url('admin/riwayat_pembayaran');?>"> <?php echo 'Rp'.number_format($total->bayar, 0, ',', '.') ?> </a></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -127,7 +127,7 @@
                                         </span> 
                                         <div class="media-body">
                                             <div class="media-heading">Piutang</div>
-                                            <div class="font-16"><?php echo 'Rp'.number_format($total->piutang, 0, ',', '.') ?></div>
+                                            <div class="font-16"><a href="<?php echo base_url('admin/laporan_piutang')?>"><?php echo 'Rp'.number_format($total->piutang, 0, ',', '.') ?></a></div>
                                         </div>
                                     </li>
                                 </ul>
