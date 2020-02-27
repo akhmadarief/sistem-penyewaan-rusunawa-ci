@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'c_login/login';
 
+$route['dasbor'] = 'c_admin/dasbor';
 $route['daftar-user'] = 'c_admin/daftar_user';
 $route['pilih-kamar'] = 'c_admin/pilih_kamar';
 $route['daftar-kamar'] = 'c_admin/daftar_kamar';
@@ -92,9 +93,7 @@ $route['login'] = 'c_login/login';
 $route['logout'] = 'c_login/logout';
 $route['aksi-login'] = 'c_login/aksi_login';
 
-$route['c_admin/(:any)'] = 'error404';
-$route['c_aksi/(:any)'] = 'error404';
-$route['c_login/(:any)'] = 'error404';
+$route['(c_admin|c_aksi|c_login)/(:any)'] = 'error404';
 
 $route['404_override'] = 'error404';
 $route['translate_uri_dashes'] = FALSE;
