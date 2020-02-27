@@ -266,9 +266,7 @@ class Aksi extends CI_Controller {
         else {
             if ($this->m_data->delete_penghuni($id) == true){
                 $no_kamar = $penghuni->no_kamar;
-    
-                $this->session->set_flashdata('pesan', 'toastr.success("Berhasil menghapus penghuni '.$penghuni->nama.' dari kamar '.$no_kamar.'")');
-    
+
                 if ($penghuni->status == 'Penghuni'){
                     $kamar = $this->m_data->cek_kamar($no_kamar)->row();
                     switch ($kamar->status){
@@ -282,6 +280,10 @@ class Aksi extends CI_Controller {
                         break;
                     }
                     $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+                    $this->session->set_flashdata('pesan', 'toastr.success("Berhasil menghapus penghuni '.$penghuni->nama.' dari kamar '.$no_kamar.'")');
+                }
+                else {
+                    $this->session->set_flashdata('pesan', 'toastr.success("Berhasil menghapus eks-penghuni '.$penghuni->nama.'")');
                 }
             }
             else {
