@@ -32,7 +32,7 @@
                 }).then((result) => {
                     if (result.value) {
                         //form.submit();
-                        window.location.href = '<?php echo base_url("login/logout") ?>';
+                        window.location.href = '<?php echo base_url("logout") ?>';
                     }
                 });
             });
@@ -59,7 +59,7 @@
                     cancelButtonText: 'Batal',
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_user/") ?>' + username;
+                        window.location.href = '<?php echo base_url("aksi-hapus-user/") ?>' + username;
                     }
                 });
             });
@@ -83,7 +83,7 @@
                     cancelButtonText: 'Batal',
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_pembayaran/") ?>' + id_pembayaran;
+                        window.location.href = '<?php echo base_url("aksi-hapus-pembayaran/") ?>' + id_pembayaran;
                     }
                 });
             });
@@ -113,7 +113,7 @@
                 }).then((result) => {
                     if (result.value) {
                         //form.submit();
-                        window.location.href = '<?php echo base_url("aksi/aksi_hapus_penghuni/") ?>' + id_penghuni;
+                        window.location.href = '<?php echo base_url("aksi-hapus-penghuni/") ?>' + id_penghuni;
                     }
                 });
             });
@@ -121,7 +121,7 @@
         $(document).on("click", ".detail-penghuni", function(){
             var id_penghuni = $(this).attr("id");
             $.ajax({
-                url: "<?php echo base_url('aksi/get_detail_penghuni') ?>",
+                url: "<?php echo base_url('get-detail-penghuni') ?>",
                 method: "POST",
                 data: {id_penghuni: id_penghuni},
                 dataType: "json",
@@ -204,7 +204,7 @@
         $(document).on("click", ".riwayat-bayar", function(){
             var id_penghuni = $(this).attr("id");
             $.ajax({
-                url: "<?php echo base_url('aksi/get_detail_penghuni') ?>",
+                url: "<?php echo base_url('get-detail-penghuni') ?>",
                 method: "POST",
                 data: {id_penghuni: id_penghuni},
                 dataType: "json",
@@ -284,7 +284,7 @@
                 var id_fakultas = $("#fakultas").val();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo base_url('aksi/get_prodi') ?>",
+                    url: "<?php echo base_url('get-prodi') ?>",
                     data: {id_fakultas: id_fakultas},
                     cache: false,
                     success: function(msg){
@@ -448,7 +448,7 @@
             $("#gedung_A").change(function(){
                 var lantai = $(this).val();
                 $.ajax({
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
+                    url: "<?php echo base_url('get-kamar') ?>",
                     method: "POST",
                     data: {lantai: lantai},
                     dataType: "json",
@@ -469,7 +469,7 @@
             $("#gedung_B").change(function(){
                 var lantai = $(this).val();
                 $.ajax({
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
+                    url: "<?php echo base_url('get-kamar') ?>",
                     method: "POST",
                     data: {lantai: lantai},
                     dataType: "json",
@@ -490,7 +490,7 @@
             $("#gedung_C").change(function(){
                 var lantai = $(this).val();
                 $.ajax({
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
+                    url: "<?php echo base_url('get-kamar') ?>",
                     method: "POST",
                     data: {lantai: lantai},
                     dataType: "json",
@@ -511,7 +511,7 @@
             $("#gedung_D").change(function(){
                 var lantai = $(this).val();
                 $.ajax({
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
+                    url: "<?php echo base_url('get-kamar') ?>",
                     method: "POST",
                     data: {lantai: lantai},
                     dataType: "json",
@@ -532,7 +532,7 @@
             $("#gedung_E").change(function(){
                 var lantai = $(this).val();
                 $.ajax({
-                    url: "<?php echo base_url('aksi/get_kamar') ?>",
+                    url: "<?php echo base_url('get-kamar') ?>",
                     method: "POST",
                     data: {lantai: lantai},
                     dataType: "json",
@@ -577,7 +577,7 @@
                 $("#no_kamar").val(no_kamar);
                 $("#no_kamar2").val(no_kamar);
                 $.ajax({
-                    url: "<?php echo base_url('aksi/get_detail_kamar') ?>",
+                    url: "<?php echo base_url('get-detail-kamar') ?>",
                     method: "POST",
                     data: {no_kamar: no_kamar},
                     dataType: "json",
@@ -586,7 +586,7 @@
                         if (!data[0]){
                             $("#penghuni2").removeAttr("style").hide();
                             $("#tambah_penghuni").show();
-                            $("#tambah_penghuni").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
+                            $("#tambah_penghuni").attr("href", "<?php echo base_url('tambah-penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni").removeAttr("href");
                             $("#edit_penghuni").removeAttr("style").hide();
                             $(".perpanjang").removeAttr("style").hide();
@@ -611,7 +611,7 @@
                             $("#edit_penghuni").show();
                             $(".perpanjang").show();
                             $(".eks_penghuni").show();
-                            $("#edit_penghuni").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[0].id);
+                            $("#edit_penghuni").attr("href", "<?php echo base_url('edit-penghuni/') ?>" + data[0].id);
                             $(".perpanjang").attr("id", data[0].id);
                             $(".eks_penghuni").attr("id", data[0].id);
                             $("#nama").val(data[0].nama);
@@ -625,7 +625,7 @@
                         }
                         if (!data[1]){
                             $("#tambah_penghuni2").show();
-                            $("#tambah_penghuni2").attr("href", "<?php echo base_url('admin/tambah_penghuni/') ?>" + no_kamar);
+                            $("#tambah_penghuni2").attr("href", "<?php echo base_url('tambah-penghuni/') ?>" + no_kamar);
                             //$("#edit_penghuni2").removeAttr("href");
                             $("#edit_penghuni2").removeAttr("style").hide();
                             $(".perpanjang2").removeAttr("style").hide();
@@ -644,7 +644,7 @@
                             $("#edit_penghuni2").show();
                             $(".perpanjang2").show();
                             $(".eks_penghuni2").show();
-                            $("#edit_penghuni2").attr("href", "<?php echo base_url('admin/edit_penghuni/') ?>" + data[1].id);
+                            $("#edit_penghuni2").attr("href", "<?php echo base_url('edit-penghuni/') ?>" + data[1].id);
                             $(".perpanjang2").attr("id", data[1].id);
                             $(".eks_penghuni2").attr("id", data[1].id);
                             $("#nama2").val(data[1].nama);
@@ -673,7 +673,7 @@
                     cancelButtonText: "Batal",
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = "<?php echo base_url('aksi/perpanjang/') ?>" + id;
+                        window.location.href = "<?php echo base_url('perpanjang/') ?>" + id;
                     }
                 });
             });
@@ -691,7 +691,7 @@
                     cancelButtonText: "Batal",
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = "<?php echo base_url('aksi/eks_penghuni/') ?>" + id;
+                        window.location.href = "<?php echo base_url('eks-penghuni/') ?>" + id;
                     }
                 });
             });
@@ -709,7 +709,7 @@
                     cancelButtonText: "Batal",
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = "<?php echo base_url('aksi/perpanjang/') ?>" + id;
+                        window.location.href = "<?php echo base_url('perpanjang/') ?>" + id;
                     }
                 });
             });
@@ -727,7 +727,7 @@
                     cancelButtonText: "Batal",
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = "<?php echo base_url('aksi/eks_penghuni/') ?>" + id;
+                        window.location.href = "<?php echo base_url('eks-penghuni/') ?>" + id;
                     }
                 });
             });

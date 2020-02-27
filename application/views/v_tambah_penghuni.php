@@ -8,7 +8,7 @@
                         </div>
                     </div>
                     <div class="ibox-body">
-                        <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_tambah_penghuni') ?>" method="post">
+                        <form class="form-horizontal" action="<?php echo base_url('aksi-tambah-penghuni') ?>" method="post">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">No. Kamar</label>
                                 <div class="col-sm-9">

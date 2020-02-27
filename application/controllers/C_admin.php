@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class C_admin extends CI_Controller {
 
     function __construct(){
         parent::__construct();
@@ -17,20 +17,13 @@ class Admin extends CI_Controller {
         }
     }
 
-    function index(){
-        $data = $this->jumlah_kamar();
-        $data['judul_halaman'] = 'Dasbor';
-        $data['total'] = $this->m_data->total_data_keuangan()->row();
-        $data['username'] = $this->session->userdata('username');
-
-        $this->load->view('_partials/v_head', $data);
-        $this->load->view('_partials/v_header');
-        $this->load->view('_partials/v_sidebar', $data);
-        $this->load->view('v_dasbor'); //page content
-        $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
-        $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+    function jumlah_kamar(){
+        $data['a']=$this->m_data->jumlah_penghuni_gedung('A');
+        $data['b']=$this->m_data->jumlah_penghuni_gedung('B');
+        $data['c']=$this->m_data->jumlah_penghuni_gedung('C');
+        $data['d']=$this->m_data->jumlah_penghuni_gedung('D');
+        $data['e']=$this->m_data->jumlah_penghuni_gedung('E');
+        return $data;
     }
 
     function dasbor(){
@@ -50,13 +43,21 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js', $data);
     }
 
-    function jumlah_kamar(){
-        $data['a']=$this->m_data->jumlah_penghuni_gedung('A');
-        $data['b']=$this->m_data->jumlah_penghuni_gedung('B');
-        $data['c']=$this->m_data->jumlah_penghuni_gedung('C');
-        $data['d']=$this->m_data->jumlah_penghuni_gedung('D');
-        $data['e']=$this->m_data->jumlah_penghuni_gedung('E');
-        return $data;
+    function daftar_user(){
+        $this->super_user();
+        $data['judul_halaman'] = 'Daftar User';
+        $data['pesan'] = $this->session->flashdata('pesan');
+        $data['username'] = $this->session->userdata('username');
+        $data['user'] = $this->m_data->data_user()->result();
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_daftar_user', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
     }
 
     function pilih_kamar(){
@@ -73,64 +74,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js', $data);
-    }
-
-    function tambah_penghuni($no_kamar = null){
-
-        if (!isset($no_kamar)) redirect('admin/pilih_kamar');
-
-        $cek_kamar = $this->m_data->cek_kamar($no_kamar)->row();
-
-        if (!$cek_kamar) show_404();
-
-        else if ($cek_kamar->status == 'terisi2' or $cek_kamar->status == 'sendiri'){
-            $this->session->set_flashdata('pesan', 'toastr.warning("Kamar '.$no_kamar.' sudah terisi penuh, silakan pilih kamar lain")');
-            redirect (base_url('admin/pilih_kamar'));
-        }
-
-        $data['judul_halaman'] = 'Tambah Penghuni';
-        $data['username'] = $this->session->userdata('username');
-        $data['harga_kamar'] = $this->m_data->data_harga_kamar_by_lantai($cek_kamar->lantai)->row();
-        $data['no_kamar'] = $no_kamar;
-        $data['status_kamar'] = $cek_kamar->status;
-        $data['fakultas'] = $this->m_data->data_fakultas()->result();
-
-        $this->load->view('_partials/v_head', $data);
-        $this->load->view('_partials/v_header');
-        $this->load->view('_partials/v_sidebar', $data);
-        $this->load->view('_partials/v_breadcrump', $data);
-        $this->load->view('v_tambah_penghuni', $data); //page content
-        $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
-        $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
-    }
-
-    function edit_penghuni($id = null){
-
-        if (!isset($id)) redirect('admin/daftar_penghuni');
-
-        $data['penghuni'] = $this->m_data->detail_penghuni(array('id' => $id))->row();
-
-        if (!$data['penghuni']) show_404();
-
-        $id_fakultas = $data['penghuni']->id_fakultas;
-
-        $data['judul_halaman'] = 'Edit Penghuni';
-        $data['username'] = $this->session->userdata('username');
-        $data['kamar'] = $this->m_data->data_kamar_tersedia()->result();
-        $data['prodi'] = $this->m_data->data_prodi_by_id_fakultas($id_fakultas)->result();
-        $data['fakultas'] = $this->m_data->data_fakultas()->result();
-
-        $this->load->view('_partials/v_head', $data);
-        $this->load->view('_partials/v_header');
-        $this->load->view('_partials/v_sidebar', $data);
-        $this->load->view('_partials/v_breadcrump', $data);
-        $this->load->view('v_edit_penghuni', $data); //page content
-        $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
-        $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
     }
 
     function daftar_kamar(){
@@ -221,27 +164,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js', $data);
     }
 
-    function edit_pembayaran($id_pembayaran = null){
-
-        if (!isset($id_pembayaran)) redirect('admin/riwayat_pembayaran');
-
-        $data['judul_halaman'] = 'Edit Pembayaran';
-        $data['username'] = $this->session->userdata('username');
-        $data['pembayaran'] = $this->m_data->detail_pembayaran(array('id_pembayaran' => $id_pembayaran))->row();
-
-        if (!$data['pembayaran']) show_404();
-
-        $this->load->view('_partials/v_head', $data);
-        $this->load->view('_partials/v_header');
-        $this->load->view('_partials/v_sidebar', $data);
-        $this->load->view('_partials/v_breadcrump', $data);
-        $this->load->view('v_edit_pembayaran', $data); //page content
-        $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
-        $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
-    }
-
     function riwayat_pembayaran_cetak(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
         $data['username'] = $this->session->userdata('username');
@@ -287,17 +209,79 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
-    function tabel_user(){
-        $this->super_user();
-        $data['judul_halaman'] = 'Daftar User';
-        $data['pesan'] = $this->session->flashdata('pesan');
+    function tambah_penghuni($no_kamar = null){
+
+        if (!isset($no_kamar)) redirect (base_url('pilih-kamar'));
+
+        $cek_kamar = $this->m_data->cek_kamar($no_kamar)->row();
+
+        if (!$cek_kamar) show_404();
+
+        else if ($cek_kamar->status == 'terisi2' or $cek_kamar->status == 'sendiri'){
+            $this->session->set_flashdata('pesan', 'toastr.warning("Kamar '.$no_kamar.' sudah terisi penuh, silakan pilih kamar lain")');
+            redirect (base_url('pilih-kamar'));
+        }
+
+        $data['judul_halaman'] = 'Tambah Penghuni';
         $data['username'] = $this->session->userdata('username');
-        $data['user'] = $this->m_data->data_user()->result();
+        $data['harga_kamar'] = $this->m_data->data_harga_kamar_by_lantai($cek_kamar->lantai)->row();
+        $data['no_kamar'] = $no_kamar;
+        $data['status_kamar'] = $cek_kamar->status;
+        $data['fakultas'] = $this->m_data->data_fakultas()->result();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
         $this->load->view('_partials/v_breadcrump', $data);
-        $this->load->view('v_tabel_user', $data); //page content
+        $this->load->view('v_tambah_penghuni', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
+    }
+
+    function edit_penghuni($id = null){
+
+        if (!isset($id)) redirect('daftar_penghuni');
+
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('id' => $id))->row();
+
+        if (!$data['penghuni']) show_404();
+
+        $id_fakultas = $data['penghuni']->id_fakultas;
+
+        $data['judul_halaman'] = 'Edit Penghuni';
+        $data['username'] = $this->session->userdata('username');
+        $data['kamar'] = $this->m_data->data_kamar_tersedia()->result();
+        $data['prodi'] = $this->m_data->data_prodi_by_id_fakultas($id_fakultas)->result();
+        $data['fakultas'] = $this->m_data->data_fakultas()->result();
+
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_edit_penghuni', $data); //page content
+        $this->load->view('_partials/v_footer');
+        $this->load->view('_partials/v_theme-config');
+        $this->load->view('_partials/v_preloader');
+        $this->load->view('_partials/v_js');
+    }
+
+    function edit_pembayaran($id_pembayaran = null){
+
+        if (!isset($id_pembayaran)) redirect('riwayat_pembayaran');
+
+        $data['judul_halaman'] = 'Edit Pembayaran';
+        $data['username'] = $this->session->userdata('username');
+        $data['pembayaran'] = $this->m_data->detail_pembayaran(array('id_pembayaran' => $id_pembayaran))->row();
+
+        if (!$data['pembayaran']) show_404();
+
+        $this->load->view('_partials/v_head', $data);
+        $this->load->view('_partials/v_header');
+        $this->load->view('_partials/v_sidebar', $data);
+        $this->load->view('_partials/v_breadcrump', $data);
+        $this->load->view('v_edit_pembayaran', $data); //page content
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');

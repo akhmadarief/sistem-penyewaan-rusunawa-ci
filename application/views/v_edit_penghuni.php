@@ -21,7 +21,7 @@
                                 </button>
                             </div>
                         </div>
-                        <form class="form-horizontal" action="<?php echo base_url('aksi/aksi_edit_penghuni') ?>" method="post">
+                        <form class="form-horizontal" action="<?php echo base_url('aksi-edit-penghuni') ?>" method="post">
                                 <input type="hidden" name="pilihan1" id="pilihan1" value="typo">
                                 <input type="hidden" name="id" value="<?php echo $penghuni->id ?>">
                                 <input type="hidden" id="piutang_lama" value="<?php echo $penghuni->piutang?>">

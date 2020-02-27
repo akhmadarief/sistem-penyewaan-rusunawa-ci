@@ -408,7 +408,7 @@ class Aksi extends CI_Controller {
         //else redirect (base_url(''));
 
         if ($this->m_data->insert_user($user_baru) == true){
-            redirect (base_url('admin/tabel_user'));
+            redirect (base_url('admin/daftar_user'));
         }
         else{
             $this->session->set_flashdata('pesan', 'gagal_tambah_user');
@@ -444,7 +444,7 @@ class Aksi extends CI_Controller {
         //$username='null';
         //echo $username."kepanggil";exit;
         $this->m_data->delete_user($username);
-        redirect (base_url('admin/tabel_user'));
+        redirect (base_url('admin/daftar_user'));
     }
 
     function aksi_edit_pembayaran(){

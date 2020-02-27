@@ -3,7 +3,7 @@
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title">Riwayat Pembayaran<?php //echo $halaman ?></div>
-                        <a class="btn btn-success btn-xls" href="<?php echo base_url('admin/riwayat_pembayaran_cetak'); ?>"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Riwayat"> XLS
+                        <a class="btn btn-success btn-xls" href="<?php echo base_url('riwayat-pembayaran-cetak); ?>"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Riwayat"> XLS
                                 <i class="fa fa-print"></i>
                         </a>
                     </div>
@@ -32,7 +32,7 @@
                                     <td class="text-center"><?php echo 'Rp'.number_format($pembayaran->bayar, 0, ',', '.') ?></td>
                                     <td><?php echo $pembayaran->ket ?></td>
                                     <td class="text-center">
-                                        <a class="btn btn-sm btn-info active edit-riwayat" href="<?php echo base_url('admin/edit_pembayaran/'.$pembayaran->id_pembayaran) ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Riwayat">
+                                        <a class="btn btn-sm btn-info active edit-riwayat" href="<?php echo base_url('edit-pembayaran/'.$pembayaran->id_pembayaran) ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Riwayat">
                                             <span class="fa fa-pencil"></span>
                                         </a>
                                         <a class="btn btn-sm btn-danger active hapus-pembayaran" id="<?php echo $pembayaran->id_pembayaran ?>"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus Riwayat">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Aksi extends CI_Controller {
+class C_aksi extends CI_Controller {
 
     function __construct(){
         parent::__construct();
@@ -88,7 +88,7 @@ class Aksi extends CI_Controller {
 
         if ($status_awal_kamar == 'sendiri' or $status_awal_kamar == 'terisi2'){
             $this->session->set_flashdata('pesan', 'toastr.warning("Kamar '.$no_kamar.' sudah terisi penuh, silakan pilih kamar lain")');
-            redirect (base_url('admin/pilih_kamar'));
+            redirect (base_url('pilih-kamar'));
         }
         else if ($this->m_data->insert_penghuni($data) == true){
 
@@ -109,7 +109,7 @@ class Aksi extends CI_Controller {
         else {
             $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
         }
-        redirect (base_url('admin/pilih_kamar'));
+        redirect (base_url('pilih-kamar'));
     }
 
     function aksi_edit_penghuni(){
@@ -173,10 +173,10 @@ class Aksi extends CI_Controller {
                 }
 
                 if ($status == 'Penghuni'){
-                    redirect (base_url('admin/daftar_penghuni'));
+                    redirect (base_url('daftar-penghuni'));
                 }
                 else {
-                    redirect (base_url('admin/daftar_ekspenghuni'));
+                    redirect (base_url('daftar-ekspenghuni'));
                 }
             break;
 
@@ -199,7 +199,7 @@ class Aksi extends CI_Controller {
                     $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
                 }
 
-                redirect (base_url('admin/riwayat_pembayaran'));
+                redirect (base_url('riwayat-pembayaran'));
             break;
 
             case "pk":
@@ -249,14 +249,14 @@ class Aksi extends CI_Controller {
                     $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
                 }
 
-                redirect (base_url('admin/pilih_kamar'));
+                redirect (base_url('pilih-kamar'));
             break;
         }
     }
 
     function aksi_hapus_penghuni($id = null){
 
-        if (!isset($id)) redirect (base_url('admin/daftar_penghuni'));
+        if (!isset($id)) redirect (base_url('daftar-penghuni'));
 
         $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
 
@@ -291,17 +291,17 @@ class Aksi extends CI_Controller {
             }
 
             if ($penghuni->status == 'Penghuni'){
-                redirect (base_url('admin/daftar_penghuni'));
+                redirect (base_url('daftar-penghuni'));
             }
             else{
-                redirect (base_url('admin/daftar_ekspenghuni'));
+                redirect (base_url('daftar-ekspenghuni'));
             }
         }
     }
 
     function perpanjang($id = null){
 
-        if (!isset($id)) redirect (base_url('admin/pilih_kamar'));
+        if (!isset($id)) redirect (base_url('pilih-kamar'));
 
         $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
 
@@ -325,13 +325,13 @@ class Aksi extends CI_Controller {
             else {
                 $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
             }
-            redirect (base_url('admin/pilih_kamar'));
+            redirect (base_url('pilih-kamar'));
         }
     }
 
     function eks_penghuni($id = null){
 
-        if (!isset($id)) redirect (base_url('admin/pilih_kamar'));
+        if (!isset($id)) redirect (base_url('pilih-kamar'));
 
         $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
 
@@ -361,7 +361,7 @@ class Aksi extends CI_Controller {
             else {
                 $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
             }
-            redirect (base_url('admin/pilih_kamar'));
+            redirect (base_url('pilih-kamar'));
         }
     }
 
@@ -393,12 +393,12 @@ class Aksi extends CI_Controller {
         else {
             $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
         }
-        redirect (base_url('admin/riwayat_pembayaran'));
+        redirect (base_url('riwayat-pembayaran'));
     }
 
     function aksi_hapus_pembayaran($id_pembayaran = null){
 
-        if (!isset($id_pembayaran)) redirect (base_url('admin/riwayat_pembayaran'));
+        if (!isset($id_pembayaran)) redirect (base_url('riwayat-pembayaran'));
 
         $pembayaran = $this->m_data->detail_pembayaran(array('id_pembayaran' => $id_pembayaran))->row();
 
@@ -412,28 +412,7 @@ class Aksi extends CI_Controller {
             else {
                 $this->session->set_flashdata('pesan', 'toastr.danger("Terjadi kesalahan")');
             }
-            redirect (base_url('admin/riwayat_pembayaran'));
-        }
-    }
-
-    function tambah_user(){
-        $nama           = $this->input->post('nama');
-        $username       = $this->input->post('username');
-        $password       = sha1($this->input->post('password'));
-
-        $user_baru = array(
-            'nama'           => $nama,
-            'username'       => $username,
-            'password'       => $password
-        );
-
-        if ($this->m_data->insert_user($user_baru) == true){
-            $this->session->set_flashdata('pesan', 'toastr.success("Berhasil menambah user '.$nama.' dengan username '.$username.'")');
-            redirect (base_url('admin/tabel_user'));
-        }
-        else{
-            $this->session->set_flashdata('pesan', 'gagal_tambah_user');
-            redirect (base_url('admin/tambah_user'));
+            redirect (base_url('riwayat-pembayaran'));
         }
     }
 
@@ -456,17 +435,38 @@ class Aksi extends CI_Controller {
         }
         else {
             $this->session->set_flashdata('pesan', 'gagal_ubah_pass');
-            redirect (base_url('admin/ubah_pass'));
+            redirect (base_url('ubah_pass'));
+        }
+    }
+
+    function aksi_tambah_user(){
+        $nama           = $this->input->post('nama');
+        $username       = $this->input->post('username');
+        $password       = sha1($this->input->post('password'));
+
+        $user_baru = array(
+            'nama'           => $nama,
+            'username'       => $username,
+            'password'       => $password
+        );
+
+        if ($this->m_data->insert_user($user_baru) == true){
+            $this->session->set_flashdata('pesan', 'toastr.success("Berhasil menambah user '.$nama.' dengan username '.$username.'")');
+            redirect (base_url('daftar-user'));
+        }
+        else{
+            $this->session->set_flashdata('pesan', 'gagal_tambah_user');
+            redirect (base_url('tambah_user'));
         }
     }
 
     function aksi_hapus_user($username = null){
 
-        if (!isset($username)) redirect('admin/tabel_user');
+        if (!isset($username)) redirect('daftar-user');
 
         if ($this->m_data->delete_user($username) == true){
             // $this->session->set_flashdata('pesan', 'toastr.success("Berhasil menghapus user '.$user->nama.' dengan username '.$user->username.'")');
-            redirect (base_url('admin/tabel_user'));
+            redirect (base_url('daftar-user'));
         }
         else {
             echo 'Terjadi Kesalahan';
