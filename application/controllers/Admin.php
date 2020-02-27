@@ -37,6 +37,7 @@ class Admin extends CI_Controller {
         $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
         $data['total'] = $this->m_data->total_data_keuangan()->row();
+        $data['pesan'] = $this->session->flashdata('pesan');
         $data['username'] = $this->session->userdata('username');
 
         $this->load->view('_partials/v_head', $data);
@@ -46,7 +47,7 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function jumlah_kamar(){

@@ -16,7 +16,7 @@ class Login extends CI_Controller {
             $this->session->sess_destroy();
         }
         else if ($this->session->userdata('status') == 'login'){
-            redirect (base_url('admin'));
+            redirect (base_url('admin/dasbor'));
         }
 
         $this->load->view('_partials/v_head_form', $data);
@@ -38,7 +38,8 @@ class Login extends CI_Controller {
                 'status' => 'login'
             );
             $this->session->set_userdata($data_session);
-            redirect (base_url('admin'));
+            $this->session->set_flashdata('pesan', 'toastr.success("Selamat datang, Anda masuk sebagai '.$username.'")');
+            redirect (base_url('admin/dasbor'));
         }
         else {
             $this->session->set_flashdata('pesan', 'gagal_login');
