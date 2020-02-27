@@ -114,6 +114,7 @@
                                             <?php foreach ($prodi as $prodi){ ?>
                                             <option value="<?php echo $prodi->id_prodi ?>" <?php if ($prodi->id_prodi == $penghuni->id_prodi) echo 'selected' ?>><?php echo $prodi->nama_prodi ?></option>
                                             <?php } ?>
+                                            <option value="0">Lainnya</option>
                                         </select>
                                     </div>
                                 </div>
