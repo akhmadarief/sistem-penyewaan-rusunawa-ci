@@ -19,6 +19,7 @@ class C_aksi extends CI_Controller {
         foreach ($prodi->result() as $prodi){
             echo '<option value="'.$prodi->id_prodi.'">'.$prodi->nama_prodi.'</option>';
         }
+        echo '<option value="0">Lainnya</option>';
     }
 
     function get_kamar(){
