@@ -22,8 +22,9 @@
     <link href="<?php echo base_url('assets/vendors/sweetalert2/sweetalert2.min.css') ?>" rel="stylesheet">
     <!-- CUSTOM STYLES-->
     <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" />
-    <link href="<?php echo base_url('assets/css/custom-768.css') ?>" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css/custom-1280.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/custom-768.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/custom-479.css') ?>" rel="stylesheet" />
     <link href="<?php echo base_url('assets/vendors/toastr/toastr.min.css') ?>" rel="stylesheet" />
     <!-- SLIDESHOW STYLES-->
     <!-- PRINT STYLES-->
