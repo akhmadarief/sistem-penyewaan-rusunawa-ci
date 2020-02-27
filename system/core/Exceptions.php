@@ -118,25 +118,32 @@ class CI_Exceptions {
 	 */
 	public function show_404($page = '', $log_error = TRUE)
 	{
-		redirect('error404');
 		if (is_cli())
 		{
 			$heading = 'Not Found';
 			$message = 'The controller/method pair you requested was not found.';
+			echo $this->show_error($heading, $message, 'error_404', 404);
 		}
 		else
 		{
-			$heading = '404 Page Not Found';
-			$message = 'The page you requested was not found.';
+			// $heading = '404 Page Not Found';
+			// $message = 'The page you requested was not found.';
+			// echo $this->show_error($heading, $message, 'error_404', 404);
+			$CI =& get_instance();
+			$data['judul_halaman'] = 'Halaman Tidak Ditemukan';
+			$CI->load->view('_partials/v_head', $data);
+			$CI->load->view('errors/404.php');
+			$CI->load->view('_partials/v_preloader');
+			$CI->load->view('_partials/v_js');
+			echo $CI->output->get_output();
 		}
 
 		// By default we log this, but allow a dev to skip it
-		if ($log_error)
-		{
-			log_message('error', $heading.': '.$page);
-		}
+		// if ($log_error)
+		// {
+		// 	log_message('error', $heading.': '.$page);
+		// }
 
-		echo $this->show_error($heading, $message, 'error_404', 404);
 		exit(4); // EXIT_UNKNOWN_FILE
 	}
 

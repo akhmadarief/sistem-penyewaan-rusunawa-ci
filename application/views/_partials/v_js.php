@@ -732,46 +732,7 @@
     </script>
     <script type="text/javascript">
         window.onload = function(){
-            <?php
-            switch ($pesan){
-                case 'berhasil_tambah_penghuni':
-                    echo 'toastr.success("Berhasil menambah penghuni '.$nama_penghuni.' pada kamar '.$no_kamar.'")';
-                break;
-                case 'berhasil_edit_penghuni':
-                    echo 'toastr.success("Berhasil memperbarui data penghuni '.$nama_penghuni.' pada kamar '.$no_kamar.'")';
-                break;
-                case 'berhasil_hapus_penghuni':
-                    echo 'toastr.success("Berhasil menghapus penghuni '.$nama_penghuni.' dari kamar '.$no_kamar.'")';
-                break;
-                case 'berhasil_tambah_pembayaran':
-                    echo 'toastr.success("Berhasil melakukan pembayaran tanggal '.$tgl_bayar.' dari penghuni '.$nama_penghuni.'")';
-                break;
-                case 'berhasil_edit_pembayaran':
-                    echo 'toastr.success("Berhasil memperbarui pembayaran tanggal '.$tgl_bayar.' dari penghuni '.$nama_penghuni.'")';
-                break;
-                case 'berhasil_hapus_pembayaran':
-                    echo 'toastr.success("Berhasil menghapus pembayaran tanggal '.$tgl_bayar.' dari penghuni '.$nama_penghuni.'")';
-                break;
-                case 'kamar_penuh':
-                    echo 'toastr.warning("Kamar '.$no_kamar.' sudah terisi penuh, silakan pilih kamar lain")';
-                break;
-                case 'berhasil_pindah_kamar':
-                    echo 'toastr.success("Berhasil memindahkan kamar penghuni '.$nama_penghuni.' dari '.$no_kamar.' ke '.$no_kamar_baru.'")';
-                break;
-                case 'berhasil_perpanjang':
-                    echo 'toastr.success("Berhasil memeperpanjang masa huni '.$nama_penghuni.' pada kamar '.$no_kamar.'")';
-                break;
-                case 'berhasil_selesai_menghuni':
-                    echo 'toastr.success("Berhasil menyelesaikan masa huni '.$nama_penghuni.' dari kamar '.$no_kamar.'")';
-                break;
-                case 'berhasil_tambah_user':
-                    echo 'toastr.success("Berhasil menambah user '.$nama_user_baru.' dengan username '.$username_baru.'")';
-                break;
-                case 'berhasil_hapus_user':
-                    echo 'toastr.success("Berhasil menghapus user '.$nama_user_baru.' dengan username '.$username_baru.'")';
-                break;
-            }
-            ?>
+            <?php if (isset($pesan)) echo $pesan ?>
         }
     </script>
 </body>

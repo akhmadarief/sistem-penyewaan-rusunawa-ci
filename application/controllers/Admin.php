@@ -33,19 +33,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
-    function doncu(){ //buat cek query
-        $where = array('1' => '1');
-        // $nim = '12431';
-        // $no_kamar = 'A2.20';
-        //$data['doncu']=$this->m_data->data_harga_kamar_by_no_kamar('A2.01');
-        //$this->m_data->detail_penghuni(array('nim' => $nim, 'no_kamar' => $no_kamar, 'status' => 'Penghuni'));
-        $a = (($this->m_data->data_harga_kamar_by_no_kamar('A2.01')->row())->harga) + $penghuni->harga;
-        echo $a;
-        // $tgl_keluar = date('d-m-Y', strtotime('20-02-2020'));
-        // $tgl_keluar_baru = date('d-m-Y', strtotime($tgl_keluar.' + 1 year'));
-        // echo $tgl_keluar_baru;
-    }
-
     function dasbor(){
         $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
@@ -74,9 +61,6 @@ class Admin extends CI_Controller {
     function pilih_kamar(){
         $data['judul_halaman'] = 'Pilih Kamar';
         $data['pesan'] = $this->session->flashdata('pesan');
-        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
-        $data['no_kamar'] = $this->session->flashdata('no_kamar');
-        $data['no_kamar_baru'] = $this->session->flashdata('no_kamar_baru');
         $data['username'] = $this->session->userdata('username');
 
         $this->load->view('_partials/v_head', $data);
@@ -99,9 +83,7 @@ class Admin extends CI_Controller {
         if (!$cek_kamar) show_404();
 
         else if ($cek_kamar->status == 'terisi2' or $cek_kamar->status == 'sendiri'){
-            //echo '<script>alert ("Kamar sudah terisi penuh, silakan pilih kamar lain"); window.location="'.base_url('admin/pilih_kamar').'";</script>';
-            $this->session->set_flashdata('pesan', 'kamar_penuh');
-            $this->session->set_flashdata('no_kamar', $no_kamar);
+            $this->session->set_flashdata('pesan', 'toastr.warning("Kamar '.$no_kamar.' sudah terisi penuh, silakan pilih kamar lain")');
             redirect (base_url('admin/pilih_kamar'));
         }
 
@@ -188,8 +170,6 @@ class Admin extends CI_Controller {
     function daftar_penghuni(){
         $data['judul_halaman'] = 'Daftar Penghuni';
         $data['pesan'] = $this->session->flashdata('pesan');
-        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
-        $data['no_kamar'] = $this->session->flashdata('no_kamar');
         $data['username'] = $this->session->userdata('username');
         $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Penghuni'))->result();
         $this->load->view('_partials/v_head', $data);
@@ -206,8 +186,6 @@ class Admin extends CI_Controller {
     function daftar_ekspenghuni(){
         $data['judul_halaman'] = 'Daftar Eks-Penghuni';
         $data['pesan'] = $this->session->flashdata('pesan');
-        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
-        $data['no_kamar'] = $this->session->flashdata('no_kamar');
         $data['username'] = $this->session->userdata('username');
         $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Eks-Penghuni'))->result();
         $this->load->view('_partials/v_head', $data);
@@ -229,8 +207,6 @@ class Admin extends CI_Controller {
     function riwayat_pembayaran(){
         $data['judul_halaman'] = 'Riwayat Pembayaran';
         $data['pesan'] = $this->session->flashdata('pesan');
-        $data['nama_penghuni'] = $this->session->flashdata('nama_penghuni');
-        $data['tgl_bayar'] = $this->session->flashdata('tgl_bayar');
         $data['username'] = $this->session->userdata('username');
         $data['pembayaran'] = $this->m_data->detail_pembayaran(array('1' => '1'))->result();
         $this->load->view('_partials/v_head', $data);
@@ -314,8 +290,6 @@ class Admin extends CI_Controller {
         $this->super_user();
         $data['judul_halaman'] = 'Daftar User';
         $data['pesan'] = $this->session->flashdata('pesan');
-        $data['nama_user_baru'] = $this->session->flashdata('nama_user_baru');
-        $data['username_baru'] = $this->session->flashdata('username_baru');
         $data['username'] = $this->session->userdata('username');
         $data['user'] = $this->m_data->data_user()->result();
         $this->load->view('_partials/v_head', $data);

@@ -92,7 +92,7 @@
                                 <div class="form-group row typo">
                                     <label class="col-sm-3 col-form-label">Status Huni</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" value="<?php echo $penghuni->status ?>" disabled>
+                                        <input class="form-control" type="text" name='status' value="<?php echo $penghuni->status ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row typo">
