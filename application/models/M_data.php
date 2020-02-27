@@ -59,10 +59,6 @@ class M_data extends CI_Model {
     function data_harga_kamar_by_lantai($lantai){
         return $this->db->get_where('harga', array('lantai' => $lantai));
     }
-    function update_kamar_lantai($data1){
-        $this->db->where('lantai', $data1['lantai']);
-        return $this->db->update('harga', $data1) ? true : false;
-    }
 
     function data_kamar_by_lantai($lantai){
         $this->db->select('*');
@@ -75,9 +71,9 @@ class M_data extends CI_Model {
         return $this->db->get_where('kamar', array('no_kamar' => $no_kamar));
     }
 
-    function data_user(){
+    function data_user($where){
         $this->db->select('nama, username');
-        $this->db->where('username !=', 'admin');
+        $this->db->where($where);
         return $this->db->get('admin');
     }
 
@@ -94,12 +90,18 @@ class M_data extends CI_Model {
     }
 
     function insert_pembayaran($data_pembayaran){
-        return $this->db->insert('keuangan', $data_pembayaran) ? true : false;
+        $this->db->insert('keuangan', $data_pembayaran);
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     function insert_user($user_baru){
         $this->db->insert('admin', $user_baru);
         return ($this->db->affected_rows() > 0) ? true : false;
+    }
+
+    function update_harga($lantai, $harga){
+        $this->db->where('lantai', $lantai);
+        return $this->db->update('harga', array('harga' => $harga)) ? true : false;
     }
 
     function update_penghuni($id, $data){

@@ -11,27 +11,17 @@ class C_admin extends CI_Controller {
         $this->load->model('m_data');
     }
 
-    function super_user(){
-        if ($this->session->userdata('username') != 'admin'){
-            redirect (base_url(''));
-        }
-    }
-
-    function jumlah_kamar(){
-        $data['a']=$this->m_data->jumlah_penghuni_gedung('A');
-        $data['b']=$this->m_data->jumlah_penghuni_gedung('B');
-        $data['c']=$this->m_data->jumlah_penghuni_gedung('C');
-        $data['d']=$this->m_data->jumlah_penghuni_gedung('D');
-        $data['e']=$this->m_data->jumlah_penghuni_gedung('E');
-        return $data;
-    }
-
     function dasbor(){
-        $data = $this->jumlah_kamar();
         $data['judul_halaman'] = 'Dasbor';
         $data['total'] = $this->m_data->total_data_keuangan()->row();
         $data['pesan'] = $this->session->flashdata('pesan');
         $data['username'] = $this->session->userdata('username');
+
+        $data['a'] = $this->m_data->jumlah_penghuni_gedung('A');
+        $data['b'] = $this->m_data->jumlah_penghuni_gedung('B');
+        $data['c'] = $this->m_data->jumlah_penghuni_gedung('C');
+        $data['d'] = $this->m_data->jumlah_penghuni_gedung('D');
+        $data['e'] = $this->m_data->jumlah_penghuni_gedung('E');
 
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
@@ -44,11 +34,13 @@ class C_admin extends CI_Controller {
     }
 
     function daftar_user(){
-        $this->super_user();
+        if ($this->session->userdata('username') != 'admin') show_404();
+
         $data['judul_halaman'] = 'Daftar User';
         $data['pesan'] = $this->session->flashdata('pesan');
         $data['username'] = $this->session->userdata('username');
-        $data['user'] = $this->m_data->data_user()->result();
+        $data['user'] = $this->m_data->data_user(array('username !=' => 'admin'))->result();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
@@ -57,7 +49,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function pilih_kamar(){
@@ -98,6 +90,7 @@ class C_admin extends CI_Controller {
 
     function daftar_harga(){
         $data['judul_halaman'] = 'Daftar Harga Kamar';
+        $data['pesan'] = $this->session->flashdata('pesan');
         $data['username'] = $this->session->userdata('username');
         $data['daftar_harga'] = $this->m_data->data_harga_kamar()->result();
         $this->load->view('_partials/v_head', $data);
@@ -108,7 +101,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_footer');
         $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
-        $this->load->view('_partials/v_js');
+        $this->load->view('_partials/v_js', $data);
     }
 
     function edit_harga_kamar($edit_harga){
@@ -307,6 +300,7 @@ class C_admin extends CI_Controller {
         $data['judul_halaman'] = 'Ubah Password';
         $data['pesan'] = $this->session->flashdata('pesan');
         $data['username'] = $this->session->userdata('username');
+
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_ubah_pass');
         $this->load->view('_partials/v_preloader');
@@ -314,9 +308,11 @@ class C_admin extends CI_Controller {
     }
 
     function tambah_user(){
-        $this->super_user();
+        if ($this->session->userdata('username') != 'admin') show_404();
+
         $data['judul_halaman'] = 'Tambah User';
         $data['pesan'] = $this->session->flashdata('pesan');
+
         $this->load->view('_partials/v_head_form', $data);
         $this->load->view('v_tambah_user');
         $this->load->view('_partials/v_preloader');
