@@ -1,7 +1,7 @@
 <body>
     <div class="bg-login"></div>
     <div class="content changepass-parent">
-        <form id="changepass-form" action="<?php echo base_url('aksi/aksi_ubah_pass') ?>" method="post" novalidate="novalidate">
+        <form id="changepass-form" action="<?php echo base_url('aksi-ubah-pass') ?>" method="post" novalidate="novalidate">
             <div class="changepass-title">
                 <img src="<?php echo base_url('assets/img/undip/logo-light-text2.png') ?>" alt="Universitas Diponegoro" style="width: 175px; vertical-align: middle">
                 <h2 class="changepass-title1">Ubah Password Admin</h2>

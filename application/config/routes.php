@@ -49,6 +49,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'admin';
+$route['default_controller'] = 'c_login/login';
+
+$route['dasbor'] = 'c_admin/dasbor';
+$route['daftar-user'] = 'c_admin/daftar_user';
+$route['pilih-kamar'] = 'c_admin/pilih_kamar';
+$route['daftar-kamar'] = 'c_admin/daftar_kamar';
+$route['daftar-harga'] = 'c_admin/daftar_harga';
+$route['daftar-penghuni'] = 'c_admin/daftar_penghuni';
+$route['daftar-ekspenghuni'] = 'c_admin/daftar_ekspenghuni';
+$route['riwayat-pembayaran'] = 'c_admin/riwayat_pembayaran';
+$route['laporan-keuangan'] = 'c_admin/laporan_keuangan';
+
+$route['daftar-kamar-cetak'] = 'c_admin/daftar_kamar_cetak';
+$route['daftar-penghuni-cetak'] = 'c_admin/daftar_penghuni_cetak';
+$route['daftar-ekspenghuni-cetak'] = 'c_admin/daftar_ekspenghuni_cetak';
+$route['riwayat-pembayaran-cetak'] = 'c_admin/riwayat_pembayaran_cetak';
+$route['laporan-keuangan-cetak'] = 'c_admin/laporan_keuangan_cetak';
+
+$route['tambah-user'] = 'c_admin/tambah_user';
+$route['tambah-penghuni/(:any)'] = 'c_admin/tambah_penghuni/$1';
+$route['edit-penghuni/(:num)'] = 'c_admin/edit_penghuni/$1';
+$route['edit-pembayaran/(:num)'] = 'c_admin/edit_pembayaran/$1';
+
+$route['get-prodi'] = 'c_aksi/get_prodi';
+$route['get-kamar'] = 'c_aksi/get_kamar';
+$route['get-detail-kamar'] = 'c_aksi/get_detail_kamar';
+$route['get-detail-penghuni'] = 'c_aksi/get_detail_penghuni';
+$route['aksi-tambah-penghuni'] = 'c_aksi/aksi_tambah_penghuni';
+$route['aksi-edit-penghuni'] = 'c_aksi/aksi_edit_penghuni';
+$route['aksi-hapus-penghuni/(:num)'] = 'c_aksi/aksi_hapus_penghuni/$1';
+$route['perpanjang/(:num)'] = 'c_aksi/perpanjang/$1';
+$route['eks-penghuni/(:num)'] = 'c_aksi/eks_penghuni/$1';
+$route['aksi-edit-pembayaran/(:num)'] = 'c_aksi/aksi_edit_pembayaran/$1';
+$route['aksi-hapus-pembayaran/(:num)'] = 'c_aksi/aksi_hapus_pembayaran/$1';
+$route['aksi-ubah-pass'] = 'c_aksi/aksi_ubah_pass';
+$route['aksi-tambah-user'] = 'c_aksi/aksi_tambah_user';
+$route['aksi-hapus-user/(:any)'] = 'c_aksi/aksi_hapus_user/$1';
+
+$route['login'] = 'c_login/login';
+$route['logout'] = 'c_login/logout';
+$route['aksi-login'] = 'c_login/aksi_login';
+
 $route['404_override'] = 'error404';
 $route['translate_uri_dashes'] = FALSE;

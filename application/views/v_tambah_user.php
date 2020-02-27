@@ -1,7 +1,7 @@
 <body>
     <div class="bg-login"></div>
     <div class="content register-parent">
-        <form id="register-form" action="<?php echo base_url('aksi/tambah_user') ?>" method="post" novalidate="novalidate">
+        <form id="register-form" action="<?php echo base_url('aksi-tambah-user') ?>" method="post" novalidate="novalidate">
             <div class="register-title">
                 <img src="<?php echo base_url('assets/img/undip/logo-light-text2.png') ?>" alt="Universitas Diponegoro" style="width: 175px; vertical-align: middle">
                 <h2 class="register-title1">Tambah User Admin</h2>

@@ -3,7 +3,7 @@
         <h1 class="m-t-20">404</h1>
         <p class="error-title">PAGE NOT FOUND</p>
         <p class="m-b-20">Sorry, the page you were looking for could not found. Please check the URL and try your luck again.
-            <a class="color-green" href="<?php echo base_url('admin/dasbor') ?>">Go homepage</a> or try the search bar below.</p>
+            <a class="color-green" href="<?php echo base_url('dasbor') ?>">Go homepage</a> or try the search bar below.</p>
         <form action="javascript:;">
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search for page">
