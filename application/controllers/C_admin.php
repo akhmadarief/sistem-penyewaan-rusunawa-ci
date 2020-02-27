@@ -38,7 +38,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_sidebar', $data);
         $this->load->view('v_dasbor'); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js', $data);
     }
