@@ -252,20 +252,23 @@ form#login-form, form#register-form, form#changepass-form{
 }
 
 /*BUTTON DATA PENGHUNI*/
+#tambah_penghuni, #tambah_penghuni2{
+  margin-inline-end: 3px;
+  border-radius: 3px;
+  color: #fff
+}
+
 .perpanjang, .perpanjang2 {
   margin-inline-start: 3px !important;
   margin-inline-end: 3px;
   border-radius: 3px !important;
+  color: #fff
 }
 
 #edit_penghuni, #edit_penghuni2, .eks_penghuni, .eks_penghuni2 {
   border-radius: 3px !important;
   margin-left: 0px !important;
-}
-
-#tambah_penghuni, #tambah_penghuni2{
-  margin-inline-end: 3px;
-  border-radius: 3px;
+  color: #fff
 }
 
 /*NAVBAR UNDIP*/

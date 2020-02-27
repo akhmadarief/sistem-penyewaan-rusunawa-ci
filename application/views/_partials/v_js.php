@@ -565,6 +565,14 @@
                 $("#no2").val("Memuat ...");
                 $("#prodi2").val("Memuat ...");
                 $("#piutang2").val("Memuat ...");
+                $("#tambah_penghuni").removeAttr("style").hide();
+                $("#edit_penghuni").removeAttr("style").hide();
+                $(".eks_penghuni").removeAttr("style").hide();
+                $(".perpanjang").removeAttr("style").hide();
+                $("#tambah_penghuni2").removeAttr("style").hide();
+                $("#edit_penghuni2").removeAttr("style").hide();
+                $(".eks_penghuni2").removeAttr("style").hide();
+                $(".perpanjang2").removeAttr("style").hide();
                 var no_kamar = $(this).attr("id");
                 $("#no_kamar").val(no_kamar);
                 $("#no_kamar2").val(no_kamar);
