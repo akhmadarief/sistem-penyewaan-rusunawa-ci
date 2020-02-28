@@ -92,7 +92,8 @@ class C_admin extends CI_Controller {
         $data['judul_halaman'] = 'Daftar Harga Kamar';
         $data['pesan'] = $this->session->flashdata('pesan');
         $data['username'] = $this->session->userdata('username');
-        $data['daftar_harga'] = $this->m_data->data_harga_kamar()->result();
+        $data['daftar_harga'] = $this->m_data->data_harga_kamar(array('1' => '1'))->result();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
@@ -104,10 +105,18 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_js', $data);
     }
 
-    function edit_harga_kamar($edit_harga){
+    function edit_harga_kamar($lantai){
+
+        $data_harga_kamar = $this->m_data->data_harga_kamar(array('lantai' => $lantai))->row();
+
+        if (!$data_harga_kamar){
+            show_404();
+        }
+
         $data['judul_halaman'] = 'Edit Harga Kamar';
         $data['username'] = $this->session->userdata('username');
-        $data['data_lantai'] = $this->m_data->data_harga_kamar_by_lantai($edit_harga)->row();
+        $data['data_lantai'] = $this->m_data->data_harga_kamar_by_lantai($lantai)->row();
+
         $this->load->view('_partials/v_head', $data);
         $this->load->view('_partials/v_header');
         $this->load->view('_partials/v_sidebar', $data);
