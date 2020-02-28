@@ -24,7 +24,7 @@
                                             <div class="mask rgba-black-light"></div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
+                                    <!-- <div class="carousel-item">
                                         <div class="view">
                                             <img class="d-block" src="<?php echo base_url('assets/img/rusunawa/3.jpg')  ?>"
                                             alt="First slide" size="40x40">
@@ -65,7 +65,7 @@
                                             alt="First slide" size="40x40">
                                             <div class="mask rgba-black-light"></div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!--/.Slides-->
                                 <a class="carousel-control-next" href="#slide-carousel" role="button" data-slide="next">
