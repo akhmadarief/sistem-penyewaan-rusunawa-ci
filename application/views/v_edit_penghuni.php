@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="col-sm-6" style="padding-top: 5px">
                                         <label class="ui-radio ui-radio-inline ui-radio-primary">
-                                            <input type="radio" name="isi_kamar" value="1" <?php echo ($penghuni->isi_kamar == '1') ? 'checked' : 'disabled' ?>>
+                                            <input type="radio" name="isi_kamar" value="1" <?php if ($penghuni->isi_kamar == '1') echo 'checked'; if ($status_kamar == 'terisi2') echo 'disabled' ?>>
                                             <span class="input-span"></span>Sendiri
                                         </label>
                                     </div>

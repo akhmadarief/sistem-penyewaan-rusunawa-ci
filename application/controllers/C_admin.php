@@ -256,6 +256,7 @@ class C_admin extends CI_Controller {
 
         if (!$data['penghuni']) show_404();
 
+        $data['status_kamar'] = ($this->m_data->cek_kamar($data['penghuni']->no_kamar)->row())->status;
         $id_fakultas = $data['penghuni']->id_fakultas;
 
         $data['judul_halaman'] = 'Edit Penghuni';

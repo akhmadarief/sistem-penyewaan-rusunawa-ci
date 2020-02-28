@@ -175,10 +175,20 @@ class C_aksi extends CI_Controller {
                 );
 
                 if ($this->m_data->update_penghuni($id, $data) == true){
-                    $data_update_kamar = array(
-                        'status' => ($isi_kamar == '2') ? 'terisi1' : 'sendiri'
-                    );
-                    $this->m_data->update_status_kamar($no_kamar, $data_update_kamar);
+                    
+                    $status_awal_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+
+                    if ($isi_kamar == '2' and $status_awal_kamar == 'sendiri'){
+                        $status_kamar = 'terisi1';
+                    }
+                    else if ($isi_kamar == '1' and $status_awal_kamar == 'terisi1'){
+                        $status_kamar = 'sendiri';
+                    }
+                    else {
+                        $status_kamar = $status_awal_kamar;
+                    }
+
+                    $this->m_data->update_status_kamar($no_kamar, $status_kamar);
 
                     $this->session->set_flashdata('pesan', 'toastr.success("Berhasil memperbarui data penghuni '.$nama.' pada kamar '.$no_kamar.'")');
                 }
