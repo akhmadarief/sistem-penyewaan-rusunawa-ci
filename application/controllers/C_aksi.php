@@ -327,7 +327,7 @@ class C_aksi extends CI_Controller {
 
         if (!isset($id)) redirect (base_url('pilih-kamar'));
 
-        $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
+        $penghuni = $this->m_data->detail_penghuni(array('id' => $id, 'status' => 'Penghuni'))->row();
 
         if (!$penghuni){
             show_404();
@@ -357,7 +357,7 @@ class C_aksi extends CI_Controller {
 
         if (!isset($id)) redirect (base_url('pilih-kamar'));
 
-        $penghuni = $this->m_data->detail_penghuni(array('id' => $id))->row();
+        $penghuni = $this->m_data->detail_penghuni(array('id' => $id, 'status' => 'Penghuni'))->row();
 
         if (!$penghuni){
             show_404();
