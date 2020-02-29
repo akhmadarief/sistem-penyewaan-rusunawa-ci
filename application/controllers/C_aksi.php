@@ -131,11 +131,11 @@ class C_aksi extends CI_Controller {
         $nama           = $this->input->post('nama');
         $nim            = $this->input->post('nim');
         $pilihan        = $this->input->post('pilihan1');
+        $status         = $this->input->post('status');
 
         switch ($pilihan){
             case "typo":
                 $no_kamar       = $this->input->post('no_kamar_lama');
-                $status         = $this->input->post('status');
                 $isi_kamar      = $this->input->post('isi_kamar');
                 $id_fakultas    = $this->input->post('id_fakultas');
                 $id_prodi       = $this->input->post('id_prodi');
@@ -176,19 +176,21 @@ class C_aksi extends CI_Controller {
 
                 if ($this->m_data->update_penghuni($id, $data) == true){
                     
-                    $status_awal_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
+                    if ($status == 'Penghuni'){
+                        $status_awal_kamar = ($this->m_data->cek_kamar($no_kamar)->row())->status;
 
-                    if ($isi_kamar == '2' and $status_awal_kamar == 'sendiri'){
-                        $status_kamar = 'terisi1';
-                    }
-                    else if ($isi_kamar == '1' and $status_awal_kamar == 'terisi1'){
-                        $status_kamar = 'sendiri';
-                    }
-                    else {
-                        $status_kamar = $status_awal_kamar;
-                    }
+                        if ($isi_kamar == '2' and $status_awal_kamar == 'sendiri'){
+                            $status_kamar = 'terisi1';
+                        }
+                        else if ($isi_kamar == '1' and $status_awal_kamar == 'terisi1'){
+                            $status_kamar = 'sendiri';
+                        }
+                        else {
+                            $status_kamar = $status_awal_kamar;
+                        }
 
-                    $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+                        $this->m_data->update_status_kamar($no_kamar, $status_kamar);
+                    }
 
                     $this->session->set_flashdata('pesan', 'toastr.success("Berhasil memperbarui data penghuni '.$nama.' pada kamar '.$no_kamar.'")');
                 }
@@ -227,36 +229,6 @@ class C_aksi extends CI_Controller {
             break;
 
             case "pk":
-                $no_kamar_lama = $this->input->post('no_kamar_lama');
-                $no_kamar_baru = $this->input->post('no_kamar_baru');
-
-                $status_awal_kamar_lama = ($this->m_data->cek_kamar($no_kamar_lama)->row())->status;
-                $status_awal_kamar_baru = ($this->m_data->cek_kamar($no_kamar_baru)->row())->status;
-
-                switch ($status_awal_kamar_lama){
-                    case 'sendiri':
-                    case 'terisi1':
-                        $status_kamar_lama = 'kosong';
-                    break;
-
-                    case 'terisi2':
-                        $status_kamar_lama = 'terisi1';
-                    break;
-                }
-
-                $penghuni_sekarang = $this->m_data->detail_penghuni(array('id' => $id))->row();
-
-                switch ($status_awal_kamar_baru){
-                    case 'kosong':
-                        $isi_kamar = $penghuni_sekarang->isi_kamar;
-                        $status_kamar_baru = ($penghuni_sekarang->isi_kamar == '2') ? 'terisi1' : 'sendiri';
-                    break;
-
-                    case 'terisi1':
-                        $isi_kamar = '2';
-                        $status_kamar_baru = 'terisi2';
-                    break;
-                }
 
                 $data_pindah_kamar = array(
                     'no_kamar' => $no_kamar_baru,
@@ -264,8 +236,42 @@ class C_aksi extends CI_Controller {
                 );
 
                 if ($this->m_data->update_penghuni($id, $data_pindah_kamar) == true){
-                    $this->m_data->update_status_kamar($no_kamar_lama, $status_kamar_lama);
-                    $this->m_data->update_status_kamar($no_kamar_baru, $status_kamar_baru);
+
+                    if ($status == 'Penghuni'){
+                        $no_kamar_lama = $this->input->post('no_kamar_lama');
+                        $no_kamar_baru = $this->input->post('no_kamar_baru');
+
+                        $status_awal_kamar_lama = ($this->m_data->cek_kamar($no_kamar_lama)->row())->status;
+                        $status_awal_kamar_baru = ($this->m_data->cek_kamar($no_kamar_baru)->row())->status;
+
+                        switch ($status_awal_kamar_lama){
+                            case 'sendiri':
+                            case 'terisi1':
+                                $status_kamar_lama = 'kosong';
+                            break;
+        
+                            case 'terisi2':
+                                $status_kamar_lama = 'terisi1';
+                            break;
+                        }
+
+                        $penghuni_sekarang = $this->m_data->detail_penghuni(array('id' => $id))->row();
+        
+                        switch ($status_awal_kamar_baru){
+                            case 'kosong':
+                                $isi_kamar = $penghuni_sekarang->isi_kamar;
+                                $status_kamar_baru = ($penghuni_sekarang->isi_kamar == '2') ? 'terisi1' : 'sendiri';
+                            break;
+
+                            case 'terisi1':
+                                $isi_kamar = '2';
+                                $status_kamar_baru = 'terisi2';
+                            break;
+                        }
+
+                        $this->m_data->update_status_kamar($no_kamar_lama, $status_kamar_lama);
+                        $this->m_data->update_status_kamar($no_kamar_baru, $status_kamar_baru);
+                    }
 
                     $this->session->set_flashdata('pesan', 'toastr.success("Berhasil memindahkan kamar penghuni '.$nama.' dari '.$no_kamar_lama.' ke '.$no_kamar_baru.'")');
                 }
