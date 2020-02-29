@@ -79,9 +79,9 @@
                 var id_pembayaran = $(this).attr('id');
                 var invoiceTerpilih = $(this).closest("tr");
                 var namaPenghuni = invoiceTerpilih.find("td:eq(2)").html();
-                var invoiceTanggal = invoiceTerpilih.find("td:eq(4)").html();
+                var invoiceTanggal = invoiceTerpilih.find("td:eq(3)").html();
                 Swal.fire({
-                    title: 'Hapus Data Penghuni',
+                    title: 'Hapus Data Pembayaran',
                     text: 'Apakah Anda yakin ingin hapus pembayaran ' + namaPenghuni + ' pada ' + invoiceTanggal + ' ?',
                     icon: 'warning',
                     showCancelButton: true,
