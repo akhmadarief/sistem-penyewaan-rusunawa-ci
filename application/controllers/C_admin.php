@@ -47,7 +47,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_daftar_user', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js', $data);
     }
@@ -63,7 +63,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_pilih_kamar'); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js', $data);
     }
@@ -78,7 +78,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_daftar_kamar', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -100,7 +100,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_daftar_harga', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js', $data);
     }
@@ -123,7 +123,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_edit_harga_kamar', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -139,7 +139,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_daftar_penghuni', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -155,7 +155,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_daftar_penghuni', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -176,7 +176,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_riwayat_pembayaran', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js', $data);
     }
@@ -198,7 +198,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_laporan_keuangan', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -221,7 +221,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_laporan_piutang', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -252,7 +252,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_tambah_penghuni', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -280,7 +280,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_edit_penghuni', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
@@ -301,7 +301,7 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_breadcrump', $data);
         $this->load->view('v_edit_pembayaran', $data); //page content
         $this->load->view('_partials/v_footer');
-        $this->load->view('_partials/v_theme-config');
+        // $this->load->view('_partials/v_theme-config');
         $this->load->view('_partials/v_preloader');
         $this->load->view('_partials/v_js');
     }
