@@ -341,3 +341,7 @@ form#login-form, form#register-form, form#changepass-form{
     color: #009efb;
     font-weight: bold;
   }
+
+  #tabel-user_wrapper, #tabel-penghuni_wrapper, #tabel-responsif_wrapper{
+    overflow-x: auto;
+  }

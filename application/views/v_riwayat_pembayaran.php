@@ -8,7 +8,7 @@
                         </a>
                     </div>
                     <div class="ibox-body">
-                        <table class="table table-striped table-bordered table-hover" id="tabel-penghuni" cellspacing="0" width="100%">
+                        <table class="table table-striped table-bordered table-hover" id="tabel-responsif" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 24.5px">No.</th>

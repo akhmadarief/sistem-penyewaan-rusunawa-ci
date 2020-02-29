@@ -17,6 +17,14 @@
     <script src="<?php echo base_url('assets/vendors/moment/datetime-moment.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/vendors/toastr/toastr.js') ?>" type="text/javascript"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $('#tabel-responsif').DataTable({
+                pageLength: 25,
+                'sDom': 'R<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>><"row"<"col-sm-12"rt>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>'
+            });
+        });
+    </script>
+    <script type="text/javascript">
         //semua halaman
         $(document).ready(function(){
             $('#logout-alert').click(function(){

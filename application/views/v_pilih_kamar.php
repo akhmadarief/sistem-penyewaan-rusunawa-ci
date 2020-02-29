@@ -31,8 +31,8 @@
                                     <div class="tab-pane fade show active" id="A">
                                         <form class="form-horizontal">
                                             <div class="form-group row" style="margin-top: 25px;">
-                                                <label class="col-sm-2 col-form-label">Pilih Lantai</label>
-                                                <div class="col-sm-2">
+                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%; min-width: 110px !important;">Pilih Lantai</label>
+                                                <div class="col-sm-2" style="min-width: 170px">
                                                     <select id="gedung_A" class="form-control">
                                                         <option value="A">Semua Lantai</option>
                                                         <option value="A2">Lantai 2</option>
@@ -48,8 +48,8 @@
                                     <div class="tab-pane fade" id="B">
                                         <form class="form-horizontal">
                                             <div class="form-group row" style="margin-top: 25px;">
-                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%;">Pilih Lantai</label>
-                                                <div class="col-sm-2">
+                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%; min-width: 110px !important;">Pilih Lantai</label>
+                                                <div class="col-sm-2" style="min-width: 170px">
                                                     <select id="gedung_B" class="form-control">
                                                         <option value="B">Semua Lantai</option>
                                                         <option value="B1">Lantai 1</option>
@@ -66,8 +66,8 @@
                                     <div class="tab-pane fade" id="C">
                                         <form class="form-horizontal">
                                             <div class="form-group row" style="margin-top: 25px;">
-                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%;">Pilih Lantai</label>
-                                                <div class="col-sm-2">
+                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%; min-width: 110px !important;">Pilih Lantai</label>
+                                                <div class="col-sm-2" style="min-width: 170px">
                                                     <select id="gedung_C" class="form-control">
                                                         <option value="C">Semua Lantai</option>
                                                         <option value="C2">Lantai 2</option>
@@ -83,8 +83,8 @@
                                     <div class="tab-pane fade" id="D">
                                         <form class="form-horizontal">
                                             <div class="form-group row" style="margin-top: 25px;">
-                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%;">Pilih Lantai</label>
-                                                <div class="col-sm-2">
+                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%; min-width: 110px !important;">Pilih Lantai</label>
+                                                <div class="col-sm-2" style="min-width: 170px">
                                                     <select id="gedung_D" class="form-control">
                                                         <option value="D">Semua Lantai</option>
                                                         <option value="D1">Lantai 1</option>
@@ -101,8 +101,8 @@
                                     <div class="tab-pane fade" id="E">
                                     <form class="form-horizontal">
                                             <div class="form-group row" style="margin-top: 25px;">
-                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%;">Pilih Lantai</label>
-                                                <div class="col-sm-2">
+                                                <label class="col-sm-2 col-form-label" style="flex: 0 0 10%; min-width: 110px !important;">Pilih Lantai</label>
+                                                <div class="col-sm-2" style="min-width: 170px">
                                                     <select id="gedung_E" class="form-control">
                                                         <option value="E">Semua Lantai</option>
                                                         <option value="E1">Lantai 1</option>
