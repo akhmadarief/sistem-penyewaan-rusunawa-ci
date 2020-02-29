@@ -2,7 +2,7 @@
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Daftar Penghuni<?php //echo $halaman ?></div>
+                        <div class="ibox-title"><?php echo $judul_halaman ?></div>
                         <a class="btn btn-success btn-xls" href="<?php echo base_url('daftar-penghuni-cetak') ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Penghuni"> XLS
                             <i class="fa fa-print"></i>
                           </a>
@@ -35,9 +35,9 @@
                                         <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Data Lengkap">
                                             <span class="fa fa-info-circle"></span>
                                         </a>
-                                        <a class="btn btn-sm btn-success active riwayat-bayar" id="<?php echo $penghuni->id ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Data Pembayaran" style="width:10px;">
+                                        <!-- <a class="btn btn-sm btn-success active riwayat-bayar" id="<?php echo $penghuni->id ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Data Pembayaran" style="width:10px;">
                                             <span class="fa fa-dollar"></span>
-                                        </a>
+                                        </a> -->
                                         <a class="btn btn-sm btn-info active edit-huni" href="<?php echo base_url('edit-penghuni/'.$penghuni->id) ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ubah Data">
                                             <span class="fa fa-pencil"></span>
                                         </a>

@@ -67,6 +67,7 @@ $route['daftar-ekspenghuni-cetak'] = 'c_admin/daftar_ekspenghuni_cetak';
 $route['riwayat-pembayaran-cetak'] = 'c_admin/riwayat_pembayaran_cetak';
 $route['laporan-keuangan-cetak'] = 'c_admin/laporan_keuangan_cetak';
 
+$route['ubah-pass'] = 'c_admin/ubah_pass';
 $route['tambah-user'] = 'c_admin/tambah_user';
 $route['tambah-penghuni/(:any)'] = 'c_admin/tambah_penghuni/$1';
 $route['edit-penghuni/(:num)'] = 'c_admin/edit_penghuni/$1';

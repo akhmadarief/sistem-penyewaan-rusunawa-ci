@@ -22,11 +22,11 @@
                         <input class="form-control" type="password" name="password" placeholder="Password">
                     </div>
                 </div>
-                <div class="form-group d-flex justify-content-between">
+                <!-- <div class="form-group d-flex justify-content-between">
                     <label class="ui-checkbox ui-checkbox-info">
                         <input type="checkbox">
                         <span class="input-span"></span>Ingat saya</label>
-                </div>
+                </div> -->
                 <?php
                 switch ($pesan){
                     case 'gagal_login':

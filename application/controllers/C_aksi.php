@@ -459,7 +459,7 @@ class C_aksi extends CI_Controller {
         }
         else {
             $this->session->set_flashdata('pesan', 'gagal_ubah_pass');
-            redirect (base_url('ubah_pass'));
+            redirect (base_url('ubah-pass'));
         }
     }
 
