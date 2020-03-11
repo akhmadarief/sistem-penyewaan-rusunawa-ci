@@ -55,7 +55,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">NIM</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="nim" id="nim" placeholder="NIM Penghuni" value="<?php echo $penghuni->nim ?>" maxlength="50" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                                        <input class="form-control" type="text" name="nim" id="nim" placeholder="NIM Penghuni" value="<?php echo $penghuni->nim ?>" maxlength="50" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                                     </div>
                                 </div>
                                 <div class="form-group row transaksi">

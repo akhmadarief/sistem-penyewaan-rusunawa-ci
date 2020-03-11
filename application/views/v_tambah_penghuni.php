@@ -45,7 +45,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">NIM</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="nim" placeholder="NIM Penghuni" maxlength="50" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                                    <input class="form-control" type="text" name="nim" placeholder="NIM Penghuni" maxlength="50" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -70,13 +70,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Tempat Lahir</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="tempat_lahir" placeholder="Tempat Lahir Penghuni" maxlength="100" oninput="this.value = this.value.replace(/[^a-z A-Z ']/g, '');" required>
+                                    <input class="form-control" type="text" name="tempat_lahir" placeholder="Tempat Lahir Penghuni" maxlength="100" oninput="this.value = this.value.replace(/[^a-z A-Z ']/g, '');">
                                 </div>
                             </div>
                             <div class="form-group row" id="tgl_lahir">
                                 <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                 <div class="col-sm-9 input-group date">
-                                    <input class="form-control" type="text" placeholder="Pilih Tanggal Lahir" name="tgl_lahir" id="form_tgl_lahir" autocomplete="off" required>
+                                    <input class="form-control" type="text" placeholder="Pilih Tanggal Lahir" name="tgl_lahir" id="form_tgl_lahir" autocomplete="off">
                                     <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
@@ -115,25 +115,25 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Nama Orang Tua</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="nama_ortu" placeholder="Nama Orang Tua Penghuni" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
+                                    <input class="form-control" type="text" name="nama_ortu" placeholder="Nama Orang Tua Penghuni" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Pekerjaan Orang Tua</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="pekerjaan_ortu" placeholder="Pekerjaan Orang Tua Penghuni" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');" required>
+                                    <input class="form-control" type="text" name="pekerjaan_ortu" placeholder="Pekerjaan Orang Tua Penghuni" maxlength="200" oninput="this.value = this.value.replace(/[^a-z A-Z ' .]/g, '');">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Alamat Orang Tua</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="alamat_ortu" placeholder="Alamat Orang Tua Penghuni" maxlength="200" required>
+                                    <input class="form-control" type="text" name="alamat_ortu" placeholder="Alamat Orang Tua Penghuni" maxlength="200">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">No. Telp/HP Orang Tua</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="no_ortu" placeholder="No Telp/HP Orang Tua Penghuni" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');" required>
+                                    <input class="form-control" type="text" name="no_ortu" placeholder="No Telp/HP Orang Tua Penghuni" maxlength="30" oninput="this.value = this.value.replace(/[^0-9 +]/g, '');">
                                 </div>
                             </div>
                             <div class="form-group row">

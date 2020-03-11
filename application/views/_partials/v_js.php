@@ -442,7 +442,8 @@
                 }
                 $("#nama").prop('readonly', false);
                 $("#nim").prop('readonly', false);
-                $(".form_edit").prop({'required': true, 'disabled': false});
+                //$(".form_edit").prop({'required': true, 'disabled': false});
+                $(".form_edit").prop({'disabled': false});
                 $(".form_transaksi").prop({'required': false, 'disabled': true});
                 $(".form_pindah").prop({'required': false, 'disabled': true});
             });
