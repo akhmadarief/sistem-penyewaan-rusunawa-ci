@@ -16,7 +16,7 @@
                                     <th class="text-center">Nama</th>
                                     <th class="text-center">No. HP</th>
                                     <th class="text-center">Prodi</th>
-                                    <th class="text-center">Alamat Asal</th>
+                                    <th class="text-center">Fakultas</th>
                                     <th class="text-center">Masa Huni</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
@@ -29,7 +29,7 @@
                                     <td><?php echo $penghuni->nama ?></td>
                                     <td class="text-center"><?php echo $penghuni->no ?></td>
                                     <td><?php echo $penghuni->nama_prodi ?></td>
-                                    <td><?php echo $penghuni->alamat ?></td>
+                                    <td><?php echo $penghuni->nama_fakultas ?></td>
                                     <td class="text-center"><?php echo $penghuni->tgl_masuk.' s.d. '.$penghuni->tgl_keluar ?></td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Data Lengkap">
