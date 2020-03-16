@@ -15,9 +15,9 @@
                                     <th class="text-center">No. Kamar</th>
                                     <th class="text-center">Nama</th>
                                     <th class="text-center">No. HP</th>
+                                    <th class="text-center">Prodi</th>
                                     <th class="text-center">Alamat Asal</th>
-                                    <th class="text-center">Nama Ortu</th>
-                                    <th class="text-center">No. HP Ortu</th>
+                                    <th class="text-center">Masa Huni</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -27,10 +27,10 @@
                                     <td class="text-center"><?php echo $no++ ?></td>
                                     <td class="text-center"><?php echo $penghuni->no_kamar ?></td>
                                     <td><?php echo $penghuni->nama ?></td>
-                                    <td><?php echo $penghuni->no ?></td>
+                                    <td class="text-center"><?php echo $penghuni->no ?></td>
+                                    <td><?php echo $penghuni->nama_prodi ?></td>
                                     <td><?php echo $penghuni->alamat ?></td>
-                                    <td><?php echo $penghuni->nama_ortu ?></td>
-                                    <td><?php echo $penghuni->no_ortu ?></td>
+                                    <td class="text-center"><?php echo $penghuni->tgl_masuk.' s.d. '.$penghuni->tgl_keluar ?></td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-success active detail-penghuni" id="<?php echo $penghuni->id ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Data Lengkap">
                                             <span class="fa fa-info-circle"></span>
