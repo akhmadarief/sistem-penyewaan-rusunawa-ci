@@ -564,16 +564,16 @@
                 $(".kamar").removeClass("terpilih");
                 $(this).addClass("terpilih");
                 $("#penghuni1").show();
-                $("#nama").val("Memuat ...");
-                $("#nim").val("Memuat ...");
-                $("#no").val("Memuat ...");
-                $("#prodi").val("Memuat ...");
-                $("#piutang").val("Memuat ...");
-                $("#nama2").val("Memuat ...");
-                $("#nim2").val("Memuat ...");
-                $("#no2").val("Memuat ...");
-                $("#prodi2").val("Memuat ...");
-                $("#piutang2").val("Memuat ...");
+                // $("#nama").val("Memuat ...");
+                // $("#nim").val("Memuat ...");
+                // $("#no").val("Memuat ...");
+                // $("#prodi").val("Memuat ...");
+                // $("#piutang").val("Memuat ...");
+                // $("#nama2").val("Memuat ...");
+                // $("#nim2").val("Memuat ...");
+                // $("#no2").val("Memuat ...");
+                // $("#prodi2").val("Memuat ...");
+                // $("#piutang2").val("Memuat ...");
                 $("#tambah_penghuni").removeAttr("style").hide();
                 $("#edit_penghuni").removeAttr("style").hide();
                 $(".eks_penghuni").removeAttr("style").hide();
@@ -601,11 +601,13 @@
                             $(".perpanjang").removeAttr("style").hide();
                             $(".eks_penghuni").removeAttr("style").hide();
                             $("#nama").val("Belum ada penghuni");
-                            $("#nim").val("Belum ada penghuni");
                             $("#no").val("Belum ada penghuni");
                             $("#prodi").val("Belum ada penghuni");
+                            $("#fakultas").val("Belum ada penghuni");
                             $("#tgl_masuk").val("");
                             $("#tgl_keluar").val("");
+                            $("#biaya").val("Belum ada penghuni");
+                            $("#bayar").val("Belum ada penghuni");
                             $("#piutang").val("Belum ada penghuni");
                         }
                         else {
@@ -624,13 +626,14 @@
                             $(".perpanjang").attr("id", data[0].id);
                             $(".eks_penghuni").attr("id", data[0].id);
                             $("#nama").val(data[0].nama);
-                            $("#nim").val(data[0].nim);
                             $("#no").val(data[0].no);
                             $("#prodi").val(data[0].nama_prodi);
+                            $("#fakultas").val(data[0].nama_fakultas);
                             $("#tgl_masuk").val(data[0].tgl_masuk);
                             $("#tgl_keluar").val(data[0].tgl_keluar);
-                            var piutang = data[0].biaya - data[0].bayar;
-                            $("#piutang").val("Rp" + piutang);
+                            $("#biaya").val(data[0].biaya);
+                            $("#bayar").val(data[0].bayar);
+                            $("#piutang").val(data[0].piutang);
                         }
                         if (!data[1]){
                             $("#tambah_penghuni2").show();
@@ -640,11 +643,13 @@
                             $(".perpanjang2").removeAttr("style").hide();
                             $(".eks_penghuni2").removeAttr("style").hide();
                             $("#nama2").val("Belum ada penghuni");
-                            $("#nim2").val("Belum ada penghuni");
                             $("#no2").val("Belum ada penghuni");
                             $("#prodi2").val("Belum ada penghuni");
+                            $("#fakultas2").val("Belum ada penghuni");
                             $("#tgl_masuk2").val("");
                             $("#tgl_keluar2").val("");
+                            $("#biaya2").val("Belum ada penghuni");
+                            $("#bayar2").val("Belum ada penghuni");
                             $("#piutang2").val("Belum ada penghuni");
                         }
                         else {
@@ -657,13 +662,14 @@
                             $(".perpanjang2").attr("id", data[1].id);
                             $(".eks_penghuni2").attr("id", data[1].id);
                             $("#nama2").val(data[1].nama);
-                            $("#nim2").val(data[1].nim);
                             $("#no2").val(data[1].no);
                             $("#prodi2").val(data[1].nama_prodi);
+                            $("#fakultas2").val(data[1].nama_fakultas);
                             $("#tgl_masuk2").val(data[1].tgl_masuk);
                             $("#tgl_keluar2").val(data[1].tgl_keluar);
-                            var piutang = data[1].biaya - data[1].bayar;
-                            $("#piutang2").val("Rp" + piutang);
+                            $("#biaya2").val(data[1].biaya);
+                            $("#bayar2").val(data[1].bayar);
+                            $("#piutang2").val(data[1].piutang);
                         }
                     }
                 });

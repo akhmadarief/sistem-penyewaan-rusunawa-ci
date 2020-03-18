@@ -26,7 +26,7 @@
                                     <td class="text-center"><?php echo $no++ ?></td>
                                     <td class="text-center"><?php echo $keuangan->no_kamar ?></td>
                                     <td><?php echo $keuangan->nama ?></td>
-                                    <td class="text-center"><?php echo $keuangan->tgl_masuk.' s.d. '.$keuangan->tgl_keluar ?></td>
+                                    <td class="text-center"><?php echo date('M Y', strtotime($keuangan->tgl_masuk)).' - '.date('M Y', strtotime($keuangan->tgl_keluar)) ?></td>
                                     <td class="text-center"><?php echo 'Rp'.number_format($keuangan->biaya, 0, ',', '.') ?></td>
                                     <td class="text-center"><?php echo 'Rp'.number_format($keuangan->bayar, 0, ',', '.') ?></td>
                                     <td class="text-center"><?php echo $keuangan->piutang == 0 ? '<span class="badge badge-info">Sudah Lunas</span>' : 'Rp'.number_format($keuangan->piutang, 0, ',', '.') ?>

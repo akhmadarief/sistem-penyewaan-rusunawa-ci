@@ -20,6 +20,11 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		if ($this->session->userdata('status') != 'login'){
+            redirect (base_url('login'));
+		}
+		else {
+			redirect (base_url('dasbor'));
+		}
 	}
 }

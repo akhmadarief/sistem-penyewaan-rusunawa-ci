@@ -184,12 +184,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">NIM</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="nim" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. HP</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="text" id="no" disabled>
@@ -202,11 +196,29 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Fakultas</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="fakultas" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Masa Huni</label>
                                         <div class="col-sm-9 input-daterange input-group" id="datepicker">
                                             <input class="input-sm form-control" type="text" id="tgl_masuk" disabled>
                                             <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
                                             <input class="input-sm form-control" type="text" id="tgl_keluar" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Jumlah Harus Dibayar</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="biaya" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Jumlah Telah Dibayar</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="bayar" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -253,12 +265,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">NIM</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="nim2" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">No. HP</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="text" id="no2" disabled>
@@ -271,11 +277,29 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Fakultas</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="fakultas2" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Masa Huni</label>
                                         <div class="col-sm-9 input-daterange input-group" id="datepicker">
                                             <input class="input-sm form-control" type="text" id="tgl_masuk2" disabled>
                                             <span class="input-group-addon p-l-10 p-r-10">s.d.</span>
                                             <input class="input-sm form-control" type="text" id="tgl_keluar2" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Jumlah Harus Dibayar</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="biaya2" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Jumlah Telah Dibayar</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" id="bayar2" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
