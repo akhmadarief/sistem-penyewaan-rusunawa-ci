@@ -583,8 +583,6 @@
                 $(".eks_penghuni2").removeAttr("style").hide();
                 $(".perpanjang2").removeAttr("style").hide();
                 var no_kamar = $(this).attr("id");
-                $("#no_kamar").val(no_kamar);
-                $("#no_kamar2").val(no_kamar);
                 $.ajax({
                     url: "<?php echo base_url('get-detail-kamar') ?>",
                     method: "POST",
@@ -600,6 +598,7 @@
                             $("#edit_penghuni").removeAttr("style").hide();
                             $(".perpanjang").removeAttr("style").hide();
                             $(".eks_penghuni").removeAttr("style").hide();
+                            $("#no_kamar").val(no_kamar);
                             $("#nama").val("Belum ada penghuni");
                             $("#no").val("Belum ada penghuni");
                             $("#prodi").val("Belum ada penghuni");
@@ -625,15 +624,16 @@
                             $("#edit_penghuni").attr("href", "<?php echo base_url('edit-penghuni/') ?>" + data[0].id);
                             $(".perpanjang").attr("id", data[0].id);
                             $(".eks_penghuni").attr("id", data[0].id);
+                            $("#no_kamar").val(data[0].no_kamar);
                             $("#nama").val(data[0].nama);
                             $("#no").val(data[0].no);
                             $("#prodi").val(data[0].nama_prodi);
                             $("#fakultas").val(data[0].nama_fakultas);
                             $("#tgl_masuk").val(data[0].tgl_masuk);
                             $("#tgl_keluar").val(data[0].tgl_keluar);
-                            $("#biaya").val(data[0].biaya);
-                            $("#bayar").val(data[0].bayar);
-                            $("#piutang").val(data[0].piutang);
+                            $("#biaya").val('Rp' + data[0].biaya.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
+                            $("#bayar").val(((data[0].bayar) == null) ? 'Rp0' : 'Rp' + data[0].bayar.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
+                            $("#piutang").val('Rp' + data[0].piutang.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
                         }
                         if (!data[1]){
                             $("#tambah_penghuni2").show();
@@ -642,6 +642,7 @@
                             $("#edit_penghuni2").removeAttr("style").hide();
                             $(".perpanjang2").removeAttr("style").hide();
                             $(".eks_penghuni2").removeAttr("style").hide();
+                            $("#no_kamar2").val(no_kamar);
                             $("#nama2").val("Belum ada penghuni");
                             $("#no2").val("Belum ada penghuni");
                             $("#prodi2").val("Belum ada penghuni");
@@ -661,15 +662,16 @@
                             $("#edit_penghuni2").attr("href", "<?php echo base_url('edit-penghuni/') ?>" + data[1].id);
                             $(".perpanjang2").attr("id", data[1].id);
                             $(".eks_penghuni2").attr("id", data[1].id);
+                            $("#no_kamar2").val(data[1].no_kamar);
                             $("#nama2").val(data[1].nama);
                             $("#no2").val(data[1].no);
                             $("#prodi2").val(data[1].nama_prodi);
                             $("#fakultas2").val(data[1].nama_fakultas);
                             $("#tgl_masuk2").val(data[1].tgl_masuk);
                             $("#tgl_keluar2").val(data[1].tgl_keluar);
-                            $("#biaya2").val(data[1].biaya);
-                            $("#bayar2").val(data[1].bayar);
-                            $("#piutang2").val(data[1].piutang);
+                            $("#biaya2").val('Rp' + data[1].biaya.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
+                            $("#bayar2").val(((data[1].bayar) == null) ? 'Rp0' : 'Rp' + data[1].bayar.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
+                            $("#piutang2").val('Rp' + data[1].piutang.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
                         }
                     }
                 });
