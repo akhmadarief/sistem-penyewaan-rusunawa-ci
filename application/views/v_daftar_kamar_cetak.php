@@ -1,8 +1,9 @@
             <!-- START PAGE CONTENT-->
             <?php
-            $tanggal = (date('d-m-Y'))." ".date('H:i:s');
+            date_default_timezone_set("Asia/Bangkok");
+            $tanggal = (date('d-m-Y'))."_".date('H-i-s');
             header("Content-type: application/vnd-ms-excel");
-            header("Content-Disposition: attachment; filename=Daftar Kamar ".$tanggal.".xls");
+            header("Content-Disposition: attachment; filename=Daftar_Kamar_".$tanggal.".xls");
             ?>
                         <table>
                             <thead>

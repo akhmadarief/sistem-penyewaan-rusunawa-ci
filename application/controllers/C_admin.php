@@ -8,6 +8,7 @@ class C_admin extends CI_Controller {
         if ($this->session->userdata('status') != 'login'){
             redirect (base_url('login'));
         }
+        date_default_timezone_set("Asia/Bangkok");
         $this->load->model('m_data');
     }
 
@@ -144,6 +145,12 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
+    function daftar_penghuni_cetak(){
+        $data['judul_halaman'] = 'Daftar Penghuni';
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Penghuni'))->result();
+        $this->load->view('v_daftar_penghuni_cetak', $data);
+    }
+
     function daftar_ekspenghuni(){
         $data['judul_halaman'] = 'Daftar Eks-Penghuni';
         $data['pesan'] = $this->session->flashdata('pesan');
@@ -160,8 +167,9 @@ class C_admin extends CI_Controller {
         $this->load->view('_partials/v_js');
     }
 
-    function daftar_penghuni_cetak(){
-        $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Penghuni'))->result();
+    function daftar_ekspenghuni_cetak(){
+        $data['judul_halaman'] = 'Daftar Eks-Penghuni';
+        $data['penghuni'] = $this->m_data->detail_penghuni(array('status' => 'Eks-Penghuni'))->result();
         $this->load->view('v_daftar_penghuni_cetak', $data);
     }
 

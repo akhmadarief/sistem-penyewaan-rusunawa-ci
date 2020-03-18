@@ -1,9 +1,21 @@
             <!-- START PAGE CONTENT-->
+            <?php
+            if ($judul_halaman=="Daftar Penghuni"){
+                $cetak = base_url('daftar-penghuni-cetak');
+            }
+            else if ($judul_halaman=="Daftar Eks-Penghuni"){
+                $cetak = base_url('daftar-ekspenghuni-cetak');
+            }
+            else{
+                $cetak = "#";
+                //woii lari kemana lah ini kode T_T
+            }
+            ?>
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
                         <div class="ibox-title"><?php echo $judul_halaman ?></div>
-                        <a class="btn btn-success btn-xls" href="<?php echo base_url('daftar-penghuni-cetak') ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Penghuni"> XLS
+                        <a class="btn btn-success btn-xls" href="<?php echo $cetak ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="Cetak Daftar Penghuni"> XLS
                             <i class="fa fa-print"></i>
                           </a>
                     </div>
